@@ -1,7 +1,47 @@
 {
-  "generated": "2026-05-14T00:00:00.000Z",
-  "count": 0,
+  "generated": "2026-05-14T14:33:23.868Z",
+  "count": 3,
   "minConfirms": 3,
   "minDomains": 2,
-  "phrases": []
+  "phrases": [
+    {
+      "phrase": "stakeholders",
+      "normalizedPhrase": "stakeholders",
+      "translation": "Physical persons and living communities with real interests at stake",
+      "legalRef": "UN Charter — Right to Dignity & Participation",
+      "severity": "medium",
+      "isicSection": null,
+      "isicLabel": "Unclassified",
+      "confirmCount": 6,
+      "domainCount": 6,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "energy transition",
+      "normalizedPhrase": "energy transition",
+      "translation": "Shift in energy production — physical communities in fossil fuel regions face livelihood displacement without guaranteed replacement",
+      "legalRef": "UN Charter — Right to Work & Dignity / Planetary Boundaries",
+      "severity": "medium",
+      "isicSection": "B",
+      "isicLabel": "Mining & Quarrying",
+      "confirmCount": 3,
+      "domainCount": 3,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "food insecurity",
+      "normalizedPhrase": "food insecurity",
+      "translation": "Insufficient access to food for physical survival — a condition caused by policy, conflict, or resource extraction, not natural scarcity",
+      "legalRef": "Geneva Convention IV, Art. 55 / UDHR Art. 25 — Right to Food",
+      "severity": "high",
+      "isicSection": "O",
+      "isicLabel": "Public Administration — International",
+      "confirmCount": 3,
+      "domainCount": 2,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    }
+  ]
 }
