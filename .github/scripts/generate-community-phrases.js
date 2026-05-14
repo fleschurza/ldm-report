@@ -61,9 +61,9 @@ https.get(options, (res) => {
       if (e.domain) map[key].domains.add(e.domain);
     }
 
-    // Promote: confirmed >= 3 times across >= 2 domains
+    // Promote: confirmed >= 2 times across >= 1 domain
     const promoted = Object.entries(map)
-      .filter(([, p]) => p.confirmCount >= 3 && p.domains.size >= 2)
+      .filter(([, p]) => p.confirmCount >= 2 && p.domains.size >= 1)
       .map(([key, p]) => ({
         phrase:         p.phrase,
         normalizedPhrase: key,
@@ -84,8 +84,8 @@ https.get(options, (res) => {
     const output = {
       generated:  new Date().toISOString(),
       count:      promoted.length,
-      minConfirms: 3,
-      minDomains:  2,
+      minConfirms: 2,
+      minDomains:  1,
       phrases:    promoted,
     };
 
