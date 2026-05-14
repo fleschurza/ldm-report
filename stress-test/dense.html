@@ -6,121 +6,130 @@
   <title>LDM-V3 Stress Test — Dense Institutional Language</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --c-bg: #f8fafc; --c-surface: #fff; --c-border: #e2e8f0;
-      --c-text: #0f172a; --c-muted: #64748b; --c-accent: #1d4ed8;
-    }
-    body { background: var(--c-bg); color: var(--c-text); font-family: Georgia, serif; font-size: 15px; line-height: 1.8; max-width: 860px; margin: 0 auto; padding: 40px 32px 80px; }
-    header { border-bottom: 3px solid var(--c-accent); margin-bottom: 40px; padding-bottom: 20px; }
-    header h1 { font-family: system-ui, sans-serif; font-size: 18px; font-weight: 700; color: var(--c-accent); }
-    header p { color: var(--c-muted); font-family: system-ui, sans-serif; font-size: 12px; margin-top: 6px; }
-    .section { margin-bottom: 48px; }
-    .section-label { font-family: system-ui, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-muted); background: var(--c-border); display: inline-block; padding: 3px 10px; border-radius: 3px; margin-bottom: 14px; }
-    h2 { font-size: 17px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+    body { background: #f8fafc; color: #0f172a; font-family: Georgia, serif; font-size: 15px; line-height: 1.85; max-width: 880px; margin: 0 auto; padding: 40px 32px 80px; }
+    header { border-bottom: 3px solid #1d4ed8; margin-bottom: 40px; padding-bottom: 20px; }
+    header h1 { font-family: system-ui, sans-serif; font-size: 17px; font-weight: 700; color: #1d4ed8; }
+    header p { color: #64748b; font-family: system-ui, sans-serif; font-size: 12px; margin-top: 6px; }
+    .section { margin-bottom: 52px; }
+    .label { font-family: system-ui, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; background: #e2e8f0; display: inline-block; padding: 3px 10px; border-radius: 3px; margin-bottom: 14px; }
+    h2 { font-size: 16px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
     p { margin-bottom: 14px; }
-    .phrase-count { font-family: system-ui, sans-serif; font-size: 11px; color: var(--c-muted); margin-top: -8px; margin-bottom: 14px; }
-    hr { border: none; border-top: 1px solid var(--c-border); margin: 40px 0; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 44px 0; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>LDM-V3 · Dense Institutional Language Stress Test</h1>
-  <p>Static baseline page for extension testing. Contains ~90 known institutional phrases across all 5 reference documents and major ISIC sectors. Load this page with the extension active and verify detection count. Expected: 70–90 flags.</p>
+  <p>Static baseline containing the exact phrases from all five reference documents. Expected detection: 120–140 flags. Use this page to verify extension accuracy before testing live sites.</p>
 </header>
 
-<!-- ── SECTION 1: International Humanitarian Law (Geneva AP I / Rome Statute) ── -->
+<!-- ══ 1. MILITARY / IHL ══════════════════════════════════════════════════════ -->
 <div class="section">
-  <span class="section-label">Document · Geneva AP I + Rome Statute · Sector O — Public Administration & Defence</span>
-  <h2>Joint Statement on Ongoing Security Operations in the Northern Corridor</h2>
-  <p class="phrase-count">~22 target phrases</p>
+  <span class="label">Geneva AP I · Rome Statute · Sector O — Public Administration &amp; Defence</span>
+  <h2>Joint Task Force Operational Briefing — Northern Corridor Phase III</h2>
 
-  <p>Following the completion of the precision engagement campaign, the joint task force confirmed that all collateral damage assessments were within acceptable parameters under the proportionality doctrine. The use of force was authorised under the applicable rules of engagement, and all targeting decisions underwent a military necessity review prior to execution.</p>
+  <p>The coalition has authorised kinetic operations across three designated engagement zones. Precision strike packages targeting dual-use infrastructure were executed within the theater of operations following a deconfliction process with allied air assets. All targeting underwent proportional response assessment to verify compliance with applicable law.</p>
 
-  <p>The command structure acknowledges that population transfer operations in the buffer zone have been temporarily suspended pending a legal review. Detention operations remain active at three forward facilities, where enhanced interrogation protocols are applied only in cases of imminent threat. The doctrine of command responsibility has been invoked in two ongoing investigations.</p>
+  <p>Kinetic action in the eastern sector resulted in the neutralization of high-value targets. Kinetic intervention was authorised at command level following intelligence confirming imminent threat. The use of shock and awe tactics in the opening phase achieved rapid degradation of strategic assets. A surgical strike on the logistics node was completed without deviation from pre-approved parameters.</p>
 
-  <p>Armed conflict status has been formally declared in the eastern sector. Neutralisation of high-value targets proceeded according to pre-approved strike packages. All actions were consistent with the principles of distinction and proportionality. Non-combatant populations were advised to relocate under the voluntary resettlement framework prior to the commencement of kinetic operations.</p>
+  <p>Non-combatant casualties were recorded at two sites. Collateral damage assessments are ongoing. Collateral effects from the second wave were within acceptable limits under the proportionality doctrine. Friendly fire incidents are under investigation by the joint inquiry board. The degrade and destroy mandate covering forward positions has been extended by 72 hours.</p>
 
-  <p>The coalition confirms that aerial bombardment of dual-use infrastructure was conducted in accordance with applicable international humanitarian law. Civilian casualties resulting from the bombing campaign are currently being assessed. Security operations in the perimeter zone will continue under the current mandate. The force protection posture has been elevated in response to asymmetric threats from non-state armed groups.</p>
+  <p>Precision bombing of the bridge network was preceded by leaflet drops. Precision engagement protocols were followed at each stage. Enhanced interrogation of detained combatants is conducted under the approved legal framework. Enhanced interrogation techniques are documented and reviewed by the oversight committee. Targeted killing operations targeting designated individuals proceeded under executive authorisation.</p>
+
+  <p>Targeted elimination of cell leadership was completed in the pre-dawn window. The force projection posture has been elevated across the corridor. Active countermeasures against drone incursions are now continuous. Boots on the ground in the forward operating base number approximately 2,400. Private military contractors provide logistics and perimeter security at four installations.</p>
+
+  <p>Population transfer from the exclusion zone has been classified as voluntary under the applicable framework. Forced relocation of persons in the buffer zone was completed by 0600. Area denial systems are active across the northern perimeter. Infrastructure disruption to the power grid was an authorised component of the operational plan. Nation building responsibilities transfer to the civilian administration on day 90.</p>
+
+  <p>Peacekeeping operations in the southern sector are conducted under Chapter VII mandate. Humanitarian intervention was invoked as the legal basis for the initial deployment. Regime change is not an explicit objective of the mission, though transition of authority is anticipated. Population management protocols are in effect for the detention facility holding 1,400 persons. Asset liquidation of seized materiel is processed through the logistics chain. Engagement rules adjustment has been approved for phase IV.</p>
+
+  <p>The state of emergency declared by the host government suspends standard detention procedures. Security concerns raised by the local commander were escalated to theatre level. National interest provisions were cited in the authorisation memo. Calibrated resource deprivation targeting supply lines is ongoing. The command responsibility framework assigns accountability to the brigade commander for events in sector seven.</p>
 </div>
 
 <hr>
 
-<!-- ── SECTION 2: UDHR / Human Rights ── -->
+<!-- ══ 2. DISPLACEMENT / MIGRATION ═══════════════════════════════════════════ -->
 <div class="section">
-  <span class="section-label">Document · UDHR + HCC-Genesis · Sector O — International Organisations</span>
-  <h2>Governance Reform Progress Report — Multilateral Development Framework</h2>
-  <p class="phrase-count">~18 target phrases</p>
+  <span class="label">Rome Statute Art. 7 · UDHR Art. 13 · Sector O — International Organisations</span>
+  <h2>Border Management and Returns Programme — Q3 Implementation Review</h2>
 
-  <p>The implementation of structural adjustment measures has proceeded according to the agreed conditionality framework. Good governance indicators show marginal improvement, though capacity building in regional administrations remains below the benchmark threshold. The rule of law index declined in four of the seven programme countries during the review period.</p>
+  <p>Population movements from the conflict zone have accelerated in the reporting period. Internally displaced persons currently registered in the system number 847,000. Voluntary return has been offered to all persons who have resided in the facility for more than 90 days. Assisted voluntary return packages include a cash transfer and documentation support.</p>
 
-  <p>Democratic deficit concerns raised by civil society organisations were noted but fell outside the scope of the technical assistance mandate. Human capital development targets were revised downward following a mid-term review. The social protection floor mechanism was suspended pending fiscal consolidation measures agreed with the creditor consortium.</p>
+  <p>The returns program achieved 14,200 departures in the quarter, exceeding the target by 11 percent. Removal proceedings have been initiated against 3,400 individuals whose asylum claims were rejected at first instance. Administrative removal of persons with outstanding orders will commence in the next operational window. Deportation order issuance is processed through the central tribunal at a rate of 340 per week.</p>
 
-  <p>Participatory governance frameworks were piloted in three municipalities. Right to development obligations were referenced in the programme design but operationalised only at a procedural level. Institutional capacity constraints were identified as the primary barrier to implementation. The programme will enter a sustainability phase following the transition from donor financing to domestic resource mobilisation.</p>
-
-  <p>Poverty reduction strategy updates have been incorporated into the country's voluntary national review. The efficiency gains projected from rationalisation of public services remain contingent on the passage of enabling legislation. Labour market flexibility reforms were endorsed by the technical advisory committee as consistent with inclusive growth objectives.</p>
+  <p>Immigration detention capacity at the three operational centres stands at 6,800. Eviction of overstaying persons from temporary accommodation was completed in six municipalities. Evictions from informal settlements in the border region are planned for the following quarter. Demolition of homes in the designated exclusion zone is proceeding under the urban renewal mandate. Home demolitions in the coastal settlement displaced an estimated 2,300 persons.</p>
 </div>
 
 <hr>
 
-<!-- ── SECTION 3: Planetary Boundaries ── -->
+<!-- ══ 3. CORPORATE LABOUR / WORKFORCE ════════════════════════════════════════ -->
 <div class="section">
-  <span class="section-label">Document · Planetary Boundaries · Sector D — Energy Supply · Sector B — Mining & Quarrying</span>
-  <h2>Integrated Sustainability Strategy 2024–2030: Pathways to Net Zero</h2>
-  <p class="phrase-count">~24 target phrases</p>
+  <span class="label">UDHR Art. 23 · UN Charter · Sector C — Manufacturing · Sector M — Professional Services</span>
+  <h2>Strategic Transformation Programme — Year Two Progress Report</h2>
 
-  <p>The company has committed to achieving carbon neutrality by 2050 through a combination of operational efficiency improvements, carbon offsetting, and investment in nature-based solutions. Our carbon budget has been aligned with a 1.5°C pathway, and carbon capture and storage infrastructure is being evaluated at three production facilities.</p>
+  <p>The rightsizing initiative is on track to deliver the targeted headcount reduction of 18 percent by the end of the fiscal year. Workforce reduction across the three manufacturing sites was completed ahead of schedule. Workforce optimization in back-office functions will be addressed through the next phase. Downsizing of the regional distribution network reflects the shift to centralised fulfilment.</p>
 
-  <p>Biodiversity net gain commitments have been embedded across the project pipeline. Natural capital accounting frameworks are now applied in all major capital allocation decisions. Ecosystem services valuation has been integrated into the environmental impact assessment methodology. The biodiversity offset programme spans 14,000 hectares across four jurisdictions.</p>
+  <p>Human capital development investments have been maintained despite the restructuring. Human capital optimization remains a board-level priority. Human resources will publish revised role profiles in Q2. Talent optimization through internal mobility has reduced the need for external recruitment. Talent acquisition is now focused exclusively on digital and data capabilities. Attrition in the legacy business units is running at 14 percent annually and has been factored into the planning model.</p>
 
-  <p>Green growth targets have been set for each business unit. The sustainable development agenda is embedded at board level. Our climate transition plan acknowledges tipping point risks in high-exposure geographies. We have committed to science-based targets aligned with planetary boundaries guidance.</p>
+  <p>Stakeholder engagement with trade union representatives concluded without agreement on the new shift patterns. Stakeholders in the affected communities have been briefed on the programme timeline. Efficiency gains of 9 percent were recorded in the pilot facilities. Operational efficiency targets for the year have been revised upward. Systemic efficiency gains across the supply chain are expected to deliver 120 million in annualised savings. Leverage synergies between the merged entities have not yet materialised at the projected level. Synergies from the acquisition are expected to crystallise in year three.</p>
 
-  <p>The extractive operations in the Boreal zone have been subject to enhanced environmental due diligence. Carbon abstraction from legacy assets is being addressed through an accelerated decommissioning schedule. Freshwater stewardship protocols are applied across all water-stressed operations. Chemical pollution risk assessments are updated annually in line with the precautionary principle.</p>
+  <p>Restructuring charges of 340 million were recognised in the half-year results. Personnel restructuring in the legal and compliance functions will reduce headcount by 40 percent. Rationalisation of the product portfolio is proceeding in parallel with the manufacturing consolidation. Rationalization of the European distribution network is subject to works council consultation. Supply chain optimization delivered a 6 percent reduction in unit costs. Performance management processes for underperforming business units have been escalated.</p>
 
-  <p>Our greenwashing risk register has been reviewed by the external auditor. Net zero commitments are supported by verified emissions reductions and residual offsetting through a certified biodiversity trading programme. The ecosystem collapse risk in our upstream supply chain has been assessed as medium probability over a 20-year horizon.</p>
+  <p>Job cuts at the Düsseldorf facility total 1,200 across three shifts. Job losses in the supplier base are estimated at a further 3,000. Layoffs have been structured to minimise statutory redundancy obligations. Redundancies in the head office were processed under the collective consultation framework. Positions eliminated in the restructuring include all regional manager roles. Role elimination in the customer service division will be replaced by automated triage. Workforce adjustment to align capacity with demand was approved at the extraordinary board meeting.</p>
+
+  <p>Cost reduction targets of 15 percent have been set for each business unit. Cost savings from the shared services consolidation will be recognised over 24 months. Organizational restructuring of the technology function created a unified global platform. Business transformation is being managed through a dedicated programme office. Digital transformation of the procurement process will eliminate 400 positions across 12 countries. Voluntary separation packages have been offered to 6,000 employees above the age of 55. Early retirement incentives were accepted by 1,800 persons in the pilot cohort. Managed exit procedures apply to all individuals whose roles are eliminated. Zero-hours contracts account for 34 percent of the logistics workforce. Independent contractor classifications have been extended to the platform-based delivery network. Platform workers number approximately 22,000 globally.</p>
 </div>
 
 <hr>
 
-<!-- ── SECTION 4: Finance & Trade ── -->
+<!-- ══ 4. FINANCE / AUSTERITY ═════════════════════════════════════════════════ -->
 <div class="section">
-  <span class="section-label">Sector K — Finance & Insurance · Sector G — Trade</span>
-  <h2>Macroeconomic Stabilisation and Market Liberalisation: Q3 Assessment</h2>
-  <p class="phrase-count">~14 target phrases</p>
+  <span class="label">UDHR Art. 25 · UN Charter Art. 55 · Sector K — Finance &amp; Insurance</span>
+  <h2>Sovereign Debt Programme — Midterm Review and Fiscal Outlook</h2>
 
-  <p>Economic sanctions imposed under the multilateral framework have had a measurable impact on the target economy's access to international capital markets. The financial isolation measures were designed to compel compliance with non-proliferation obligations while minimising humanitarian impact, though independent assessments indicate significant civilian shortages of essential medicines and food commodities.</p>
+  <p>Austerity remains the cornerstone of the programme. Austerity measures agreed with the creditor consortium include a 4.8 percent reduction in primary expenditure over 36 months. Budget cuts to health and education have been ring-fenced at 2 percent, with the remainder drawn from social transfers. Spending cuts in the housing support programme will affect an estimated 340,000 households. Deficit reduction targets have been met for the fourth consecutive quarter. Fiscal consolidation requirements are embedded in the standby arrangement.</p>
 
-  <p>Market liberalisation benchmarks were met in six of nine indicator categories. Trade facilitation measures were enacted ahead of schedule. The privatisation of state-owned enterprises in the energy and utilities sector is proceeding under the regulatory reform agenda. Asset stripping of public infrastructure remains a concern flagged by the independent monitor.</p>
+  <p>Pension reform legislation is before parliament and is expected to pass in the autumn session. Benefit reform affecting 1.2 million claimants was implemented in March without transitional support provisions. Welfare reform has reduced the active caseload by 28 percent. Pay freeze in the public sector has been extended for a third year. Wage freeze provisions apply across all grade levels below the senior executive band. Labour market flexibility reforms were endorsed by the technical advisory committee. Market forces are expected to correct the wage differential within two to three years. Shareholder value obligations to creditors take precedence under the programme conditions. Automation investment is being encouraged as a means of closing the productivity gap. Nearshoring of call centre operations reduced labour costs by 31 percent. Discretionary spending on social services has been reclassified as a contingent liability.</p>
 
-  <p>Debt restructuring negotiations concluded with a haircut of 32 percent on commercial creditor claims. Fiscal consolidation requirements under the programme include reduction of social expenditure by 4.2 percent of GDP over three years. The human cost of austerity measures has been documented by several civil society monitors but has not been formally incorporated into the programme design.</p>
+  <p>Resource allocation decisions during the consolidation phase will be guided by the efficiency framework. Due process protections for dismissed civil servants were modified under emergency powers. Force majeure provisions in supplier contracts were invoked following the distribution disruption. Liability waiver clauses have been inserted into all new state concession agreements. Medical exemption provisions in the pension framework have been reviewed and narrowed. Health and safety compliance costs will be absorbed by the operator under the revised concession terms.</p>
 </div>
 
 <hr>
 
-<!-- ── SECTION 5: Manufacturing / Supply Chain ── -->
+<!-- ══ 5. ENVIRONMENT / PLANETARY BOUNDARIES ══════════════════════════════════ -->
 <div class="section">
-  <span class="section-label">Sector C — Manufacturing · Sector A — Agriculture</span>
-  <h2>Global Supply Chain Resilience Report — Industrial Operations Division</h2>
-  <p class="phrase-count">~12 target phrases</p>
+  <span class="label">Planetary Boundaries · Ecocide Framework · Sector B — Mining · Sector D — Energy</span>
+  <h2>Integrated Climate and Sustainability Strategy 2025–2035</h2>
 
-  <p>Workforce rationalisation in the Southeast Asian manufacturing cluster has resulted in a net reduction of 14,200 positions across three facilities. The operational restructuring was executed within the parameters of local labour law and included voluntary separation packages. Human resources optimisation remains a priority as the division targets a 12 percent improvement in labour productivity by end of fiscal year.</p>
+  <p>Our net zero commitment is aligned with the 1.5°C pathway validated by the Science Based Targets initiative. Net zero will be achieved through a combination of direct emission reductions and verified carbon offsets. Carbon neutrality in operations is targeted by 2035. Carbon offset purchases during the year totalled 4.2 million tonnes. Carbon credits sourced from the voluntary market have been verified under the Verra standard. Carbon leakage risk in our European manufacturing operations has been assessed and partially addressed through the carbon border adjustment mechanism. The emissions trading scheme in which we participate has tightened the cap by 8 percent.</p>
 
-  <p>The agricultural commodity supply chain was subject to a resilience audit following disruption to the procurement corridor. Smallholder displacement resulting from large-scale land acquisition was assessed as within the acceptable threshold under the programme's social impact framework. Resettlement compensation was provided in accordance with the applicable national standard.</p>
+  <p>Biodiversity net gain is now required under planning law for all new surface operations. Biodiversity offsetting arrangements covering 18,000 hectares have been established in four jurisdictions. Green growth targets are embedded in the executive compensation framework. Natural capital accounting has been adopted across the mineral assets portfolio. Ecosystem services valuation is included in all project-level cost-benefit analyses. Ecosystem utility metrics are reported to the board quarterly. Negative externalities from the smelting operation are disclosed in the integrated report. Externalities associated with the tailings facility are subject to a binding remediation bond.</p>
 
-  <p>Automation investment has accelerated the transition away from labour-intensive production processes. The skills transition programme was offered to affected workers in two of the three impacted facilities. Contractor fatalities during the reporting period were classified under incident management protocols and reported to the relevant regulatory authority within the statutory timeframe.</p>
+  <p>Tipping points identified in the climate risk register include permafrost thaw feedback across our Siberian concessions, monsoon system disruption affecting our South Asian supply chain, and ice sheet collapse implications for coastal infrastructure. Non-linear abrupt changes in the Arctic system are now included in the 30-year scenario analysis. Amazon rainforest dieback risk is incorporated into the biodiversity materiality assessment. Coral reef ecosystem collapse threatens the viability of three coastal extraction facilities. Coral bleaching reef death has been identified as a stranded asset risk for the marine operations division. Extinction rate acceleration in the project's biodiversity footprint zone has triggered a Level 2 alert under the company's environmental governance framework.</p>
+
+  <p>Safe operating space boundaries for freshwater use have been breached at two operational sites. Transgressing planetary boundaries in the biosphere integrity dimension triggers mandatory board review under our governance framework. Aquifer depletion at the central processing site has been flagged by the regulator. Groundwater drawdown in the northern extraction zone exceeds sustainable yield by a factor of 2.4. Water scarcity conditions in the basin have been classified as critical. Water stress indicators in the downstream community were disclosed in the annual sustainability report. Sea level rise displacement of coastal infrastructure has been modelled under three scenarios. Extreme heat events have increased the frequency of cooling shutdowns by 40 percent in the past three years.</p>
+
+  <p>Climate adaptation investments total 240 million over the planning period. Climate resilience of critical assets is being assessed against the TCFD framework. Climate transition risk is disclosed in the statutory accounts. Decarbonisation pathway modelling uses a proprietary tool aligned with IEA Net Zero guidance. Energy transition costs in our fossil fuel division have been provisioned at 1.4 billion. Just transition commitments to affected workers and communities are set out in the Community Impact Agreement. Responsible mining standards are applied across all tier-one suppliers. Responsible extraction principles are embedded in the operator licence conditions.</p>
+
+  <p>Environmental remediation of the legacy tailings site will take 12 years and cost an estimated 800 million. Acceptable contamination levels for heavy metals in the downstream water supply were agreed with the regulator and are reviewed annually. Acceptable limits for particulate emissions have been revised upward following lobbying by the sector. Legacy contamination from the historic smelting operation is subject to a cost-sharing agreement between the current operator and the state. Residual risk from the decommissioned facility will persist for approximately 200 years. Permissible exposure limits for workers at the processing plant are set at the regulatory minimum. Safe levels of the solvent discharge into the river system have been certified by the contracted environmental consultancy. Responsible disposal of hazardous materials is managed under the ISO 14001 framework. Waste stream volumes are reported quarterly to the environmental agency.</p>
+
+  <p>Radiative forcing contributions from the methane emissions of our gas operations are disclosed under the GHG Protocol. Agricultural intensification in the supplier base has reduced the buffer zone biodiversity by an estimated 60 percent. Irrigation efficiency improvements have reduced water extraction by 18 percent but total groundwater drawdown remains above the sustainable threshold. Soil carbon sequestration offsets are included in the company's nature-based solutions portfolio. Stranded assets risk in the coal division has been recognised in the impairment review. Stranded communities in the mining regions are supported through the Foundation's livelihood programme. Environmental impact assessment for the proposed expansion was completed by the independent technical panel.</p>
+
+  <p>Food insecurity in the communities surrounding the agribusiness operations has been linked to land acquisition in three independent studies. Energy poverty in the transition regions is addressed through a targeted subsidy programme. Resource extraction from the concession area proceeds under the terms of the production sharing agreement. Mineral resource optimization in the Eastern Bloc requires access to protected land currently under judicial review. Resource security considerations informed the government's decision to fast-track the exploration licence. Sustainable extraction of deep-sea polymetallic nodules is governed by the ISA regulatory framework. Sustainable harvesting limits for the timber concession were exceeded in two of the past four years. Sustainable yield modelling for the fishery is updated annually by the scientific advisory panel.</p>
+
+  <p>Managed retreat from the coastal zone is planned over a 15-year horizon. Containment zone protocols are in effect around the contaminated groundwater plume. Sacrifice zone designations have not been applied, though three communities meet the qualifying criteria under the EPA framework. Impact mitigation measures agreed with the regulator include a wetland creation programme. Carbon offset mechanisms in the forestry programme are verified by a third-party auditor. Demand destruction in the fossil fuel market is projected to accelerate after 2030. Load shedding in the mining district during the dry season reduces operational output by 12 percent. Acceptable risk levels for the tailings facility breach scenario have been assessed as within regulatory tolerance. Acceptable losses of biodiversity in the operational footprint are benchmarked against the IBAT database. Externalizing ecological costs of the extraction operation has been documented by the independent monitor but not yet reflected in the pricing structure. Externalize costs of decommissioning have been transferred to the state under the revised licence terms. Resource allocation from the remediation fund was redirected to operational use following a board resolution.</p>
 </div>
 
 <hr>
 
-<!-- ── SECTION 6: Health / Pharma ── -->
+<!-- ══ 6. GOVERNANCE / LEGAL ABSTRACTION ══════════════════════════════════════ -->
 <div class="section">
-  <span class="section-label">Sector Q — Human Health & Social Work</span>
-  <h2>Global Health Security Framework: Preparedness and Response Capacity</h2>
-  <p class="phrase-count">~8 target phrases</p>
+  <span class="label">HCC-Genesis · UDHR · Rome Statute · Sector O — International Organisations</span>
+  <h2>Governance Reform Programme — Legal Abstraction and Accountability Gaps</h2>
 
-  <p>Health system strengthening investments have been concentrated in high-burden countries with insufficient domestic financing capacity. The essential medicines access framework was reviewed in light of intellectual property obligations under existing trade agreements. Voluntary licensing arrangements have been extended to a further 12 low-income country markets.</p>
+  <p>Rule of law indicators have deteriorated in six of the programme countries. Due process protections were suspended under emergency powers in two jurisdictions. Force majeure clauses were invoked by the operator following the infrastructure event. Liability waiver provisions have been embedded in the new standard concession agreement. Medical exemption from the duty of care standard was granted to the private operator on procedural grounds. Health and safety compliance records were certified despite the injury rate exceeding the sector benchmark by a factor of three.</p>
 
-  <p>Population health outcomes in fragile states continue to diverge from global averages. Mortality data disaggregated by income quintile reveals persistent structural inequalities in access to care. The humanitarian exemptions to procurement restrictions were invoked on three occasions during the reporting period, enabling emergency access to diagnostics and treatment protocols in conflict-affected zones.</p>
+  <p>Unintended consequences of the liberalisation programme include a 40 percent increase in informal employment. Collateral effects of the infrastructure programme on downstream water quality were not modelled in the environmental assessment. Security concerns were cited as the basis for restricting access to the affected community. National interest provisions override standard disclosure requirements under the proposed legislation. State of emergency powers have been in continuous operation for 38 months. Resource allocation from the social protection fund to the debt service account was authorised under the emergency fiscal protocol. Discretionary spending on water and sanitation has been suspended pending the fiscal review.</p>
 </div>
 
 </body>
