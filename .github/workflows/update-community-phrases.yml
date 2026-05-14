@@ -1,0 +1,99 @@
+name: Update community phrase library
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # every Monday 06:00 UTC
+  workflow_dispatch:        # allow manual trigger from GitHub Actions tab
+
+jobs:
+  update-phrases:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch confirmed phrases from Supabase and write JSON
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: |
+          node - <<'EOF'
+          const https = require('https');
+
+          const url = `${process.env.SUPABASE_URL}/rest/v1/confirmation_events?select=normalized_phrase,phrase,translation,legal_ref,severity,isic_section,isic_label,domain&order=normalized_phrase`;
+
+          const options = {
+            headers: {
+              'apikey': process.env.SUPABASE_KEY,
+              'Authorization': `Bearer ${process.env.SUPABASE_KEY}`,
+            }
+          };
+
+          https.get(url, options, (res) => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => {
+              const events = JSON.parse(data);
+
+              // Aggregate by normalized_phrase
+              const map = {};
+              for (const e of events) {
+                const key = e.normalized_phrase;
+                if (!map[key]) {
+                  map[key] = {
+                    phrase: e.phrase,
+                    normalizedPhrase: key,
+                    translation: e.translation || '',
+                    legalRef: e.legal_ref || '',
+                    severity: e.severity || 'medium',
+                    isicSection: e.isic_section || null,
+                    isicLabel: e.isic_label || null,
+                    confirmCount: 0,
+                    domains: new Set(),
+                  };
+                }
+                map[key].confirmCount++;
+                if (e.domain) map[key].domains.add(e.domain);
+              }
+
+              // Promote: confirmed >= 3 times across >= 2 domains
+              const promoted = Object.values(map)
+                .filter(p => p.confirmCount >= 3 && p.domains.size >= 2)
+                .map(p => ({
+                  phrase: p.phrase,
+                  normalizedPhrase: p.normalizedPhrase,
+                  translation: p.translation,
+                  legalRef: p.legalRef,
+                  severity: p.severity,
+                  isicSection: p.isicSection,
+                  isicLabel: p.isicLabel,
+                  confirmCount: p.confirmCount,
+                  domainCount: p.domains.size,
+                  sourceLanguage: 'en',
+                  isGlobal: true,
+                }))
+                .sort((a, b) => b.confirmCount - a.confirmCount);
+
+              const output = {
+                generated: new Date().toISOString(),
+                count: promoted.length,
+                minConfirms: 3,
+                minDomains: 2,
+                phrases: promoted,
+              };
+
+              require('fs').writeFileSync('community-phrases.json', JSON.stringify(output, null, 2));
+              console.log(`Promoted ${promoted.length} phrases`);
+            });
+          }).on('error', (e) => { console.error(e); process.exit(1); });
+          EOF
+
+      - name: Commit updated phrase library
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add community-phrases.json
+          git diff --staged --quiet && echo "No changes" || git commit -m "chore: update community phrase library [$(date -u +%Y-%m-%d)]"
+          git push
