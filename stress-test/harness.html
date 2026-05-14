@@ -354,20 +354,10 @@ function openPasteTest() {
   const text = document.getElementById('pasteText').value.trim();
   const src  = document.getElementById('pasteSource').value.trim();
   if (!text) { document.getElementById('pasteMsg').textContent = 'Paste some text first.'; return; }
-  // Store in sessionStorage and open dense.html which will pick it up
   sessionStorage.setItem('ldm_paste_text', text);
   sessionStorage.setItem('ldm_paste_source', src);
-  // Open a blank page with the text injected
-  const win = window.open('', '_blank');
-  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>LDM Paste Test — ${esc(src)}</title>
-    <style>body{font-family:Georgia,serif;font-size:15px;line-height:1.8;max-width:800px;margin:40px auto;padding:0 24px;color:#0f172a;}
-    .meta{font-family:system-ui;font-size:11px;color:#64748b;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid #e2e8f0;}
-    </style></head><body>
-    <div class="meta">LDM-V3 Paste Test · Source: ${esc(src)} · ${new Date().toLocaleString()}</div>
-    <div id="content">${esc(text).replace(/\n/g,'<br>')}</div>
-    </body></html>`);
-  win.document.close();
-  document.getElementById('pasteMsg').textContent = 'Opened — check the extension flags on the new tab.';
+  window.open('paste-test.html', '_blank');
+  document.getElementById('pasteMsg').textContent = 'Opened — extension will scan the new tab automatically.';
   setTimeout(() => { document.getElementById('pasteMsg').textContent = ''; }, 4000);
 }
 
