@@ -354,8 +354,8 @@ function openPasteTest() {
   const text = document.getElementById('pasteText').value.trim();
   const src  = document.getElementById('pasteSource').value.trim();
   if (!text) { document.getElementById('pasteMsg').textContent = 'Paste some text first.'; return; }
-  sessionStorage.setItem('ldm_paste_text', text);
-  sessionStorage.setItem('ldm_paste_source', src);
+  localStorage.setItem('ldm_paste_text', text);
+  localStorage.setItem('ldm_paste_source', src);
   window.open('paste-test.html', '_blank');
   document.getElementById('pasteMsg').textContent = 'Opened — extension will scan the new tab automatically.';
   setTimeout(() => { document.getElementById('pasteMsg').textContent = ''; }, 4000);

@@ -24,8 +24,8 @@
   <div id="content"><div class="empty">No text found — go back to the harness and paste text before opening this page.</div></div>
 
   <script>
-    const text   = sessionStorage.getItem('ldm_paste_text');
-    const source = sessionStorage.getItem('ldm_paste_source');
+    const text   = localStorage.getItem('ldm_paste_text');
+    const source = localStorage.getItem('ldm_paste_source');
     if (text) {
       document.getElementById('content').textContent = text;
       document.title = source ? `LDM Test — ${source}` : 'LDM-V3 Paste Test';
