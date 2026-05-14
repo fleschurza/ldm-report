@@ -134,8 +134,9 @@
   <h1>LDM-V3 · Global Institutional Language Intelligence</h1>
   <p>Community-confirmed euphemisms that abstract physical harm to people — anchored in international humanitarian law, the Rome Statute, and Planetary Boundaries science.</p>
   <div class="header-meta">
-    <div class="header-stat"><div class="val" id="hTotal">—</div><div class="lbl">Events</div></div>
-    <div class="header-stat"><div class="val" id="hPhrases">—</div><div class="lbl">Unique phrases</div></div>
+    <div class="header-stat"><div class="val" id="hDetected">—</div><div class="lbl">Detected</div></div>
+    <div class="header-stat"><div class="val" id="hConfirmed" style="color:#86efac;">—</div><div class="lbl">Real use</div></div>
+    <div class="header-stat"><div class="val" id="hDismissed" style="color:#94a3b8;">—</div><div class="lbl">Figure of speech</div></div>
     <div class="header-stat"><div class="val" id="hDomains">—</div><div class="lbl">Domains</div></div>
     <div class="header-stat"><div class="val" id="hCountries">—</div><div class="lbl">Countries</div></div>
   </div>
@@ -152,8 +153,9 @@
   <!-- Mode toggle: unmasked (all detected) vs confirmed only -->
   <label>Show</label>
   <div class="mode-toggle">
-    <button class="mode-btn active" data-mode="confirmed">Phrases confirmed</button>
-    <button class="mode-btn" data-mode="unmasked">Phrases unmasked</button>
+    <button class="mode-btn active" data-mode="confirmed">Real use</button>
+    <button class="mode-btn" data-mode="detected">All detected</button>
+    <button class="mode-btn" data-mode="dismissed">Figure of speech</button>
   </div>
   <label>Severity</label>
   <select id="filterSeverity"><option value="">All</option><option value="critical">Critical</option><option value="high">High</option><option value="medium">Medium</option></select>
@@ -256,7 +258,8 @@ const CHART_PALETTE = ['#1d4ed8','#0891b2','#059669','#7c3aed','#db2777','#d9770
 
 let confirmedEvents = [];
 let dismissedEvents = [];
-let mode = 'confirmed'; // 'confirmed' | 'unmasked'
+let detectedEvents  = [];
+let mode = 'confirmed'; // 'confirmed' | 'detected' | 'dismissed'
 let charts = {};
 
 // ── Data fetching ─────────────────────────────────────────────────────────────
@@ -280,9 +283,10 @@ async function fetchTable(table) {
 async function loadData() {
   document.getElementById('lastUpdated').textContent = 'Loading…';
   try {
-    [confirmedEvents, dismissedEvents] = await Promise.all([
+    [confirmedEvents, dismissedEvents, detectedEvents] = await Promise.all([
       fetchTable('confirmation_events'),
       fetchTable('dismissal_events'),
+      fetchTable('detection_events'),
     ]);
     populateFilters();
     render();
@@ -296,11 +300,9 @@ async function loadData() {
 
 // ── Mode & filters ────────────────────────────────────────────────────────────
 function activeEvents() {
-  // 'confirmed' = only confirmation_events
-  // 'unmasked'  = all events the extension detected and user reviewed (confirmed + dismissed)
-  const base = mode === 'confirmed'
-    ? confirmedEvents
-    : [...confirmedEvents, ...dismissedEvents.map(e => ({ ...e, severity: e.severity || 'medium', isic_section: e.isic_section || null, isic_label: e.isic_label || 'Unclassified' }))];
+  const base = mode === 'confirmed'  ? confirmedEvents
+             : mode === 'dismissed'  ? dismissedEvents
+             : detectedEvents; // 'detected'
 
   const sev     = document.getElementById('filterSeverity').value;
   const isic    = document.getElementById('filterIsic').value;
@@ -313,7 +315,7 @@ function activeEvents() {
 }
 
 function populateFilters() {
-  const all = [...confirmedEvents, ...dismissedEvents];
+  const all = [...confirmedEvents, ...dismissedEvents, ...detectedEvents];
   const isics     = [...new Set(all.map(e => e.isic_section).filter(Boolean))].sort();
   const countries = [...new Set(all.map(e => e.country_tld).filter(Boolean))].sort();
 
@@ -379,13 +381,13 @@ function render() {
 
 // ── Header stats ──────────────────────────────────────────────────────────────
 function renderHeaderStats(events) {
-  const phrases   = new Set(events.map(e => e.normalized_phrase));
-  const domains   = new Set(events.map(e => e.domain).filter(Boolean));
-  const countries = new Set(events.map(e => e.country_tld).filter(Boolean));
-  document.getElementById('hTotal').textContent    = events.length.toLocaleString();
-  document.getElementById('hPhrases').textContent  = phrases.size.toLocaleString();
-  document.getElementById('hDomains').textContent  = domains.size.toLocaleString();
-  document.getElementById('hCountries').textContent= countries.size.toLocaleString();
+  const domains   = new Set([...confirmedEvents, ...dismissedEvents, ...detectedEvents].map(e => e.domain).filter(Boolean));
+  const countries = new Set([...confirmedEvents, ...dismissedEvents, ...detectedEvents].map(e => e.country_tld).filter(Boolean));
+  document.getElementById('hDetected').textContent  = detectedEvents.length.toLocaleString();
+  document.getElementById('hConfirmed').textContent = confirmedEvents.length.toLocaleString();
+  document.getElementById('hDismissed').textContent = dismissedEvents.length.toLocaleString();
+  document.getElementById('hDomains').textContent   = domains.size.toLocaleString();
+  document.getElementById('hCountries').textContent = countries.size.toLocaleString();
 }
 
 // ── View 1: Overview ──────────────────────────────────────────────────────────
@@ -504,15 +506,19 @@ function renderSectorView(events) {
     const phraseHtml = topPhrases.map(p=>`<div class="sector-phrase-item"><span>${esc(p.phrase)}</span><span>${p.count}</span></div>`).join('');
     const risk = s.sev.critical*10 + s.sev.high*4 + s.sev.medium;
     const rc = riskClass(risk);
+    const uniquePhrases = Object.keys(s.phrases).length;
+    const density = uniquePhrases > 0 ? Math.round((s.count / uniquePhrases) * 10) / 10 : 0;
+    const densityColor = density >= 3 ? '#dc2626' : density >= 1.5 ? '#d97706' : '#2563eb';
     return `
       <div class="sector-card">
         <div class="sector-card-header">
           <span class="sector-code">${esc(s.section)}</span>
           <span class="sector-name">${esc(s.label)}</span>
         </div>
-        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:2px;">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:2px;flex-wrap:wrap;">
           <div><div class="sector-count">${s.count}</div><div class="sector-count-lbl">confirmations</div></div>
           <div><div class="sector-count ${rc}" style="font-size:18px;">${risk}</div><div class="sector-count-lbl">risk score</div></div>
+          <div><div class="sector-count" style="font-size:18px;color:${densityColor};">${density}×</div><div class="sector-count-lbl">density</div></div>
         </div>
         <div class="sector-sev-row">${sevHtml}</div>
         <div class="sector-phrase-list">${phraseHtml}</div>
