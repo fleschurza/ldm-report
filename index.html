@@ -126,6 +126,17 @@
 
     footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 20px; padding: 20px 40px; text-align: center; }
     footer a { color: var(--c-accent); text-decoration: none; }
+
+    /* ── Card expand button ── */
+    .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .card-header .card-title { margin-bottom: 0; }
+    .card-expand { background: none; border: 1px solid var(--c-border); border-radius: 4px; color: var(--c-muted); cursor: pointer; font-size: 11px; line-height: 1; padding: 2px 7px; transition: background 0.12s, color 0.12s; }
+    .card-expand:hover { background: var(--c-bg); color: var(--c-accent); border-color: var(--c-accent); }
+
+    /* ── Overview custom grid ── */
+    .grid-sev-time { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+    @media (max-width: 900px) { .grid-sev-time { grid-template-columns: 1fr; } }
+    .card canvas.tall { max-height: 300px; }
   </style>
 </head>
 <body>
@@ -171,14 +182,28 @@
 <!-- View 1: Overview -->
 <div id="v1" class="view active">
   <main>
-    <div class="grid-3">
-      <div class="card"><div class="card-title">By Severity</div><canvas id="chartSeverity"></canvas></div>
-      <div class="card"><div class="card-title">By ISIC Sector</div><canvas id="chartIsic"></canvas></div>
-      <div class="card"><div class="card-title">By Country</div><canvas id="chartCountry"></canvas></div>
+    <div class="grid-sev-time">
+      <div class="card" id="card-severity">
+        <div class="card-header"><div class="card-title">By Severity</div><button class="card-expand" onclick="expandCard('card-severity','By Severity')">⤢ expand</button></div>
+        <canvas id="chartSeverity"></canvas>
+      </div>
+      <div class="card" id="card-timeline">
+        <div class="card-header"><div class="card-title">Detections over time</div><button class="card-expand" onclick="expandCard('card-timeline','Detections over time')">⤢ expand</button></div>
+        <canvas id="chartTimeline" style="max-height:160px"></canvas>
+      </div>
     </div>
-    <div class="card"><div class="card-title">Confirmations over time</div><canvas id="chartTimeline" style="max-height:140px"></canvas></div>
-    <div class="card">
-      <div class="card-title">Top confirmed phrases</div>
+    <div class="grid-2">
+      <div class="card" id="card-isic">
+        <div class="card-header"><div class="card-title">By ISIC Sector</div><button class="card-expand" onclick="expandCard('card-isic','By ISIC Sector')">⤢ expand</button></div>
+        <canvas id="chartIsic" class="tall"></canvas>
+      </div>
+      <div class="card" id="card-country">
+        <div class="card-header"><div class="card-title">By Country</div><button class="card-expand" onclick="expandCard('card-country','By Country')">⤢ expand</button></div>
+        <canvas id="chartCountry" class="tall"></canvas>
+      </div>
+    </div>
+    <div class="card" id="card-phrases">
+      <div class="card-header"><div class="card-title">Top phrases</div><button class="card-expand" onclick="expandCard('card-phrases','Top phrases')">⤢ expand</button></div>
       <div id="phraseTableWrap"><div class="empty">Loading…</div></div>
     </div>
   </main>
@@ -187,7 +212,10 @@
 <!-- View 2: By Sector -->
 <div id="v2" class="view">
   <main>
-    <div class="card"><div class="card-title">Confirmations by sector</div><canvas id="chartIsicFull" style="max-height:260px"></canvas></div>
+    <div class="card" id="card-isic-full">
+      <div class="card-header"><div class="card-title">Confirmations by sector</div><button class="card-expand" onclick="expandCard('card-isic-full','Confirmations by sector')">⤢ expand</button></div>
+      <canvas id="chartIsicFull" style="max-height:260px"></canvas>
+    </div>
     <div class="sector-grid" id="sectorGrid"><div class="empty">Loading…</div></div>
   </main>
 </div>
@@ -195,8 +223,8 @@
 <!-- View 3: Phrase Share -->
 <div id="v3" class="view">
   <main>
-    <div class="card">
-      <div class="card-title">Phrase share of all flagged events</div>
+    <div class="card" id="card-share">
+      <div class="card-header"><div class="card-title">Phrase share of all flagged events</div><button class="card-expand" onclick="expandCard('card-share','Phrase share')">⤢ expand</button></div>
       <div id="shareTableWrap"><div class="empty">Loading…</div></div>
     </div>
   </main>
@@ -206,17 +234,17 @@
 <div id="v4" class="view">
   <main>
     <div class="grid-2">
-      <div class="card">
-        <div class="card-title">Risk score by sector</div>
+      <div class="card" id="card-sector-risk">
+        <div class="card-header"><div class="card-title">Risk score by sector</div><button class="card-expand" onclick="expandCard('card-sector-risk','Risk score by sector')">⤢ expand</button></div>
         <div id="sectorRiskWrap"><div class="empty">Loading…</div></div>
       </div>
-      <div class="card">
-        <div class="card-title">Risk score by country</div>
+      <div class="card" id="card-country-risk">
+        <div class="card-header"><div class="card-title">Risk score by country</div><button class="card-expand" onclick="expandCard('card-country-risk','Risk score by country')">⤢ expand</button></div>
         <div id="countryRiskWrap"><div class="empty">Loading…</div></div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-title">Site ratings — risk score &amp; phrase density per domain</div>
+    <div class="card" id="card-sites">
+      <div class="card-header"><div class="card-title">Site ratings — risk score &amp; phrase density per domain</div><button class="card-expand" onclick="expandCard('card-sites','Site ratings')">⤢ expand</button></div>
       <div id="siteRatingsWrap"><div class="empty">Loading…</div></div>
     </div>
   </main>
@@ -384,11 +412,17 @@ function render() {
 
 // ── Header stats ──────────────────────────────────────────────────────────────
 function renderHeaderStats(events) {
-  const domains   = new Set([...confirmedEvents, ...dismissedEvents, ...detectedEvents].map(e => e.domain).filter(Boolean));
-  const countries = new Set([...confirmedEvents, ...dismissedEvents, ...detectedEvents].map(e => e.country_tld).filter(Boolean));
-  document.getElementById('hDetected').textContent  = detectedEvents.length.toLocaleString();
-  document.getElementById('hConfirmed').textContent = confirmedEvents.length.toLocaleString();
-  document.getElementById('hDismissed').textContent = dismissedEvents.length.toLocaleString();
+  const notExcluded = e => !EXCLUDED_DOMAINS.includes(e.domain);
+  const allFiltered = [
+    ...confirmedEvents.filter(notExcluded),
+    ...dismissedEvents.filter(notExcluded),
+    ...detectedEvents.filter(notExcluded),
+  ];
+  const domains   = new Set(allFiltered.map(e => e.domain).filter(Boolean));
+  const countries = new Set(allFiltered.map(e => e.country_tld).filter(Boolean));
+  document.getElementById('hDetected').textContent  = detectedEvents.filter(notExcluded).length.toLocaleString();
+  document.getElementById('hConfirmed').textContent = confirmedEvents.filter(notExcluded).length.toLocaleString();
+  document.getElementById('hDismissed').textContent = dismissedEvents.filter(notExcluded).length.toLocaleString();
   document.getElementById('hDomains').textContent   = domains.size.toLocaleString();
   document.getElementById('hCountries').textContent = countries.size.toLocaleString();
 }
@@ -420,10 +454,21 @@ function renderIsicChart(events) {
   const counts = {};
   events.forEach(e => { const l = e.isic_label || 'Unclassified'; counts[l] = (counts[l]||0)+1; });
   const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const fullLabels = sorted.map(([l]) => l);
   charts.isic = new Chart(document.getElementById('chartIsic'), {
     type: 'bar',
-    data: { labels: sorted.map(([l])=>l.length>26?l.slice(0,24)+'…':l), datasets:[{ data:sorted.map(([,v])=>v), backgroundColor:'#1d4ed8', borderRadius:4 }] },
-    options: { indexAxis:'y', plugins:{ legend:{ display:false } }, scales:{ x:{ grid:{ color:'#f1f5f9' } }, y:{ ticks:{ font:{ size:10 } } } } }
+    data: { labels: fullLabels.map(l => l.length > 32 ? l.slice(0, 30) + '…' : l), datasets:[{ data:sorted.map(([,v])=>v), backgroundColor:'#1d4ed8', borderRadius:4 }] },
+    options: {
+      indexAxis:'y',
+      plugins:{
+        legend:{ display:false },
+        tooltip:{ callbacks:{ title: (items) => fullLabels[items[0].dataIndex] } }
+      },
+      scales:{
+        x:{ grid:{ color:'#f1f5f9' } },
+        y:{ ticks:{ font:{ size:10 }, crossAlign:'far' } }
+      }
+    }
   });
 }
 
@@ -440,7 +485,11 @@ function renderCountryChart(events) {
   charts.country = new Chart(document.getElementById('chartCountry'), {
     type: 'bar',
     data: { labels:sorted.map(([l])=>l), datasets:[{ data:sorted.map(([,v])=>v), backgroundColor:'#0891b2', borderRadius:4 }] },
-    options: { indexAxis:'y', plugins:{ legend:{ display:false } }, scales:{ x:{ grid:{ color:'#f1f5f9' } }, y:{ ticks:{ font:{ size:10 } } } } }
+    options: {
+      indexAxis:'y',
+      plugins:{ legend:{ display:false } },
+      scales:{ x:{ grid:{ color:'#f1f5f9' } }, y:{ ticks:{ font:{ size:10 }, crossAlign:'far' } } }
+    }
   });
 }
 
@@ -693,6 +742,61 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
 ['filterSeverity','filterIsic','filterCountry'].forEach(id =>
   document.getElementById(id).addEventListener('change', render)
 );
+
+// ── Expand card to new tab ────────────────────────────────────────────────────
+function expandCard(cardId, title) {
+  const card = document.getElementById(cardId);
+  if (!card) return;
+  const canvas = card.querySelector('canvas');
+
+  const sharedCSS = `
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #f8fafc; color: #0f172a; font-family: system-ui, sans-serif; font-size: 14px; padding: 40px; }
+    h2 { font-size: 18px; font-weight: 700; margin-bottom: 24px; color: #0f172a; }
+    table { width: 100%; border-collapse: collapse; }
+    th { border-bottom: 2px solid #e2e8f0; color: #64748b; font-size: 10px; font-weight: 700; letter-spacing: .07em; padding: 8px 10px; text-align: left; text-transform: uppercase; }
+    td { border-bottom: 1px solid #e2e8f0; font-size: 13px; padding: 10px; vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    .sev { border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: .04em; padding: 2px 7px; text-transform: uppercase; white-space: nowrap; }
+    .sev.critical { background: #fee2e2; color: #dc2626; }
+    .sev.high     { background: #fef3c7; color: #d97706; }
+    .sev.medium   { background: #dbeafe; color: #2563eb; }
+    .risk-high { color: #dc2626; } .risk-mod { color: #d97706; } .risk-low { color: #2563eb; } .risk-none { color: #94a3b8; }
+    .risk-bar-wrap { min-width: 120px; }
+    .risk-bar-bg   { background: #f1f5f9; border-radius: 3px; height: 5px; overflow: hidden; }
+    .risk-bar-fill { border-radius: 3px; height: 5px; }
+    .share-bar-bg  { background: #f1f5f9; border-radius: 3px; height: 6px; overflow: hidden; }
+    .share-bar-fill{ background: #1d4ed8; border-radius: 3px; height: 6px; }
+    .share-pct     { color: #64748b; font-size: 11px; font-weight: 700; margin-top: 3px; }
+    .isic-tag { background: #f1f5f9; border-radius: 4px; color: #64748b; display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; }
+    .ph-phrase { font-weight: 600; } .ph-sub { color: #64748b; font-size: 11px; } .ph-count { font-size: 17px; font-weight: 800; color: #1d4ed8; text-align: right; }
+    .rt-domain { font-weight: 600; font-size: 12px; } .rt-sub { color: #64748b; font-size: 10px; }
+    .rt-risk { font-size: 18px; font-weight: 800; text-align: right; } .rt-num { color: #64748b; font-size: 12px; font-weight: 600; text-align: right; }
+    .sector-card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+    @media print { body { padding: 20px; } }
+  `;
+
+  if (canvas) {
+    const imgData = canvas.toDataURL('image/png');
+    const w = window.open('', '_blank');
+    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${title} — LDM-V3</title>
+      <style>${sharedCSS} img { max-width: 100%; height: auto; display: block; } </style></head>
+      <body><h2>${title}</h2><img src="${imgData}">
+      <p style="margin-top:20px;font-size:11px;color:#94a3b8;">LDM-V3 · Exported ${new Date().toLocaleString()}</p>
+      </body></html>`);
+    w.document.close();
+  } else {
+    const inner = card.querySelector('[id$="Wrap"], .sector-grid, #sectorGrid');
+    const html = inner ? inner.innerHTML : card.innerHTML;
+    const w = window.open('', '_blank');
+    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${title} — LDM-V3</title>
+      <style>${sharedCSS}</style></head>
+      <body><h2>${title}</h2>${html}
+      <p style="margin-top:24px;font-size:11px;color:#94a3b8;">LDM-V3 · Exported ${new Date().toLocaleString()}</p>
+      </body></html>`);
+    w.document.close();
+  }
+}
 
 loadData();
 </script>
