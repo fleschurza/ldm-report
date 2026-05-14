@@ -153,8 +153,8 @@
   <!-- Mode toggle: unmasked (all detected) vs confirmed only -->
   <label>Show</label>
   <div class="mode-toggle">
-    <button class="mode-btn active" data-mode="confirmed">Real use</button>
-    <button class="mode-btn" data-mode="detected">All detected</button>
+    <button class="mode-btn active" data-mode="detected">All detected</button>
+    <button class="mode-btn" data-mode="confirmed">Real use</button>
     <button class="mode-btn" data-mode="dismissed">Figure of speech</button>
   </div>
   <label>Severity</label>
@@ -259,7 +259,7 @@ const CHART_PALETTE = ['#1d4ed8','#0891b2','#059669','#7c3aed','#db2777','#d9770
 let confirmedEvents = [];
 let dismissedEvents = [];
 let detectedEvents  = [];
-let mode = 'confirmed'; // 'confirmed' | 'detected' | 'dismissed'
+let mode = 'detected'; // 'confirmed' | 'detected' | 'dismissed'
 let charts = {};
 
 // ── Data fetching ─────────────────────────────────────────────────────────────
