@@ -1,8 +1,8 @@
 {
-  "generated": "2026-05-14T14:33:23.868Z",
-  "count": 3,
-  "minConfirms": 3,
-  "minDomains": 2,
+  "generated": "2026-05-14T14:37:28.769Z",
+  "count": 9,
+  "minConfirms": 2,
+  "minDomains": 1,
   "phrases": [
     {
       "phrase": "stakeholders",
@@ -40,6 +40,84 @@
       "isicLabel": "Public Administration — International",
       "confirmCount": 3,
       "domainCount": 2,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "automation",
+      "normalizedPhrase": "automation",
+      "translation": "Deployment of machines to replace physical workers — displacing persons from livelihoods with no guaranteed transition support",
+      "legalRef": "UN Charter — Right to Work & Dignity / UDHR Art. 23",
+      "severity": "medium",
+      "isicSection": null,
+      "isicLabel": "Unclassified",
+      "confirmCount": 2,
+      "domainCount": 2,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "bombing campaign",
+      "normalizedPhrase": "bombing campaign",
+      "translation": "Sustained aerial destruction of physical infrastructure and persons",
+      "legalRef": "Geneva Convention AP I, Art. 51 — Prohibition of Indiscriminate Attack",
+      "severity": "critical",
+      "isicSection": null,
+      "isicLabel": "Unclassified",
+      "confirmCount": 2,
+      "domainCount": 1,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "collateral damage",
+      "normalizedPhrase": "collateral damage",
+      "translation": "Civilian casualties — physical bodies of non-combatants killed or wounded",
+      "legalRef": "Geneva Convention AP I, Art. 51 — Protection of the Civilian Population",
+      "severity": "critical",
+      "isicSection": null,
+      "isicLabel": "Unclassified",
+      "confirmCount": 2,
+      "domainCount": 1,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "economic sanctions",
+      "normalizedPhrase": "economic sanctions",
+      "translation": "Restriction of trade and financial access — physical impact includes civilian shortages of food, medicine, and fuel",
+      "legalRef": "Geneva Convention IV, Art. 55 / UDHR Art. 25",
+      "severity": "high",
+      "isicSection": "J",
+      "isicLabel": "Information & Communication — Media",
+      "confirmCount": 2,
+      "domainCount": 1,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "fatalities",
+      "normalizedPhrase": "fatalities",
+      "translation": "Physical deaths of human persons",
+      "legalRef": "Geneva Conventions / Rome Statute Art. 8",
+      "severity": "critical",
+      "isicSection": "B",
+      "isicLabel": "Mining & Quarrying",
+      "confirmCount": 2,
+      "domainCount": 1,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "precision engagement",
+      "normalizedPhrase": "precision engagement",
+      "translation": "Targeted physical destruction or killing framed as accurate to reduce perceived moral weight",
+      "legalRef": "Geneva Convention AP I, Art. 51",
+      "severity": "critical",
+      "isicSection": null,
+      "isicLabel": "Unclassified",
+      "confirmCount": 2,
+      "domainCount": 1,
       "sourceLanguage": "en",
       "isGlobal": true
     }
