@@ -480,8 +480,10 @@ function renderCountryChart(events) {
   events.forEach(e => { if (!e.country_tld) return; const l=COUNTRY_NAMES[e.country_tld]||e.country_tld; counts[l]=(counts[l]||0)+1; });
   const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8);
   // Always restore canvas before rendering (it may have been replaced by empty message)
-  card.innerHTML = '<div class="card-title">By Country</div><canvas id="chartCountry"></canvas>';
-  if (!sorted.length) { card.innerHTML += '<div class="empty" style="padding:20px 0;text-align:center;color:#64748b;font-size:12px">No country data yet</div>'; return; }
+  card.querySelector('canvas')?.remove();
+  card.querySelector('.empty')?.remove();
+  if (!sorted.length) { card.insertAdjacentHTML('beforeend', '<div class="empty" style="padding:20px 0;text-align:center;color:#64748b;font-size:12px">No country data yet</div>'); return; }
+  card.insertAdjacentHTML('beforeend', '<canvas id="chartCountry" class="tall"></canvas>');
   charts.country = new Chart(document.getElementById('chartCountry'), {
     type: 'bar',
     data: { labels:sorted.map(([l])=>l), datasets:[{ data:sorted.map(([,v])=>v), backgroundColor:'#0891b2', borderRadius:4 }] },
