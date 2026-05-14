@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LDM-V3 — Global Institutional Language Intelligence Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:       #f8fafc;
+      --c-surface:  #ffffff;
+      --c-border:   #e2e8f0;
+      --c-text:     #0f172a;
+      --c-muted:    #64748b;
+      --c-accent:   #1d4ed8;
+      --c-critical: #dc2626;
+      --c-high:     #d97706;
+      --c-medium:   #2563eb;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+    /* ── Header ── */
+    header { background: #0f172a; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #1d4ed8; }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header p  { color: #94a3b8; font-size: 12px; margin-top: 5px; max-width: 640px; }
+    .header-meta { display: flex; gap: 28px; margin-top: 16px; flex-wrap: wrap; }
+    .header-stat .val { font-size: 26px; font-weight: 800; color: #f1f5f9; letter-spacing: -0.03em; }
+    .header-stat .lbl { font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── Tab bar ── */
+    .tabbar { background: var(--c-surface); border-bottom: 1px solid var(--c-border); display: flex; gap: 0; padding: 0 40px; }
+    .tab { border-bottom: 3px solid transparent; color: var(--c-muted); cursor: pointer; font-size: 12px; font-weight: 600; letter-spacing: 0.03em; padding: 12px 18px 10px; transition: color 0.15s; user-select: none; }
+    .tab:hover { color: var(--c-text); }
+    .tab.active { border-bottom-color: var(--c-accent); color: var(--c-accent); }
+
+    /* ── Toolbar ── */
+    .toolbar { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding: 9px 40px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .toolbar label { font-size: 11px; color: var(--c-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .toolbar select { border: 1px solid var(--c-border); border-radius: 6px; font-size: 12px; padding: 5px 10px; background: var(--c-bg); color: var(--c-text); cursor: pointer; }
+    /* Mode toggle */
+    .mode-toggle { background: #f1f5f9; border-radius: 6px; display: flex; gap: 2px; padding: 3px; }
+    .mode-btn { background: none; border: none; border-radius: 4px; color: var(--c-muted); cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 0.03em; padding: 4px 12px; transition: background 0.15s, color 0.15s; }
+    .mode-btn.active { background: var(--c-surface); box-shadow: 0 1px 3px rgba(0,0,0,0.1); color: var(--c-accent); }
+    .spacer { flex: 1; }
+    .refresh-btn { background: var(--c-accent); border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: 600; padding: 6px 14px; }
+    .refresh-btn:hover { background: #1e40af; }
+    #lastUpdated { color: var(--c-muted); font-size: 11px; }
+
+    /* ── Views ── */
+    .view { display: none; }
+    .view.active { display: block; }
+    main { max-width: 1200px; margin: 0 auto; padding: 28px 40px; display: flex; flex-direction: column; gap: 24px; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+    .card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 20px 24px; }
+    .card-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); margin-bottom: 14px; }
+    .card canvas { max-height: 220px; }
+
+    /* ── Severity pills ── */
+    .sev { border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; padding: 2px 7px; text-transform: uppercase; white-space: nowrap; }
+    .sev.critical { background: #fee2e2; color: var(--c-critical); }
+    .sev.high     { background: #fef3c7; color: var(--c-high); }
+    .sev.medium   { background: #dbeafe; color: var(--c-medium); }
+
+    /* ── Phrase table (view 1 + 3) ── */
+    .phrase-table { width: 100%; border-collapse: collapse; }
+    .phrase-table th { border-bottom: 2px solid var(--c-border); color: var(--c-muted); font-size: 10px; font-weight: 700; letter-spacing: 0.07em; padding: 8px 10px; text-align: left; text-transform: uppercase; }
+    .phrase-table td { border-bottom: 1px solid var(--c-border); font-size: 13px; padding: 10px 10px; vertical-align: middle; }
+    .phrase-table tr:last-child td { border-bottom: none; }
+    .phrase-table tr:hover td { background: #f8fafc; }
+    .ph-phrase { font-weight: 600; }
+    .ph-sub    { color: var(--c-muted); font-size: 11px; margin-top: 2px; }
+    .ph-count  { font-size: 17px; font-weight: 800; color: var(--c-accent); text-align: right; white-space: nowrap; }
+
+    /* ── Share bar ── */
+    .share-bar-wrap { min-width: 120px; }
+    .share-bar-bg   { background: #f1f5f9; border-radius: 3px; height: 6px; overflow: hidden; }
+    .share-bar-fill { background: var(--c-accent); border-radius: 3px; height: 6px; transition: width 0.4s; }
+    .share-pct      { color: var(--c-muted); font-size: 11px; font-weight: 700; margin-top: 3px; }
+
+    /* ── Sector view cards ── */
+    .sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .sector-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 16px 20px; }
+    .sector-card-header { align-items: flex-start; display: flex; gap: 10px; margin-bottom: 10px; }
+    .sector-code { background: #0f172a; border-radius: 5px; color: #94a3b8; font-size: 11px; font-weight: 800; letter-spacing: 0.05em; padding: 3px 8px; flex-shrink: 0; margin-top: 2px; }
+    .sector-name { font-size: 13px; font-weight: 700; line-height: 1.3; }
+    .sector-count { color: var(--c-accent); font-size: 22px; font-weight: 800; margin-bottom: 2px; }
+    .sector-count-lbl { color: var(--c-muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .sector-sev-row { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+    .sector-phrase-list { margin-top: 10px; }
+    .sector-phrase-item { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; padding: 5px 0; display: flex; justify-content: space-between; }
+    .sector-phrase-item span:first-child { color: var(--c-text); font-weight: 500; }
+
+    .isic-tag { background: #f1f5f9; border-radius: 4px; color: var(--c-muted); display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; }
+
+    .empty { color: var(--c-muted); font-size: 13px; padding: 32px 0; text-align: center; }
+
+    footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 20px; padding: 20px 40px; text-align: center; }
+    footer a { color: var(--c-accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>LDM-V3 · Global Institutional Language Intelligence</h1>
+  <p>Community-confirmed euphemisms that abstract physical harm to people — anchored in international humanitarian law, the Rome Statute, and Planetary Boundaries science.</p>
+  <div class="header-meta">
+    <div class="header-stat"><div class="val" id="hTotal">—</div><div class="lbl">Events</div></div>
+    <div class="header-stat"><div class="val" id="hPhrases">—</div><div class="lbl">Unique phrases</div></div>
+    <div class="header-stat"><div class="val" id="hDomains">—</div><div class="lbl">Domains</div></div>
+    <div class="header-stat"><div class="val" id="hCountries">—</div><div class="lbl">Countries</div></div>
+  </div>
+</header>
+
+<div class="tabbar">
+  <div class="tab active" data-view="v1">Overview</div>
+  <div class="tab" data-view="v2">By Sector</div>
+  <div class="tab" data-view="v3">Phrase Share</div>
+</div>
+
+<div class="toolbar">
+  <!-- Mode toggle: unmasked (all detected) vs confirmed only -->
+  <label>Show</label>
+  <div class="mode-toggle">
+    <button class="mode-btn active" data-mode="confirmed">Phrases confirmed</button>
+    <button class="mode-btn" data-mode="unmasked">Phrases unmasked</button>
+  </div>
+  <label>Severity</label>
+  <select id="filterSeverity"><option value="">All</option><option value="critical">Critical</option><option value="high">High</option><option value="medium">Medium</option></select>
+  <label>Sector</label>
+  <select id="filterIsic"><option value="">All sectors</option></select>
+  <label>Country</label>
+  <select id="filterCountry"><option value="">All countries</option></select>
+  <div class="spacer"></div>
+  <span id="lastUpdated"></span>
+  <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+</div>
+
+<!-- View 1: Overview -->
+<div id="v1" class="view active">
+  <main>
+    <div class="grid-3">
+      <div class="card"><div class="card-title">By Severity</div><canvas id="chartSeverity"></canvas></div>
+      <div class="card"><div class="card-title">By ISIC Sector</div><canvas id="chartIsic"></canvas></div>
+      <div class="card"><div class="card-title">By Country</div><canvas id="chartCountry"></canvas></div>
+    </div>
+    <div class="card"><div class="card-title">Confirmations over time</div><canvas id="chartTimeline" style="max-height:140px"></canvas></div>
+    <div class="card">
+      <div class="card-title">Top confirmed phrases</div>
+      <div id="phraseTableWrap"><div class="empty">Loading…</div></div>
+    </div>
+  </main>
+</div>
+
+<!-- View 2: By Sector -->
+<div id="v2" class="view">
+  <main>
+    <div class="card"><div class="card-title">Confirmations by sector</div><canvas id="chartIsicFull" style="max-height:260px"></canvas></div>
+    <div class="sector-grid" id="sectorGrid"><div class="empty">Loading…</div></div>
+  </main>
+</div>
+
+<!-- View 3: Phrase Share -->
+<div id="v3" class="view">
+  <main>
+    <div class="card">
+      <div class="card-title">Phrase share of all flagged events</div>
+      <div id="shareTableWrap"><div class="empty">Loading…</div></div>
+    </div>
+  </main>
+</div>
+
+<footer>
+  LDM-V3 open dataset · <a href="https://github.com/fleschurza" target="_blank">github.com/fleschurza</a> ·
+  Data collected with user consent · No personal data stored ·
+  Legal anchors: Geneva AP I · Rome Statute · UDHR · Planetary Boundaries
+</footer>
+
+<script>
+const SUPABASE_URL = 'https://ghoriibggfxahkkvvkpi.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdob3JpaWJnZ2Z4YWhra3Z2a3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NDcxOTAsImV4cCI6MjA5NDMyMzE5MH0.MGsBEnM3J7vNSS-9M1GtxmEtHPOVKvfiVZt8oMBPECI';
+
+const ISIC_NAMES = {
+  A:'Agriculture, Forestry & Fishing', B:'Mining & Quarrying', C:'Manufacturing',
+  D:'Energy Supply', E:'Water & Waste Management', F:'Construction',
+  G:'Trade', H:'Transportation & Storage', I:'Accommodation & Food',
+  J:'Information & Communication', K:'Finance & Insurance', L:'Real Estate',
+  M:'Professional & Scientific Services', N:'Administrative Services',
+  O:'Public Administration & Defence', P:'Education',
+  Q:'Human Health & Social Work', R:'Arts & Recreation',
+  S:'Other Services', U:'International Organisations',
+};
+
+const COUNTRY_NAMES = {
+  US:'United States',GB:'United Kingdom',DE:'Germany',FR:'France',NL:'Netherlands',
+  AU:'Australia',CA:'Canada',JP:'Japan',CN:'China',RU:'Russia',IN:'India',
+  BR:'Brazil',ZA:'South Africa',NG:'Nigeria',KE:'Kenya',EG:'Egypt',
+  SA:'Saudi Arabia',AE:'United Arab Emirates',IL:'Israel',TR:'Turkey',
+  IT:'Italy',ES:'Spain',PL:'Poland',SE:'Sweden',NO:'Norway',CH:'Switzerland',
+  AT:'Austria',BE:'Belgium',DK:'Denmark',FI:'Finland',PT:'Portugal',
+  AR:'Argentina',MX:'Mexico',CL:'Chile',CO:'Colombia',UA:'Ukraine',
+};
+
+const SEV_COLORS = { critical:'#dc2626', high:'#d97706', medium:'#2563eb' };
+const CHART_PALETTE = ['#1d4ed8','#0891b2','#059669','#7c3aed','#db2777','#d97706','#dc2626','#64748b','#0f172a','#6366f1'];
+
+let confirmedEvents = [];
+let dismissedEvents = [];
+let mode = 'confirmed'; // 'confirmed' | 'unmasked'
+let charts = {};
+
+// ── Data fetching ─────────────────────────────────────────────────────────────
+async function fetchTable(table) {
+  const headers = { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` };
+  let all = [], offset = 0;
+  while (true) {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/${table}?select=*&order=ts.asc&offset=${offset}&limit=1000`,
+      { headers }
+    );
+    const batch = await res.json();
+    if (!Array.isArray(batch) || !batch.length) break;
+    all = all.concat(batch);
+    if (batch.length < 1000) break;
+    offset += 1000;
+  }
+  return all;
+}
+
+async function loadData() {
+  document.getElementById('lastUpdated').textContent = 'Loading…';
+  try {
+    [confirmedEvents, dismissedEvents] = await Promise.all([
+      fetchTable('confirmation_events'),
+      fetchTable('dismissal_events'),
+    ]);
+    populateFilters();
+    render();
+    document.getElementById('lastUpdated').textContent =
+      'Updated ' + new Date().toLocaleTimeString();
+  } catch (err) {
+    document.getElementById('lastUpdated').textContent = 'Error — see console';
+    console.error(err);
+  }
+}
+
+// ── Mode & filters ────────────────────────────────────────────────────────────
+function activeEvents() {
+  // 'confirmed' = only confirmation_events
+  // 'unmasked'  = all events the extension detected and user reviewed (confirmed + dismissed)
+  const base = mode === 'confirmed'
+    ? confirmedEvents
+    : [...confirmedEvents, ...dismissedEvents.map(e => ({ ...e, severity: e.severity || 'medium', isic_section: e.isic_section || null, isic_label: e.isic_label || 'Unclassified' }))];
+
+  const sev     = document.getElementById('filterSeverity').value;
+  const isic    = document.getElementById('filterIsic').value;
+  const country = document.getElementById('filterCountry').value;
+  return base.filter(e =>
+    (!sev     || e.severity     === sev)  &&
+    (!isic    || e.isic_section === isic) &&
+    (!country || e.country_tld  === country)
+  );
+}
+
+function populateFilters() {
+  const all = [...confirmedEvents, ...dismissedEvents];
+  const isics     = [...new Set(all.map(e => e.isic_section).filter(Boolean))].sort();
+  const countries = [...new Set(all.map(e => e.country_tld).filter(Boolean))].sort();
+
+  document.getElementById('filterIsic').innerHTML =
+    '<option value="">All sectors</option>' +
+    isics.map(s => `<option value="${s}">${s} — ${ISIC_NAMES[s] || s}</option>`).join('');
+
+  document.getElementById('filterCountry').innerHTML =
+    '<option value="">All countries</option>' +
+    countries.map(c => `<option value="${c}">${COUNTRY_NAMES[c] || c}</option>`).join('');
+}
+
+// ── Aggregate helpers ─────────────────────────────────────────────────────────
+function aggregatePhrases(events) {
+  const map = {};
+  events.forEach(e => {
+    const key = e.normalized_phrase;
+    if (!map[key]) map[key] = {
+      phrase: e.phrase, translation: e.translation,
+      legal_ref: e.legal_ref, severity: e.severity,
+      isic_label: e.isic_label, isic_section: e.isic_section,
+      count: 0, domains: new Set(), countries: new Set(),
+    };
+    map[key].count++;
+    if (e.domain)      map[key].domains.add(e.domain);
+    if (e.country_tld) map[key].countries.add(e.country_tld);
+  });
+  return Object.values(map).sort((a,b) => b.count - a.count);
+}
+
+// ── Render dispatcher ─────────────────────────────────────────────────────────
+function render() {
+  const events = activeEvents();
+  renderHeaderStats(events);
+  const activeView = document.querySelector('.view.active')?.id;
+  if (activeView === 'v1') renderOverview(events);
+  if (activeView === 'v2') renderSectorView(events);
+  if (activeView === 'v3') renderShareView(events);
+}
+
+// ── Header stats ──────────────────────────────────────────────────────────────
+function renderHeaderStats(events) {
+  const phrases   = new Set(events.map(e => e.normalized_phrase));
+  const domains   = new Set(events.map(e => e.domain).filter(Boolean));
+  const countries = new Set(events.map(e => e.country_tld).filter(Boolean));
+  document.getElementById('hTotal').textContent    = events.length.toLocaleString();
+  document.getElementById('hPhrases').textContent  = phrases.size.toLocaleString();
+  document.getElementById('hDomains').textContent  = domains.size.toLocaleString();
+  document.getElementById('hCountries').textContent= countries.size.toLocaleString();
+}
+
+// ── View 1: Overview ──────────────────────────────────────────────────────────
+function renderOverview(events) {
+  renderSeverityChart(events);
+  renderIsicChart(events);
+  renderCountryChart(events);
+  renderTimeline(events);
+  renderPhraseTable(events);
+}
+
+function destroyChart(id) { if (charts[id]) { charts[id].destroy(); delete charts[id]; } }
+
+function renderSeverityChart(events) {
+  destroyChart('severity');
+  const c = { critical:0, high:0, medium:0 };
+  events.forEach(e => { if (c[e.severity] !== undefined) c[e.severity]++; });
+  charts.severity = new Chart(document.getElementById('chartSeverity'), {
+    type: 'doughnut',
+    data: { labels:['Critical','High','Medium'], datasets:[{ data:[c.critical,c.high,c.medium], backgroundColor:['#dc2626','#d97706','#2563eb'], borderWidth:0 }] },
+    options: { plugins:{ legend:{ position:'bottom', labels:{ font:{ size:11 } } } }, cutout:'60%' }
+  });
+}
+
+function renderIsicChart(events) {
+  destroyChart('isic');
+  const counts = {};
+  events.forEach(e => { const l = e.isic_label || 'Unclassified'; counts[l] = (counts[l]||0)+1; });
+  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  charts.isic = new Chart(document.getElementById('chartIsic'), {
+    type: 'bar',
+    data: { labels: sorted.map(([l])=>l.length>26?l.slice(0,24)+'…':l), datasets:[{ data:sorted.map(([,v])=>v), backgroundColor:'#1d4ed8', borderRadius:4 }] },
+    options: { indexAxis:'y', plugins:{ legend:{ display:false } }, scales:{ x:{ grid:{ color:'#f1f5f9' } }, y:{ ticks:{ font:{ size:10 } } } } }
+  });
+}
+
+function renderCountryChart(events) {
+  destroyChart('country');
+  const counts = {};
+  events.forEach(e => { if (!e.country_tld) return; const l=COUNTRY_NAMES[e.country_tld]||e.country_tld; counts[l]=(counts[l]||0)+1; });
+  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  if (!sorted.length) { document.getElementById('chartCountry').parentElement.innerHTML='<div class="card-title">By Country</div><div class="empty">No country data yet</div>'; return; }
+  charts.country = new Chart(document.getElementById('chartCountry'), {
+    type: 'bar',
+    data: { labels:sorted.map(([l])=>l), datasets:[{ data:sorted.map(([,v])=>v), backgroundColor:'#0891b2', borderRadius:4 }] },
+    options: { indexAxis:'y', plugins:{ legend:{ display:false } }, scales:{ x:{ grid:{ color:'#f1f5f9' } }, y:{ ticks:{ font:{ size:10 } } } } }
+  });
+}
+
+function renderTimeline(events) {
+  destroyChart('timeline');
+  const byDay = {};
+  events.forEach(e => { const d=e.ts?.slice(0,10); if(d) byDay[d]=(byDay[d]||0)+1; });
+  const days = Object.keys(byDay).sort();
+  if (!days.length) return;
+  charts.timeline = new Chart(document.getElementById('chartTimeline'), {
+    type: 'line',
+    data: { labels:days, datasets:[{ data:days.map(d=>byDay[d]), borderColor:'#1d4ed8', backgroundColor:'rgba(29,78,216,0.08)', fill:true, tension:0.3, pointRadius:3 }] },
+    options: { plugins:{ legend:{ display:false } }, scales:{ x:{ ticks:{ font:{ size:10 }, maxTicksLimit:14 }, grid:{ display:false } }, y:{ ticks:{ font:{ size:10 } }, grid:{ color:'#f1f5f9' } } } }
+  });
+}
+
+function renderPhraseTable(events) {
+  const phrases = aggregatePhrases(events).slice(0, 50);
+  if (!phrases.length) { document.getElementById('phraseTableWrap').innerHTML='<div class="empty">No data yet.</div>'; return; }
+  const rows = phrases.map(p => `
+    <tr>
+      <td><div class="ph-phrase">${esc(p.phrase)}</div></td>
+      <td><span class="sev ${p.severity}">${p.severity}</span></td>
+      <td><span class="isic-tag">${esc(p.isic_label||'Unclassified')}</span></td>
+      <td class="ph-sub">${[...p.domains].slice(0,3).map(esc).join(', ')}${p.domains.size>3?` +${p.domains.size-3}`:''}</td>
+      <td class="ph-count">${p.count}</td>
+    </tr>`).join('');
+  document.getElementById('phraseTableWrap').innerHTML = `
+    <table class="phrase-table">
+      <thead><tr><th>Phrase</th><th>Severity</th><th>Sector</th><th>Domains</th><th style="text-align:right">Count</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+// ── View 2: By Sector ─────────────────────────────────────────────────────────
+function renderSectorView(events) {
+  // Full sector bar chart
+  destroyChart('isicFull');
+  const counts = {};
+  events.forEach(e => { const l=e.isic_label||'Unclassified'; counts[l]=(counts[l]||0)+1; });
+  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  charts.isicFull = new Chart(document.getElementById('chartIsicFull'), {
+    type: 'bar',
+    data: { labels:sorted.map(([l])=>l), datasets:[{ data:sorted.map(([,v])=>v), backgroundColor:sorted.map((_,i)=>CHART_PALETTE[i%CHART_PALETTE.length]), borderRadius:5 }] },
+    options: { plugins:{ legend:{ display:false } }, scales:{ x:{ ticks:{ font:{ size:11 }, maxRotation:35 }, grid:{ display:false } }, y:{ ticks:{ font:{ size:11 } }, grid:{ color:'#f1f5f9' } } } }
+  });
+
+  // Sector cards
+  const sectors = {};
+  events.forEach(e => {
+    const key = e.isic_section || '?';
+    if (!sectors[key]) sectors[key] = { section:key, label:e.isic_label||'Unclassified', count:0, sev:{critical:0,high:0,medium:0}, phrases:{} };
+    sectors[key].count++;
+    if (sectors[key].sev[e.severity] !== undefined) sectors[key].sev[e.severity]++;
+    const pk = e.normalized_phrase;
+    sectors[key].phrases[pk] = (sectors[key].phrases[pk]||{ phrase:e.phrase, count:0 });
+    sectors[key].phrases[pk].count++;
+  });
+
+  const sectorList = Object.values(sectors).sort((a,b)=>b.count-a.count);
+  if (!sectorList.length) { document.getElementById('sectorGrid').innerHTML='<div class="empty">No data yet.</div>'; return; }
+
+  document.getElementById('sectorGrid').innerHTML = sectorList.map(s => {
+    const topPhrases = Object.values(s.phrases).sort((a,b)=>b.count-a.count).slice(0,5);
+    const sevHtml = Object.entries(s.sev).filter(([,v])=>v>0).map(([k,v])=>`<span class="sev ${k}">${k} ${v}</span>`).join('');
+    const phraseHtml = topPhrases.map(p=>`<div class="sector-phrase-item"><span>${esc(p.phrase)}</span><span>${p.count}</span></div>`).join('');
+    return `
+      <div class="sector-card">
+        <div class="sector-card-header">
+          <span class="sector-code">${esc(s.section)}</span>
+          <span class="sector-name">${esc(s.label)}</span>
+        </div>
+        <div class="sector-count">${s.count}</div>
+        <div class="sector-count-lbl">confirmations</div>
+        <div class="sector-sev-row">${sevHtml}</div>
+        <div class="sector-phrase-list">${phraseHtml}</div>
+      </div>`;
+  }).join('');
+}
+
+// ── View 3: Phrase Share ──────────────────────────────────────────────────────
+function renderShareView(events) {
+  const phrases = aggregatePhrases(events);
+  const total   = events.length;
+  if (!phrases.length) { document.getElementById('shareTableWrap').innerHTML='<div class="empty">No data yet.</div>'; return; }
+
+  const rows = phrases.map((p, i) => {
+    const pct = total > 0 ? ((p.count / total) * 100) : 0;
+    const countries = [...p.countries].map(c=>COUNTRY_NAMES[c]||c).join(', ');
+    return `
+      <tr>
+        <td style="width:28px;color:var(--c-muted);font-size:11px;font-weight:700;text-align:right;padding-right:12px;">${i+1}</td>
+        <td><div class="ph-phrase">${esc(p.phrase)}</div><div class="ph-sub">${esc(p.translation||'')}</div></td>
+        <td><span class="sev ${p.severity}">${p.severity}</span></td>
+        <td><span class="isic-tag">${esc(p.isic_label||'Unclassified')}</span></td>
+        <td class="ph-sub" style="max-width:140px">${esc(countries)||'—'}</td>
+        <td>
+          <div class="share-bar-wrap">
+            <div class="share-bar-bg"><div class="share-bar-fill" style="width:${Math.min(pct*3,100)}%"></div></div>
+            <div class="share-pct">${pct.toFixed(1)}% &nbsp;·&nbsp; ${p.count} confirmations</div>
+          </div>
+        </td>
+      </tr>`;
+  }).join('');
+
+  document.getElementById('shareTableWrap').innerHTML = `
+    <table class="phrase-table">
+      <thead><tr>
+        <th style="width:28px">#</th>
+        <th>Phrase</th><th>Severity</th><th>Sector</th><th>Countries</th>
+        <th>Share of all flagged events</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+// ── Utilities ─────────────────────────────────────────────────────────────────
+function esc(str) {
+  return (str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Tab switching ─────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.view).classList.add('active');
+    render();
+  });
+});
+
+// ── Mode toggle ───────────────────────────────────────────────────────────────
+document.querySelectorAll('.mode-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    mode = btn.dataset.mode;
+    render();
+  });
+});
+
+// ── Filter changes ────────────────────────────────────────────────────────────
+['filterSeverity','filterIsic','filterCountry'].forEach(id =>
+  document.getElementById(id).addEventListener('change', render)
+);
+
+loadData();
+</script>
+</body>
+</html>
