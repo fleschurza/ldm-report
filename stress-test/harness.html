@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LDM-V3 Stress Test Harness</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --c-bg: #f8fafc; --c-surface: #fff; --c-border: #e2e8f0;
+      --c-text: #0f172a; --c-muted: #64748b; --c-accent: #1d4ed8;
+      --c-green: #16a34a; --c-red: #dc2626;
+    }
+    body { background: var(--c-bg); color: var(--c-text); font-family: system-ui, sans-serif; font-size: 13px; line-height: 1.6; }
+
+    header { background: #0f172a; color: #f1f5f9; padding: 24px 40px; border-bottom: 3px solid #1d4ed8; }
+    header h1 { font-size: 18px; font-weight: 700; }
+    header p  { color: #94a3b8; font-size: 12px; margin-top: 5px; }
+
+    .toolbar { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding: 10px 40px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .toolbar label { font-size: 11px; color: var(--c-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    select { border: 1px solid var(--c-border); border-radius: 6px; font-size: 12px; padding: 5px 10px; background: var(--c-bg); color: var(--c-text); cursor: pointer; }
+    .spacer { flex: 1; }
+    .clear-btn { background: none; border: 1px solid var(--c-border); border-radius: 6px; color: var(--c-muted); cursor: pointer; font-size: 11px; padding: 5px 12px; }
+    .clear-btn:hover { border-color: var(--c-red); color: var(--c-red); }
+    .export-btn { background: var(--c-accent); border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 11px; font-weight: 600; padding: 6px 14px; }
+    .export-btn:hover { background: #1e40af; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 28px 40px; display: flex; flex-direction: column; gap: 32px; }
+
+    /* Summary bar */
+    .summary { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 16px 24px; display: flex; gap: 32px; flex-wrap: wrap; align-items: center; }
+    .sum-stat .val { font-size: 26px; font-weight: 800; color: var(--c-accent); }
+    .sum-stat .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-muted); }
+    .sum-note { color: var(--c-muted); font-size: 11px; max-width: 400px; margin-left: auto; }
+
+    /* Sector group */
+    .sector-group { }
+    .sector-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .sector-code { background: #0f172a; border-radius: 5px; color: #94a3b8; font-size: 10px; font-weight: 800; letter-spacing: 0.05em; padding: 3px 8px; }
+    .sector-name { font-size: 13px; font-weight: 700; }
+    .sector-count { color: var(--c-muted); font-size: 11px; }
+
+    /* Site cards */
+    .site-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+    .site-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s; }
+    .site-card:hover { border-color: #93c5fd; }
+    .site-card.tested { border-color: #86efac; background: #f0fdf4; }
+    .site-card-top { display: flex; align-items: flex-start; gap: 10px; }
+    .site-name { font-weight: 700; font-size: 13px; flex: 1; }
+    .site-url  { color: var(--c-muted); font-size: 10px; word-break: break-all; }
+    .site-desc { color: var(--c-muted); font-size: 11px; }
+    .site-actions { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
+    .open-btn { background: var(--c-accent); border: none; border-radius: 5px; color: #fff; cursor: pointer; font-size: 11px; font-weight: 600; padding: 5px 12px; white-space: nowrap; }
+    .open-btn:hover { background: #1e40af; }
+    .result-input { border: 1px solid var(--c-border); border-radius: 5px; font-size: 11px; padding: 4px 8px; width: 64px; text-align: center; }
+    .result-input:focus { border-color: var(--c-accent); outline: none; }
+    .result-label { color: var(--c-muted); font-size: 10px; white-space: nowrap; }
+    .result-note  { border: 1px solid var(--c-border); border-radius: 5px; font-family: inherit; font-size: 10px; padding: 4px 8px; resize: none; width: 100%; color: var(--c-text); }
+    .result-note:focus { border-color: var(--c-accent); outline: none; }
+    .tested-badge { background: #dcfce7; border-radius: 4px; color: var(--c-green); font-size: 10px; font-weight: 700; padding: 2px 7px; }
+
+    /* Paste panel */
+    .paste-section { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 20px 24px; }
+    .paste-section h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--c-muted); margin-bottom: 12px; }
+    .paste-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 700px) { .paste-row { grid-template-columns: 1fr; } }
+    .paste-field { display: flex; flex-direction: column; gap: 6px; }
+    .paste-field label { font-size: 11px; font-weight: 600; color: var(--c-muted); }
+    textarea { background: var(--c-bg); border: 1px solid var(--c-border); border-radius: 6px; font-family: Georgia, serif; font-size: 12px; line-height: 1.6; padding: 10px 12px; resize: vertical; width: 100%; }
+    textarea:focus { border-color: var(--c-accent); outline: none; }
+    .paste-actions { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+    .paste-open-btn { background: var(--c-accent); border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: 600; padding: 7px 16px; }
+    .paste-open-btn:hover { background: #1e40af; }
+    .paste-msg { color: var(--c-muted); font-size: 11px; }
+
+    /* Results log */
+    .log-section { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 20px 24px; }
+    .log-section h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--c-muted); margin-bottom: 12px; }
+    .log-table { width: 100%; border-collapse: collapse; }
+    .log-table th { border-bottom: 2px solid var(--c-border); color: var(--c-muted); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 6px 10px; text-align: left; text-transform: uppercase; }
+    .log-table td { border-bottom: 1px solid var(--c-border); font-size: 12px; padding: 8px 10px; }
+    .log-table tr:last-child td { border-bottom: none; }
+    .log-empty { color: var(--c-muted); font-size: 12px; padding: 20px 0; text-align: center; }
+    .sev-pill { border-radius: 3px; font-size: 9px; font-weight: 700; padding: 1px 6px; text-transform: uppercase; }
+    .sev-pill.high { background: #fef3c7; color: #d97706; }
+    .sev-pill.medium { background: #dbeafe; color: #2563eb; }
+    .sev-pill.low { background: #f1f5f9; color: var(--c-muted); }
+
+    footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 20px; padding: 20px 40px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>LDM-V3 · Stress Test Harness</h1>
+  <p>Curated test sites across ISIC sectors. Open a page, let the extension scan, record the flag count and notes. Build a repeatable dataset over time.</p>
+</header>
+
+<div class="toolbar">
+  <label>Filter sector</label>
+  <select id="sectorFilter"><option value="">All sectors</option></select>
+  <div class="spacer"></div>
+  <button class="clear-btn" onclick="clearResults()">Clear all results</button>
+  <button class="export-btn" onclick="exportCSV()">Export CSV</button>
+</div>
+
+<main>
+
+  <div class="summary">
+    <div class="sum-stat"><div class="val" id="sumTested">0</div><div class="lbl">Sites tested</div></div>
+    <div class="sum-stat"><div class="val" id="sumFlags">0</div><div class="lbl">Total flags recorded</div></div>
+    <div class="sum-stat"><div class="val" id="sumSectors">0</div><div class="lbl">Sectors covered</div></div>
+    <div class="sum-note">Open a site, run the extension, then enter the flag count in the field below each card. Results are saved in your browser.</div>
+  </div>
+
+  <div id="siteGroups"></div>
+
+  <!-- Paste panel -->
+  <div class="paste-section">
+    <h3>Manual text test — paste any text to scan offline</h3>
+    <div class="paste-row">
+      <div class="paste-field">
+        <label>Source URL or description</label>
+        <textarea id="pasteSource" rows="2" placeholder="e.g. https://shell.com/report-2024.pdf — page 12"></textarea>
+      </div>
+      <div class="paste-field">
+        <label>Paste text to test</label>
+        <textarea id="pasteText" rows="2" placeholder="Paste the text you want the extension to scan…"></textarea>
+      </div>
+    </div>
+    <div class="paste-actions">
+      <button class="paste-open-btn" onclick="openPasteTest()">Open in test page →</button>
+      <span class="paste-msg" id="pasteMsg"></span>
+    </div>
+  </div>
+
+  <!-- Results log -->
+  <div class="log-section">
+    <h3>Results log</h3>
+    <div id="logWrap"><div class="log-empty">No results recorded yet. Open a site and enter the flag count.</div></div>
+  </div>
+
+</main>
+
+<footer>
+  LDM-V3 stress test harness · <a href="../index.html">← Back to report</a> · <a href="dense.html">Dense test page →</a>
+</footer>
+
+<script>
+// ── Site catalogue ────────────────────────────────────────────────────────────
+const SITES = [
+  // O — Public Administration & Defence / International
+  { id:'un-press',     sector:'O', sectorName:'Public Administration & Defence', url:'https://press.un.org/en', name:'UN Press Releases', desc:'Dense with governance euphemisms, security language, and humanitarian framing.' },
+  { id:'nato-news',    sector:'O', sectorName:'Public Administration & Defence', url:'https://www.nato.int/cps/en/natohq/news.htm', name:'NATO News', desc:'Military operational language, collective defence framing, deterrence doctrine.' },
+  { id:'dod-releases', sector:'O', sectorName:'Public Administration & Defence', url:'https://www.defense.gov/News/Releases/', name:'US DoD Press Releases', desc:'Kinetic operations, force protection, neutralisation, non-combatant language.' },
+  { id:'icrc-news',    sector:'O', sectorName:'Public Administration & Defence', url:'https://www.icrc.org/en/news', name:'ICRC News', desc:'IHL framing, protection of civilians, detention, armed conflict language.' },
+  { id:'un-ohchr',     sector:'O', sectorName:'Public Administration & Defence', url:'https://www.ohchr.org/en/news', name:'UN OHCHR News', desc:'Human rights language, structural violations, detention, population displacement.' },
+
+  // K — Finance & Insurance
+  { id:'imf-reports',  sector:'K', sectorName:'Finance & Insurance', url:'https://www.imf.org/en/Publications/CR', name:'IMF Country Reports', desc:'Structural adjustment, fiscal consolidation, conditionality, labour flexibility.' },
+  { id:'worldbank-pr', sector:'K', sectorName:'Finance & Insurance', url:'https://www.worldbank.org/en/news/press-release', name:'World Bank Press Releases', desc:'Poverty reduction, capacity building, good governance, human capital.' },
+  { id:'bis-speeches', sector:'K', sectorName:'Finance & Insurance', url:'https://www.bis.org/cbspeeches/', name:'BIS Central Bank Speeches', desc:'Financial stability, macroprudential, systemic risk, credit reallocation.' },
+
+  // B — Mining & Quarrying
+  { id:'shell-news',   sector:'B', sectorName:'Mining & Quarrying', url:'https://www.shell.com/news-and-insights/newsroom.html', name:'Shell Newsroom', desc:'Net zero commitments, carbon offsetting, natural capital, energy transition.' },
+  { id:'bp-news',      sector:'B', sectorName:'Mining & Quarrying', url:'https://www.bp.com/en/global/corporate/news-and-insights/press-releases.html', name:'BP Press Releases', desc:'Carbon neutrality, biodiversity net gain, Scope 3 emissions, greenwashing.' },
+  { id:'riotinto',     sector:'B', sectorName:'Mining & Quarrying', url:'https://www.riotinto.com/en/news', name:'Rio Tinto News', desc:'Resettlement, biodiversity offsetting, community engagement, tailings.' },
+  { id:'glencore',     sector:'B', sectorName:'Mining & Quarrying', url:'https://www.glencore.com/media-and-insights/news', name:'Glencore News', desc:'Responsible sourcing, supply chain due diligence, community impact.' },
+
+  // D — Energy Supply
+  { id:'iea-news',     sector:'D', sectorName:'Energy Supply', url:'https://www.iea.org/news', name:'IEA News', desc:'Energy security, transition pathways, carbon capture, tipping points.' },
+  { id:'irena-news',   sector:'D', sectorName:'Energy Supply', url:'https://www.irena.org/News', name:'IRENA News', desc:'Green growth, clean energy transition, nature-based solutions.' },
+  { id:'enel-press',   sector:'D', sectorName:'Energy Supply', url:'https://www.enel.com/media/press/d/2024', name:'Enel Press Releases', desc:'Net zero, circular economy, ecosystem services, carbon budget.' },
+
+  // C — Manufacturing
+  { id:'lockheed',     sector:'C', sectorName:'Manufacturing — Defence', url:'https://news.lockheedmartin.com/', name:'Lockheed Martin News', desc:'Precision engagement, force protection, deterrence, multi-domain operations.' },
+  { id:'boeing-def',   sector:'C', sectorName:'Manufacturing — Defence', url:'https://www.boeing.com/company/key-orgs/defense-space-security', name:'Boeing Defence', desc:'Lethality, sustainment, neutralisation, next-generation systems.' },
+  { id:'basf-press',   sector:'C', sectorName:'Manufacturing', url:'https://www.basf.com/global/en/media/news-releases.html', name:'BASF Press Releases', desc:'Chemical safety, biodiversity, circular economy, Scope 1/2/3 emissions.' },
+
+  // A — Agriculture, Forestry & Fishing
+  { id:'fao-news',     sector:'A', sectorName:'Agriculture, Forestry & Fishing', url:'https://www.fao.org/newsroom/en/', name:'FAO Newsroom', desc:'Food security, smallholder displacement, land rights, agri-food systems.' },
+  { id:'syngenta',     sector:'A', sectorName:'Agriculture, Forestry & Fishing', url:'https://www.syngenta.com/en/media-press-releases', name:'Syngenta Press Releases', desc:'Sustainable agriculture, crop protection, biodiversity, pesticide language.' },
+
+  // J — Information & Communication — Media
+  { id:'reuters',      sector:'J', sectorName:'Information & Communication — Media', url:'https://www.reuters.com/world/', name:'Reuters World News', desc:'Broad coverage — conflict, economics, climate. High phrase density.' },
+  { id:'bbc-world',    sector:'J', sectorName:'Information & Communication — Media', url:'https://www.bbc.com/news/world', name:'BBC World News', desc:'Mixed institutional language across conflict, policy, and corporate.' },
+  { id:'ft',           sector:'J', sectorName:'Information & Communication — Media', url:'https://www.ft.com/', name:'Financial Times', desc:'Finance, geopolitics, trade — high density of economic euphemisms.' },
+  { id:'bloomberg',    sector:'J', sectorName:'Information & Communication — Media', url:'https://www.bloomberg.com/news/', name:'Bloomberg News', desc:'Markets, sanctions, restructuring — financial and regulatory language.' },
+  { id:'aljazeera',    sector:'J', sectorName:'Information & Communication — Media', url:'https://www.aljazeera.com/', name:'Al Jazeera English', desc:'Conflict coverage — IHL language, displacement, civilian casualties.' },
+  { id:'guardian-env', sector:'J', sectorName:'Information & Communication — Media', url:'https://www.theguardian.com/environment', name:'The Guardian — Environment', desc:'Climate, planetary boundaries, greenwashing, biodiversity language.' },
+
+  // M — Professional & Scientific Services
+  { id:'mckinsey',     sector:'M', sectorName:'Professional & Scientific Services', url:'https://www.mckinsey.com/featured-insights', name:'McKinsey Insights', desc:'Workforce rationalisation, operational efficiency, human capital, restructuring.' },
+  { id:'wef',          sector:'M', sectorName:'Professional & Scientific Services', url:'https://www.weforum.org/agenda/', name:'World Economic Forum Agenda', desc:'Multi-stakeholder governance, systemic risk, great reset, resilience framing.' },
+
+  // Q — Human Health & Social Work
+  { id:'who-news',     sector:'Q', sectorName:'Human Health & Social Work', url:'https://www.who.int/news', name:'WHO News', desc:'Health security, essential medicines, mortality data, humanitarian exemptions.' },
+  { id:'msf',          sector:'Q', sectorName:'Human Health & Social Work', url:'https://www.msf.org/news', name:'MSF (Doctors Without Borders)', desc:'Medical access, conflict zones, civilian harm, detention health.' },
+
+  // P — Education
+  { id:'worldbank-edu',sector:'P', sectorName:'Education', url:'https://www.worldbank.org/en/topic/education', name:'World Bank Education', desc:'Human capital, learning poverty, skills transition, labour market.' },
+];
+
+// ── State ────────────────────────────────────────────────────────────────────
+let results = JSON.parse(localStorage.getItem('ldm_harness_results') || '{}');
+
+function saveResults() { localStorage.setItem('ldm_harness_results', JSON.stringify(results)); }
+
+// ── Build UI ──────────────────────────────────────────────────────────────────
+function buildSectorFilter() {
+  const sectors = [...new Map(SITES.map(s => [s.sector, s.sectorName])).entries()].sort((a,b)=>a[0].localeCompare(b[0]));
+  const sel = document.getElementById('sectorFilter');
+  sectors.forEach(([code, name]) => {
+    const o = document.createElement('option');
+    o.value = code; o.textContent = `${code} — ${name}`;
+    sel.appendChild(o);
+  });
+  sel.addEventListener('change', buildSiteGroups);
+}
+
+function buildSiteGroups() {
+  const filter = document.getElementById('sectorFilter').value;
+  const sites  = filter ? SITES.filter(s => s.sector === filter) : SITES;
+
+  // Group by sector
+  const groups = {};
+  sites.forEach(s => {
+    if (!groups[s.sector]) groups[s.sector] = { name: s.sectorName, sites: [] };
+    groups[s.sector].sites.push(s);
+  });
+
+  document.getElementById('siteGroups').innerHTML = Object.entries(groups)
+    .sort((a,b) => a[0].localeCompare(b[0]))
+    .map(([code, g]) => `
+      <div class="sector-group" style="margin-bottom:28px">
+        <div class="sector-header">
+          <span class="sector-code">${esc(code)}</span>
+          <span class="sector-name">${esc(g.name)}</span>
+          <span class="sector-count">${g.sites.length} sites</span>
+        </div>
+        <div class="site-grid">${g.sites.map(siteCard).join('')}</div>
+      </div>`).join('');
+
+  updateSummary();
+}
+
+function siteCard(s) {
+  const r = results[s.id] || {};
+  const tested = r.flags !== undefined;
+  return `
+    <div class="site-card${tested ? ' tested' : ''}" id="card-${s.id}">
+      <div class="site-card-top">
+        <div>
+          <div class="site-name">${esc(s.name)} ${tested ? '<span class="tested-badge">✓ tested</span>' : ''}</div>
+          <div class="site-url">${esc(s.url)}</div>
+        </div>
+      </div>
+      <div class="site-desc">${esc(s.desc)}</div>
+      <div class="site-actions">
+        <button class="open-btn" onclick="openSite('${s.id}','${esc(s.url)}')">Open & test ↗</button>
+        <input class="result-input" type="number" min="0" placeholder="flags"
+          value="${r.flags !== undefined ? r.flags : ''}"
+          onchange="recordFlags('${s.id}', this.value)"
+          title="Enter the number of flags the extension detected">
+        <span class="result-label">flags detected</span>
+      </div>
+      <textarea class="result-note" rows="2" placeholder="Notes (optional — e.g. which phrases stood out, false positives…)"
+        onchange="recordNote('${s.id}', this.value)">${esc(r.note || '')}</textarea>
+    </div>`;
+}
+
+// ── Actions ───────────────────────────────────────────────────────────────────
+function openSite(id, url) {
+  window.open(url, '_blank');
+  if (!results[id]) results[id] = {};
+  results[id].openedAt = new Date().toISOString();
+  results[id].url = SITES.find(s=>s.id===id)?.url || url;
+  results[id].name = SITES.find(s=>s.id===id)?.name || id;
+  results[id].sector = SITES.find(s=>s.id===id)?.sectorName || '';
+  saveResults();
+}
+
+function recordFlags(id, val) {
+  if (!results[id]) results[id] = {};
+  results[id].flags = parseInt(val) || 0;
+  results[id].name = SITES.find(s=>s.id===id)?.name || id;
+  results[id].url  = SITES.find(s=>s.id===id)?.url || '';
+  results[id].sector = SITES.find(s=>s.id===id)?.sectorName || '';
+  results[id].testedAt = new Date().toISOString();
+  saveResults();
+  document.getElementById(`card-${id}`)?.classList.add('tested');
+  updateSummary();
+  renderLog();
+}
+
+function recordNote(id, val) {
+  if (!results[id]) results[id] = {};
+  results[id].note = val;
+  saveResults();
+}
+
+function clearResults() {
+  if (!confirm('Clear all recorded results?')) return;
+  results = {};
+  saveResults();
+  buildSiteGroups();
+  renderLog();
+}
+
+function updateSummary() {
+  const tested  = Object.values(results).filter(r => r.flags !== undefined);
+  const flags   = tested.reduce((a,r) => a + (r.flags||0), 0);
+  const sectors = new Set(SITES.filter(s => results[s.id]?.flags !== undefined).map(s=>s.sector));
+  document.getElementById('sumTested').textContent  = tested.length;
+  document.getElementById('sumFlags').textContent   = flags;
+  document.getElementById('sumSectors').textContent = sectors.size;
+}
+
+function renderLog() {
+  const rows = Object.values(results)
+    .filter(r => r.flags !== undefined)
+    .sort((a,b) => (b.testedAt||'').localeCompare(a.testedAt||''));
+
+  if (!rows.length) {
+    document.getElementById('logWrap').innerHTML = '<div class="log-empty">No results recorded yet.</div>';
+    return;
+  }
+
+  const flagValues = rows.map(r=>r.flags).filter(v=>v>0);
+  const avg = flagValues.length ? Math.round(flagValues.reduce((a,b)=>a+b,0)/flagValues.length) : 0;
+
+  const tableRows = rows.map(r => {
+    const level = r.flags >= 10 ? 'high' : r.flags >= 3 ? 'medium' : 'low';
+    return `<tr>
+      <td><strong>${esc(r.name||r.url)}</strong></td>
+      <td style="color:var(--c-muted);font-size:11px">${esc(r.sector||'')}</td>
+      <td><span class="sev-pill ${level}">${r.flags} flags</span></td>
+      <td style="color:var(--c-muted);font-size:11px">${r.testedAt ? new Date(r.testedAt).toLocaleString() : '—'}</td>
+      <td style="color:var(--c-muted);font-size:11px;max-width:200px">${esc(r.note||'')}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('logWrap').innerHTML = `
+    <p style="color:var(--c-muted);font-size:11px;margin-bottom:12px">Average flags per tested site: <strong>${avg}</strong></p>
+    <table class="log-table">
+      <thead><tr><th>Site</th><th>Sector</th><th>Flags</th><th>Tested</th><th>Notes</th></tr></thead>
+      <tbody>${tableRows}</tbody>
+    </table>`;
+}
+
+// ── Paste test ────────────────────────────────────────────────────────────────
+function openPasteTest() {
+  const text = document.getElementById('pasteText').value.trim();
+  const src  = document.getElementById('pasteSource').value.trim();
+  if (!text) { document.getElementById('pasteMsg').textContent = 'Paste some text first.'; return; }
+  // Store in sessionStorage and open dense.html which will pick it up
+  sessionStorage.setItem('ldm_paste_text', text);
+  sessionStorage.setItem('ldm_paste_source', src);
+  // Open a blank page with the text injected
+  const win = window.open('', '_blank');
+  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>LDM Paste Test — ${esc(src)}</title>
+    <style>body{font-family:Georgia,serif;font-size:15px;line-height:1.8;max-width:800px;margin:40px auto;padding:0 24px;color:#0f172a;}
+    .meta{font-family:system-ui;font-size:11px;color:#64748b;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid #e2e8f0;}
+    </style></head><body>
+    <div class="meta">LDM-V3 Paste Test · Source: ${esc(src)} · ${new Date().toLocaleString()}</div>
+    <div id="content">${esc(text).replace(/\n/g,'<br>')}</div>
+    </body></html>`);
+  win.document.close();
+  document.getElementById('pasteMsg').textContent = 'Opened — check the extension flags on the new tab.';
+  setTimeout(() => { document.getElementById('pasteMsg').textContent = ''; }, 4000);
+}
+
+// ── Export CSV ────────────────────────────────────────────────────────────────
+function exportCSV() {
+  const rows = Object.values(results).filter(r => r.flags !== undefined);
+  if (!rows.length) { alert('No results to export yet.'); return; }
+  const header = 'Site,Sector,URL,Flags,Tested at,Notes';
+  const lines  = rows.map(r =>
+    [r.name||'', r.sector||'', r.url||'', r.flags||0, r.testedAt||'', (r.note||'').replace(/"/g,"'")]
+      .map(v => `"${v}"`).join(',')
+  );
+  const csv  = [header, ...lines].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a    = document.createElement('a');
+  a.href     = URL.createObjectURL(blob);
+  a.download = `ldm-stress-test-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
+function esc(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+buildSectorFilter();
+buildSiteGroups();
+renderLog();
+</script>
+</body>
+</html>
