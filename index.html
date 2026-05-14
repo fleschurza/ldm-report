@@ -101,6 +101,29 @@
 
     .empty { color: var(--c-muted); font-size: 13px; padding: 32px 0; text-align: center; }
 
+    /* ── Risk score badge ── */
+    .risk-badge { display: inline-flex; align-items: baseline; gap: 3px; }
+    .risk-num { font-size: 22px; font-weight: 800; line-height: 1; }
+    .risk-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--c-muted); }
+    .risk-high   { color: #dc2626; }
+    .risk-mod    { color: #d97706; }
+    .risk-low    { color: #2563eb; }
+    .risk-none   { color: #94a3b8; }
+
+    /* ── Site ratings table ── */
+    .ratings-table { width: 100%; border-collapse: collapse; }
+    .ratings-table th { border-bottom: 2px solid var(--c-border); color: var(--c-muted); font-size: 10px; font-weight: 700; letter-spacing: 0.07em; padding: 8px 10px; text-align: left; text-transform: uppercase; }
+    .ratings-table td { border-bottom: 1px solid var(--c-border); font-size: 13px; padding: 9px 10px; vertical-align: middle; }
+    .ratings-table tr:last-child td { border-bottom: none; }
+    .ratings-table tr:hover td { background: #f8fafc; }
+    .rt-domain { font-weight: 600; font-size: 12px; }
+    .rt-sub    { color: var(--c-muted); font-size: 10px; margin-top: 1px; }
+    .rt-risk   { font-size: 18px; font-weight: 800; text-align: right; }
+    .rt-num    { color: var(--c-muted); font-size: 12px; font-weight: 600; text-align: right; }
+    .risk-bar-wrap { min-width: 80px; }
+    .risk-bar-bg   { background: #f1f5f9; border-radius: 3px; height: 5px; overflow: hidden; }
+    .risk-bar-fill { border-radius: 3px; height: 5px; transition: width 0.4s; }
+
     footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 20px; padding: 20px 40px; text-align: center; }
     footer a { color: var(--c-accent); text-decoration: none; }
   </style>
@@ -122,6 +145,7 @@
   <div class="tab active" data-view="v1">Overview</div>
   <div class="tab" data-view="v2">By Sector</div>
   <div class="tab" data-view="v3">Phrase Share</div>
+  <div class="tab" data-view="v4">Site Ratings</div>
 </div>
 
 <div class="toolbar">
@@ -172,6 +196,26 @@
     <div class="card">
       <div class="card-title">Phrase share of all flagged events</div>
       <div id="shareTableWrap"><div class="empty">Loading…</div></div>
+    </div>
+  </main>
+</div>
+
+<!-- View 4: Site Ratings -->
+<div id="v4" class="view">
+  <main>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Risk score by sector</div>
+        <div id="sectorRiskWrap"><div class="empty">Loading…</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Risk score by country</div>
+        <div id="countryRiskWrap"><div class="empty">Loading…</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Site ratings — risk score &amp; phrase density per domain</div>
+      <div id="siteRatingsWrap"><div class="empty">Loading…</div></div>
     </div>
   </main>
 </div>
@@ -282,6 +326,28 @@ function populateFilters() {
     countries.map(c => `<option value="${c}">${COUNTRY_NAMES[c] || c}</option>`).join('');
 }
 
+// ── Risk score helpers ────────────────────────────────────────────────────────
+function computeRiskScore(events) {
+  return events.reduce((s, e) => {
+    if (e.severity === 'critical') return s + 10;
+    if (e.severity === 'high')     return s + 4;
+    return s + 1;
+  }, 0);
+}
+
+function riskClass(score) {
+  if (score >= 50)  return 'risk-high';
+  if (score >= 15)  return 'risk-mod';
+  if (score > 0)    return 'risk-low';
+  return 'risk-none';
+}
+
+function riskBarColor(score) {
+  if (score >= 50)  return '#dc2626';
+  if (score >= 15)  return '#d97706';
+  return '#2563eb';
+}
+
 // ── Aggregate helpers ─────────────────────────────────────────────────────────
 function aggregatePhrases(events) {
   const map = {};
@@ -308,6 +374,7 @@ function render() {
   if (activeView === 'v1') renderOverview(events);
   if (activeView === 'v2') renderSectorView(events);
   if (activeView === 'v3') renderShareView(events);
+  if (activeView === 'v4') renderRatingsView(events);
 }
 
 // ── Header stats ──────────────────────────────────────────────────────────────
@@ -435,14 +502,18 @@ function renderSectorView(events) {
     const topPhrases = Object.values(s.phrases).sort((a,b)=>b.count-a.count).slice(0,5);
     const sevHtml = Object.entries(s.sev).filter(([,v])=>v>0).map(([k,v])=>`<span class="sev ${k}">${k} ${v}</span>`).join('');
     const phraseHtml = topPhrases.map(p=>`<div class="sector-phrase-item"><span>${esc(p.phrase)}</span><span>${p.count}</span></div>`).join('');
+    const risk = s.sev.critical*10 + s.sev.high*4 + s.sev.medium;
+    const rc = riskClass(risk);
     return `
       <div class="sector-card">
         <div class="sector-card-header">
           <span class="sector-code">${esc(s.section)}</span>
           <span class="sector-name">${esc(s.label)}</span>
         </div>
-        <div class="sector-count">${s.count}</div>
-        <div class="sector-count-lbl">confirmations</div>
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:2px;">
+          <div><div class="sector-count">${s.count}</div><div class="sector-count-lbl">confirmations</div></div>
+          <div><div class="sector-count ${rc}" style="font-size:18px;">${risk}</div><div class="sector-count-lbl">risk score</div></div>
+        </div>
         <div class="sector-sev-row">${sevHtml}</div>
         <div class="sector-phrase-list">${phraseHtml}</div>
       </div>`;
@@ -483,6 +554,104 @@ function renderShareView(events) {
       </tr></thead>
       <tbody>${rows}</tbody>
     </table>`;
+}
+
+// ── View 4: Site Ratings ──────────────────────────────────────────────────────
+function renderRatingsView(events) {
+  // ── Sector risk table ──
+  const sectorMap = {};
+  events.forEach(e => {
+    const k = e.isic_section || '?';
+    if (!sectorMap[k]) sectorMap[k] = { label: e.isic_label || 'Unclassified', events: [] };
+    sectorMap[k].events.push(e);
+  });
+  const sectorList = Object.entries(sectorMap)
+    .map(([code, s]) => ({ code, label: s.label, risk: computeRiskScore(s.events), count: s.events.length, phrases: new Set(s.events.map(e=>e.normalized_phrase)).size }))
+    .sort((a, b) => b.risk - a.risk);
+  const maxSectorRisk = sectorList[0]?.risk || 1;
+  document.getElementById('sectorRiskWrap').innerHTML = sectorList.length ? `
+    <table class="ratings-table">
+      <thead><tr><th>Sector</th><th style="text-align:right">Risk</th><th style="text-align:right">Confirms</th><th style="text-align:right">Phrases</th></tr></thead>
+      <tbody>${sectorList.map(s => `
+        <tr>
+          <td><div class="rt-domain">${esc(s.label)}</div><div class="rt-sub">${esc(s.code)}</div></td>
+          <td class="rt-risk ${riskClass(s.risk)}">${s.risk}</td>
+          <td class="rt-num">${s.count}</td>
+          <td class="rt-num">${s.phrases}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>` : '<div class="empty">No data yet.</div>';
+
+  // ── Country risk table ──
+  const countryMap = {};
+  events.forEach(e => {
+    if (!e.country_tld) return;
+    if (!countryMap[e.country_tld]) countryMap[e.country_tld] = [];
+    countryMap[e.country_tld].push(e);
+  });
+  const countryList = Object.entries(countryMap)
+    .map(([code, evs]) => ({ code, name: COUNTRY_NAMES[code] || code, risk: computeRiskScore(evs), count: evs.length, phrases: new Set(evs.map(e=>e.normalized_phrase)).size }))
+    .sort((a, b) => b.risk - a.risk);
+  const maxCountryRisk = countryList[0]?.risk || 1;
+  document.getElementById('countryRiskWrap').innerHTML = countryList.length ? `
+    <table class="ratings-table">
+      <thead><tr><th>Country</th><th style="text-align:right">Risk</th><th style="text-align:right">Confirms</th><th style="text-align:right">Phrases</th></tr></thead>
+      <tbody>${countryList.map(c => `
+        <tr>
+          <td><div class="rt-domain">${esc(c.name)}</div><div class="rt-sub">${esc(c.code)}</div></td>
+          <td class="rt-risk ${riskClass(c.risk)}">${c.risk}</td>
+          <td class="rt-num">${c.count}</td>
+          <td class="rt-num">${c.phrases}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>` : '<div class="empty">No country data yet.</div>';
+
+  // ── Site ratings table ──
+  const domainMap = {};
+  events.forEach(e => {
+    if (!e.domain) return;
+    if (!domainMap[e.domain]) domainMap[e.domain] = { events: [], sectors: new Set() };
+    domainMap[e.domain].events.push(e);
+    if (e.isic_label) domainMap[e.domain].sectors.add(e.isic_label);
+  });
+  const siteList = Object.entries(domainMap).map(([domain, d]) => {
+    const risk = computeRiskScore(d.events);
+    const phrases = new Set(d.events.map(e => e.normalized_phrase)).size;
+    const density = phrases > 0 ? Math.round((d.events.length / phrases) * 10) / 10 : 0;
+    const topSev = d.events.some(e=>e.severity==='critical') ? 'critical' : d.events.some(e=>e.severity==='high') ? 'high' : 'medium';
+    const country = d.events.find(e=>e.country_tld)?.country_tld || '';
+    return { domain, risk, phrases, density, count: d.events.length, topSev, country, sectors: [...d.sectors].slice(0,2).join(', ') };
+  }).sort((a, b) => b.risk - a.risk);
+
+  const maxRisk = siteList[0]?.risk || 1;
+  document.getElementById('siteRatingsWrap').innerHTML = siteList.length ? `
+    <table class="ratings-table">
+      <thead><tr>
+        <th>#</th><th>Domain</th><th>Top Sev</th><th>Sector(s)</th>
+        <th style="text-align:right">Risk Score</th>
+        <th style="text-align:right">Phrases</th>
+        <th style="text-align:right">Density</th>
+      </tr></thead>
+      <tbody>${siteList.map((s, i) => `
+        <tr>
+          <td style="color:var(--c-muted);font-size:11px;font-weight:700;text-align:right;padding-right:12px;">${i+1}</td>
+          <td>
+            <div class="rt-domain">${esc(s.domain)}</div>
+            <div class="rt-sub">${s.country ? (COUNTRY_NAMES[s.country]||s.country) : ''}</div>
+          </td>
+          <td><span class="sev ${s.topSev}">${s.topSev}</span></td>
+          <td class="rt-sub" style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(s.sectors)||'—'}</td>
+          <td>
+            <div class="risk-bar-wrap">
+              <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:${Math.round((s.risk/maxRisk)*100)}%;background:${riskBarColor(s.risk)};"></div></div>
+              <div class="rt-risk ${riskClass(s.risk)}" style="font-size:15px;">${s.risk}</div>
+            </div>
+          </td>
+          <td class="rt-num">${s.phrases}</td>
+          <td class="rt-num" title="confirmations per unique phrase">${s.density}×</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>` : '<div class="empty">No domain data yet.</div>';
 }
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
