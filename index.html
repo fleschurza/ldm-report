@@ -299,15 +299,18 @@ async function loadData() {
 }
 
 // ── Mode & filters ────────────────────────────────────────────────────────────
+const EXCLUDED_DOMAINS = ['fleschurza.github.io'];
+
 function activeEvents() {
   const base = mode === 'confirmed'  ? confirmedEvents
              : mode === 'dismissed'  ? dismissedEvents
-             : detectedEvents; // 'detected'
+             : detectedEvents;
 
   const sev     = document.getElementById('filterSeverity').value;
   const isic    = document.getElementById('filterIsic').value;
   const country = document.getElementById('filterCountry').value;
   return base.filter(e =>
+    !EXCLUDED_DOMAINS.includes(e.domain) &&
     (!sev     || e.severity     === sev)  &&
     (!isic    || e.isic_section === isic) &&
     (!country || e.country_tld  === country)
