@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LDM-V3 — Global Institutional Language Intelligence Report</title>
+  <title>unmask.tools — Language Detection Intelligence Report</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,17 +14,18 @@
       --c-border:   #e2e8f0;
       --c-text:     #0f172a;
       --c-muted:    #64748b;
-      --c-accent:   #1d4ed8;
+      --c-accent:   #009EDB;
       --c-critical: #dc2626;
       --c-high:     #d97706;
-      --c-medium:   #2563eb;
+      --c-medium:   #0369a1;
     }
 
     body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
 
     /* ── Header ── */
-    header { background: #0f172a; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #1d4ed8; }
+    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
     header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .accent { color: #009EDB; font-weight: 400; }
     header p  { color: #94a3b8; font-size: 12px; margin-top: 5px; max-width: 640px; }
     .header-meta { display: flex; gap: 28px; margin-top: 16px; flex-wrap: wrap; }
     .header-stat .val { font-size: 26px; font-weight: 800; color: #f1f5f9; letter-spacing: -0.03em; }
@@ -46,7 +47,7 @@
     .mode-btn.active { background: var(--c-surface); box-shadow: 0 1px 3px rgba(0,0,0,0.1); color: var(--c-accent); }
     .spacer { flex: 1; }
     .refresh-btn { background: var(--c-accent); border: none; border-radius: 6px; color: #fff; cursor: pointer; font-size: 12px; font-weight: 600; padding: 6px 14px; }
-    .refresh-btn:hover { background: #1e40af; }
+    .refresh-btn:hover { background: #0077a8; }
     #lastUpdated { color: var(--c-muted); font-size: 11px; }
 
     /* ── Views ── */
@@ -142,7 +143,7 @@
 <body>
 
 <header>
-  <h1>LDM-V3 · Global Institutional Language Intelligence</h1>
+  <h1>unmask<span class="accent">.tools</span> · Language Detection Intelligence</h1>
   <p>Community-confirmed euphemisms that abstract physical harm to people — anchored in international humanitarian law, the Rome Statute, and Planetary Boundaries science.</p>
   <div class="header-meta">
     <div class="header-stat"><div class="val" id="hDetected">—</div><div class="lbl">Detected</div></div>
