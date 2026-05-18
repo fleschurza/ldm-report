@@ -334,7 +334,7 @@ async function loadData() {
 }
 
 // ── Mode & filters ────────────────────────────────────────────────────────────
-const EXCLUDED_DOMAINS = ['fleschurza.github.io'];
+const EXCLUDED_DOMAINS = ['fleschurza.github.io', 'unmask.tools', 'www.unmask.tools'];
 
 function activeEvents() {
   const base = mode === 'confirmed'  ? confirmedEvents
@@ -518,17 +518,22 @@ function renderTimeline(events) {
 function renderPhraseTable(events) {
   const phrases = aggregatePhrases(events).slice(0, 50);
   if (!phrases.length) { document.getElementById('phraseTableWrap').innerHTML='<div class="empty">No data yet.</div>'; return; }
-  const rows = phrases.map(p => `
-    <tr>
+  const rows = phrases.map(p => {
+    const domainCount = p.domains.size;
+    const domainList  = [...p.domains].slice(0, 2).map(esc).join(', ');
+    const domainMore  = domainCount > 2 ? ` <span style="color:#64748b">+${domainCount-2}</span>` : '';
+    const domainCountBadge = `<span style="display:inline-block;background:rgba(0,158,219,0.15);border:1px solid rgba(0,158,219,0.25);border-radius:4px;color:#009EDB;font-size:10px;font-weight:700;padding:1px 6px;margin-right:5px;">${domainCount}</span>`;
+    return `<tr>
       <td><div class="ph-phrase">${esc(p.phrase)}</div></td>
       <td><span class="sev ${p.severity}">${p.severity}</span></td>
       <td><span class="isic-tag">${esc(p.isic_label||'Unclassified')}</span></td>
-      <td class="ph-sub">${[...p.domains].slice(0,3).map(esc).join(', ')}${p.domains.size>3?` +${p.domains.size-3}`:''}</td>
+      <td>${domainCountBadge}<span class="ph-sub">${domainList}${domainMore}</span></td>
       <td class="ph-count">${p.count}</td>
-    </tr>`).join('');
+    </tr>`;
+  }).join('');
   document.getElementById('phraseTableWrap').innerHTML = `
     <table class="phrase-table">
-      <thead><tr><th>Phrase</th><th>Severity</th><th>Sector</th><th>Domains</th><th style="text-align:right">Count</th></tr></thead>
+      <thead><tr><th>Phrase</th><th>Severity</th><th>Sector</th><th>Domains</th><th style="text-align:right">Confirmations</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>`;
 }
