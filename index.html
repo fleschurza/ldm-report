@@ -138,6 +138,41 @@
     .grid-sev-time { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
     @media (max-width: 900px) { .grid-sev-time { grid-template-columns: 1fr; } }
     .card canvas.tall { max-height: 300px; }
+
+    /* ── Mobile responsive ── */
+    @media (max-width: 600px) {
+      header { padding: 18px 16px 16px; }
+      header h1 { font-size: 16px; }
+      .header-meta { gap: 16px; margin-top: 12px; }
+      .header-stat .val { font-size: 20px; }
+
+      .tabbar { padding: 0 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 0; }
+      .tabbar::-webkit-scrollbar { display: none; }
+      .tab { font-size: 11px; padding: 11px 12px 9px; white-space: nowrap; flex-shrink: 0; }
+
+      .toolbar { padding: 8px 16px; gap: 8px; }
+      .spacer { display: none; }
+      #lastUpdated { font-size: 10px; }
+
+      main { padding: 16px; gap: 16px; }
+
+      .card { padding: 14px 14px; }
+
+      /* Tables scroll horizontally instead of overflowing */
+      .phrase-table, .ratings-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+      /* Hide less important table columns on small screens */
+      .phrase-table th:nth-child(4),
+      .phrase-table td:nth-child(4),
+      .ratings-table th:nth-child(4),
+      .ratings-table td:nth-child(4) { display: none; }
+
+      .share-bar-wrap { min-width: 80px; }
+
+      .sector-grid { grid-template-columns: 1fr; }
+
+      footer { padding: 16px; font-size: 10px; }
+    }
   </style>
 </head>
 <body>
@@ -601,12 +636,15 @@ function renderShareView(events) {
   const rows = phrases.map((p, i) => {
     const pct = total > 0 ? ((p.count / total) * 100) : 0;
     const countries = [...p.countries].map(c=>COUNTRY_NAMES[c]||c).join(', ');
+    const domainCount = p.domains.size;
+    const domainCountBadge = `<span style="display:inline-block;background:rgba(0,158,219,0.15);border:1px solid rgba(0,158,219,0.25);border-radius:4px;color:#009EDB;font-size:10px;font-weight:700;padding:1px 6px;">${domainCount}</span>`;
     return `
       <tr>
         <td style="width:28px;color:var(--c-muted);font-size:11px;font-weight:700;text-align:right;padding-right:12px;">${i+1}</td>
         <td><div class="ph-phrase">${esc(p.phrase)}</div><div class="ph-sub">${esc(p.translation||'')}</div></td>
         <td><span class="sev ${p.severity}">${p.severity}</span></td>
         <td><span class="isic-tag">${esc(p.isic_label||'Unclassified')}</span></td>
+        <td style="text-align:center">${domainCountBadge}</td>
         <td class="ph-sub" style="max-width:140px">${esc(countries)||'—'}</td>
         <td>
           <div class="share-bar-wrap">
@@ -621,7 +659,7 @@ function renderShareView(events) {
     <table class="phrase-table">
       <thead><tr>
         <th style="width:28px">#</th>
-        <th>Phrase</th><th>Severity</th><th>Sector</th><th>Countries</th>
+        <th>Phrase</th><th>Severity</th><th>Sector</th><th style="text-align:center">Domains</th><th>Countries</th>
         <th>Share of all flagged events</th>
       </tr></thead>
       <tbody>${rows}</tbody>
