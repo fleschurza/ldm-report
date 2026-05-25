@@ -464,6 +464,7 @@
 
 <script>
 const SUPABASE_URL    = 'https://ghoriibggfxahkkvvkpi.supabase.co';
+const SUPABASE_ANON   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdob3JpaWJnZ2Z4YWhra3Z2a3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NDcxOTAsImV4cCI6MjA5NDMyMzE5MH0.MGsBEnM3J7vNSS-9M1GtxmEtHPOVKvfiVZt8oMBPECI';
 const VERIFY_ENDPOINT = `${SUPABASE_URL}/functions/v1/verify-key`;
 
 // ── Prompt content ────────────────────────────────────────────────────────────
@@ -794,7 +795,7 @@ async function unlockWithKey(key) {
   try {
     const res  = await fetch(VERIFY_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_ANON}` },
       body: JSON.stringify({ key }),
     });
     const data = await res.json();
