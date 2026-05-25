@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — API & Pricing</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:       #f8fafc;
+      --c-surface:  #ffffff;
+      --c-border:   #e2e8f0;
+      --c-text:     #0f172a;
+      --c-muted:    #64748b;
+      --c-accent:   #009EDB;
+      --c-critical: #dc2626;
+      --c-high:     #d97706;
+      --c-medium:   #0369a1;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+    /* ── Header ── */
+    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .accent { color: #009EDB; font-weight: 400; }
+    header p { color: #94a3b8; font-size: 12px; margin-top: 5px; max-width: 640px; }
+    nav { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a { color: #94a3b8; font-size: 12px; text-decoration: none; }
+    nav a:hover { color: #009EDB; }
+    nav a.active { color: #009EDB; }
+
+    /* ── Layout ── */
+    main { max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; }
+    section { margin-bottom: 56px; }
+    h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.01em; }
+    h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    p { color: var(--c-muted); margin-bottom: 12px; line-height: 1.7; }
+
+    /* ── Activation banner ── */
+    .banner { background: #dcfce7; border: 1px solid #86efac; border-radius: 8px; padding: 16px 20px; margin-bottom: 32px; display: none; }
+    .banner.show { display: block; }
+    .banner strong { color: #15803d; }
+    .banner p { color: #166534; margin: 4px 0 0; }
+
+    /* ── Pricing grid ── */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+    .tier-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+    }
+    .tier-card.featured {
+      border-color: #009EDB;
+      box-shadow: 0 0 0 1px #009EDB;
+    }
+    .tier-card .badge {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #009EDB;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 2px 10px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .tier-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-muted); }
+    .tier-price { font-size: 32px; font-weight: 800; letter-spacing: -0.03em; color: var(--c-text); line-height: 1; }
+    .tier-price span { font-size: 14px; font-weight: 400; color: var(--c-muted); }
+    .tier-features { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .tier-features li { font-size: 13px; color: var(--c-text); display: flex; align-items: flex-start; gap: 8px; }
+    .tier-features li::before { content: '✓'; color: #009EDB; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .tier-features li.muted { color: var(--c-muted); }
+    .tier-features li.muted::before { color: var(--c-border); }
+
+    .btn {
+      display: block;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: #009EDB; color: #fff; }
+    .btn-outline { background: transparent; border: 1px solid var(--c-border); color: var(--c-text); }
+
+    /* ── Free registration form ── */
+    .register-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 28px;
+      max-width: 480px;
+    }
+    .form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-row label { font-size: 12px; font-weight: 600; color: var(--c-text); }
+    .form-row input, .form-row select, .form-row textarea {
+      border: 1px solid var(--c-border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--c-text);
+      background: var(--c-bg);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: #009EDB; }
+    .form-row textarea { resize: vertical; min-height: 72px; }
+    .form-note { font-size: 11px; color: var(--c-muted); margin-top: 4px; }
+    #register-result { margin-top: 16px; font-size: 13px; display: none; }
+    #register-result.success { color: #15803d; }
+    #register-result.error   { color: #dc2626; }
+
+    /* ── API docs ── */
+    .code-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+    .code-block .comment { color: #64748b; }
+    .code-block .key     { color: #7dd3fc; }
+    .code-block .val     { color: #86efac; }
+    .code-block .str     { color: #fde68a; }
+    .code-block .kw      { color: #c084fc; }
+
+    .endpoint-badge {
+      display: inline-block;
+      background: #009EDB;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 8px;
+      font-family: monospace;
+    }
+    .endpoint-url { font-family: monospace; font-size: 13px; color: var(--c-text); }
+
+    .response-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 16px; }
+    .response-table th { text-align: left; padding: 8px 12px; background: #f1f5f9; border-bottom: 1px solid var(--c-border); font-weight: 600; }
+    .response-table td { padding: 8px 12px; border-bottom: 1px solid var(--c-border); color: var(--c-muted); vertical-align: top; }
+    .response-table td:first-child { font-family: monospace; color: var(--c-text); }
+
+    .severity-badge { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+    .severity-badge.critical { background: #fee2e2; color: #dc2626; }
+    .severity-badge.high     { background: #fef3c7; color: #d97706; }
+    .severity-badge.medium   { background: #dbeafe; color: #0369a1; }
+
+    @media (max-width: 600px) {
+      header { padding: 20px; }
+      main { padding: 24px 16px 60px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>unmask<span class="accent">.tools</span></h1>
+  <p>Institutional language detection — browser extension, API, and AI chatbot.</p>
+  <nav>
+    <a href="index.html">Report</a>
+    <a href="api.html" class="active">Pricing</a>
+    <a href="docs.html">API Docs</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Activation banner (shown after Stripe redirect) -->
+  <div class="banner" id="activation-banner">
+    <strong>Payment confirmed — your API key is on its way.</strong>
+    <p>Check your email for your key and setup instructions. It may take a minute to arrive.</p>
+  </div>
+
+  <!-- ── Pricing ─────────────────────────────────────────────────── -->
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <p>Static phrase detection is always free — no key needed. AI-powered detection and API access require a key. The API is included in all <strong>paid tiers only</strong> — the Personal free tier gives you AI detection in the extension but does not include API access.</p>
+
+    <div class="pricing-grid">
+
+      <!-- Personal -->
+      <div class="tier-card">
+        <div class="tier-name">Personal</div>
+        <div class="tier-price">Free <span>forever</span></div>
+        <ul class="tier-features">
+          <li>Static phrase detection</li>
+          <li>50 AI scans / day (extension only)</li>
+          <li>1 seat</li>
+          <li>Email registration required</li>
+          <li class="muted">No API access</li>
+          <li class="muted">No chatbot template</li>
+        </ul>
+        <a href="#register" class="btn btn-outline">Get free key ↓</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="tier-card">
+        <div class="tier-name">Pro</div>
+        <div class="tier-price">€15 <span>/ month</span></div>
+        <ul class="tier-features">
+          <li>Static phrase detection</li>
+          <li>300 AI scans / day</li>
+          <li>1 seat</li>
+          <li>Priority support</li>
+          <li class="muted">No chatbot template</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_14A14gcQn3yqbZJ4Tzfbq01" class="btn btn-outline">Get Pro →</a>
+      </div>
+
+      <!-- Team -->
+      <div class="tier-card featured">
+        <div class="badge">Most popular</div>
+        <div class="tier-name">Team</div>
+        <div class="tier-price">€59 <span>/ month</span></div>
+        <ul class="tier-features">
+          <li>Static phrase detection</li>
+          <li>1,500 AI scans / day (shared)</li>
+          <li>Unlimited seats — 1 key</li>
+          <li>Chatbot template included</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_14A7sEg2zb0S0h13Pvfbq02" class="btn btn-primary">Get Team →</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="tier-card">
+        <div class="tier-name">Enterprise</div>
+        <div class="tier-price">€199 <span>/ month</span></div>
+        <ul class="tier-features">
+          <li>Static phrase detection</li>
+          <li>5,000 AI scans / day (shared)</li>
+          <li>Unlimited seats — 1 key</li>
+          <li>Chatbot template included</li>
+          <li>Onboarding call included</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_3cI14g03B3yq0h1adTfbq03" class="btn btn-outline">Get Enterprise →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Free key registration ───────────────────────────────────── -->
+  <section id="register">
+    <h2>Get your free key</h2>
+    <p>Register below to unlock AI detection on the Personal tier (50 scans/day). Keys are manually reviewed and issued within 24 hours.</p>
+
+    <div class="register-card">
+      <form id="register-form">
+        <div class="form-row">
+          <label for="reg-email">Email address</label>
+          <input type="email" id="reg-email" placeholder="you@organisation.org" required>
+        </div>
+        <div class="form-row">
+          <label for="reg-name">Your name</label>
+          <input type="text" id="reg-name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-row">
+          <label for="reg-use">Intended use</label>
+          <select id="reg-use" required>
+            <option value="">Select one…</option>
+            <option value="journalism">Journalism / investigative reporting</option>
+            <option value="ngo">NGO / human rights work</option>
+            <option value="legal">Legal / compliance</option>
+            <option value="research">Academic research</option>
+            <option value="esg">ESG / sustainability analysis</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="reg-note">Brief description <span style="color:var(--c-muted);font-weight:400">(optional)</span></label>
+          <textarea id="reg-note" placeholder="What will you use the extension for?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Request free key</button>
+        <p class="form-note" style="margin-top:12px">No spam. Key + occasional product updates only. Unsubscribe any time.</p>
+      </form>
+      <div id="register-result"></div>
+    </div>
+  </section>
+
+  <!-- ── API docs link ────────────────────────────────────────────── -->
+  <section id="docs-link">
+    <h2>API documentation</h2>
+    <p>Full API reference, code examples, error codes, and FAQ are in the docs.</p>
+    <a href="docs.html" class="btn btn-outline" style="display:inline-block;margin-top:4px">View API docs →</a>
+  </section>
+
+</main>
+
+<script>
+  // Show activation banner if redirected from Stripe
+  if (new URLSearchParams(location.search).get('activated') === 'true') {
+    document.getElementById('activation-banner').classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Free key registration form
+  document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn    = e.target.querySelector('button[type=submit]');
+    const result = document.getElementById('register-result');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const payload = {
+      email:    document.getElementById('reg-email').value.trim(),
+      name:     document.getElementById('reg-name').value.trim(),
+      use_case: document.getElementById('reg-use').value,
+      note:     document.getElementById('reg-note').value.trim(),
+    };
+
+    try {
+      // Insert into Supabase api_keys as inactive (pending manual approval)
+      const res = await fetch(
+        'https://ghoriibggfxahkkvvkpi.supabase.co/rest/v1/api_keys',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdob3JpaWJnZ2Z4YWhra3Z2a3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NDcxOTAsImV4cCI6MjA5NDMyMzE5MH0.MGsBEnM3J7vNSS-9M1GtxmEtHPOVKvfiVZt8oMBPECI',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdob3JpaWJnZ2Z4YWhra3Z2a3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NDcxOTAsImV4cCI6MjA5NDMyMzE5MH0.MGsBEnM3J7vNSS-9M1GtxmEtHPOVKvfiVZt8oMBPECI',
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify({
+            email:    payload.email,
+            name:     payload.name,
+            use_case: payload.use_case + (payload.note ? ` — ${payload.note}` : ''),
+            tier:     'personal',
+            daily_ai_limit: 50,
+            active:   false,
+          }),
+        }
+      );
+
+      if (res.ok || res.status === 201) {
+        result.className = 'success';
+        result.style.display = 'block';
+        result.textContent = '✓ Request received. You\'ll get your key by email within 24 hours.';
+        e.target.reset();
+      } else {
+        const err = await res.json().catch(() => ({}));
+        // Duplicate email — already registered
+        if (res.status === 409 || err?.code === '23505') {
+          result.className = 'success';
+          result.style.display = 'block';
+          result.textContent = '✓ You\'re already registered. Check your inbox — or email hello@unmask.tools if you need help.';
+        } else {
+          throw new Error(err?.message || res.status);
+        }
+      }
+    } catch (err) {
+      result.className = 'error';
+      result.style.display = 'block';
+      result.textContent = `Something went wrong: ${err.message}. Email hello@unmask.tools directly.`;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Request free key';
+    }
+  });
+</script>
+
+</body>
+</html>

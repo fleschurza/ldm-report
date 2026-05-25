@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — API Docs & FAQ</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:       #f8fafc;
+      --c-surface:  #ffffff;
+      --c-border:   #e2e8f0;
+      --c-text:     #0f172a;
+      --c-muted:    #64748b;
+      --c-accent:   #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .accent { color: #009EDB; font-weight: 400; }
+    header p { color: #94a3b8; font-size: 12px; margin-top: 5px; max-width: 640px; }
+    nav { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a { color: #94a3b8; font-size: 12px; text-decoration: none; }
+    nav a:hover { color: #009EDB; }
+    nav a.active { color: #009EDB; }
+
+    .layout { display: flex; max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; gap: 40px; }
+
+    /* Sidebar TOC */
+    .toc { width: 200px; flex-shrink: 0; }
+    .toc-inner { position: sticky; top: 24px; }
+    .toc h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); margin-bottom: 12px; }
+    .toc a { display: block; font-size: 12px; color: var(--c-muted); text-decoration: none; padding: 4px 0; border-left: 2px solid var(--c-border); padding-left: 10px; margin-bottom: 2px; }
+    .toc a:hover { color: var(--c-accent); border-left-color: var(--c-accent); }
+    .toc a.active { color: var(--c-accent); border-left-color: var(--c-accent); }
+
+    /* Content */
+    .content { flex: 1; min-width: 0; }
+    section { margin-bottom: 56px; }
+    h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.01em; padding-top: 8px; }
+    h3 { font-size: 14px; font-weight: 600; margin: 24px 0 10px; }
+    p { color: var(--c-muted); margin-bottom: 12px; line-height: 1.7; }
+    p strong { color: var(--c-text); }
+
+    /* FAQ */
+    .faq-item { border: 1px solid var(--c-border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { padding: 14px 16px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--c-surface); user-select: none; }
+    .faq-q:hover { background: #f8fafc; }
+    .faq-q .chevron { color: var(--c-muted); transition: transform 0.2s; font-size: 16px; }
+    .faq-item.open .faq-q .chevron { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 16px 14px; color: var(--c-muted); font-size: 13px; line-height: 1.7; border-top: 1px solid var(--c-border); padding-top: 12px; background: var(--c-surface); }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a code { font-family: monospace; background: #f1f5f9; padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+
+    /* Code blocks */
+    .code-block {
+      background: #1e293b; color: #e2e8f0;
+      border-radius: 8px; padding: 20px;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 12px; line-height: 1.7;
+      overflow-x: auto; margin-bottom: 16px;
+    }
+    .code-block .comment { color: #64748b; }
+    .code-block .key     { color: #7dd3fc; }
+    .code-block .val     { color: #86efac; }
+    .code-block .str     { color: #fde68a; }
+    .code-block .kw      { color: #c084fc; }
+
+    .endpoint-badge { display: inline-block; background: #009EDB; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 8px; font-family: monospace; }
+    .endpoint-url { font-family: monospace; font-size: 13px; color: var(--c-text); word-break: break-all; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 16px; }
+    th { text-align: left; padding: 8px 12px; background: #f1f5f9; border-bottom: 1px solid var(--c-border); font-weight: 600; }
+    td { padding: 8px 12px; border-bottom: 1px solid var(--c-border); color: var(--c-muted); vertical-align: top; }
+    td:first-child { font-family: monospace; color: var(--c-text); }
+
+    .severity-badge { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+    .severity-badge.critical { background: #fee2e2; color: #dc2626; }
+    .severity-badge.high     { background: #fef3c7; color: #d97706; }
+    .severity-badge.medium   { background: #dbeafe; color: #0369a1; }
+
+    .status-badge { display: inline-block; font-family: monospace; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 4px; }
+    .status-badge.s4 { background: #fee2e2; color: #dc2626; }
+    .status-badge.s2 { background: #dcfce7; color: #15803d; }
+
+    @media (max-width: 700px) {
+      .layout { flex-direction: column; }
+      .toc { width: 100%; }
+      .toc-inner { position: static; }
+      header { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>unmask<span class="accent">.tools</span></h1>
+  <p>Institutional language detection — browser extension, API, and AI chatbot.</p>
+  <nav>
+    <a href="index.html">Report</a>
+    <a href="api.html">Pricing</a>
+    <a href="docs.html" class="active">API Docs</a>
+  </nav>
+</header>
+
+<div class="layout">
+
+  <!-- Sidebar TOC -->
+  <aside class="toc">
+    <div class="toc-inner">
+      <h4>On this page</h4>
+      <a href="#quickstart">Quickstart</a>
+      <a href="#endpoint">Endpoint</a>
+      <a href="#request">Request</a>
+      <a href="#response">Response</a>
+      <a href="#errors">Error codes</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </aside>
+
+  <div class="content">
+
+    <!-- ── Quickstart ─────────────────────────────────────────────── -->
+    <section id="quickstart">
+      <h2>Quickstart</h2>
+      <p>The API is available on all <strong>paid tiers</strong> (Pro, Team, Enterprise). Get your key on the <a href="api.html" style="color:var(--c-accent)">pricing page</a>.</p>
+
+      <h3>Your first request</h3>
+      <div class="code-block"><span class="comment"># Phrase matching only (no AI, no daily limit used)</span>
+curl -X POST \
+  https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-analyze \
+  -H <span class="str">"Authorization: Bearer &lt;your-key&gt;"</span> \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -d <span class="str">'{"text": "The energy transition will require managed retreat of coastal communities."}'</span></div>
+
+      <div class="code-block"><span class="comment"># With AI detection (counts against your daily limit)</span>
+curl -X POST \
+  https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-analyze \
+  -H <span class="str">"Authorization: Bearer &lt;your-key&gt;"</span> \
+  -H <span class="str">"Content-Type: application/json"</span> \
+  -d <span class="str">'{"text": "...", "options": {"ai": true}}'</span></div>
+    </section>
+
+    <!-- ── Endpoint ───────────────────────────────────────────────── -->
+    <section id="endpoint">
+      <h2>Endpoint</h2>
+      <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:8px;padding:16px;">
+        <span class="endpoint-badge">POST</span>
+        <span class="endpoint-url">https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-analyze</span>
+      </div>
+      <p style="margin-top:12px">One endpoint, two modes. Phrase matching is always free and unlimited. AI detection is tier-gated with a daily limit.</p>
+    </section>
+
+    <!-- ── Request ────────────────────────────────────────────────── -->
+    <section id="request">
+      <h2>Request</h2>
+
+      <h3>Headers</h3>
+      <table>
+        <thead><tr><th>Header</th><th>Required</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Authorization</td><td>Yes</td><td><code style="font-family:monospace">Bearer &lt;your-api-key&gt;</code></td></tr>
+          <tr><td>Content-Type</td><td>Yes</td><td><code style="font-family:monospace">application/json</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Body</h3>
+      <div class="code-block">{
+  <span class="key">"text"</span>:    <span class="str">"string — the text to analyse (max 50,000 characters)"</span>,  <span class="comment">// required</span>
+  <span class="key">"options"</span>: { <span class="key">"ai"</span>: <span class="kw">true</span> },  <span class="comment">// optional — enable AI detection (paid tiers, uses daily limit)</span>
+  <span class="key">"lang"</span>:    <span class="str">"en"</span>           <span class="comment">// optional — language hint for AI (default: "en")</span>
+}</div>
+    </section>
+
+    <!-- ── Response ───────────────────────────────────────────────── -->
+    <section id="response">
+      <h2>Response</h2>
+
+      <div class="code-block">{
+  <span class="key">"detected"</span>: [
+    {
+      <span class="comment">// Phrase match (from library)</span>
+      <span class="key">"phrase"</span>:            <span class="str">"managed retreat"</span>,
+      <span class="key">"normalizedPhrase"</span>:  <span class="str">"managed retreat"</span>,
+      <span class="key">"translation"</span>:       <span class="str">"Forced relocation of communities from their physical land..."</span>,
+      <span class="key">"legalRef"</span>:          <span class="str">"UDHR Art. 13 — Freedom of Movement"</span>,
+      <span class="key">"severity"</span>:          <span class="str">"high"</span>,
+      <span class="key">"occurrences"</span>:       <span class="val">1</span>,
+      <span class="key">"communityConfirmed"</span>: <span class="kw">false</span>
+    },
+    {
+      <span class="comment">// AI detection (when options.ai = true)</span>
+      <span class="key">"phrase"</span>:      <span class="str">"managed retreat of coastal communities"</span>,
+      <span class="key">"translation"</span>: <span class="str">"Forced displacement of people from their homes due to climate impacts"</span>,
+      <span class="key">"legalRef"</span>:    <span class="str">"UN Guiding Principles on Internal Displacement"</span>,
+      <span class="key">"severity"</span>:    <span class="str">"high"</span>,
+      <span class="key">"confidence"</span>:  <span class="val">92</span>
+    }
+  ],
+  <span class="key">"meta"</span>: {
+    <span class="key">"phraseCount"</span>:     <span class="val">3</span>,
+    <span class="key">"riskScore"</span>:       <span class="val">7</span>,       <span class="comment">// critical×3 + high×2 + medium×1</span>
+    <span class="key">"wordCount"</span>:       <span class="val">14</span>,
+    <span class="key">"prevalencePer1k"</span>: <span class="val">214.3</span>,   <span class="comment">// detected phrases per 1,000 words</span>
+    <span class="key">"ai"</span>:             <span class="kw">true</span>,
+    <span class="key">"tier"</span>:           <span class="str">"pro"</span>,
+    <span class="key">"aiUsedToday"</span>:    <span class="val">1</span>,
+    <span class="key">"aiDailyLimit"</span>:   <span class="val">300</span>
+  }
+}</div>
+
+      <h3>detected[ ] fields</h3>
+      <table>
+        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>phrase</td><td>string</td><td>The detected phrase as it appears in the text</td></tr>
+          <tr><td>translation</td><td>string</td><td>Plain-language description of the physical reality it conceals</td></tr>
+          <tr><td>legalRef</td><td>string</td><td>Citation to Rome Statute, Geneva Conventions, UDHR, or Planetary Boundaries</td></tr>
+          <tr><td>severity</td><td><span class="severity-badge critical">critical</span> <span class="severity-badge high">high</span> <span class="severity-badge medium">medium</span></td><td>Harm severity level</td></tr>
+          <tr><td>occurrences</td><td>number</td><td>Times the phrase appears (phrase matches only)</td></tr>
+          <tr><td>confidence</td><td>number 0–100</td><td>AI confidence score (AI detections only)</td></tr>
+          <tr><td>communityConfirmed</td><td>boolean</td><td>Whether the phrase was community-confirmed via the extension</td></tr>
+        </tbody>
+      </table>
+
+      <h3>meta fields</h3>
+      <table>
+        <thead><tr><th>Field</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>riskScore</td><td>Weighted sum: critical×3, high×2, medium×1 — useful for ranking documents</td></tr>
+          <tr><td>prevalencePer1k</td><td>Detected phrases per 1,000 words — useful for comparing documents of different lengths</td></tr>
+          <tr><td>ai</td><td>Whether AI detection ran in this request</td></tr>
+          <tr><td>aiUsedToday</td><td>AI scans used today (only present when options.ai = true)</td></tr>
+          <tr><td>aiDailyLimit</td><td>Your tier's daily AI scan limit</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ── Errors ─────────────────────────────────────────────────── -->
+    <section id="errors">
+      <h2>Error codes</h2>
+      <table>
+        <thead><tr><th>Status</th><th>Meaning</th><th>What to do</th></tr></thead>
+        <tbody>
+          <tr><td><span class="status-badge s4">401</span></td><td>Missing or invalid API key</td><td>Check your Authorization header</td></tr>
+          <tr><td><span class="status-badge s4">403</span></td><td>Key not yet activated</td><td>Check your email — activation takes up to 24h for Personal, instant for paid tiers</td></tr>
+          <tr><td><span class="status-badge s4">429</span></td><td>Daily AI limit reached</td><td>Phrase matching result is still returned. Upgrade or wait until midnight UTC for reset</td></tr>
+          <tr><td><span class="status-badge s4">400</span></td><td>Invalid request body</td><td>Check JSON format and that <code style="font-family:monospace">text</code> field is present and under 50,000 chars</td></tr>
+          <tr><td><span class="status-badge s4">405</span></td><td>Wrong HTTP method</td><td>Use POST</td></tr>
+        </tbody>
+      </table>
+      <p>On 429, the response still includes <code style="font-family:monospace">detected</code> from phrase matching — you don't lose the result, just the AI layer.</p>
+    </section>
+
+    <!-- ── FAQ ───────────────────────────────────────────────────── -->
+    <section id="faq">
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Is the API available on the free Personal tier? <span class="chevron">⌄</span></div>
+        <div class="faq-a">No. API access is included in all paid tiers (Pro, Team, Enterprise). The Personal free tier gives you AI detection inside the browser extension, but does not include API access. <a href="api.html" style="color:var(--c-accent)">Upgrade here.</a></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What counts as an "AI scan"? <span class="chevron">⌄</span></div>
+        <div class="faq-a">One AI scan = one API request with <code>"options": {"ai": true}</code>. Requests without AI enabled (phrase matching only) are free and unlimited. Daily limits reset at midnight UTC.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What happens when I hit my daily AI limit? <span class="chevron">⌄</span></div>
+        <div class="faq-a">You get a 429 response — but phrase matching results are still returned in the <code>detected</code> field. You never get an empty response. The limit resets at midnight UTC.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can multiple people use the same key? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Yes — on Team and Enterprise tiers, one key is shared across the whole organisation. The daily limit is shared too, so heavier users will consume more of the shared pool. Pro is a single-seat key.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How is severity determined? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <strong>Critical</strong> — language abstracting killing, torture, forced displacement, ecocide, or planetary tipping point transgression.<br><br>
+          <strong>High</strong> — language abstracting serious harm: ecosystem collapse, mass job losses, habitat destruction, resource deprivation.<br><br>
+          <strong>Medium</strong> — language abstracting institutional harm: greenwashing, carbon offsetting, governance euphemism, labour abstraction.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What legal frameworks does the detection reference? <span class="chevron">⌄</span></div>
+        <div class="faq-a">The phrase library is built from five source documents: the Rome Statute of the ICC, Geneva Convention Additional Protocol I, the Universal Declaration of Human Rights, the Planetary Boundaries Framework (Rockström et al.), and the HCC-Genesis-2026-18 physicality axiom framework. Each detected phrase is mapped to a specific article or boundary.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What are community-confirmed phrases? <span class="chevron">⌄</span></div>
+        <div class="faq-a">When extension users confirm a detected phrase as genuinely euphemistic, it's recorded in our database. Phrases confirmed by 3 or more users are automatically promoted to the base library via a weekly review process. These are flagged with <code>communityConfirmed: true</code> in API responses.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I cancel my subscription? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Email <a href="mailto:hello@unmask.tools" style="color:var(--c-accent)">hello@unmask.tools</a> or cancel directly from the Stripe billing portal. Your key stays active until the end of the billing period, then reverts to Personal free tier limits.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is there a rate limit beyond the daily AI cap? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Phrase matching has no rate limit. AI detection is capped by your daily limit only — there's no per-minute or per-second throttle. If you need very high burst throughput, contact us.</div>
+      </div>
+
+    </section>
+
+  </div>
+</div>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.closest('.faq-item').classList.toggle('open');
+    });
+  });
+
+  // Active TOC link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
