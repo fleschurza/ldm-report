@@ -278,7 +278,7 @@
   <!-- ── Free key registration ───────────────────────────────────── -->
   <section id="register">
     <h2>Get your free key</h2>
-    <p>Register below to unlock AI detection on the Personal tier (50 scans/day). Keys are manually reviewed and issued within 24 hours.</p>
+    <p>Register below to unlock AI detection on the Personal tier (50 scans/day). Your key is delivered instantly by email.</p>
 
     <div class="register-card">
       <form id="register-form">
@@ -290,23 +290,7 @@
           <label for="reg-name">Your name</label>
           <input type="text" id="reg-name" placeholder="Jane Smith" required>
         </div>
-        <div class="form-row">
-          <label for="reg-use">Intended use</label>
-          <select id="reg-use" required>
-            <option value="">Select one…</option>
-            <option value="journalism">Journalism / investigative reporting</option>
-            <option value="ngo">NGO / human rights work</option>
-            <option value="legal">Legal / compliance</option>
-            <option value="research">Academic research</option>
-            <option value="esg">ESG / sustainability analysis</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="reg-note">Brief description <span style="color:var(--c-muted);font-weight:400">(optional)</span></label>
-          <textarea id="reg-note" placeholder="What will you use the extension for?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%">Request free key</button>
+        <button type="submit" class="btn btn-primary" style="width:100%">Get free key</button>
         <p class="form-note" style="margin-top:12px">No spam. Key + occasional product updates only. Unsubscribe any time.</p>
       </form>
       <div id="register-result"></div>
@@ -338,58 +322,39 @@
     btn.textContent = 'Sending…';
 
     const payload = {
-      email:    document.getElementById('reg-email').value.trim(),
-      name:     document.getElementById('reg-name').value.trim(),
-      use_case: document.getElementById('reg-use').value,
-      note:     document.getElementById('reg-note').value.trim(),
+      email: document.getElementById('reg-email').value.trim(),
+      name:  document.getElementById('reg-name').value.trim(),
     };
 
     try {
-      // Insert into Supabase api_keys as inactive (pending manual approval)
       const res = await fetch(
-        'https://ghoriibggfxahkkvvkpi.supabase.co/rest/v1/api_keys',
+        'https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/register-key',
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdob3JpaWJnZ2Z4YWhra3Z2a3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NDcxOTAsImV4cCI6MjA5NDMyMzE5MH0.MGsBEnM3J7vNSS-9M1GtxmEtHPOVKvfiVZt8oMBPECI',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdob3JpaWJnZ2Z4YWhra3Z2a3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3NDcxOTAsImV4cCI6MjA5NDMyMzE5MH0.MGsBEnM3J7vNSS-9M1GtxmEtHPOVKvfiVZt8oMBPECI',
-            'Prefer': 'return=minimal',
-          },
-          body: JSON.stringify({
-            email:    payload.email,
-            name:     payload.name,
-            use_case: payload.use_case + (payload.note ? ` — ${payload.note}` : ''),
-            tier:     'personal',
-            daily_ai_limit: 50,
-            active:   false,
-          }),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
         }
       );
 
-      if (res.ok || res.status === 201) {
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok) {
         result.className = 'success';
         result.style.display = 'block';
-        result.textContent = '✓ Request received. You\'ll get your key by email within 24 hours.';
+        result.textContent = data.resent
+          ? '✓ You\'re already registered. Your key has been resent — check your inbox.'
+          : '✓ Your key is on its way. Check your inbox in the next minute.';
         e.target.reset();
       } else {
-        const err = await res.json().catch(() => ({}));
-        // Duplicate email — already registered
-        if (res.status === 409 || err?.code === '23505') {
-          result.className = 'success';
-          result.style.display = 'block';
-          result.textContent = '✓ You\'re already registered. Check your inbox — or email hello@unmask.tools if you need help.';
-        } else {
-          throw new Error(err?.message || res.status);
-        }
+        throw new Error(data?.error || res.status);
       }
     } catch (err) {
       result.className = 'error';
       result.style.display = 'block';
-      result.textContent = `Something went wrong: ${err.message}. Email hello@unmask.tools directly.`;
+      result.textContent = `Something went wrong. Email hello@unmask.tools directly.`;
     } finally {
       btn.disabled = false;
-      btn.textContent = 'Request free key';
+      btn.textContent = 'Get free key';
     }
   });
 </script>
