@@ -258,6 +258,14 @@
       </div>
     </div>
 
+    <!-- Platform comparison note -->
+    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px 20px;margin-bottom:24px;font-size:12px;color:#78350f;line-height:1.6;">
+      <strong style="display:block;margin-bottom:6px;">Platform differences — what to expect</strong>
+      <strong>Claude</strong> gives the most natural, conversational output and follows the instructions most faithfully. Recommended for ongoing audit work and team use.<br><br>
+      <strong>Gemini</strong> tends to be more formal and structured. It may inject platform-level disclaimers in your interface language regardless of instructions — this is a Gemini platform behaviour that cannot be overridden. Output quality is good but tone will be less conversational than Claude.<br><br>
+      <strong>ChatGPT</strong> sits between the two. Note the ~8,000 character instruction limit — see the setup steps if your prompt gets truncated.
+    </div>
+
     <h3 style="margin-bottom:14px;">Choose your platform</h3>
     <div class="platform-tabs">
       <button class="tab-btn active" data-platform="claude" onclick="switchPlatform('claude')">
