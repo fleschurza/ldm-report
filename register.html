@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Get your free key</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .accent { color: #009EDB; font-weight: 400; }
+    header p { color: #94a3b8; font-size: 12px; margin-top: 5px; max-width: 640px; }
+    nav { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a { color: #94a3b8; font-size: 12px; text-decoration: none; }
+    nav a:hover { color: #009EDB; }
+    nav a.active { color: #009EDB; }
+
+    main { max-width: 480px; margin: 60px auto; padding: 0 20px 80px; }
+
+    .card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .card-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .card-sub { color: var(--c-muted); font-size: 13px; margin-bottom: 28px; line-height: 1.6; }
+
+    .form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-row label { font-size: 12px; font-weight: 600; color: var(--c-text); }
+    .form-row input {
+      padding: 9px 12px;
+      border: 1px solid var(--c-border);
+      border-radius: 7px;
+      font-size: 13px;
+      font-family: inherit;
+      background: var(--c-bg);
+      color: var(--c-text);
+      transition: border-color 0.15s;
+    }
+    .form-row input:focus { outline: none; border-color: var(--c-accent); }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: var(--c-accent);
+      color: #fff;
+      transition: opacity 0.15s;
+      margin-top: 8px;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-note { font-size: 11px; color: var(--c-muted); margin-top: 10px; text-align: center; }
+
+    /* Success state */
+    .success-box {
+      display: none;
+      text-align: center;
+      padding: 8px 0;
+    }
+    .success-box .check {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    .success-box h2 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .success-box p { color: var(--c-muted); font-size: 13px; margin-bottom: 0; }
+    .success-box .back { display: inline-block; margin-top: 24px; color: var(--c-accent); font-size: 12px; text-decoration: none; }
+    .success-box .back:hover { text-decoration: underline; }
+
+    .error-msg { color: #dc2626; font-size: 12px; margin-top: 10px; display: none; }
+
+    /* What you get */
+    .perks { margin: 24px 0 28px; padding: 16px; background: #f0f9ff; border-radius: 8px; border: 1px solid #bae6fd; }
+    .perks ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .perks li { font-size: 12px; color: #0369a1; }
+    .perks li::before { content: '✓ '; font-weight: 700; }
+
+    footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 40px; padding: 20px; text-align: center; }
+    footer a { color: var(--c-accent); text-decoration: none; }
+
+    @media (max-width: 520px) {
+      header { padding: 18px 16px; }
+      main { margin-top: 32px; }
+      .card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>unmask<span class="accent">.tools</span></h1>
+  <p>Institutional language detection — browser extension, API, and unmask.filter bot template.</p>
+  <nav>
+    <a href="index.html">Report</a>
+    <a href="api.html">Pricing</a>
+    <a href="docs.html">FAQ</a>
+    <a href="templates.html">Templates</a>
+  </nav>
+</header>
+
+<main>
+  <div class="card">
+
+    <!-- Form state -->
+    <div id="form-state">
+      <div class="card-title">Get your free key</div>
+      <div class="card-sub">Personal tier — 50 AI-assisted detections per day, free forever. Your key is delivered instantly by email.</div>
+
+      <div class="perks">
+        <ul>
+          <li>Static phrase detection — unlimited</li>
+          <li>AI detection — 50 scans / day</li>
+          <li>Works in Chrome (Firefox coming soon)</li>
+          <li>No credit card required</li>
+        </ul>
+      </div>
+
+      <form id="register-form">
+        <div class="form-row">
+          <label for="reg-name">Your name</label>
+          <input type="text" id="reg-name" placeholder="Jane Smith" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <label for="reg-email">Email address</label>
+          <input type="email" id="reg-email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+        <button type="submit" class="btn" id="submit-btn">Get free key</button>
+        <div class="error-msg" id="error-msg"></div>
+        <p class="form-note">No spam. Key + occasional product updates only. Unsubscribe any time.</p>
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div class="success-box" id="success-state">
+      <div class="check">✉️</div>
+      <h2>Check your inbox</h2>
+      <p>Your unmask.shield key is on its way.<br>It should arrive within the next minute.</p>
+      <p style="margin-top:10px;font-size:12px;color:var(--c-muted);">Can't find it? Check your spam folder or<br>email <a href="mailto:hello@unmask.tools" style="color:var(--c-accent);">hello@unmask.tools</a>.</p>
+      <a href="api.html" class="back">← Back to pricing</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  unmask.tools · Data collected with user consent · No personal data stored ·
+  Legal anchors: Geneva AP I · Rome Statute · UDHR · Planetary Boundaries
+</footer>
+
+<script>
+  document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn      = document.getElementById('submit-btn');
+    const errorMsg = document.getElementById('error-msg');
+
+    btn.disabled    = true;
+    btn.textContent = 'Sending…';
+    errorMsg.style.display = 'none';
+
+    const payload = {
+      email: document.getElementById('reg-email').value.trim(),
+      name:  document.getElementById('reg-name').value.trim(),
+    };
+
+    try {
+      const res  = await fetch(
+        'https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/register-key',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }
+      );
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok) {
+        document.getElementById('form-state').style.display    = 'none';
+        document.getElementById('success-state').style.display = 'block';
+      } else {
+        throw new Error(data?.error || res.status);
+      }
+    } catch (_) {
+      errorMsg.textContent   = 'Something went wrong. Please try again or email hello@unmask.tools.';
+      errorMsg.style.display = 'block';
+      btn.disabled    = false;
+      btn.textContent = 'Get free key';
+    }
+  });
+</script>
+
+</body>
+</html>

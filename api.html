@@ -223,7 +223,7 @@
           <li class="muted">No API access</li>
           <li class="muted">No bot template access</li>
         </ul>
-        <a href="#register" class="btn btn-outline">Get free key ↓</a>
+        <a href="register.html" class="btn btn-outline">Get free key →</a>
       </div>
 
       <!-- Pro -->
@@ -275,28 +275,6 @@
     </div>
   </section>
 
-  <!-- ── Free key registration ───────────────────────────────────── -->
-  <section id="register">
-    <h2>Get your free key</h2>
-    <p>Register below to unlock AI detection on the Personal tier (50 scans/day). Your key is delivered instantly by email.</p>
-
-    <div class="register-card">
-      <form id="register-form">
-        <div class="form-row">
-          <label for="reg-email">Email address</label>
-          <input type="email" id="reg-email" placeholder="you@organisation.org" required>
-        </div>
-        <div class="form-row">
-          <label for="reg-name">Your name</label>
-          <input type="text" id="reg-name" placeholder="Jane Smith" required>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%">Get free key</button>
-        <p class="form-note" style="margin-top:12px">No spam. Key + occasional product updates only. Unsubscribe any time.</p>
-      </form>
-      <div id="register-result"></div>
-    </div>
-  </section>
-
   <!-- ── API docs link ────────────────────────────────────────────── -->
   <section id="docs-link">
     <h2>API documentation</h2>
@@ -312,51 +290,6 @@
     document.getElementById('activation-banner').classList.add('show');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  // Free key registration form
-  document.getElementById('register-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn    = e.target.querySelector('button[type=submit]');
-    const result = document.getElementById('register-result');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    const payload = {
-      email: document.getElementById('reg-email').value.trim(),
-      name:  document.getElementById('reg-name').value.trim(),
-    };
-
-    try {
-      const res = await fetch(
-        'https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/register-key',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      const data = await res.json().catch(() => ({}));
-
-      if (res.ok) {
-        result.className = 'success';
-        result.style.display = 'block';
-        result.textContent = data.resent
-          ? '✓ You\'re already registered. Your key has been resent — check your inbox.'
-          : '✓ Your key is on its way. Check your inbox in the next minute.';
-        e.target.reset();
-      } else {
-        throw new Error(data?.error || res.status);
-      }
-    } catch (err) {
-      result.className = 'error';
-      result.style.display = 'block';
-      result.textContent = `Something went wrong. Email hello@unmask.tools directly.`;
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Get free key';
-    }
-  });
 </script>
 
 </body>
