@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Terms of Service</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.7; }
+
+    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .accent { color: #009EDB; font-weight: 400; }
+    header p { color: #94a3b8; font-size: 12px; margin-top: 5px; }
+    nav { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a { color: #94a3b8; font-size: 12px; text-decoration: none; }
+    nav a:hover { color: #009EDB; }
+
+    main { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+
+    h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .meta { color: var(--c-muted); font-size: 12px; margin-bottom: 40px; }
+
+    h3 { font-size: 15px; font-weight: 700; margin: 32px 0 8px; }
+    p { color: var(--c-muted); margin-bottom: 12px; }
+    ul { color: var(--c-muted); padding-left: 20px; margin-bottom: 12px; }
+    ul li { margin-bottom: 6px; }
+    a { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .highlight {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      color: #0369a1;
+      font-size: 13px;
+    }
+
+    footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 40px; padding: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>unmask<span class="accent">.tools</span></h1>
+  <p>Institutional language detection — browser extension, API, and unmask.filter bot template.</p>
+  <nav>
+    <a href="index.html">Report</a>
+    <a href="api.html">Pricing</a>
+    <a href="docs.html">FAQ</a>
+    <a href="templates.html">Templates</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Terms of Service</h2>
+  <p class="meta">Last updated: 25 May 2026 · Operator: unmask.tools · Contact: <a href="mailto:hello@unmask.tools">hello@unmask.tools</a></p>
+
+  <div class="highlight">
+    <strong>Short version:</strong> Use unmask.tools and unmask.shield for lawful purposes. Don't abuse the API. Paid subscriptions are billed monthly via Stripe. You can cancel any time. We provide the service as-is and are not liable for decisions made based on its output.
+  </div>
+
+  <h3>1. Acceptance of terms</h3>
+  <p>By using unmask.tools, the unmask.shield browser extension, the unmask.filter bot templates, or any associated API (collectively, "the Service"), you agree to these Terms of Service. If you do not agree, do not use the Service.</p>
+
+  <h3>2. Description of service</h3>
+  <p>unmask.tools provides tools for detecting institutional language that abstracts physical harm. The Service includes:</p>
+  <ul>
+    <li><strong>unmask.shield</strong> — a browser extension for Chrome and Firefox</li>
+    <li><strong>unmask.filter</strong> — AI chatbot templates for Claude, Gemini, and ChatGPT</li>
+    <li><strong>API</strong> — programmatic access to detection capabilities (Team and Enterprise tiers)</li>
+    <li><strong>unmask.tools website</strong> — the global detection report and supporting pages</li>
+  </ul>
+
+  <h3>3. Accounts and API keys</h3>
+  <p>Access to AI-powered features requires an API key. You are responsible for keeping your key confidential. Do not share your key publicly or embed it in client-side code accessible to others. If you believe your key has been compromised, contact us immediately at <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>.</p>
+  <p>Personal tier keys are free and subject to a daily usage limit of 50 AI-assisted detections. Paid tier limits are as described on the <a href="api.html">pricing page</a>.</p>
+
+  <h3>4. Acceptable use</h3>
+  <p>You agree not to use the Service to:</p>
+  <ul>
+    <li>Violate any applicable law or regulation</li>
+    <li>Circumvent or attempt to circumvent API rate limits or usage restrictions</li>
+    <li>Resell or sublicense API access without our written permission</li>
+    <li>Scrape, crawl, or systematically extract data from unmask.tools beyond normal use</li>
+    <li>Submit false, misleading, or harmful phrase suggestions</li>
+    <li>Interfere with or disrupt the Service or its infrastructure</li>
+    <li>Use the Service to harass, harm, or discriminate against any person or group</li>
+  </ul>
+  <p>We reserve the right to suspend or terminate access for any violation of these terms without notice.</p>
+
+  <h3>5. Subscriptions and billing</h3>
+  <p>Paid subscriptions are billed monthly in advance via Stripe. By subscribing, you authorise Stripe to charge your payment method on a recurring basis.</p>
+  <ul>
+    <li><strong>Cancellation:</strong> You may cancel your subscription at any time. Cancellation takes effect at the end of the current billing period. No partial refunds are issued for unused time within a billing period.</li>
+    <li><strong>Upgrades / downgrades:</strong> Tier changes take effect immediately. Upgrades are charged a prorated amount for the remainder of the billing period.</li>
+    <li><strong>Failed payments:</strong> If a payment fails, we will attempt to notify you by email. After repeated failures, your subscription may be downgraded to the Personal (free) tier.</li>
+    <li><strong>Price changes:</strong> We will give at least 30 days' notice of any price changes to existing subscribers.</li>
+  </ul>
+
+  <h3>6. Consumer rights (EU / EEA)</h3>
+  <p>If you are a consumer located in the European Union or EEA, you have a statutory right of withdrawal of 14 days from the date of purchase. However, by requesting immediate access to the Service upon purchase, you acknowledge that the right of withdrawal is waived once the Service has been fully performed, in accordance with Article 16(a) of Directive 2011/83/EU.</p>
+  <p>Nothing in these Terms affects your statutory consumer rights under applicable EU law.</p>
+
+  <h3>7. Intellectual property</h3>
+  <p>The Service, including its phrase library, software, design, and documentation, is owned by unmask.tools and protected by applicable intellectual property law. You may not copy, modify, distribute, or create derivative works without our express written permission.</p>
+  <p>Phrase suggestions you submit to the Service may be incorporated into the shared phrase library. By submitting a suggestion, you grant us a perpetual, royalty-free licence to use it.</p>
+
+  <h3>8. Disclaimer of warranties</h3>
+  <p>The Service is provided "as is" and "as available" without warranties of any kind, express or implied. We do not warrant that:</p>
+  <ul>
+    <li>The Service will be uninterrupted, error-free, or available at all times</li>
+    <li>Detection results are accurate, complete, or suitable for any particular purpose</li>
+    <li>The Service meets your specific requirements</li>
+  </ul>
+  <p>Detection results are provided for informational purposes only and do not constitute legal, journalistic, or professional advice. You are solely responsible for any decisions made based on the output of the Service.</p>
+
+  <h3>9. Limitation of liability</h3>
+  <p>To the maximum extent permitted by applicable law, unmask.tools shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Service, even if advised of the possibility of such damages.</p>
+  <p>Our total liability to you for any claim arising from these Terms or your use of the Service shall not exceed the amount you paid to us in the 12 months preceding the claim.</p>
+  <p>Nothing in these Terms limits liability for death or personal injury caused by negligence, fraud, or any other liability that cannot be excluded by law.</p>
+
+  <h3>10. Modifications to the Service</h3>
+  <p>We reserve the right to modify, suspend, or discontinue any part of the Service at any time with reasonable notice. We will not be liable to you or any third party for any modification, suspension, or discontinuation of the Service.</p>
+
+  <h3>11. Governing law and disputes</h3>
+  <p>These Terms are governed by and construed in accordance with the laws of the European Union and applicable national law. Any dispute arising from these Terms shall be subject to the exclusive jurisdiction of the competent courts.</p>
+  <p>If you are a consumer in the EU, you may also use the European Commission's Online Dispute Resolution platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>.</p>
+
+  <h3>12. Changes to these terms</h3>
+  <p>We may update these Terms from time to time. Material changes will be notified by email to registered users at least 14 days before taking effect. Continued use of the Service after changes take effect constitutes acceptance of the revised Terms.</p>
+
+  <h3>13. Contact</h3>
+  <p>For any questions about these Terms: <a href="mailto:hello@unmask.tools">hello@unmask.tools</a></p>
+</main>
+
+<footer>
+  unmask.tools · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>
+</footer>
+
+</body>
+</html>

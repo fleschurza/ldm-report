@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Privacy Policy</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.7; }
+
+    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .accent { color: #009EDB; font-weight: 400; }
+    header p { color: #94a3b8; font-size: 12px; margin-top: 5px; }
+    nav { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a { color: #94a3b8; font-size: 12px; text-decoration: none; }
+    nav a:hover { color: #009EDB; }
+
+    main { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+
+    h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .meta { color: var(--c-muted); font-size: 12px; margin-bottom: 40px; }
+
+    h3 { font-size: 15px; font-weight: 700; margin: 32px 0 8px; }
+    p { color: var(--c-muted); margin-bottom: 12px; }
+    ul { color: var(--c-muted); padding-left: 20px; margin-bottom: 12px; }
+    ul li { margin-bottom: 6px; }
+    a { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .highlight {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      color: #0369a1;
+      font-size: 13px;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13px; }
+    th { text-align: left; padding: 8px 12px; background: #f1f5f9; font-weight: 600; border: 1px solid var(--c-border); }
+    td { padding: 8px 12px; border: 1px solid var(--c-border); color: var(--c-muted); vertical-align: top; }
+
+    footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 40px; padding: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>unmask<span class="accent">.tools</span></h1>
+  <p>Institutional language detection — browser extension, API, and unmask.filter bot template.</p>
+  <nav>
+    <a href="index.html">Report</a>
+    <a href="api.html">Pricing</a>
+    <a href="docs.html">FAQ</a>
+    <a href="templates.html">Templates</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Privacy Policy</h2>
+  <p class="meta">Last updated: 25 May 2026 · Controller: unmask.tools · Contact: <a href="mailto:hello@unmask.tools">hello@unmask.tools</a></p>
+
+  <div class="highlight">
+    <strong>Short version:</strong> The extension reads page text locally on your device to detect phrases. No page content is sent to our servers unless you explicitly enable global data sharing (off by default). We collect only what is necessary to run the service and never sell your data.
+  </div>
+
+  <h3>1. Who we are</h3>
+  <p>unmask.tools is an independent language analysis tool. References to "we", "us", or "our" in this policy refer to the operator of unmask.tools. For data protection enquiries, contact <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>.</p>
+
+  <h3>2. What data we collect and why</h3>
+
+  <table>
+    <tr>
+      <th>Data</th>
+      <th>Purpose</th>
+      <th>Legal basis (GDPR)</th>
+      <th>Stored where</th>
+    </tr>
+    <tr>
+      <td>Email address</td>
+      <td>Account creation, key delivery, transactional emails</td>
+      <td>Contract performance (Art. 6(1)(b))</td>
+      <td>Supabase (EU region)</td>
+    </tr>
+    <tr>
+      <td>Name (optional)</td>
+      <td>Personalising emails</td>
+      <td>Contract performance (Art. 6(1)(b))</td>
+      <td>Supabase (EU region)</td>
+    </tr>
+    <tr>
+      <td>API key usage count</td>
+      <td>Enforcing daily limits per tier</td>
+      <td>Contract performance (Art. 6(1)(b))</td>
+      <td>Supabase (EU region)</td>
+    </tr>
+    <tr>
+      <td>Stripe billing data</td>
+      <td>Payment processing</td>
+      <td>Contract performance (Art. 6(1)(b))</td>
+      <td>Stripe (see Stripe's privacy policy)</td>
+    </tr>
+    <tr>
+      <td>Detection events (phrase, domain, country, sector)</td>
+      <td>Global detection dataset — <strong>only if you opt in</strong></td>
+      <td>Consent (Art. 6(1)(a))</td>
+      <td>Supabase (EU region)</td>
+    </tr>
+    <tr>
+      <td>Confirmation / dismissal events</td>
+      <td>Improving phrase accuracy — <strong>only if you opt in</strong></td>
+      <td>Consent (Art. 6(1)(a))</td>
+      <td>Supabase (EU region)</td>
+    </tr>
+  </table>
+
+  <h3>3. What we do NOT collect</h3>
+  <ul>
+    <li>The full text of pages you visit — page content is processed locally in your browser</li>
+    <li>Your browsing history</li>
+    <li>Any personally identifiable information from the pages you scan</li>
+    <li>IP addresses (beyond what is inherent in standard HTTP requests)</li>
+    <li>Cookies or tracking pixels on unmask.tools web pages</li>
+  </ul>
+
+  <h3>4. The browser extension — local processing</h3>
+  <p>The unmask.shield extension analyses page text entirely within your browser using a locally bundled phrase library. No page content leaves your device unless:</p>
+  <ul>
+    <li>You have an active unmask.tools API key and AI detection is triggered — in this case the page text excerpt (up to 3,000 characters) is sent to our API for analysis. This text is not stored after processing.</li>
+    <li>You have explicitly enabled global data sharing in the extension settings — in this case anonymised phrase detections (phrase text, domain, country code, industry sector) are submitted to our database. This feature is <strong>off by default</strong>.</li>
+  </ul>
+  <p>Extension settings (API key, Ollama configuration, toggle state, custom phrases) are stored exclusively in <code>chrome.storage.local</code> on your device and are never transmitted to our servers.</p>
+
+  <h3>5. Data sharing and third parties</h3>
+  <p>We use the following sub-processors:</p>
+  <ul>
+    <li><strong>Supabase</strong> — database and Edge Functions hosting (EU region). <a href="https://supabase.com/privacy" target="_blank">Privacy policy →</a></li>
+    <li><strong>Stripe</strong> — payment processing. <a href="https://stripe.com/privacy" target="_blank">Privacy policy →</a></li>
+    <li><strong>Loops.so</strong> — transactional email delivery. <a href="https://loops.so/privacy" target="_blank">Privacy policy →</a></li>
+  </ul>
+  <p>We do not sell, rent, or share your personal data with any other third parties.</p>
+
+  <h3>6. Data retention</h3>
+  <ul>
+    <li>Account data (email, name, key) is retained for as long as your account is active and for up to 90 days after deletion upon request.</li>
+    <li>Anonymised detection events (opt-in only) are retained indefinitely as part of the public research dataset. They contain no personal data.</li>
+    <li>Billing records are retained as required by applicable law (typically 7 years).</li>
+  </ul>
+
+  <h3>7. Your rights under GDPR</h3>
+  <p>If you are located in the European Union or EEA, you have the following rights:</p>
+  <ul>
+    <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
+    <li><strong>Rectification</strong> — ask us to correct inaccurate data</li>
+    <li><strong>Erasure</strong> — request deletion of your personal data ("right to be forgotten")</li>
+    <li><strong>Restriction</strong> — ask us to limit how we process your data</li>
+    <li><strong>Portability</strong> — receive your data in a structured, machine-readable format</li>
+    <li><strong>Objection</strong> — object to processing based on legitimate interests</li>
+    <li><strong>Withdraw consent</strong> — where processing is based on consent, you may withdraw it at any time via the extension settings</li>
+  </ul>
+  <p>To exercise any of these rights, email <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>. We will respond within 30 days. You also have the right to lodge a complaint with your national data protection authority.</p>
+
+  <h3>8. International transfers</h3>
+  <p>Our sub-processors (Supabase, Stripe, Loops.so) may process data in the United States. Where this occurs, we rely on Standard Contractual Clauses (SCCs) as the transfer mechanism in accordance with GDPR Chapter V.</p>
+
+  <h3>9. Security</h3>
+  <p>We implement appropriate technical and organisational measures to protect your personal data, including encrypted connections (TLS), access controls, and row-level security on our database. No method of transmission over the internet is 100% secure; we cannot guarantee absolute security.</p>
+
+  <h3>10. Children</h3>
+  <p>unmask.tools is not directed at children under 16. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, contact us and we will delete it promptly.</p>
+
+  <h3>11. Changes to this policy</h3>
+  <p>We may update this policy from time to time. Material changes will be notified by email to registered users. The "last updated" date at the top of this page will always reflect the current version.</p>
+
+  <h3>12. Contact</h3>
+  <p>For any privacy-related questions or requests: <a href="mailto:hello@unmask.tools">hello@unmask.tools</a></p>
+</main>
+
+<footer>
+  unmask.tools · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>
+</footer>
+
+</body>
+</html>
