@@ -299,7 +299,7 @@
 </div>
 
 <footer>
-  LDM-V3 open dataset · <a href="https://github.com/fleschurza" target="_blank">github.com/fleschurza</a> ·
+  unmask.tools · <a href="https://github.com/fleschurza" target="_blank">github.com/fleschurza</a> ·
   Data collected with user consent · No personal data stored ·
   Legal anchors: Geneva AP I · Rome Statute · UDHR · Planetary Boundaries
 </footer>
@@ -837,20 +837,20 @@ function expandCard(cardId, title) {
   if (canvas) {
     const imgData = canvas.toDataURL('image/png');
     const w = window.open('', '_blank');
-    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${title} — LDM-V3</title>
+    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${title} — unmask.shield</title>
       <style>${sharedCSS} img { max-width: 100%; height: auto; display: block; } </style></head>
       <body><h2>${title}</h2><img src="${imgData}">
-      <p style="margin-top:20px;font-size:11px;color:#94a3b8;">LDM-V3 · Exported ${new Date().toLocaleString()}</p>
+      <p style="margin-top:20px;font-size:11px;color:#94a3b8;">unmask.shield · Exported ${new Date().toLocaleString()}</p>
       </body></html>`);
     w.document.close();
   } else {
     const inner = card.querySelector('[id$="Wrap"], .sector-grid, #sectorGrid');
     const html = inner ? inner.innerHTML : card.innerHTML;
     const w = window.open('', '_blank');
-    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${title} — LDM-V3</title>
+    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${title} — unmask.shield</title>
       <style>${sharedCSS}</style></head>
       <body><h2>${title}</h2>${html}
-      <p style="margin-top:24px;font-size:11px;color:#94a3b8;">LDM-V3 · Exported ${new Date().toLocaleString()}</p>
+      <p style="margin-top:24px;font-size:11px;color:#94a3b8;">unmask.shield · Exported ${new Date().toLocaleString()}</p>
       </body></html>`);
     w.document.close();
   }
