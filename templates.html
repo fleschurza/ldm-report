@@ -197,7 +197,7 @@
     </svg>
     <h1>unmask<span class="accent">.tools</span> · Language Detection Intelligence</h1>
   </div>
-  <p>Pre-built AI auditor — deploy the HCC-Genesis Lead Auditor on Claude, Gemini, or ChatGPT in minutes.</p>
+  <p>unmask.filter — deploy your AI language auditor on Claude, Gemini, or ChatGPT in minutes.</p>
   <nav>
     <a href="index.html">Report</a>
     <a href="api.html">Pricing</a>
@@ -210,7 +210,7 @@
 
   <!-- ── Intro ── -->
   <section>
-    <h2>HCC-Genesis Lead Auditor v2.3</h2>
+    <h2>unmask.filter</h2>
     <p style="max-width:620px;">A ready-to-deploy AI assistant that applies the four-framework audit protocol — UN Charter, Geneva Conventions, Rome Statute, and Planetary Boundaries — to any language, document, or request. Runs identically on Claude, Gemini, and ChatGPT.</p>
     <p style="max-width:620px;">Available on <strong>Team</strong> and <strong>Enterprise</strong> plans. Enter your key below to unlock setup instructions and downloads.</p>
   </section>
@@ -240,7 +240,7 @@
   <section id="template-content" style="display:none;">
 
     <div class="info-box">
-      Key verified — you have full access to the HCC-Genesis Lead Auditor template package.
+      Key verified — you have full access to the unmask.filter template package.
     </div>
 
     <!-- Platform selector -->
@@ -269,7 +269,7 @@
           <div class="step-num">1</div>
           <div class="step-body">
             <strong>Create a new Project in Claude</strong>
-            <span>Go to <a href="https://claude.ai" target="_blank" style="color:var(--c-accent);">claude.ai</a> → Projects → New Project. Give it a name like "HCC-Genesis Lead Auditor v2.3".</span>
+            <span>Go to <a href="https://claude.ai" target="_blank" style="color:var(--c-accent);">claude.ai</a> → Projects → New Project. Give it a name like "unmask.filter".</span>
           </div>
         </li>
         <li>
@@ -283,7 +283,7 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <strong>Upload the reference file to Project Knowledge</strong>
-            <span>In the same project, go to Project Knowledge → Add Content → Upload file. Upload <strong>HCC-Genesis-2026-18_v2.3_Core-Reference.txt</strong>. This is the single source of truth for all thresholds, legal citations, and case rules.</span>
+            <span>In the same project, go to Project Knowledge → Add Content → Upload file. Upload <strong>unmask.filter_Core-Reference.txt</strong>. This is the single source of truth for all thresholds, legal citations, and case rules.</span>
           </div>
         </li>
         <li>
@@ -329,7 +329,7 @@
           <div class="step-num">1</div>
           <div class="step-body">
             <strong>Create a new Gem</strong>
-            <span>Go to <a href="https://gemini.google.com" target="_blank" style="color:var(--c-accent);">gemini.google.com</a> → Gem Manager → New Gem. Name it "HCC-Genesis Lead Auditor v2.3".</span>
+            <span>Go to <a href="https://gemini.google.com" target="_blank" style="color:var(--c-accent);">gemini.google.com</a> → Gem Manager → New Gem. Name it "unmask.filter".</span>
           </div>
         </li>
         <li>
@@ -343,7 +343,7 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <strong>Upload the reference file</strong>
-            <span>Click the attachment icon and upload <strong>HCC-Genesis-2026-18_v2.3_Core-Reference.txt</strong>. One file is all you need — it consolidates all source documents.</span>
+            <span>Click the attachment icon and upload <strong>unmask.filter_Core-Reference.txt</strong>. One file is all you need — it consolidates all source documents.</span>
           </div>
         </li>
         <li>
@@ -389,7 +389,7 @@
           <div class="step-num">1</div>
           <div class="step-body">
             <strong>Open GPT Builder</strong>
-            <span>Go to <a href="https://chat.openai.com" target="_blank" style="color:var(--c-accent);">chat.openai.com</a> → Explore GPTs → Create → Configure tab. Name it "HCC-Genesis Lead Auditor v2.3".</span>
+            <span>Go to <a href="https://chat.openai.com" target="_blank" style="color:var(--c-accent);">chat.openai.com</a> → Explore GPTs → Create → Configure tab. Name it "unmask.filter".</span>
           </div>
         </li>
         <li>
@@ -403,7 +403,7 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <strong>Upload the reference file under Knowledge</strong>
-            <span>Scroll to the Knowledge section → Upload file → <strong>HCC-Genesis-2026-18_v2.3_Core-Reference.txt</strong>. Add this line at the end of your instructions: <em>"When handling edge cases or needing specific thresholds and legal citations, search your knowledge file before responding."</em></span>
+            <span>Scroll to the Knowledge section → Upload file → <strong>unmask.filter_Core-Reference.txt</strong>. Add this line at the end of your instructions: <em>"When handling edge cases or needing specific thresholds and legal citations, search your knowledge file before responding."</em></span>
           </div>
         </li>
         <li>
@@ -452,7 +452,7 @@
     <!-- Version info -->
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
       <div>
-        <p style="font-size:12px;margin:0;color:var(--c-muted);"><strong style="color:var(--c-text);">Version:</strong> HCC-Genesis-2026-18 v2.3 &nbsp;·&nbsp; Last updated: 2026-05-15</p>
+        <p style="font-size:12px;margin:0;color:var(--c-muted);"><strong style="color:var(--c-text);">Version:</strong> unmask.filter &nbsp;·&nbsp; Last updated: 2026-05-15</p>
         <p style="font-size:12px;margin:4px 0 0;color:var(--c-muted);">All three platforms run identical instructions. Update by re-uploading the reference file.</p>
       </div>
       <a href="docs.html" class="btn btn-outline btn-sm">View full FAQ →</a>
@@ -469,7 +469,7 @@ const VERIFY_ENDPOINT = `${SUPABASE_URL}/functions/v1/verify-key`;
 
 // ── Prompt content ────────────────────────────────────────────────────────────
 const SYSTEM_PROMPT = `ROLE
-You are the Lead Auditor for HCC-Genesis-2026-18 v2.3. Your job is to make sure that every response — whether a simple question or a complex strategy — stays grounded in what actually happens to real people and the world they live in. You exist because systems without this kind of check tend to optimize for efficiency and ignore the human cost of doing so.
+You are unmask.filter, an AI language auditor built by unmask.tools. Your job is to make sure that every response — whether a simple question or a complex strategy — stays grounded in what actually happens to real people and the world they live in. You exist because systems without this kind of check tend to optimize for efficiency and ignore the human cost of doing so.
 
 WHAT YOU STAND FOR
 People come first. Their health, safety, water, shelter, and dignity are not variables to be traded against cost or convenience. The natural environment that supports human life is not an externality — it is the foundation.
@@ -527,9 +527,9 @@ Every response should then naturally include:
 When you refuse or redirect anything, walk through your reasoning clearly so anyone — not just a technical expert — can follow it. Name the specific rule or legal framework that applies and why.
 
 YOUR KNOWLEDGE BASE
-Your attached reference file (HCC-Genesis-2026-18_v2.3_Core-Reference.txt) contains all threshold values, case-specific rules, de-masking examples, and legal citations. Consult it whenever you need specifics or are handling an edge case.`;
+Your attached reference file (unmask.filter_Core-Reference.txt) contains all threshold values, case-specific rules, de-masking examples, and legal citations. Consult it whenever you need specifics or are handling an edge case.`;
 
-const REFERENCE_CONTENT = `HCC-GENESIS-2026-18 v2.3 — CORE OPERATIONAL REFERENCE
+const REFERENCE_CONTENT = `unmask.filter — CORE OPERATIONAL REFERENCE
 Status: Authoritative Consolidated Reference (All Sources)
 Last compiled: 2026-05-15
 
@@ -726,7 +726,7 @@ PRIORITY DECEPTION PATTERNS TO WATCH FOR:
 
 
 ================================================================================
-END OF CORE REFERENCE — HCC-GENESIS-2026-18 v2.3
+END OF CORE REFERENCE — unmask.filter
 "SURVIVAL IS THE CONSTANT."
 ================================================================================`;
 
@@ -757,8 +757,8 @@ function copyPrompt(platform) {
 function downloadFile(type) {
   const content  = type === 'prompt' ? SYSTEM_PROMPT : REFERENCE_CONTENT;
   const filename = type === 'prompt'
-    ? 'HCC-Genesis-2026-18_v2.3_System-Prompt.txt'
-    : 'HCC-Genesis-2026-18_v2.3_Core-Reference.txt';
+    ? 'unmask.filter_System-Prompt.txt'
+    : 'unmask.filter_Core-Reference.txt';
   const blob = new Blob([content], { type: 'text/plain' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
