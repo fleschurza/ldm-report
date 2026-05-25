@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>unmask.tools — API Docs & FAQ</title>
+  <title>unmask.tools — FAQ & API Docs</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -102,7 +102,7 @@
   <nav>
     <a href="index.html">Report</a>
     <a href="api.html">Pricing</a>
-    <a href="docs.html" class="active">API Docs</a>
+    <a href="docs.html" class="active">FAQ</a>
   </nav>
 </header>
 
@@ -112,16 +112,71 @@
   <aside class="toc">
     <div class="toc-inner">
       <h4>On this page</h4>
+      <a href="#faq">FAQ</a>
       <a href="#quickstart">Quickstart</a>
       <a href="#endpoint">Endpoint</a>
       <a href="#request">Request</a>
       <a href="#response">Response</a>
       <a href="#errors">Error codes</a>
-      <a href="#faq">FAQ</a>
     </div>
   </aside>
 
   <div class="content">
+
+    <!-- ── FAQ ───────────────────────────────────────────────────── -->
+    <section id="faq">
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Is the API available on the free Personal tier? <span class="chevron">⌄</span></div>
+        <div class="faq-a">No. API access is included in all paid tiers (Pro, Team, Enterprise). The Personal free tier gives you AI detection inside the browser extension, but does not include API access. <a href="api.html" style="color:var(--c-accent)">Upgrade here.</a></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What counts as an "AI scan"? <span class="chevron">⌄</span></div>
+        <div class="faq-a">One AI scan = one API request with <code>"options": {"ai": true}</code>. Requests without AI enabled (phrase matching only) are free and unlimited. Daily limits reset at midnight UTC.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What happens when I hit my daily AI limit? <span class="chevron">⌄</span></div>
+        <div class="faq-a">You get a 429 response — but phrase matching results are still returned in the <code>detected</code> field. You never get an empty response. The limit resets at midnight UTC.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can multiple people use the same key? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Yes — on Team and Enterprise tiers, one key is shared across the whole organisation. The daily limit is shared too, so heavier users will consume more of the shared pool. Pro is a single-seat key.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How is severity determined? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <strong>Critical</strong> — language abstracting killing, torture, forced displacement, ecocide, or planetary tipping point transgression.<br><br>
+          <strong>High</strong> — language abstracting serious harm: ecosystem collapse, mass job losses, habitat destruction, resource deprivation.<br><br>
+          <strong>Medium</strong> — language abstracting institutional harm: greenwashing, carbon offsetting, governance euphemism, labour abstraction.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What legal frameworks does the detection reference? <span class="chevron">⌄</span></div>
+        <div class="faq-a">The phrase library is built from five source documents: the Rome Statute of the ICC, Geneva Convention Additional Protocol I, the Universal Declaration of Human Rights, the Planetary Boundaries Framework (Rockström et al.), and the HCC-Genesis-2026-18 physicality axiom framework. Each detected phrase is mapped to a specific article or boundary.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What are community-confirmed phrases? <span class="chevron">⌄</span></div>
+        <div class="faq-a">When extension users confirm a detected phrase as genuinely euphemistic, it's recorded in our database. Phrases confirmed by 3 or more users are automatically promoted to the base library via a weekly review process. These are flagged with <code>communityConfirmed: true</code> in API responses.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I cancel my subscription? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Email <a href="mailto:hello@unmask.tools" style="color:var(--c-accent)">hello@unmask.tools</a> or cancel directly from the Stripe billing portal. Your key stays active until the end of the billing period, then reverts to Personal free tier limits.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is there a rate limit beyond the daily AI cap? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Phrase matching has no rate limit. AI detection is capped by your daily limit only — there's no per-minute or per-second throttle. If you need very high burst throughput, contact us.</div>
+      </div>
+
+    </section>
 
     <!-- ── Quickstart ─────────────────────────────────────────────── -->
     <section id="quickstart">
@@ -253,61 +308,6 @@ curl -X POST \
         </tbody>
       </table>
       <p>On 429, the response still includes <code style="font-family:monospace">detected</code> from phrase matching — you don't lose the result, just the AI layer.</p>
-    </section>
-
-    <!-- ── FAQ ───────────────────────────────────────────────────── -->
-    <section id="faq">
-      <h2>FAQ</h2>
-
-      <div class="faq-item">
-        <div class="faq-q">Is the API available on the free Personal tier? <span class="chevron">⌄</span></div>
-        <div class="faq-a">No. API access is included in all paid tiers (Pro, Team, Enterprise). The Personal free tier gives you AI detection inside the browser extension, but does not include API access. <a href="api.html" style="color:var(--c-accent)">Upgrade here.</a></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What counts as an "AI scan"? <span class="chevron">⌄</span></div>
-        <div class="faq-a">One AI scan = one API request with <code>"options": {"ai": true}</code>. Requests without AI enabled (phrase matching only) are free and unlimited. Daily limits reset at midnight UTC.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What happens when I hit my daily AI limit? <span class="chevron">⌄</span></div>
-        <div class="faq-a">You get a 429 response — but phrase matching results are still returned in the <code>detected</code> field. You never get an empty response. The limit resets at midnight UTC.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Can multiple people use the same key? <span class="chevron">⌄</span></div>
-        <div class="faq-a">Yes — on Team and Enterprise tiers, one key is shared across the whole organisation. The daily limit is shared too, so heavier users will consume more of the shared pool. Pro is a single-seat key.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How is severity determined? <span class="chevron">⌄</span></div>
-        <div class="faq-a">
-          <strong>Critical</strong> — language abstracting killing, torture, forced displacement, ecocide, or planetary tipping point transgression.<br><br>
-          <strong>High</strong> — language abstracting serious harm: ecosystem collapse, mass job losses, habitat destruction, resource deprivation.<br><br>
-          <strong>Medium</strong> — language abstracting institutional harm: greenwashing, carbon offsetting, governance euphemism, labour abstraction.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What legal frameworks does the detection reference? <span class="chevron">⌄</span></div>
-        <div class="faq-a">The phrase library is built from five source documents: the Rome Statute of the ICC, Geneva Convention Additional Protocol I, the Universal Declaration of Human Rights, the Planetary Boundaries Framework (Rockström et al.), and the HCC-Genesis-2026-18 physicality axiom framework. Each detected phrase is mapped to a specific article or boundary.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What are community-confirmed phrases? <span class="chevron">⌄</span></div>
-        <div class="faq-a">When extension users confirm a detected phrase as genuinely euphemistic, it's recorded in our database. Phrases confirmed by 3 or more users are automatically promoted to the base library via a weekly review process. These are flagged with <code>communityConfirmed: true</code> in API responses.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How do I cancel my subscription? <span class="chevron">⌄</span></div>
-        <div class="faq-a">Email <a href="mailto:hello@unmask.tools" style="color:var(--c-accent)">hello@unmask.tools</a> or cancel directly from the Stripe billing portal. Your key stays active until the end of the billing period, then reverts to Personal free tier limits.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Is there a rate limit beyond the daily AI cap? <span class="chevron">⌄</span></div>
-        <div class="faq-a">Phrase matching has no rate limit. AI detection is capped by your daily limit only — there's no per-minute or per-second throttle. If you need very high burst throughput, contact us.</div>
-      </div>
-
     </section>
 
   </div>
