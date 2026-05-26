@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>unmask.tools — FAQ & API Docs</title>
+  <title>unmask.tools — FAQ & Docs</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -22,38 +22,75 @@
     header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
     header h1 .accent { color: #009EDB; font-weight: 400; }
     header p { color: #94a3b8; font-size: 12px; margin-top: 5px; max-width: 640px; }
-    nav { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
-    nav a { color: #94a3b8; font-size: 12px; text-decoration: none; }
-    nav a:hover { color: #009EDB; }
-    nav a.active { color: #009EDB; }
 
-    .layout { display: flex; max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; gap: 40px; }
+    .layout { display: flex; max-width: 1040px; margin: 0 auto; padding: 40px 20px 80px; gap: 48px; }
 
     /* Sidebar TOC */
-    .toc { width: 200px; flex-shrink: 0; }
+    .toc { width: 210px; flex-shrink: 0; }
     .toc-inner { position: sticky; top: 24px; }
-    .toc h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-muted); margin-bottom: 12px; }
-    .toc a { display: block; font-size: 12px; color: var(--c-muted); text-decoration: none; padding: 4px 0; border-left: 2px solid var(--c-border); padding-left: 10px; margin-bottom: 2px; }
+    .toc-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; margin: 18px 0 6px 10px; }
+    .toc-cat:first-child { margin-top: 0; }
+    .toc a { display: block; font-size: 12px; color: var(--c-muted); text-decoration: none; padding: 4px 0 4px 10px; border-left: 2px solid var(--c-border); margin-bottom: 2px; transition: color 0.1s, border-color 0.1s; }
     .toc a:hover { color: var(--c-accent); border-left-color: var(--c-accent); }
-    .toc a.active { color: var(--c-accent); border-left-color: var(--c-accent); }
+    .toc a.active { color: var(--c-accent); border-left-color: var(--c-accent); font-weight: 600; }
 
     /* Content */
     .content { flex: 1; min-width: 0; }
-    section { margin-bottom: 56px; }
-    h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.01em; padding-top: 8px; }
-    h3 { font-size: 14px; font-weight: 600; margin: 24px 0 10px; }
+    section { margin-bottom: 60px; scroll-margin-top: 20px; }
+    .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-accent); margin-bottom: 6px; }
+    h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .section-intro { color: var(--c-muted); font-size: 13px; margin-bottom: 20px; line-height: 1.7; max-width: 600px; }
+    h3 { font-size: 14px; font-weight: 600; margin: 28px 0 10px; }
     p { color: var(--c-muted); margin-bottom: 12px; line-height: 1.7; }
     p strong { color: var(--c-text); }
+    ul { color: var(--c-muted); margin: 0 0 12px 20px; line-height: 1.7; }
+    li { margin-bottom: 4px; }
+
+    /* Step cards (install guide) */
+    .steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+    .step { display: flex; gap: 14px; align-items: flex-start; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 14px 16px; }
+    .step-num { background: var(--c-accent); color: #fff; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .step-body strong { color: var(--c-text); font-size: 13px; font-weight: 600; display: block; margin-bottom: 3px; }
+    .step-body span { color: var(--c-muted); font-size: 12px; line-height: 1.6; }
+    .step-body a { color: var(--c-accent); text-decoration: none; }
+    .step-body a:hover { text-decoration: underline; }
+
+    /* Feature cards */
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+    .feature-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 16px; }
+    .feature-card-icon { font-size: 20px; margin-bottom: 8px; }
+    .feature-card h4 { font-size: 13px; font-weight: 700; color: var(--c-text); margin-bottom: 5px; }
+    .feature-card p { font-size: 12px; margin-bottom: 0; }
+
+    /* Platform table */
+    .platform-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 20px; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; overflow: hidden; }
+    .platform-table th { text-align: left; padding: 10px 14px; background: #f1f5f9; border-bottom: 1px solid var(--c-border); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-muted); }
+    .platform-table td { padding: 10px 14px; border-bottom: 1px solid var(--c-border); color: var(--c-muted); vertical-align: middle; }
+    .platform-table tr:last-child td { border-bottom: none; }
+    .platform-table td:first-child { font-weight: 600; color: var(--c-text); }
+    .badge-yes  { display: inline-block; background: #dcfce7; color: #15803d; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+    .badge-no   { display: inline-block; background: #f1f5f9; color: #94a3b8; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+    .badge-soon { display: inline-block; background: #fef3c7; color: #d97706; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+
+    /* Privacy callout */
+    .privacy-callout { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 16px 18px; margin-bottom: 20px; display: flex; gap: 12px; align-items: flex-start; }
+    .privacy-callout-icon { font-size: 20px; flex-shrink: 0; }
+    .privacy-callout p { margin-bottom: 0; font-size: 13px; color: #166534; }
+    .privacy-callout p strong { color: #14532d; }
 
     /* FAQ */
-    .faq-item { border: 1px solid var(--c-border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
-    .faq-q { padding: 14px 16px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--c-surface); user-select: none; }
+    .faq-item { border: 1px solid var(--c-border); border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+    .faq-q { padding: 13px 16px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: var(--c-surface); user-select: none; gap: 10px; }
     .faq-q:hover { background: #f8fafc; }
-    .faq-q .chevron { color: var(--c-muted); transition: transform 0.2s; font-size: 16px; }
+    .faq-q .chevron { color: var(--c-muted); transition: transform 0.2s; font-size: 14px; flex-shrink: 0; }
     .faq-item.open .faq-q .chevron { transform: rotate(180deg); }
-    .faq-a { display: none; padding: 0 16px 14px; color: var(--c-muted); font-size: 13px; line-height: 1.7; border-top: 1px solid var(--c-border); padding-top: 12px; background: var(--c-surface); }
+    .faq-a { display: none; padding: 12px 16px 14px; color: var(--c-muted); font-size: 13px; line-height: 1.7; border-top: 1px solid var(--c-border); background: var(--c-surface); }
     .faq-item.open .faq-a { display: block; }
     .faq-a code { font-family: monospace; background: #f1f5f9; padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+    .faq-a a { color: var(--c-accent); text-decoration: none; }
+    .faq-a a:hover { text-decoration: underline; }
+    .faq-a ul { margin: 8px 0 8px 18px; }
+    .faq-a li { margin-bottom: 3px; }
 
     /* Code blocks */
     .code-block {
@@ -72,10 +109,10 @@
     .endpoint-badge { display: inline-block; background: #009EDB; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 8px; font-family: monospace; }
     .endpoint-url { font-family: monospace; font-size: 13px; color: var(--c-text); word-break: break-all; }
 
-    table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 16px; }
-    th { text-align: left; padding: 8px 12px; background: #f1f5f9; border-bottom: 1px solid var(--c-border); font-weight: 600; }
-    td { padding: 8px 12px; border-bottom: 1px solid var(--c-border); color: var(--c-muted); vertical-align: top; }
-    td:first-child { font-family: monospace; color: var(--c-text); }
+    table.api-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 16px; }
+    table.api-table th { text-align: left; padding: 8px 12px; background: #f1f5f9; border-bottom: 1px solid var(--c-border); font-weight: 600; }
+    table.api-table td { padding: 8px 12px; border-bottom: 1px solid var(--c-border); color: var(--c-muted); vertical-align: top; }
+    table.api-table td:first-child { font-family: monospace; color: var(--c-text); }
 
     .severity-badge { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; }
     .severity-badge.critical { background: #fee2e2; color: #dc2626; }
@@ -91,6 +128,7 @@
       .toc { width: 100%; }
       .toc-inner { position: static; }
       header { padding: 20px; }
+      .feature-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -102,9 +140,9 @@
       <path d="M64 4 L116 22 L116 68 C116 100 92 120 64 126 C36 120 12 100 12 68 L12 22 Z" fill="#3ec6f5" opacity="0.21" stroke="#3ec6f5" stroke-width="7" stroke-linejoin="round"/>
       <text x="64" y="100" text-anchor="middle" font-family="Roboto,sans-serif" font-weight="900" font-size="94" fill="#ffffff">U</text>
     </svg>
-    <h1>unmask<span class="accent">.tools</span> · Language Detection Intelligence</h1>
+    <h1>unmask<span class="accent">.tools</span> · FAQ &amp; Documentation</h1>
   </div>
-  <p>Institutional language detection — browser extension, API, and unmask.filter bot template.</p>
+  <p>Everything you need to get started, understand the features, and use the API.</p>
   <nav style="margin-top:14px;display:flex;gap:4px;flex-wrap:wrap;">
     <a href="index.html" style="color:#94a3b8;font-size:12px;font-weight:500;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid transparent;">Report</a>
     <a href="api.html" style="color:#94a3b8;font-size:12px;font-weight:500;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid transparent;">Pricing</a>
@@ -118,8 +156,26 @@
   <!-- Sidebar TOC -->
   <aside class="toc">
     <div class="toc-inner">
-      <h4>On this page</h4>
-      <a href="#faq">FAQ</a>
+      <div class="toc-cat">Getting started</div>
+      <a href="#getting-started">What is unmask.shield?</a>
+      <a href="#install">Installation</a>
+
+      <div class="toc-cat">Features</div>
+      <a href="#features">Feature overview</a>
+      <a href="#detection">Detection &amp; results</a>
+      <a href="#ai-detection">AI Detection</a>
+
+      <div class="toc-cat">Email &amp; messages</div>
+      <a href="#email-scanning">Supported platforms</a>
+      <a href="#compose">Compose scanning</a>
+
+      <div class="toc-cat">Privacy</div>
+      <a href="#privacy">Privacy &amp; data</a>
+
+      <div class="toc-cat">Plans &amp; keys</div>
+      <a href="#plans">Plans &amp; keys</a>
+
+      <div class="toc-cat">API reference</div>
       <a href="#quickstart">Quickstart</a>
       <a href="#endpoint">Endpoint</a>
       <a href="#request">Request</a>
@@ -130,65 +186,417 @@
 
   <div class="content">
 
-    <!-- ── FAQ ───────────────────────────────────────────────────── -->
-    <section id="faq">
-      <h2>FAQ</h2>
+    <!-- ── Getting Started ───────────────────────────────────────────── -->
+    <section id="getting-started">
+      <div class="section-label">Getting started</div>
+      <h2>What is unmask.shield?</h2>
+      <p class="section-intro">unmask.shield is a browser extension that reads the language on any web page — or in your emails and messages — and flags phrases that abstract, sanitise, or conceal real-world physical harm. Think of it as a real-time translator between institutional language and what that language actually means for people and the environment.</p>
 
       <div class="faq-item">
-        <div class="faq-q">Is the API available on the free Personal tier? <span class="chevron">⌄</span></div>
-        <div class="faq-a">No. API access is included in Team and Enterprise tiers. The Personal free tier and Pro tier give you AI detection inside the browser extension, but do not include API access. <a href="api.html" style="color:var(--c-accent)">Upgrade here.</a></div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What counts as an "AI scan"? <span class="chevron">⌄</span></div>
-        <div class="faq-a">One AI scan = one API request with <code>"options": {"ai": true}</code>. Requests without AI enabled (phrase matching only) are free and unlimited. Daily limits reset at midnight UTC.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">What happens when I hit my daily AI limit? <span class="chevron">⌄</span></div>
-        <div class="faq-a">You get a 429 response — but phrase matching results are still returned in the <code>detected</code> field. You never get an empty response. The limit resets at midnight UTC.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Can multiple people use the same key? <span class="chevron">⌄</span></div>
-        <div class="faq-a">Yes — on Team and Enterprise tiers, one key is shared across the whole organisation. The daily limit is shared too, so heavier users will consume more of the shared pool. Pro is a single-seat key.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How is severity determined? <span class="chevron">⌄</span></div>
+        <div class="faq-q">What kind of language does it flag? <span class="chevron">⌄</span></div>
         <div class="faq-a">
-          <strong>Critical</strong> — language abstracting killing, torture, forced displacement, ecocide, or planetary tipping point transgression.<br><br>
-          <strong>High</strong> — language abstracting serious harm: ecosystem collapse, mass job losses, habitat destruction, resource deprivation.<br><br>
-          <strong>Medium</strong> — language abstracting institutional harm: greenwashing, carbon offsetting, governance euphemism, labour abstraction.
+          <p>Language that describes harm to people, communities, or ecosystems in abstract, technical, or bureaucratic terms — making the harm sound neutral, inevitable, or even positive. Examples:</p>
+          <ul>
+            <li><strong>"Managed retreat"</strong> → forced relocation of communities from their land</li>
+            <li><strong>"Collateral damage"</strong> → civilian deaths or injuries in military operations</li>
+            <li><strong>"Workforce restructuring"</strong> → mass job losses affecting livelihoods</li>
+            <li><strong>"Carbon offsetting"</strong> → continuing emissions while paying to avoid reducing them</li>
+            <li><strong>"Flux migratoires"</strong> → reducing human beings to a statistical flow</li>
+          </ul>
+          <p>The phrase library draws from five legal and scientific frameworks: the Rome Statute (ICC), Geneva Conventions, UN Declaration of Human Rights, Planetary Boundaries science, and the unmask.tools detection library. Detected phrases link back to the specific article or boundary they relate to.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">What legal frameworks does the detection reference? <span class="chevron">⌄</span></div>
-        <div class="faq-a">The phrase library is built from five source documents: the Rome Statute of the ICC, Geneva Convention Additional Protocol I, the Universal Declaration of Human Rights, the Planetary Boundaries Framework (Rockström et al.), and the HCC-Genesis-2026-18 physicality axiom framework. Each detected phrase is mapped to a specific article or boundary.</div>
+        <div class="faq-q">Who is this for? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>Anyone who reads or writes in institutional, corporate, government, or policy contexts. Specifically useful for:</p>
+          <ul>
+            <li>Journalists and researchers analysing official communications</li>
+            <li>NGO and advocacy workers reading policy documents and press releases</li>
+            <li>Corporate employees who want to catch their own language before it goes out</li>
+            <li>Anyone who reads sustainability reports, government statements, or HR communications and wants a second opinion on the language</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Installation ──────────────────────────────────────────────── -->
+    <section id="install">
+      <div class="section-label">Getting started</div>
+      <h2>Installation</h2>
+      <p class="section-intro">unmask.shield installs as a standard Chrome extension. It takes about 60 seconds.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Open the Chrome Web Store</strong>
+            <span>Go to the <a href="https://chrome.google.com/webstore" target="_blank">Chrome Web Store</a> and search for <em>unmask.shield</em>, or follow the direct link from <a href="api.html">our pricing page</a>. The extension is listed under the publisher <em>unmask.tools</em>.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Click "Add to Chrome"</strong>
+            <span>Chrome will ask for permission to read page content on websites you visit. This is required for the extension to scan text — no content is sent anywhere without your explicit consent.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Pin the extension</strong>
+            <span>Click the puzzle-piece icon (⊞) in your Chrome toolbar, find <em>unmask.shield</em>, and click the pin icon. This keeps the shield icon permanently visible so you can see detection counts at a glance.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Get a free key (optional but recommended)</strong>
+            <span>Phrase matching works without any key. To unlock AI Detection — which catches euphemistic language beyond the phrase library — <a href="register.html">register for a free key</a>. Takes 30 seconds, no credit card needed.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <strong>Visit any page and start reading</strong>
+            <span>Navigate to a news article, policy document, corporate press release, or sustainability report. Flagged phrases are highlighted directly on the page. Click any highlight to see the plain-language translation and legal anchor.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Does it work on Firefox? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Firefox support is in development. The Chrome extension uses Manifest V3; a Firefox-compatible port (MV2) is planned. Sign up for the newsletter on the <a href="api.html">pricing page</a> to be notified when Firefox support launches.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do I need to create an account? <span class="chevron">⌄</span></div>
+        <div class="faq-a">No account is required for phrase detection — it works immediately after install. If you want AI Detection, you need a free API key. Registration just requires an email address; there is no password and no account dashboard (yet — one is planned).</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is the extension free? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Yes. The free Personal tier includes unlimited phrase matching across all supported languages, PDF scanning, email and message scanning, the Invoke Protocol, and the phrase library. AI Detection has a daily limit of 50 scans on the free tier. <a href="api.html">Paid tiers</a> increase the AI limit and add API access.</div>
+      </div>
+    </section>
+
+    <!-- ── Features ──────────────────────────────────────────────────── -->
+    <section id="features">
+      <div class="section-label">Features</div>
+      <h2>Feature overview</h2>
+      <p class="section-intro">unmask.shield has several distinct capabilities. Here is what each one does in plain terms.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-icon">🔍</div>
+          <h4>Language Detection</h4>
+          <p>Scans any web page for phrases from the detection library. Highlights them directly on the page, colour-coded by severity. Works on all sites — news, government, corporate, academic.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🤖</div>
+          <h4>AI Detection</h4>
+          <p>A second pass using a language model that catches euphemistic language beyond the fixed phrase library. Finds novel constructions and context-dependent abstraction that phrase matching would miss.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">✉️</div>
+          <h4>Email &amp; Message Scanning</h4>
+          <p>Scans emails you receive and — optionally — flags language in compose windows as you write. Works in Gmail, Outlook Web, Slack, Teams, WhatsApp Web, and more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">📄</div>
+          <h4>PDF Scanning</h4>
+          <p>PDFs can't be scanned directly by the browser extension. Instead, paste the PDF text into the extension's PDF panel to scan it. Useful for policy documents, reports, and legal filings.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🛡️</div>
+          <h4>Invoke Protocol</h4>
+          <p>When you're using an AI chat (Claude, ChatGPT, Gemini), the extension can inject a framing prompt into the conversation that instructs the AI to apply human rights and environmental constraints to all its responses.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">📚</div>
+          <h4>My Phrase Library</h4>
+          <p>Add your own phrases to flag — in any language, with your own severity level and plain-language translation. Useful for sector-specific jargon not in the base library.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I use PDF scanning? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>When you have a PDF open in your browser, the extension popup shows a PDF panel automatically. Open the PDF, select all text (Ctrl+A / Cmd+A), copy it, and paste it into the PDF panel. Click "Scan pasted text" and the extension will highlight flagged phrases directly in the pasted text.</p>
+          <p>This works for any PDF — reports, policy documents, legal filings, press releases. The text is processed entirely in your browser; nothing is sent to a server.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How does the Invoke Protocol work? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>The Invoke Protocol is a framing prompt you insert at the start of an AI conversation. It instructs the AI to apply the UN Charter, Geneva Conventions, Rome Statute, and Planetary Boundaries as hard constraints on every response — treating people and the environment as primary, not as externalities.</p>
+          <p>When the extension detects you're on Claude, ChatGPT, or Gemini, it can inject this prompt directly into the chat input. On other platforms, it copies the prompt to your clipboard for manual paste.</p>
+          <p>This works in a conversation context — it doesn't modify the AI permanently, just sets a frame for that conversation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What is My Phrase Library? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>My Phrase Library lets you add your own phrases to detect — beyond the built-in library. You choose the phrase, its plain-language translation, its severity level, and the language. Custom phrases are stored locally in your browser and never shared.</p>
+          <p>This is useful for sector-specific language: HR jargon in your organisation, legal euphemisms in a particular jurisdiction, financial abstractions common in your industry, or phrases in languages not yet well-covered by the base library.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Detection & Results ───────────────────────────────────────── -->
+    <section id="detection">
+      <div class="section-label">Features</div>
+      <h2>Detection &amp; results</h2>
+      <p class="section-intro">Understanding what the numbers and labels in the extension mean.</p>
+
+      <div class="faq-item">
+        <div class="faq-q">What do Critical, High, and Medium mean? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p><strong>Critical</strong> — language that abstracts killing, torture, forced detention, mass deportation, ecocide, or planetary tipping point transgression. Anchored to the Rome Statute of the ICC and Geneva Convention absolute prohibitions.</p>
+          <p><strong>High</strong> — language that abstracts serious but non-lethal harm: forced displacement, ecosystem collapse, mass livelihood destruction, critical resource deprivation. Anchored to UDHR economic and social rights and Planetary Boundaries thresholds.</p>
+          <p><strong>Medium</strong> — language that abstracts institutional and structural harm: greenwashing, labour abstraction, governance euphemism, colonial-pattern framing. These phrases are harmful in aggregate and systemically, rather than in a single instance.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What is the Risk Score? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>The Risk Score is a weighted sum of detections: each Critical phrase scores 10 points, High scores 4, Medium scores 1. It gives a single number you can use to compare documents.</p>
+          <p>It's deliberately weighted heavily toward Critical — a document with one critical phrase is riskier than one with twenty medium phrases. The score is unbounded; a long policy document might score 200+.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What is Prevalence per 1,000 words? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>Prevalence per 1k normalises the detection count by document length, so you can compare a 500-word press release with a 20,000-word report fairly. A prevalence of 3.0 means three flagged phrase occurrences per thousand words.</p>
+          <p>High prevalence (3.0+) in a short document is more significant than the same score in a long one — the language is denser with abstraction. The extension colour-codes prevalence: sparse (blue), moderate (amber), dense (red).</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Why does something get flagged that I think is harmless? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>The extension flags phrases based on their documented institutional usage patterns — not necessarily their meaning in every context. "Managed retreat" as a term in a climate adaptation plan is technically correct but still worth surfacing, because the phrase abstracts the lived experience of forced relocation.</p>
+          <p>If you think a detection is wrong in its specific context, use the "Figure of speech" button in the tooltip. This records your feedback and helps improve future detection accuracy. It does not remove the highlight from the page — it just marks it as evaluated.</p>
+        </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">What are community-confirmed phrases? <span class="chevron">⌄</span></div>
-        <div class="faq-a">When extension users confirm a detected phrase as genuinely euphemistic, it's recorded in our database. Phrases confirmed by 3 or more users are automatically promoted to the base library via a weekly review process. These are flagged with <code>communityConfirmed: true</code> in API responses.</div>
+        <div class="faq-a">When extension users click "Real use — confirmed" on a detection, it is recorded anonymously. Phrases confirmed by multiple users across different pages are promoted to the base library via a weekly review process. This helps the library grow with real-world language patterns.</div>
+      </div>
+    </section>
+
+    <!-- ── AI Detection ───────────────────────────────────────────────── -->
+    <section id="ai-detection">
+      <div class="section-label">Features</div>
+      <h2>AI Detection</h2>
+      <p class="section-intro">AI Detection adds a second layer on top of phrase matching — catching language the fixed library would miss.</p>
+
+      <div class="faq-item">
+        <div class="faq-q">What does AI Detection do that phrase matching doesn't? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>Phrase matching only catches exact phrases (or close variants) that are in the library. AI Detection reads the full text in context and can identify:</p>
+          <ul>
+            <li>Novel euphemisms not yet in the library</li>
+            <li>Paraphrases and circumlocutions that mean the same thing</li>
+            <li>Context-dependent abstraction — phrases that are neutral in most contexts but harmful in the document you're reading</li>
+            <li>Multi-sentence patterns that together constitute a harmful framing even if no individual phrase triggers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Which AI backends does it use? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>The extension tries backends in priority order:</p>
+          <ul>
+            <li><strong>unmask.tools API</strong> — cloud AI via your API key. Most accurate, uses your daily limit.</li>
+            <li><strong>Chrome AI (Gemini Nano)</strong> — on-device AI built into Chrome. No daily limit, no API key needed. Only available on supported Chrome versions.</li>
+            <li><strong>Ollama (local LLM)</strong> — if you have Ollama running locally, the extension can use any model you have installed. No daily limit, fully private.</li>
+          </ul>
+          <p>If none of these are available, AI Detection is skipped and only phrase matching runs.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What counts toward my daily AI limit? <span class="chevron">⌄</span></div>
+        <div class="faq-a">One AI scan = one page analysed via the unmask.tools API. Long pages are split into chunks and each chunk counts as one scan. Chrome AI and Ollama do not count toward the limit — only unmask.tools API calls do. The limit resets at midnight UTC.</div>
+      </div>
+    </section>
+
+    <!-- ── Email & Message Scanning ──────────────────────────────────── -->
+    <section id="email-scanning">
+      <div class="section-label">Email &amp; messages</div>
+      <h2>Supported platforms</h2>
+      <p class="section-intro">unmask.shield can scan emails and messages in your browser — both content you receive and (optionally) language you write before sending.</p>
+
+      <table class="platform-table">
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Reading scan</th>
+            <th>Compose scan</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gmail</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>mail.google.com</td></tr>
+          <tr><td>Outlook Web</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>outlook.office.com, outlook.live.com</td></tr>
+          <tr><td>Slack</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>app.slack.com</td></tr>
+          <tr><td>Microsoft Teams</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>teams.microsoft.com</td></tr>
+          <tr><td>WhatsApp Web</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>web.whatsapp.com</td></tr>
+          <tr><td>Telegram Web</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>web.telegram.org</td></tr>
+          <tr><td>Google Chat</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>chat.google.com</td></tr>
+          <tr><td>Discord</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>discord.com</td></tr>
+          <tr><td>LinkedIn messaging</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-yes">✓ Yes</span></td><td>linkedin.com/messaging</td></tr>
+          <tr><td>Proton Mail</td><td><span class="badge-yes">✓ Yes</span></td><td><span class="badge-soon">Soon</span></td><td>mail.proton.me</td></tr>
+          <tr><td>Signal Desktop</td><td><span class="badge-no">✗ No</span></td><td><span class="badge-no">✗ No</span></td><td>Native app — browser extension can't access</td></tr>
+          <tr><td>Outlook Desktop</td><td><span class="badge-no">✗ No</span></td><td><span class="badge-no">✗ No</span></td><td>Native app — browser extension can't access</td></tr>
+          <tr><td>Apple Mail</td><td><span class="badge-no">✗ No</span></td><td><span class="badge-no">✗ No</span></td><td>Native app — browser extension can't access</td></tr>
+        </tbody>
+      </table>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I turn email and message scanning on? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Email and message scanning is <strong>off by default</strong>. To enable it, open the extension popup and toggle <em>Emails &amp; Messages</em> to on. The setting is saved and applies across all supported platforms.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Why is it off by default? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Email and message content is more personal and sensitive than public web pages. We default to off so you can make an explicit choice to enable it — rather than having the extension silently scan your inbox from day one.</div>
+      </div>
+    </section>
+
+    <!-- ── Compose Scanning ───────────────────────────────────────────── -->
+    <section id="compose">
+      <div class="section-label">Email &amp; messages</div>
+      <h2>Compose scanning</h2>
+      <p class="section-intro">When email and message scanning is enabled, the extension also scans what you're writing — in real time, before you send.</p>
+
+      <div class="faq-item">
+        <div class="faq-q">What exactly is compose scanning? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>Compose scanning watches your compose window (the box where you write an email, Slack message, Teams chat, etc.) and flags problematic language as you type — before you send. It works like having a second reader looking over your shoulder, pointing out language that abstracts harm.</p>
+          <p>The flagged phrases appear in the extension popup and badge, not injected into the compose box itself. Your message text is never modified.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Does compose scanning slow down my typing? <span class="chevron">⌄</span></div>
+        <div class="faq-a">No. The scan runs on a 400ms debounce — it waits until you pause typing before checking. There is no processing on every keystroke. The phrase matching runs entirely locally in your browser, so there is no network latency either.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is my draft text sent to a server? <span class="chevron">⌄</span></div>
+        <div class="faq-a"><strong>Phrase matching in compose windows is always local — nothing leaves your device.</strong> If you have AI Detection enabled and the extension also runs an AI scan on your compose text, that text is sent to the unmask.tools API (or processed locally via Chrome AI or Ollama, depending on your settings). AI Detection on compose windows is only triggered after a longer pause (not on every keystroke) and only if you have AI Detection enabled.</div>
+      </div>
+    </section>
+
+    <!-- ── Privacy & Data ────────────────────────────────────────────── -->
+    <section id="privacy">
+      <div class="section-label">Privacy</div>
+      <h2>Privacy &amp; data</h2>
+
+      <div class="privacy-callout">
+        <div class="privacy-callout-icon">🔒</div>
+        <p><strong>Short version:</strong> phrase detection runs entirely in your browser. No page text, email content, or personal data is collected or transmitted unless you explicitly opt in to specific features (AI Detection, global dataset contribution). Read the full <a href="privacy.html" style="color:#166534;font-weight:600;">Privacy Policy</a> for details.</p>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What data does the extension collect? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>By default, the extension collects nothing. All phrase matching happens locally in your browser. The only data stored is in your browser's local storage: your detection results for the current page, your custom phrase library, and your settings.</p>
+          <p>Optional data collection (each requires explicit opt-in):</p>
+          <ul>
+            <li><strong>AI Detection via unmask.tools API</strong> — the text of the page being scanned is sent to our API to run the AI model. The text is not stored after processing.</li>
+            <li><strong>Global dataset contribution</strong> — if you enable "Contribute to global dataset" in the extension popup, confirmed detections (phrase + domain, no personal data) are shared anonymously to help improve the library.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Does the extension read my emails? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>Only if you enable Email &amp; Message Scanning. When enabled, the extension reads the text content of the current page — which, on Gmail for example, includes the email you're viewing. This reading happens entirely in your browser; no email content is sent anywhere.</p>
+          <p>If AI Detection is also enabled, the page text (including email content) may be sent to the unmask.tools API for AI analysis. If you want to use email scanning with full privacy, use Chrome AI or Ollama as your AI backend instead — both process text on-device.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How is AI Detection processed? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>Depends on the backend:</p>
+          <ul>
+            <li><strong>unmask.tools API</strong> — text is sent over HTTPS to our Supabase Edge Function, processed by the AI model, and the detections are returned. The text is not stored.</li>
+            <li><strong>Chrome AI (Gemini Nano)</strong> — entirely on-device. Nothing leaves your browser.</li>
+            <li><strong>Ollama</strong> — processed by a model running on your own computer. Nothing leaves your machine.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I delete my data? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Local data (custom phrases, settings, detection history) is deleted when you uninstall the extension or clear Chrome's extension storage. If you have an API key, email <a href="mailto:hello@unmask.tools">hello@unmask.tools</a> to have your key and any associated data removed from our database.</div>
+      </div>
+    </section>
+
+    <!-- ── Plans & Keys ──────────────────────────────────────────────── -->
+    <section id="plans">
+      <div class="section-label">Plans &amp; keys</div>
+      <h2>Plans &amp; keys</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">What's included in the free tier? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          The free Personal tier includes everything except API access:
+          <ul>
+            <li>Unlimited phrase detection on all websites</li>
+            <li>Email &amp; message scanning (all supported platforms)</li>
+            <li>PDF scanning</li>
+            <li>Invoke Protocol for AI chats</li>
+            <li>My Phrase Library (custom phrases)</li>
+            <li>50 AI Detection scans per day</li>
+          </ul>
+          <a href="api.html">Paid tiers</a> increase the AI limit and add access to the REST API for integrating detection into your own tools.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I get an API key? <span class="chevron">⌄</span></div>
+        <div class="faq-a">For the free tier: <a href="register.html">register here</a> — your key is delivered to your email instantly. For paid tiers: purchase on the <a href="api.html">pricing page</a> via Stripe; your key is delivered to your email immediately after payment.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can multiple people share one key? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Yes — on Team and Enterprise tiers, one key covers the whole organisation. The daily AI limit is shared across all users of that key. Pro is a single-seat key.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">How do I cancel my subscription? <span class="chevron">⌄</span></div>
-        <div class="faq-a">Email <a href="mailto:hello@unmask.tools" style="color:var(--c-accent)">hello@unmask.tools</a> or cancel directly from the Stripe billing portal. Your key stays active until the end of the billing period, then reverts to Personal free tier limits.</div>
+        <div class="faq-a">Email <a href="mailto:hello@unmask.tools">hello@unmask.tools</a> or cancel directly from the Stripe billing portal link in your subscription email. Your key stays active until the end of the current billing period, then reverts to the free Personal tier limits.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">My key isn't working — what do I do? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Check that you pasted the key correctly in the extension's AI Detection section (it starts with <code>ldm_</code>). If it says "Key not yet activated", check your email for the activation message. If the problem persists, email <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">Is there a rate limit beyond the daily AI cap? <span class="chevron">⌄</span></div>
-        <div class="faq-a">Phrase matching has no rate limit. AI detection is capped by your daily limit only — there's no per-minute or per-second throttle. If you need very high burst throughput, contact us.</div>
+        <div class="faq-a">Phrase matching has no rate limit. AI detection is capped by your daily limit only — there is no per-minute or per-second throttle. If you need very high burst throughput for API integrations, contact us about Enterprise.</div>
       </div>
-
     </section>
 
-    <!-- ── Quickstart ─────────────────────────────────────────────── -->
+    <!-- ── API Quickstart ────────────────────────────────────────────── -->
     <section id="quickstart">
+      <div class="section-label">API reference</div>
       <h2>Quickstart</h2>
-      <p>The API is available on <strong>Team and Enterprise</strong> tiers. Get your key on the <a href="api.html" style="color:var(--c-accent)">pricing page</a>.</p>
+      <p>The REST API is available on <strong>Team and Enterprise</strong> tiers. Get your key on the <a href="api.html" style="color:var(--c-accent)">pricing page</a>.</p>
 
       <h3>Your first request</h3>
       <div class="code-block"><span class="comment"># Phrase matching only (no AI, no daily limit used)</span>
@@ -206,8 +614,9 @@ curl -X POST \
   -d <span class="str">'{"text": "...", "options": {"ai": true}}'</span></div>
     </section>
 
-    <!-- ── Endpoint ───────────────────────────────────────────────── -->
+    <!-- ── Endpoint ───────────────────────────────────────────────────── -->
     <section id="endpoint">
+      <div class="section-label">API reference</div>
       <h2>Endpoint</h2>
       <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:8px;padding:16px;">
         <span class="endpoint-badge">POST</span>
@@ -216,16 +625,17 @@ curl -X POST \
       <p style="margin-top:12px">One endpoint, two modes. Phrase matching is always free and unlimited. AI detection is tier-gated with a daily limit.</p>
     </section>
 
-    <!-- ── Request ────────────────────────────────────────────────── -->
+    <!-- ── Request ────────────────────────────────────────────────────── -->
     <section id="request">
+      <div class="section-label">API reference</div>
       <h2>Request</h2>
 
       <h3>Headers</h3>
-      <table>
+      <table class="api-table">
         <thead><tr><th>Header</th><th>Required</th><th>Value</th></tr></thead>
         <tbody>
-          <tr><td>Authorization</td><td>Yes</td><td><code style="font-family:monospace">Bearer &lt;your-api-key&gt;</code></td></tr>
-          <tr><td>Content-Type</td><td>Yes</td><td><code style="font-family:monospace">application/json</code></td></tr>
+          <tr><td>Authorization</td><td>Yes</td><td><code>Bearer &lt;your-api-key&gt;</code></td></tr>
+          <tr><td>Content-Type</td><td>Yes</td><td><code>application/json</code></td></tr>
         </tbody>
       </table>
 
@@ -237,8 +647,9 @@ curl -X POST \
 }</div>
     </section>
 
-    <!-- ── Response ───────────────────────────────────────────────── -->
+    <!-- ── Response ──────────────────────────────────────────────────── -->
     <section id="response">
+      <div class="section-label">API reference</div>
       <h2>Response</h2>
 
       <div class="code-block">{
@@ -264,7 +675,7 @@ curl -X POST \
   ],
   <span class="key">"meta"</span>: {
     <span class="key">"phraseCount"</span>:     <span class="val">3</span>,
-    <span class="key">"riskScore"</span>:       <span class="val">7</span>,       <span class="comment">// critical×3 + high×2 + medium×1</span>
+    <span class="key">"riskScore"</span>:       <span class="val">7</span>,       <span class="comment">// critical×10 + high×4 + medium×1</span>
     <span class="key">"wordCount"</span>:       <span class="val">14</span>,
     <span class="key">"prevalencePer1k"</span>: <span class="val">214.3</span>,   <span class="comment">// detected phrases per 1,000 words</span>
     <span class="key">"ai"</span>:             <span class="kw">true</span>,
@@ -275,7 +686,7 @@ curl -X POST \
 }</div>
 
       <h3>detected[ ] fields</h3>
-      <table>
+      <table class="api-table">
         <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
         <tbody>
           <tr><td>phrase</td><td>string</td><td>The detected phrase as it appears in the text</td></tr>
@@ -289,10 +700,10 @@ curl -X POST \
       </table>
 
       <h3>meta fields</h3>
-      <table>
+      <table class="api-table">
         <thead><tr><th>Field</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td>riskScore</td><td>Weighted sum: critical×3, high×2, medium×1 — useful for ranking documents</td></tr>
+          <tr><td>riskScore</td><td>Weighted sum: critical×10, high×4, medium×1 — useful for ranking documents</td></tr>
           <tr><td>prevalencePer1k</td><td>Detected phrases per 1,000 words — useful for comparing documents of different lengths</td></tr>
           <tr><td>ai</td><td>Whether AI detection ran in this request</td></tr>
           <tr><td>aiUsedToday</td><td>AI scans used today (only present when options.ai = true)</td></tr>
@@ -301,20 +712,21 @@ curl -X POST \
       </table>
     </section>
 
-    <!-- ── Errors ─────────────────────────────────────────────────── -->
+    <!-- ── Errors ─────────────────────────────────────────────────────── -->
     <section id="errors">
+      <div class="section-label">API reference</div>
       <h2>Error codes</h2>
-      <table>
+      <table class="api-table">
         <thead><tr><th>Status</th><th>Meaning</th><th>What to do</th></tr></thead>
         <tbody>
           <tr><td><span class="status-badge s4">401</span></td><td>Missing or invalid API key</td><td>Check your Authorization header</td></tr>
-          <tr><td><span class="status-badge s4">403</span></td><td>Key not yet activated</td><td>Check your email — activation takes up to 24h for Personal, instant for paid tiers</td></tr>
+          <tr><td><span class="status-badge s4">403</span></td><td>Key not yet activated</td><td>Check your email — activation is instant for all tiers</td></tr>
           <tr><td><span class="status-badge s4">429</span></td><td>Daily AI limit reached</td><td>Phrase matching result is still returned. Upgrade or wait until midnight UTC for reset</td></tr>
-          <tr><td><span class="status-badge s4">400</span></td><td>Invalid request body</td><td>Check JSON format and that <code style="font-family:monospace">text</code> field is present and under 50,000 chars</td></tr>
+          <tr><td><span class="status-badge s4">400</span></td><td>Invalid request body</td><td>Check JSON format and that <code>text</code> field is present and under 50,000 chars</td></tr>
           <tr><td><span class="status-badge s4">405</span></td><td>Wrong HTTP method</td><td>Use POST</td></tr>
         </tbody>
       </table>
-      <p>On 429, the response still includes <code style="font-family:monospace">detected</code> from phrase matching — you don't lose the result, just the AI layer.</p>
+      <p>On 429, the response still includes <code>detected</code> from phrase matching — you don't lose the result, just the AI layer.</p>
     </section>
 
   </div>
@@ -339,7 +751,7 @@ curl -X POST \
         if (active) active.classList.add('active');
       }
     });
-  }, { rootMargin: '-20% 0px -70% 0px' });
+  }, { rootMargin: '-10% 0px -75% 0px' });
   sections.forEach(s => observer.observe(s));
 </script>
 
