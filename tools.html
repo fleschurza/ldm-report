@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Platform Coverage</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .accent { color: #009EDB; font-weight: 400; }
+    header p { color: #94a3b8; font-size: 12px; margin-top: 5px; max-width: 640px; }
+
+    .layout { display: flex; max-width: 1040px; margin: 0 auto; padding: 40px 20px 80px; gap: 48px; }
+
+    /* Sidebar */
+    .toc { width: 210px; flex-shrink: 0; }
+    .toc-inner { position: sticky; top: 24px; }
+    .toc-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; margin: 18px 0 6px 10px; }
+    .toc-cat:first-child { margin-top: 0; }
+    .toc a { display: block; font-size: 12px; color: var(--c-muted); text-decoration: none; padding: 4px 0 4px 10px; border-left: 2px solid var(--c-border); margin-bottom: 2px; transition: color 0.1s, border-color 0.1s; }
+    .toc a:hover { color: var(--c-accent); border-left-color: var(--c-accent); }
+    .toc a.active { color: var(--c-accent); border-left-color: var(--c-accent); font-weight: 600; }
+
+    /* Content */
+    .content { flex: 1; min-width: 0; }
+    section { margin-bottom: 56px; scroll-margin-top: 20px; }
+    .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-accent); margin-bottom: 6px; }
+    h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .section-intro { color: var(--c-muted); font-size: 13px; margin-bottom: 24px; line-height: 1.7; max-width: 600px; }
+
+    /* Legend */
+    .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+    .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--c-muted); }
+
+    /* Status badges */
+    .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
+    .badge-tested   { background: #dcfce7; color: #15803d; }
+    .badge-likely   { background: #fef3c7; color: #b45309; }
+    .badge-planned  { background: #f1f5f9; color: #64748b; }
+    .badge-broken   { background: #fee2e2; color: #dc2626; }
+
+    .badge-tested::before  { content: '●'; font-size: 8px; }
+    .badge-likely::before  { content: '●'; font-size: 8px; }
+    .badge-planned::before { content: '●'; font-size: 8px; }
+    .badge-broken::before  { content: '●'; font-size: 8px; }
+
+    /* Platform cards */
+    .platform-group { margin-bottom: 32px; }
+    .platform-group-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--c-muted); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--c-border); }
+
+    .platform-grid { display: flex; flex-direction: column; gap: 6px; }
+    .platform-row { display: grid; grid-template-columns: 28px 1fr 130px 100px 100px; align-items: center; gap: 12px; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 8px; padding: 10px 14px; transition: border-color 0.15s; }
+    .platform-row:hover { border-color: #cbd5e1; }
+    .platform-row.status-tested  { border-left: 3px solid #22c55e; }
+    .platform-row.status-likely  { border-left: 3px solid #f59e0b; }
+    .platform-row.status-planned { border-left: 3px solid #cbd5e1; }
+    .platform-row.status-broken  { border-left: 3px solid #ef4444; }
+
+    .platform-icon { font-size: 18px; text-align: center; }
+    .platform-name { font-size: 13px; font-weight: 600; color: var(--c-text); }
+    .platform-url  { font-size: 11px; color: var(--c-muted); font-family: monospace; margin-top: 1px; }
+
+    .cap-badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 3px; }
+    .cap-yes  { background: #dcfce7; color: #15803d; }
+    .cap-no   { background: #f1f5f9; color: #94a3b8; }
+    .cap-na   { background: #f8fafc; color: #cbd5e1; }
+
+    .col-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; text-align: center; }
+
+    /* Column headers row */
+    .platform-header { display: grid; grid-template-columns: 28px 1fr 130px 100px 100px; gap: 12px; padding: 6px 14px; margin-bottom: 4px; }
+
+    /* Updated timestamp */
+    .last-updated { font-size: 11px; color: var(--c-muted); margin-bottom: 28px; }
+    .last-updated strong { color: var(--c-text); }
+
+    /* Footer */
+    footer { text-align: center; padding: 32px 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid var(--c-border); }
+    footer a { color: #64748b; text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: var(--c-accent); }
+
+    @media (max-width: 700px) {
+      .layout { flex-direction: column; }
+      .toc { width: 100%; }
+      .toc-inner { position: static; }
+      header { padding: 20px; }
+      .platform-row { grid-template-columns: 28px 1fr 100px; }
+      .platform-row .col-read, .platform-row .col-compose { display: none; }
+      .platform-header .col-read, .platform-header .col-compose { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="44" height="44" style="flex-shrink:0;">
+      <path d="M64 4 L116 22 L116 68 C116 100 92 120 64 126 C36 120 12 100 12 68 L12 22 Z" fill="#3ec6f5" opacity="0.21" stroke="#3ec6f5" stroke-width="7" stroke-linejoin="round"/>
+      <text x="64" y="100" text-anchor="middle" font-family="Roboto,sans-serif" font-weight="900" font-size="94" fill="#ffffff">U</text>
+    </svg>
+    <h1>unmask<span class="accent">.tools</span> · Platform Coverage</h1>
+  </div>
+  <p>Which platforms unmask.shield can scan — tested, expected to work, and on the roadmap.</p>
+  <nav style="margin-top:14px;display:flex;gap:4px;flex-wrap:wrap;">
+    <a href="index.html"     style="color:#94a3b8;font-size:12px;font-weight:500;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid transparent;">Report</a>
+    <a href="api.html"       style="color:#94a3b8;font-size:12px;font-weight:500;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid transparent;">Pricing</a>
+    <a href="docs.html"      style="color:#94a3b8;font-size:12px;font-weight:500;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid transparent;">FAQ</a>
+    <a href="templates.html" style="color:#94a3b8;font-size:12px;font-weight:500;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid transparent;">Templates</a>
+    <a href="tools.html"     style="color:#fff;font-size:12px;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:6px;background:rgba(0,158,219,0.25);border:1px solid #009EDB;">Platforms</a>
+  </nav>
+</header>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="toc">
+    <div class="toc-inner">
+      <div class="toc-cat">Status</div>
+      <a href="#legend">How to read this</a>
+
+      <div class="toc-cat">Email</div>
+      <a href="#email">Email clients</a>
+
+      <div class="toc-cat">Messaging</div>
+      <a href="#messaging">Chat &amp; messaging</a>
+
+      <div class="toc-cat">Tier 1 — Office</div>
+      <a href="#microsoft365">Microsoft 365</a>
+      <a href="#google-workspace">Google Workspace</a>
+
+      <div class="toc-cat">Tier 2 — Projects</div>
+      <a href="#project-mgmt">Project management</a>
+
+      <div class="toc-cat">Tier 3 — Other</div>
+      <a href="#video">Video &amp; calls</a>
+      <a href="#web">General web</a>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+
+    <section id="legend">
+      <div class="section-label">Status key</div>
+      <h2>Platform coverage</h2>
+      <p class="section-intro">unmask.shield scans for harmful institutional language wherever you read or write it. This page tracks which platforms are supported, tested, and coming soon.</p>
+
+      <p class="last-updated">Last updated: <strong>26 May 2026</strong></p>
+
+      <div class="legend">
+        <div class="legend-item"><span class="badge badge-tested">✓ Tested</span> Verified working by the team</div>
+        <div class="legend-item"><span class="badge badge-likely">~ Should work</span> Code in place, awaiting test</div>
+        <div class="legend-item"><span class="badge badge-planned">Planned</span> On the roadmap, not yet built</div>
+        <div class="legend-item"><span class="badge badge-broken">Known issue</span> Partial or broken</div>
+      </div>
+
+      <p style="font-size:12px;color:var(--c-muted);margin-bottom:0;">
+        <strong style="color:var(--c-text);">Read detection</strong> — flags language in messages and documents you receive or open.<br>
+        <strong style="color:var(--c-text);">Compose detection</strong> — flags language as you type before you send or publish.
+      </p>
+    </section>
+
+    <!-- EMAIL -->
+    <section id="email">
+      <div class="section-label">Email clients</div>
+      <h2>Email</h2>
+      <p class="section-intro">Browser-based email clients. The "Emails &amp; Messages" toggle must be on. Language Detection toggle does not affect these.</p>
+
+      <div class="platform-header">
+        <div></div>
+        <div></div>
+        <div class="col-header">Status</div>
+        <div class="col-header col-read">Read</div>
+        <div class="col-header col-compose">Compose</div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-group-label">Google</div>
+        <div class="platform-grid">
+          <div class="platform-row status-tested">
+            <div class="platform-icon">✉️</div>
+            <div><div class="platform-name">Gmail</div><div class="platform-url">mail.google.com</div></div>
+            <div><span class="badge badge-tested">✓ Tested</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-group-label">Microsoft</div>
+        <div class="platform-grid">
+          <div class="platform-row status-tested">
+            <div class="platform-icon">📧</div>
+            <div><div class="platform-name">Outlook Web</div><div class="platform-url">outlook.office.com · outlook.live.com · outlook.com</div></div>
+            <div><span class="badge badge-tested">✓ Tested</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+          <div class="platform-row status-tested">
+            <div class="platform-icon">🔒</div>
+            <div><div class="platform-name">Outlook via MCAS proxy</div><div class="platform-url">*.mcas.ms — corporate security proxy</div></div>
+            <div><span class="badge badge-tested">✓ Tested</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+          <div class="platform-row status-likely">
+            <div class="platform-icon">📧</div>
+            <div><div class="platform-name">Outlook 365 / Office365</div><div class="platform-url">outlook.office365.com · mail.office365.com</div></div>
+            <div><span class="badge badge-likely">~ Should work</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-group-label">Other</div>
+        <div class="platform-grid">
+          <div class="platform-row status-likely">
+            <div class="platform-icon">🔐</div>
+            <div><div class="platform-name">Proton Mail</div><div class="platform-url">mail.proton.me</div></div>
+            <div><span class="badge badge-likely">~ Should work</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESSAGING -->
+    <section id="messaging">
+      <div class="section-label">Chat &amp; messaging</div>
+      <h2>Messaging platforms</h2>
+      <p class="section-intro">Requires the "Emails &amp; Messages" toggle. Incoming messages are flagged inline; compose detection shows a badge counter without modifying your text.</p>
+
+      <div class="platform-header">
+        <div></div>
+        <div></div>
+        <div class="col-header">Status</div>
+        <div class="col-header col-read">Read</div>
+        <div class="col-header col-compose">Compose</div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-group-label">Tested</div>
+        <div class="platform-grid">
+          <div class="platform-row status-tested">
+            <div class="platform-icon">💬</div>
+            <div><div class="platform-name">WhatsApp Web</div><div class="platform-url">web.whatsapp.com</div></div>
+            <div><span class="badge badge-tested">✓ Tested</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-group-label">Should work — awaiting test</div>
+        <div class="platform-grid">
+          <div class="platform-row status-likely">
+            <div class="platform-icon">💼</div>
+            <div><div class="platform-name">Microsoft Teams</div><div class="platform-url">teams.microsoft.com · teams.cloud.microsoft</div></div>
+            <div><span class="badge badge-likely">~ Should work</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+          <div class="platform-row status-likely">
+            <div class="platform-icon">💬</div>
+            <div><div class="platform-name">Slack</div><div class="platform-url">app.slack.com</div></div>
+            <div><span class="badge badge-likely">~ Should work</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+          <div class="platform-row status-likely">
+            <div class="platform-icon">✈️</div>
+            <div><div class="platform-name">Telegram Web</div><div class="platform-url">web.telegram.org</div></div>
+            <div><span class="badge badge-likely">~ Should work</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+          <div class="platform-row status-likely">
+            <div class="platform-icon">🎮</div>
+            <div><div class="platform-name">Discord</div><div class="platform-url">discord.com</div></div>
+            <div><span class="badge badge-likely">~ Should work</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+          <div class="platform-row status-likely">
+            <div class="platform-icon">💬</div>
+            <div><div class="platform-name">Google Chat</div><div class="platform-url">chat.google.com</div></div>
+            <div><span class="badge badge-likely">~ Should work</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+          <div class="platform-row status-likely">
+            <div class="platform-icon">💼</div>
+            <div><div class="platform-name">LinkedIn Messaging</div><div class="platform-url">www.linkedin.com</div></div>
+            <div><span class="badge badge-likely">~ Should work</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-group">
+        <div class="platform-group-label">Planned</div>
+        <div class="platform-grid">
+          <div class="platform-row status-planned">
+            <div class="platform-icon">📹</div>
+            <div><div class="platform-name">Zoom (web client chat)</div><div class="platform-url">app.zoom.us</div></div>
+            <div><span class="badge badge-planned">Planned</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          </div>
+          <div class="platform-row status-planned">
+            <div class="platform-icon">📹</div>
+            <div><div class="platform-name">Webex</div><div class="platform-url">web.webex.com</div></div>
+            <div><span class="badge badge-planned">Planned</span></div>
+            <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+            <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MICROSOFT 365 -->
+    <section id="microsoft365">
+      <div class="section-label">Tier 1 — Office suite</div>
+      <h2>Microsoft 365</h2>
+      <p class="section-intro">Document editors and collaboration apps in the Microsoft 365 suite. Detect harmful language in documents you read and as you draft them.</p>
+
+      <div class="platform-header">
+        <div></div>
+        <div></div>
+        <div class="col-header">Status</div>
+        <div class="col-header col-read">Read</div>
+        <div class="col-header col-compose">Compose</div>
+      </div>
+
+      <div class="platform-grid">
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📝</div>
+          <div><div class="platform-name">Word Online</div><div class="platform-url">word.office.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📊</div>
+          <div><div class="platform-name">PowerPoint Online</div><div class="platform-url">powerpoint.office.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📒</div>
+          <div><div class="platform-name">OneNote Online</div><div class="platform-url">onenote.office.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">🌐</div>
+          <div><div class="platform-name">SharePoint</div><div class="platform-url">*.sharepoint.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">🔄</div>
+          <div><div class="platform-name">Microsoft Loop</div><div class="platform-url">loop.cloud.microsoft</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">👥</div>
+          <div><div class="platform-name">Viva Engage / Yammer</div><div class="platform-url">engage.cloud.microsoft · web.yammer.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOOGLE WORKSPACE -->
+    <section id="google-workspace">
+      <div class="section-label">Tier 1 — Office suite</div>
+      <h2>Google Workspace</h2>
+      <p class="section-intro">Google's document and collaboration suite. AI chat platforms (Gemini) are already supported under Language Detection.</p>
+
+      <div class="platform-header">
+        <div></div>
+        <div></div>
+        <div class="col-header">Status</div>
+        <div class="col-header col-read">Read</div>
+        <div class="col-header col-compose">Compose</div>
+      </div>
+
+      <div class="platform-grid">
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📄</div>
+          <div><div class="platform-name">Google Docs &amp; Slides</div><div class="platform-url">docs.google.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📁</div>
+          <div><div class="platform-name">Google Drive (previews)</div><div class="platform-url">drive.google.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-na">n/a</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📹</div>
+          <div><div class="platform-name">Google Meet (chat)</div><div class="platform-url">meet.google.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT MANAGEMENT -->
+    <section id="project-mgmt">
+      <div class="section-label">Tier 2 — Collaboration</div>
+      <h2>Project management &amp; wikis</h2>
+      <p class="section-intro">Where a lot of corporate language actually lives — strategy docs, project briefs, tickets, and decision logs.</p>
+
+      <div class="platform-header">
+        <div></div>
+        <div></div>
+        <div class="col-header">Status</div>
+        <div class="col-header col-read">Read</div>
+        <div class="col-header col-compose">Compose</div>
+      </div>
+
+      <div class="platform-grid">
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📚</div>
+          <div><div class="platform-name">Confluence</div><div class="platform-url">*.atlassian.net (wiki)</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">🎯</div>
+          <div><div class="platform-name">Jira</div><div class="platform-url">*.atlassian.net (issues)</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📓</div>
+          <div><div class="platform-name">Notion</div><div class="platform-url">app.notion.so</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">🐙</div>
+          <div><div class="platform-name">GitHub</div><div class="platform-url">github.com (issues, PRs, discussions)</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">⚡</div>
+          <div><div class="platform-name">Linear</div><div class="platform-url">linear.app</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">✅</div>
+          <div><div class="platform-name">Asana</div><div class="platform-url">app.asana.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📋</div>
+          <div><div class="platform-name">Monday.com</div><div class="platform-url">*.monday.com</div></div>
+          <div><span class="badge badge-planned">Planned</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-no">–</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GENERAL WEB -->
+    <section id="web">
+      <div class="section-label">General web &amp; AI</div>
+      <h2>Websites &amp; AI chat</h2>
+      <p class="section-intro">The Language Detection toggle covers all regular websites and AI chat platforms automatically — no extra configuration needed.</p>
+
+      <div class="platform-header">
+        <div></div>
+        <div></div>
+        <div class="col-header">Status</div>
+        <div class="col-header col-read">Read</div>
+        <div class="col-header col-compose">Compose</div>
+      </div>
+
+      <div class="platform-grid">
+        <div class="platform-row status-tested">
+          <div class="platform-icon">🌐</div>
+          <div><div class="platform-name">Any website</div><div class="platform-url">all URLs — articles, reports, social feeds</div></div>
+          <div><span class="badge badge-tested">✓ Tested</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-na">n/a</span></div>
+        </div>
+        <div class="platform-row status-tested">
+          <div class="platform-icon">🤖</div>
+          <div><div class="platform-name">ChatGPT</div><div class="platform-url">chatgpt.com</div></div>
+          <div><span class="badge badge-tested">✓ Tested</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-na">n/a</span></div>
+        </div>
+        <div class="platform-row status-tested">
+          <div class="platform-icon">🤖</div>
+          <div><div class="platform-name">Google Gemini</div><div class="platform-url">gemini.google.com</div></div>
+          <div><span class="badge badge-tested">✓ Tested</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-na">n/a</span></div>
+        </div>
+        <div class="platform-row status-tested">
+          <div class="platform-icon">🤖</div>
+          <div><div class="platform-name">Claude</div><div class="platform-url">claude.ai</div></div>
+          <div><span class="badge badge-tested">✓ Tested</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-na">n/a</span></div>
+        </div>
+        <div class="platform-row status-planned">
+          <div class="platform-icon">📄</div>
+          <div><div class="platform-name">PDF files</div><div class="platform-url">Paste text into the extension's PDF scanner</div></div>
+          <div><span class="badge badge-tested">✓ Tested</span></div>
+          <div class="col-read" style="text-align:center"><span class="cap-badge cap-yes">yes</span></div>
+          <div class="col-compose" style="text-align:center"><span class="cap-badge cap-na">n/a</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div style="margin-bottom:8px;">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="imprint.html">Imprint</a>
+    <a href="docs.html">FAQ</a>
+    <a href="api.html">Pricing</a>
+  </div>
+  unmask.tools · <a href="https://chromewebstore.google.com" target="_blank">Chrome Web Store</a>
+</footer>
+
+<script>
+  // Sidebar active link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.toc a');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => obs.observe(s));
+</script>
+
+</body>
+</html>
