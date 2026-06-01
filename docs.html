@@ -498,6 +498,16 @@
         <div class="faq-q">Why is it off by default? <span class="chevron">⌄</span></div>
         <div class="faq-a">Email and message content is more personal and sensitive than public web pages. We default to off so you can make an explicit choice to enable it — rather than having the extension silently scan your inbox from day one.</div>
       </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How does scanning work on AI chat platforms (ChatGPT, Copilot, Gemini, Claude)? <span class="chevron">⌄</span></div>
+        <div class="faq-a">On AI chat platforms, the extension scans the responses as they appear — no toggle needed, it works with your main Language Detection setting. When a flagged phrase appears in a response, it's underlined and counted in the badge. You can also use the <em>Invoke Protocol</em> button in the popup to inject a legal framing prompt directly into the chat input, so the AI applies IHL constraints from the start of the conversation.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How does scanning work on document editors (Word, Google Docs, PowerPoint, OneNote)? <span class="chevron">⌄</span></div>
+        <div class="faq-a">Document editors like Word Online and Google Docs use proprietary rendering engines that don't expose their text to browser extensions for direct scanning. Instead, unmask uses a <strong>clipboard scan</strong>: select all text in the document (<kbd>Ctrl+A</kbd>), copy (<kbd>Ctrl+C</kbd>), then click <em>Scan</em> in the extension popup. The results appear in the Detections panel just like a normal scan — click any phrase to copy it, then use the editor's own find bar (<kbd>Ctrl+F</kbd>) to locate it in the document.</div>
+      </div>
     </section>
 
     <!-- ── Compose Scanning ───────────────────────────────────────────── -->
