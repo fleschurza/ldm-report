@@ -326,7 +326,7 @@ fetch('https://api.unmask.tools/counter',
   .then(d => {
     const el = document.getElementById('counter-text');
     if (el && d.unmasked_today != null)
-      el.textContent = `${d.unmasked_today.toLocaleString('en')} new today · ${d.total_unmasked.toLocaleString('en')} total`;
+      el.textContent = `${d.unique_phrases.toLocaleString('en')} unique phrases · ${d.total_detected.toLocaleString('en')} total detections`;
   })
   .catch(() => {});
 </script>
