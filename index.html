@@ -325,7 +325,8 @@ fetch('https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter',
   .then(r => r.json())
   .then(d => {
     const el = document.getElementById('counter-text');
-    if (el && d.count != null) el.textContent = `${d.count.toLocaleString('en')} phrases catalogued`;
+    if (el && d.unmasked_today != null)
+      el.textContent = `${d.unmasked_today.toLocaleString('en')} unmasked today · ${d.total_unmasked.toLocaleString('en')} total · ${d.phrases_catalogued} phrases in index`;
   })
   .catch(() => {});
 </script>

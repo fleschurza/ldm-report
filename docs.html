@@ -684,7 +684,7 @@
           <p style="margin-top:10px;"><strong>Fetch the count as JSON</strong> (for dashboards or CI scripts)</p>
           <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">curl -H "Accept: application/json" \
   https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter
-# → {"count":15}</pre>
+# → {"unmasked_today":789,"total_unmasked":2924,"phrases_catalogued":15}</pre>
 
           <p style="margin-top:8px;">The badge reflects the live count of verified phrases in the global index (confidence ≥ 60%, human-confirmed). It is cached for one hour.</p>
         </div>
@@ -872,7 +872,8 @@ fetch('https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter',
   .then(r => r.json())
   .then(d => {
     const el = document.getElementById('counter-text');
-    if (el && d.count != null) el.textContent = `${d.count.toLocaleString('en')} phrases catalogued`;
+    if (el && d.unmasked_today != null)
+      el.textContent = `${d.unmasked_today.toLocaleString('en')} unmasked today · ${d.total_unmasked.toLocaleString('en')} total · ${d.phrases_catalogued} phrases in index`;
   })
   .catch(() => {});
 </script>
