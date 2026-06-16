@@ -1,0 +1,44 @@
+[
+  {
+    "phrase": "calibrated resource deprivation",
+    "translation": "deliberate withholding of supplies, food or utilities as a coercive tactic",
+    "severity": "critical",
+    "legalRef": "Geneva Convention AP I Art. 54 — starvation as method of warfare",
+    "sourceLanguage": "en"
+  },
+  {
+    "phrase": "population management protocols",
+    "translation": "administrative control over detained or displaced persons, obscuring conditions of confinement",
+    "severity": "critical",
+    "legalRef": "Rome Statute Art. 7 — crimes against humanity",
+    "sourceLanguage": "en"
+  },
+  {
+    "phrase": "sacrifice zone",
+    "translation": "area and community designated as acceptable casualties of industrial or military activity",
+    "severity": "critical",
+    "legalRef": "UDHR Art. 25 — Right to adequate standard of living",
+    "sourceLanguage": "en"
+  },
+  {
+    "phrase": "discretionary spending on social services",
+    "translation": "public services framed as optional expenditure subject to budget cuts",
+    "severity": "high",
+    "legalRef": "UDHR Art. 25 — Right to adequate standard of living",
+    "sourceLanguage": "en"
+  },
+  {
+    "phrase": "stranded communities",
+    "translation": "populations abandoned after industrial or military withdrawal with no transition support",
+    "severity": "high",
+    "legalRef": "UDHR Art. 25 — Right to adequate standard of living",
+    "sourceLanguage": "en"
+  },
+  {
+    "phrase": "demand destruction",
+    "translation": "collapse in consumer demand causing unemployment and poverty",
+    "severity": "medium",
+    "legalRef": "UDHR Art. 25 — Right to adequate standard of living",
+    "sourceLanguage": "en"
+  }
+]
