@@ -308,7 +308,7 @@
   <div style="margin-bottom:10px;">
     <a href="https://unmask.tools" title="institutional language tracker">
       <img id="counter-badge"
-           src="https://unmask.tools/api/counter"
+           src="https://api.unmask.tools/counter"
            alt="phrases unmasked — unmask.tools"
            height="20"
            style="vertical-align:middle;">
@@ -320,7 +320,7 @@
   <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="imprint.html">Imprint</a>
 </footer>
 <script>
-fetch('https://unmask.tools/api/counter',
+fetch('https://api.unmask.tools/counter',
       { headers: { Accept: 'application/json' } })
   .then(r => r.json())
   .then(d => {

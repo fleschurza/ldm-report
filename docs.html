@@ -669,21 +669,21 @@
         <div class="faq-a">
           Yes. The counter badge is a live SVG served from a public endpoint — no key or sign-up required.
           <p style="margin-top:10px;"><strong>Badge URL</strong></p>
-          <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">https://unmask.tools/api/counter</pre>
+          <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">https://api.unmask.tools/counter</pre>
 
           <p style="margin-top:10px;"><strong>Embed in HTML</strong></p>
           <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">&lt;a href="https://unmask.tools" title="institutional language tracker"&gt;
-  &lt;img src="https://unmask.tools/api/counter"
+  &lt;img src="https://api.unmask.tools/counter"
        alt="phrases unmasked — unmask.tools"
        height="20"&gt;
 &lt;/a&gt;</pre>
 
           <p style="margin-top:10px;"><strong>Embed in a GitHub README (Markdown)</strong></p>
-          <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">[![phrases unmasked](https://unmask.tools/api/counter)](https://unmask.tools)</pre>
+          <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">[![phrases unmasked](https://api.unmask.tools/counter)](https://unmask.tools)</pre>
 
           <p style="margin-top:10px;"><strong>Fetch the count as JSON</strong> (for dashboards or CI scripts)</p>
           <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">curl -H "Accept: application/json" \
-  https://unmask.tools/api/counter
+  https://api.unmask.tools/counter
 # → {"unmasked_today":789,"total_unmasked":2924,"phrases_catalogued":15}</pre>
 
           <p style="margin-top:8px;">The badge reflects the live count of verified phrases in the global index (confidence ≥ 60%, human-confirmed). It is cached for one hour.</p>
@@ -857,7 +857,7 @@ curl -X POST \
 <footer style="border-top:1px solid #e2e8f0;color:#64748b;font-size:11px;margin-top:40px;padding:20px;text-align:center;">
   <div style="margin-bottom:10px;">
     <a href="https://unmask.tools" title="institutional language tracker">
-      <img src="https://unmask.tools/api/counter"
+      <img src="https://api.unmask.tools/counter"
            alt="phrases unmasked — unmask.tools"
            height="20"
            style="vertical-align:middle;">
@@ -867,7 +867,7 @@ curl -X POST \
   unmask.tools · <a href="privacy.html" style="color:#009EDB;text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:#009EDB;text-decoration:none;">Terms of Service</a> · <a href="imprint.html" style="color:#009EDB;text-decoration:none;">Imprint</a>
 </footer>
 <script>
-fetch('https://unmask.tools/api/counter',
+fetch('https://api.unmask.tools/counter',
       { headers: { Accept: 'application/json' } })
   .then(r => r.json())
   .then(d => {
