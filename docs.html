@@ -663,6 +663,32 @@
           <p style="margin-top:8px;">The feed updates every Monday when the community promotion pipeline runs. Only phrases with a verified human consensus score are included.</p>
         </div>
       </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I embed the phrase counter on my website or README? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          Yes. The counter badge is a live SVG served from a public endpoint — no key or sign-up required.
+          <p style="margin-top:10px;"><strong>Badge URL</strong></p>
+          <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter</pre>
+
+          <p style="margin-top:10px;"><strong>Embed in HTML</strong></p>
+          <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">&lt;a href="https://unmask.tools" title="institutional language tracker"&gt;
+  &lt;img src="https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter"
+       alt="phrases unmasked — unmask.tools"
+       height="20"&gt;
+&lt;/a&gt;</pre>
+
+          <p style="margin-top:10px;"><strong>Embed in a GitHub README (Markdown)</strong></p>
+          <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">[![phrases unmasked](https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter)](https://unmask.tools)</pre>
+
+          <p style="margin-top:10px;"><strong>Fetch the count as JSON</strong> (for dashboards or CI scripts)</p>
+          <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">curl -H "Accept: application/json" \
+  https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter
+# → {"count":15}</pre>
+
+          <p style="margin-top:8px;">The badge reflects the live count of verified phrases in the global index (confidence ≥ 60%, human-confirmed). It is cached for one hour.</p>
+        </div>
+      </div>
     </section>
 
     <!-- ── API Quickstart ────────────────────────────────────────────── -->
@@ -829,8 +855,27 @@ curl -X POST \
 </script>
 
 <footer style="border-top:1px solid #e2e8f0;color:#64748b;font-size:11px;margin-top:40px;padding:20px;text-align:center;">
+  <div style="margin-bottom:10px;">
+    <a href="https://unmask.tools" title="institutional language tracker">
+      <img src="https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter"
+           alt="phrases unmasked — unmask.tools"
+           height="20"
+           style="vertical-align:middle;">
+    </a>
+    <span id="counter-text" style="margin-left:8px;font-size:11px;color:#64748b;vertical-align:middle;"></span>
+  </div>
   unmask.tools · <a href="privacy.html" style="color:#009EDB;text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:#009EDB;text-decoration:none;">Terms of Service</a> · <a href="imprint.html" style="color:#009EDB;text-decoration:none;">Imprint</a>
 </footer>
+<script>
+fetch('https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter',
+      { headers: { Accept: 'application/json' } })
+  .then(r => r.json())
+  .then(d => {
+    const el = document.getElementById('counter-text');
+    if (el && d.count != null) el.textContent = `${d.count.toLocaleString('en')} phrases catalogued`;
+  })
+  .catch(() => {});
+</script>
 
 </body>
 </html>

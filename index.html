@@ -305,10 +305,30 @@
 </div>
 
 <footer>
+  <div style="margin-bottom:10px;">
+    <a href="https://unmask.tools" title="institutional language tracker">
+      <img id="counter-badge"
+           src="https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter"
+           alt="phrases unmasked — unmask.tools"
+           height="20"
+           style="vertical-align:middle;">
+    </a>
+    <span id="counter-text" style="margin-left:8px;font-size:11px;color:var(--c-muted);vertical-align:middle;"></span>
+  </div>
   unmask.tools · Data collected with user consent · No personal data stored ·
   Legal anchors: Geneva AP I · Rome Statute · UDHR · Planetary Boundaries ·
   <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="imprint.html">Imprint</a>
 </footer>
+<script>
+fetch('https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1/ldm-counter',
+      { headers: { Accept: 'application/json' } })
+  .then(r => r.json())
+  .then(d => {
+    const el = document.getElementById('counter-text');
+    if (el && d.count != null) el.textContent = `${d.count.toLocaleString('en')} phrases catalogued`;
+  })
+  .catch(() => {});
+</script>
 
 <script>
 const SUPABASE_URL = 'https://ghoriibggfxahkkvvkpi.supabase.co';
