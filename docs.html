@@ -168,9 +168,9 @@
 
       <div class="toc-cat">Features</div>
       <a href="#features">Feature overview</a>
-      <a href="#detection">Detection &amp; results</a>
-      <a href="#live-example">Live example</a>
+      <a href="#detection">Detection &amp; scoring</a>
       <a href="#ai-detection">AI Detection</a>
+      <a href="#phrase-libraries">Phrase libraries</a>
 
       <div class="toc-cat">Email &amp; messages</div>
       <a href="#email-scanning">Supported platforms</a>
@@ -180,8 +180,12 @@
       <a href="#privacy">Privacy &amp; data</a>
       <a href="#global-dataset">Global dataset</a>
 
-      <div class="toc-cat">Plans &amp; keys</div>
-      <a href="#plans">Plans &amp; keys</a>
+      <div class="toc-cat">Plans &amp; billing</div>
+      <a href="#plans">Plans &amp; billing</a>
+
+      <div class="toc-cat">Open data</div>
+      <a href="#rss">RSS feed</a>
+      <a href="#counter">Counter badge</a>
 
       <div class="toc-cat">API reference</div>
       <a href="#quickstart">Quickstart</a>
@@ -345,19 +349,12 @@
         </div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-q">What is My Phrase Library? <span class="chevron">⌄</span></div>
-        <div class="faq-a">
-          <p>My Phrase Library lets you add your own phrases to detect — beyond the built-in library. You choose the phrase, its plain-language translation, its severity level, and the language. Custom phrases are stored locally in your browser and never shared.</p>
-          <p>This is useful for sector-specific language: HR jargon in your organisation, legal euphemisms in a particular jurisdiction, financial abstractions common in your industry, or phrases in languages not yet well-covered by the base library.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- ── Detection & Results ───────────────────────────────────────── -->
+    <!-- ── Detection & Scoring ───────────────────────────────────────── -->
     <section id="detection">
       <div class="section-label">Features</div>
-      <h2>Detection &amp; results</h2>
+      <h2>Detection &amp; scoring</h2>
       <p class="section-intro">Understanding what the numbers and labels in the extension mean.</p>
 
       <div class="faq-item">
@@ -443,6 +440,36 @@
       <div class="faq-item">
         <div class="faq-q">What counts toward my daily AI limit? <span class="chevron">⌄</span></div>
         <div class="faq-a">One AI scan = one page analysed via the unmask.tools API. Long pages are split into chunks and each chunk counts as one scan. Chrome AI and Ollama do not count toward the limit — only unmask.tools API calls do. The limit resets at midnight UTC.</div>
+      </div>
+    </section>
+
+    <!-- ── Phrase Libraries ─────────────────────────────────────────── -->
+    <section id="phrase-libraries">
+      <div class="section-label">Features</div>
+      <h2>Phrase libraries</h2>
+      <p class="section-intro">Beyond the built-in global library, unmask.shield lets you build and import your own phrase sets — for personal use or across your whole organisation.</p>
+
+      <div class="faq-item">
+        <div class="faq-q">What is My Phrase Library? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>My Phrase Library lets you add your own phrases to detect — beyond the built-in library. You choose the phrase, its plain-language translation, its severity level, and the language. Custom phrases are stored locally in your browser and never shared.</p>
+          <p>This is useful for sector-specific language: HR jargon in your organisation, legal euphemisms in a particular jurisdiction, financial abstractions common in your industry, or phrases in languages not yet well-covered by the base library.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What is the Company Repository? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>The Company Repository is an organisation-level phrase library you import from a file — as opposed to My Phrase Library, which you build phrase-by-phrase in the extension. Once loaded, the extension flags phrases from your company list alongside the standard detection library.</p>
+          <p>Phrases from the Company Repository appear with a <strong>MY COMPANY</strong> badge in the detection panel so they're always distinguishable from globally sourced phrases. They are never sent to the unmask.tools global index — your organisation's vocabulary stays entirely private.</p>
+          <p><strong>How to import:</strong></p>
+          <ul>
+            <li>Open the extension popup → My Phrase Library → Company Repository tab</li>
+            <li>Upload a <code>.txt</code> file (one phrase per line) or a <code>.json</code> file (array of objects with <code>phrase</code>, <code>translation</code>, and optional <code>severity</code>)</li>
+            <li>Click Load — the extension confirms how many phrases were imported</li>
+          </ul>
+          <p>The repository persists in local browser storage until you clear it or upload a new file. It is not synced across devices.</p>
+        </div>
       </div>
     </section>
 
@@ -605,8 +632,8 @@
 
     <!-- ── Plans & Keys ──────────────────────────────────────────────── -->
     <section id="plans">
-      <div class="section-label">Plans &amp; keys</div>
-      <h2>Plans &amp; keys</h2>
+      <div class="section-label">Plans &amp; billing</div>
+      <h2>Plans &amp; billing</h2>
 
       <div class="faq-item">
         <div class="faq-q">What's included in the free tier? <span class="chevron">⌄</span></div>
@@ -649,12 +676,19 @@
         <div class="faq-a">Phrase matching has no rate limit. AI detection is capped by your daily limit only — there is no per-minute or per-second throttle. If you need very high burst throughput for API integrations, contact us about Enterprise.</div>
       </div>
 
+    </section>
+
+    <!-- ── Open data — RSS ───────────────────────────────────────────── -->
+    <section id="rss">
+      <div class="section-label">Open data</div>
+      <h2>RSS feed</h2>
+      <p class="section-intro">The <strong>Institutional Double-Speak Wire</strong> is a public feed of newly verified phrases from the global index — open to anyone, no key required.</p>
+
       <div class="faq-item">
-        <div class="faq-q">Is there an RSS feed? How do I subscribe? <span class="chevron">⌄</span></div>
+        <div class="faq-q">How do I subscribe? <span class="chevron">⌄</span></div>
         <div class="faq-a">
-          Yes. The <strong>Institutional Double-Speak Wire</strong> is a public RSS feed that publishes newly verified phrases from the global index — each with its plain-language translation and legal anchor.
+          <strong>Feed URL:</strong> <a href="/feed.xml">https://unmask.tools/feed.xml</a>
           <ul style="margin-top:8px;">
-            <li><strong>Feed URL:</strong> <a href="/feed.xml">https://unmask.tools/feed.xml</a></li>
             <li><strong>Feedly:</strong> paste the URL into the search bar and click "Follow"</li>
             <li><strong>Inoreader / NewsBlur / NetNewsWire:</strong> use "Add feed" or "Subscribe" and paste the URL</li>
             <li><strong>Email digest (Kill the Newsletter, Blogtrottr):</strong> paste the URL to receive entries as email</li>
@@ -665,9 +699,23 @@
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">Can I embed the phrase counter on my website or README? <span class="chevron">⌄</span></div>
+        <div class="faq-q">What does each feed item contain? <span class="chevron">⌄</span></div>
         <div class="faq-a">
-          Yes. The counter badge is a live SVG served from a public endpoint — no key or sign-up required.
+          <p>Each entry includes the detected phrase as the title, its plain-language translation and severity level in the description, the international law anchor it maps to, and the date it was promoted into the global index.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Open data — Counter ───────────────────────────────────────── -->
+    <section id="counter">
+      <div class="section-label">Open data</div>
+      <h2>Counter badge</h2>
+      <p class="section-intro">A live SVG badge and JSON API showing detection activity — embeddable anywhere, no key required.</p>
+
+      <div class="faq-item">
+        <div class="faq-q">How do I embed the phrase counter on my website or README? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          The counter badge is a live SVG served from a public endpoint — no key or sign-up required.
           <p style="margin-top:10px;"><strong>Badge URL</strong></p>
           <pre style="background:#f1f5f9;border-radius:4px;font-size:11px;overflow-x:auto;padding:10px;">https://api.unmask.tools/counter</pre>
 
@@ -686,7 +734,7 @@
   https://api.unmask.tools/counter
 # → {"detected_today":642,"total_detected":1453,"unique_phrases":339}</pre>
 
-          <p style="margin-top:8px;">The badge reflects the live count of verified phrases in the global index (confidence ≥ 60%, human-confirmed). It is cached for one hour.</p>
+          <p style="margin-top:8px;">The badge reflects the live count of detected phrases today, total ever detected, and unique phrases in the global index. It refreshes every 5 minutes.</p>
         </div>
       </div>
     </section>
