@@ -465,9 +465,28 @@
           <p><strong>How to import:</strong></p>
           <ul>
             <li>Open the extension popup → My Phrase Library → Company Repository tab</li>
-            <li>Upload a <code>.txt</code> file (one phrase per line) or a <code>.json</code> file (array of objects with <code>phrase</code>, <code>translation</code>, and optional <code>severity</code>)</li>
+            <li>Upload a <code>.txt</code> file (one phrase per line) or a <code>.json</code> file (array of objects — see format below)</li>
             <li>Click Load — the extension confirms how many phrases were imported</li>
           </ul>
+          <p style="margin:12px 0 6px;"><strong>JSON file format</strong></p>
+          <div class="code-block" style="margin-bottom:8px;">[
+  {
+    <span class="key">"phrase"</span>:      <span class="str">"workforce restructuring"</span>,
+    <span class="key">"translation"</span>: <span class="str">"Mass job losses affecting livelihoods and community stability."</span>,
+    <span class="key">"severity"</span>:    <span class="str">"high"</span>
+  },
+  {
+    <span class="key">"phrase"</span>:      <span class="str">"collateral damage"</span>,
+    <span class="key">"translation"</span>: <span class="str">"Civilian deaths or injuries in military operations."</span>,
+    <span class="key">"severity"</span>:    <span class="str">"critical"</span>
+  },
+  {
+    <span class="key">"phrase"</span>:      <span class="str">"managed retreat"</span>,
+    <span class="key">"translation"</span>: <span class="str">"Forced relocation of communities from their land."</span>
+    <span class="comment">// severity is optional — defaults to "medium" if omitted</span>
+  }
+]</div>
+          <p style="font-size:12px;">Valid severity values: <code>critical</code>, <code>high</code>, <code>medium</code>. All three fields support any language.</p>
           <p>The repository persists in local browser storage until you clear it or upload a new file. It is not synced across devices.</p>
         </div>
       </div>
