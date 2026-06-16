@@ -42,6 +42,10 @@
     .toolbar { background: var(--c-surface); border-bottom: 1px solid var(--c-border); padding: 9px 40px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .toolbar label { font-size: 11px; color: var(--c-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
     .toolbar select { border: 1px solid var(--c-border); border-radius: 6px; font-size: 12px; padding: 5px 10px; background: var(--c-bg); color: var(--c-text); cursor: pointer; }
+    .toolbar input[type="date"] { border: 1px solid var(--c-border); border-radius: 6px; font-size: 12px; padding: 5px 10px; background: var(--c-bg); color: var(--c-text); cursor: pointer; }
+    #dateRange { display: none; align-items: center; gap: 6px; }
+    #dateRange.visible { display: flex; }
+    #dateRange span { color: var(--c-muted); font-size: 11px; }
     /* Mode toggle */
     .mode-toggle { background: #f1f5f9; border-radius: 6px; display: flex; gap: 2px; padding: 3px; }
     .mode-btn { background: none; border: none; border-radius: 4px; color: var(--c-muted); cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 0.03em; padding: 4px 12px; transition: background 0.15s, color 0.15s; }
@@ -232,10 +236,20 @@
   <select id="filterPeriod">
     <option value="">All time</option>
     <option value="today">Today</option>
+    <option value="week">This week</option>
+    <option value="lastweek">Last week</option>
+    <option value="month">This month</option>
+    <option value="lastmonth">Last month</option>
     <option value="7">Last 7 days</option>
     <option value="30">Last 30 days</option>
     <option value="90">Last 90 days</option>
+    <option value="custom">Custom range…</option>
   </select>
+  <div id="dateRange">
+    <input type="date" id="dateFrom" title="From">
+    <span>→</span>
+    <input type="date" id="dateTo" title="To">
+  </div>
   <div class="spacer"></div>
   <span id="lastUpdated"></span>
   <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
@@ -413,12 +427,46 @@ async function loadData() {
 const EXCLUDED_DOMAINS = ['fleschurza.github.io', 'unmask.tools', 'www.unmask.tools'];
 
 function getTimeCutoff() {
-  const v = document.getElementById('filterPeriod').value;
-  if (!v) return null;
+  const v   = document.getElementById('filterPeriod').value;
+  const now = new Date();
+  if (!v) return { from: null, to: null };
+
   if (v === 'today') {
-    const d = new Date(); d.setUTCHours(0, 0, 0, 0); return d;
+    const from = new Date(now); from.setUTCHours(0,0,0,0);
+    return { from, to: null };
   }
-  return new Date(Date.now() - Number(v) * 864e5);
+  if (v === 'week') {
+    // Mon–Sun of current week (UTC)
+    const day  = now.getUTCDay() || 7;
+    const from = new Date(now); from.setUTCDate(now.getUTCDate() - day + 1); from.setUTCHours(0,0,0,0);
+    return { from, to: null };
+  }
+  if (v === 'lastweek') {
+    const day    = now.getUTCDay() || 7;
+    const monThis = new Date(now); monThis.setUTCDate(now.getUTCDate() - day + 1); monThis.setUTCHours(0,0,0,0);
+    const from   = new Date(monThis); from.setUTCDate(monThis.getUTCDate() - 7);
+    const to     = new Date(monThis); to.setUTCMilliseconds(-1);
+    return { from, to };
+  }
+  if (v === 'month') {
+    const from = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
+    return { from, to: null };
+  }
+  if (v === 'lastmonth') {
+    const from = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - 1, 1));
+    const to   = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1) - 1);
+    return { from, to };
+  }
+  if (v === 'custom') {
+    const f = document.getElementById('dateFrom').value;
+    const t = document.getElementById('dateTo').value;
+    return {
+      from: f ? new Date(f + 'T00:00:00Z') : null,
+      to:   t ? new Date(t + 'T23:59:59Z') : null,
+    };
+  }
+  // numeric: last N days
+  return { from: new Date(Date.now() - Number(v) * 864e5), to: null };
 }
 
 function activeEvents() {
@@ -426,17 +474,19 @@ function activeEvents() {
              : mode === 'dismissed'  ? dismissedEvents
              : detectedEvents;
 
-  const sev    = document.getElementById('filterSeverity').value;
-  const isic   = document.getElementById('filterIsic').value;
-  const country= document.getElementById('filterCountry').value;
-  const cutoff = getTimeCutoff();
-  return base.filter(e =>
-    !EXCLUDED_DOMAINS.includes(e.domain) &&
-    (!sev     || e.severity     === sev)  &&
-    (!isic    || e.isic_section === isic) &&
-    (!country || e.country_tld  === country) &&
-    (!cutoff  || new Date(e.ts) >= cutoff)
-  );
+  const sev          = document.getElementById('filterSeverity').value;
+  const isic         = document.getElementById('filterIsic').value;
+  const country      = document.getElementById('filterCountry').value;
+  const { from, to } = getTimeCutoff();
+  return base.filter(e => {
+    const t = new Date(e.ts);
+    return !EXCLUDED_DOMAINS.includes(e.domain) &&
+      (!sev     || e.severity     === sev)  &&
+      (!isic    || e.isic_section === isic) &&
+      (!country || e.country_tld  === country) &&
+      (!from    || t >= from) &&
+      (!to      || t <= to);
+  });
 }
 
 function populateFilters() {
@@ -506,10 +556,10 @@ function render() {
 
 // ── Header stats ──────────────────────────────────────────────────────────────
 function renderHeaderStats(events) {
-  const notExcluded = e => !EXCLUDED_DOMAINS.includes(e.domain);
-  const cutoff      = getTimeCutoff();
-  const inPeriod    = e => !cutoff || new Date(e.ts) >= cutoff;
-  const keep        = e => notExcluded(e) && inPeriod(e);
+  const notExcluded  = e => !EXCLUDED_DOMAINS.includes(e.domain);
+  const { from, to } = getTimeCutoff();
+  const inPeriod     = e => { const t = new Date(e.ts); return (!from || t >= from) && (!to || t <= to); };
+  const keep         = e => notExcluded(e) && inPeriod(e);
   const allFiltered = [
     ...confirmedEvents.filter(keep),
     ...dismissedEvents.filter(keep),
@@ -846,7 +896,17 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
 });
 
 // ── Filter changes ────────────────────────────────────────────────────────────
-['filterSeverity','filterIsic','filterCountry','filterPeriod'].forEach(id =>
+['filterSeverity','filterIsic','filterCountry'].forEach(id =>
+  document.getElementById(id).addEventListener('change', render)
+);
+
+document.getElementById('filterPeriod').addEventListener('change', function() {
+  const isCustom = this.value === 'custom';
+  document.getElementById('dateRange').classList.toggle('visible', isCustom);
+  if (!isCustom) render();
+});
+
+['dateFrom','dateTo'].forEach(id =>
   document.getElementById(id).addEventListener('change', render)
 );
 
