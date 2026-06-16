@@ -228,6 +228,14 @@
   <select id="filterIsic"><option value="">All sectors</option></select>
   <label>Country</label>
   <select id="filterCountry"><option value="">All countries</option></select>
+  <label>Period</label>
+  <select id="filterPeriod">
+    <option value="">All time</option>
+    <option value="today">Today</option>
+    <option value="7">Last 7 days</option>
+    <option value="30">Last 30 days</option>
+    <option value="90">Last 90 days</option>
+  </select>
   <div class="spacer"></div>
   <span id="lastUpdated"></span>
   <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
@@ -404,19 +412,30 @@ async function loadData() {
 // ── Mode & filters ────────────────────────────────────────────────────────────
 const EXCLUDED_DOMAINS = ['fleschurza.github.io', 'unmask.tools', 'www.unmask.tools'];
 
+function getTimeCutoff() {
+  const v = document.getElementById('filterPeriod').value;
+  if (!v) return null;
+  if (v === 'today') {
+    const d = new Date(); d.setUTCHours(0, 0, 0, 0); return d;
+  }
+  return new Date(Date.now() - Number(v) * 864e5);
+}
+
 function activeEvents() {
   const base = mode === 'confirmed'  ? confirmedEvents
              : mode === 'dismissed'  ? dismissedEvents
              : detectedEvents;
 
-  const sev     = document.getElementById('filterSeverity').value;
-  const isic    = document.getElementById('filterIsic').value;
-  const country = document.getElementById('filterCountry').value;
+  const sev    = document.getElementById('filterSeverity').value;
+  const isic   = document.getElementById('filterIsic').value;
+  const country= document.getElementById('filterCountry').value;
+  const cutoff = getTimeCutoff();
   return base.filter(e =>
     !EXCLUDED_DOMAINS.includes(e.domain) &&
     (!sev     || e.severity     === sev)  &&
     (!isic    || e.isic_section === isic) &&
-    (!country || e.country_tld  === country)
+    (!country || e.country_tld  === country) &&
+    (!cutoff  || new Date(e.ts) >= cutoff)
   );
 }
 
@@ -488,16 +507,19 @@ function render() {
 // ── Header stats ──────────────────────────────────────────────────────────────
 function renderHeaderStats(events) {
   const notExcluded = e => !EXCLUDED_DOMAINS.includes(e.domain);
+  const cutoff      = getTimeCutoff();
+  const inPeriod    = e => !cutoff || new Date(e.ts) >= cutoff;
+  const keep        = e => notExcluded(e) && inPeriod(e);
   const allFiltered = [
-    ...confirmedEvents.filter(notExcluded),
-    ...dismissedEvents.filter(notExcluded),
-    ...detectedEvents.filter(notExcluded),
+    ...confirmedEvents.filter(keep),
+    ...dismissedEvents.filter(keep),
+    ...detectedEvents.filter(keep),
   ];
   const domains   = new Set(allFiltered.map(e => e.domain).filter(Boolean));
   const countries = new Set(allFiltered.map(e => e.country_tld).filter(Boolean));
-  document.getElementById('hDetected').textContent  = detectedEvents.filter(notExcluded).length.toLocaleString();
-  document.getElementById('hConfirmed').textContent = confirmedEvents.filter(notExcluded).length.toLocaleString();
-  document.getElementById('hDismissed').textContent = dismissedEvents.filter(notExcluded).length.toLocaleString();
+  document.getElementById('hDetected').textContent  = detectedEvents.filter(keep).length.toLocaleString();
+  document.getElementById('hConfirmed').textContent = confirmedEvents.filter(keep).length.toLocaleString();
+  document.getElementById('hDismissed').textContent = dismissedEvents.filter(keep).length.toLocaleString();
   document.getElementById('hDomains').textContent   = domains.size.toLocaleString();
   document.getElementById('hCountries').textContent = countries.size.toLocaleString();
 }
@@ -824,7 +846,7 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
 });
 
 // ── Filter changes ────────────────────────────────────────────────────────────
-['filterSeverity','filterIsic','filterCountry'].forEach(id =>
+['filterSeverity','filterIsic','filterCountry','filterPeriod'].forEach(id =>
   document.getElementById(id).addEventListener('change', render)
 );
 
