@@ -85,6 +85,25 @@
     .cta-btn.outline { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #f1f5f9; margin-right: 8px; }
     .cta-btn.outline:hover { background: rgba(255,255,255,0.1); }
 
+    /* ── Research key signup ── */
+    .signup-box { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 12px; padding: 28px 32px; margin-top: 24px; }
+    .signup-box h3 { font-size: 15px; margin-bottom: 6px; }
+    .signup-box p { font-size: 13px; margin-bottom: 16px; }
+    .signup-form { display: flex; gap: 10px; flex-wrap: wrap; }
+    .signup-form input { flex: 1; min-width: 180px; border: 1px solid var(--c-border); border-radius: 7px; font-size: 13px; padding: 9px 12px; background: var(--c-bg); color: var(--c-text); }
+    .signup-form input:focus { outline: 2px solid var(--c-accent); border-color: var(--c-accent); }
+    .signup-form button { background: var(--c-accent); border: none; border-radius: 7px; color: #fff; cursor: pointer; font-size: 13px; font-weight: 600; padding: 9px 20px; white-space: nowrap; }
+    .signup-form button:hover { background: #0077a8; }
+    .signup-form button:disabled { background: #94a3b8; cursor: default; }
+    .signup-result { display: none; margin-top: 16px; }
+    .signup-result.show { display: block; }
+    .key-display { background: #0f172a; border-radius: 8px; padding: 14px 16px; margin: 12px 0; font-family: 'Menlo','Monaco',monospace; font-size: 13px; color: #86efac; display: flex; align-items: center; justify-content: space-between; gap: 10px; word-break: break-all; }
+    .key-copy-btn { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 5px; color: #f1f5f9; cursor: pointer; font-size: 11px; font-weight: 600; padding: 4px 10px; white-space: nowrap; flex-shrink: 0; }
+    .key-copy-btn:hover { background: rgba(255,255,255,0.15); }
+    .usage-block { background: #0f172a; border-radius: 8px; padding: 14px 16px; margin-top: 10px; }
+    .usage-block code { display: block; font-family: 'Menlo','Monaco',monospace; font-size: 12px; color: #7dd3fc; white-space: pre; overflow-x: auto; }
+    .signup-error { color: var(--c-critical); font-size: 13px; margin-top: 10px; }
+
     /* ── Download bar ── */
     .download-bar { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 8px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
     .download-bar .dl-info { font-size: 13px; }
@@ -151,16 +170,16 @@
 
     <div class="stat-row">
       <div class="stat-card">
-        <div class="val">339</div>
+        <div class="val" id="stat-phrases">—</div>
         <div class="lbl">Unique phrases</div>
       </div>
       <div class="stat-card">
-        <div class="val">1,453</div>
+        <div class="val" id="stat-detections">—</div>
         <div class="lbl">Confirmed detections</div>
       </div>
       <div class="stat-card">
-        <div class="val">40+</div>
-        <div class="lbl">Countries observed</div>
+        <div class="val" id="stat-today">—</div>
+        <div class="lbl">Detected today</div>
       </div>
       <div class="stat-card">
         <div class="val">EN · DE · FR</div>
@@ -439,21 +458,22 @@
   <hr class="divider">
 
   <!-- ── LICENSING ─────────────────────────────────────────────────── -->
-  <section>
+  <section id="licensing">
     <div class="section-label">Licensing</div>
     <h2>Data access tiers</h2>
-    <p>The sample above is free to use for evaluation. Commercial use, bulk access, and API integration require a licence. All tiers include the full 339-phrase dataset and monthly snapshot delivery.</p>
+    <p>The 15-phrase sample above requires no key. A free research key gives you the full dataset via API. Commercial and OEM licences add monthly snapshots, CSV export, version history, and redistribution rights.</p>
 
     <div class="tier-grid">
       <div class="tier-card">
         <div class="tier-name">Research</div>
-        <div class="tier-price">Free <span>for academic / non-commercial</span></div>
+        <div class="tier-price">Free <span>non-commercial, attribution required</span></div>
         <ul>
-          <li>Full 339-phrase dataset (one-time export)</li>
-          <li>JSON + CSV formats</li>
-          <li>Attribution required</li>
+          <li>Full live dataset via API</li>
+          <li>JSON format</li>
+          <li>Instant self-service key below</li>
           <li>Non-commercial use only</li>
         </ul>
+        <a href="#research-key" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--c-accent);text-decoration:none;">Get API key → </a>
       </div>
       <div class="tier-card featured">
         <div class="tier-name" style="color:var(--c-accent);">Commercial</div>
@@ -473,15 +493,41 @@
           <li>Embed in your SaaS or data product</li>
           <li>White-label available</li>
           <li>Webhook-based update delivery</li>
+          <li>CSV + JSON + snapshot history</li>
           <li>Custom field extensions</li>
         </ul>
       </div>
     </div>
 
-    <div class="cta-box">
+    <!-- Research key self-service -->
+    <div class="signup-box" id="research-key">
+      <h3>Get your free Research API key</h3>
+      <p>Enter your email and we'll issue a key instantly. Returns the full live dataset. Attribution required — not for commercial use.</p>
+      <div class="signup-form">
+        <input type="email" id="signup-email" placeholder="you@organisation.org" autocomplete="email">
+        <input type="text"  id="signup-org"   placeholder="Organisation (optional)" autocomplete="organization">
+        <button id="signup-btn" onclick="issueKey()">Get key →</button>
+      </div>
+      <div id="signup-result" class="signup-result">
+        <p style="color:#16a34a;font-weight:600;font-size:13px;" id="signup-msg"></p>
+        <div class="key-display" id="key-display">
+          <span id="key-value"></span>
+          <button class="key-copy-btn" onclick="copyKey()">Copy</button>
+        </div>
+        <p style="font-size:12px;color:var(--c-muted);margin:8px 0 4px;">Use your key in the <code>Authorization</code> header:</p>
+        <div class="usage-block">
+          <code id="usage-curl"></code>
+        </div>
+        <p style="font-size:12px;color:var(--c-muted);margin-top:10px;">CSV export: append <code>?format=csv</code> — Monthly snapshot: <code>?month=2026-06</code> (commercial / OEM only)</p>
+      </div>
+      <div id="signup-error" class="signup-error"></div>
+    </div>
+
+    <!-- Commercial / OEM CTA -->
+    <div class="cta-box" style="margin-top:24px;">
       <div>
-        <h3>Interested in the full dataset?</h3>
-        <p>Send us a brief note about your use case and we will get back to you within two business days.</p>
+        <h3>Commercial or OEM licence?</h3>
+        <p>Send us a brief note about your use case and we'll get back within two business days.</p>
       </div>
       <div>
         <a href="mailto:hello@unmask.tools?subject=Data%20Licensing%20Inquiry&body=Organisation%3A%0AUse%20case%3A%0AVolume%2Fscale%3A%0AIntegration%20format%20(JSON%20%2F%20CSV%20%2F%20API)%3A"
@@ -513,5 +559,79 @@
   <a href="docs.html">FAQ</a>
 </footer>
 
+<script>
+  const SUPABASE_FN = 'https://ghoriibggfxahkkvvkpi.supabase.co/functions/v1';
+
+  // ── Live stats from ldm-counter ─────────────────────────────────────────────
+  (async () => {
+    try {
+      const res  = await fetch(`${SUPABASE_FN}/ldm-counter`, { headers: { Accept: 'application/json' } });
+      if (!res.ok) return;
+      const data = await res.json();
+      const fmt  = n => Number(n).toLocaleString('en');
+      const el   = id => document.getElementById(id);
+      if (el('stat-phrases'))    el('stat-phrases').textContent    = fmt(data.unique_phrases  ?? '—');
+      if (el('stat-detections')) el('stat-detections').textContent = fmt(data.total_detected  ?? '—');
+      if (el('stat-today'))      el('stat-today').textContent      = fmt(data.detected_today  ?? '—');
+    } catch (_) {}
+  })();
+
+  // ── Research key signup ─────────────────────────────────────────────────────
+  async function issueKey() {
+    const email   = document.getElementById('signup-email').value.trim();
+    const org     = document.getElementById('signup-org').value.trim();
+    const btn     = document.getElementById('signup-btn');
+    const errEl   = document.getElementById('signup-error');
+    const result  = document.getElementById('signup-result');
+
+    errEl.textContent = '';
+    result.classList.remove('show');
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    btn.disabled    = true;
+    btn.textContent = 'Issuing…';
+
+    try {
+      const res  = await fetch(`${SUPABASE_FN}/ldm-issue-key`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ email, org_name: org, tier: 'research' }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        errEl.textContent = data.error ?? 'Something went wrong. Please try again.';
+        return;
+      }
+
+      const key = data.key;
+      document.getElementById('signup-msg').textContent =
+        data.existing ? '✓ Key already issued for this email — shown below.' : '✓ Key issued! Save it somewhere safe.';
+      document.getElementById('key-value').textContent = key;
+      document.getElementById('usage-curl').textContent =
+        `curl -H "Authorization: Bearer ${key}" \\\n  ${SUPABASE_FN}/ldm-export`;
+      result.classList.add('show');
+
+    } catch (_) {
+      errEl.textContent = 'Network error — please try again.';
+    } finally {
+      btn.disabled    = false;
+      btn.textContent = 'Get key →';
+    }
+  }
+
+  function copyKey() {
+    const key = document.getElementById('key-value').textContent;
+    navigator.clipboard.writeText(key).then(() => {
+      const btn = document.querySelector('.key-copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 1800);
+    });
+  }
+</script>
 </body>
 </html>
