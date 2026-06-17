@@ -609,8 +609,12 @@
       }
 
       const key = data.key;
-      document.getElementById('signup-msg').textContent =
-        data.existing ? '✓ Key already issued for this email — shown below.' : '✓ Key issued! Save it somewhere safe.';
+      const expiry = data.expires_at
+        ? new Date(data.expires_at).toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' })
+        : null;
+      document.getElementById('signup-msg').textContent = data.existing
+        ? `✓ Key already issued for this email — valid until ${expiry}.`
+        : `✓ Key issued! Valid for 12 months (expires ${expiry}). Save it somewhere safe.`;
       document.getElementById('key-value').textContent = key;
       document.getElementById('usage-curl').textContent =
         `curl -H "Authorization: Bearer ${key}" \\\n  ${SUPABASE_FN}/ldm-export`;
