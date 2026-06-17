@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>unmask.tools — Data Room</title>
+  <link rel="preconnect" href="https://ghoriibggfxahkkvvkpi.supabase.co">
+  <link rel="preconnect" href="https://api.unmask.tools">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -308,6 +310,16 @@
           <td><code>first_seen</code></td>
           <td><span class="type-badge">timestamp</span></td>
           <td>UTC timestamp when the phrase was first promoted to the global index</td>
+        </tr>
+        <tr>
+          <td><code>detection_count</code></td>
+          <td><span class="type-badge">integer</span></td>
+          <td>Number of distinct detection events recorded by the extension across all users</td>
+        </tr>
+        <tr>
+          <td><code>total_occurrences</code></td>
+          <td><span class="type-badge">integer</span></td>
+          <td>Total occurrence count across all detection events — a single event may detect the phrase multiple times in one document</td>
         </tr>
       </tbody>
     </table>
