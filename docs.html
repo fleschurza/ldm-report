@@ -71,6 +71,10 @@
     .platform-table td:first-child { font-weight: 600; color: var(--c-text); }
     .badge-yes  { display: inline-block; background: #dcfce7; color: #15803d; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
     .badge-no   { display: inline-block; background: #f1f5f9; color: #94a3b8; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+    .privacy-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .privacy-table th { text-align: left; padding: 8px 12px; background: #f1f5f9; font-weight: 600; border: 1px solid var(--c-border); }
+    .privacy-table td { padding: 8px 12px; border: 1px solid var(--c-border); color: var(--c-muted); vertical-align: top; }
+    .yes-cell { color: #16a34a; font-weight: 600; }
     .badge-soon { display: inline-block; background: #fef3c7; color: #d97706; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
 
     /* Privacy callout */
@@ -642,6 +646,90 @@
           </ul>
           <p>What is <strong>never</strong> sent: page content, email or message text, your identity, your IP address, or any other personal data. Contributions are anonymous and cannot be traced back to you.</p>
           <p>Phrases confirmed by multiple independent users across different domains are reviewed weekly and may be promoted into the base detection library — improving detection for all users.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Does the Company Repository send our internal phrases to unmask.tools? <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p><strong>Never.</strong> The Company Repository is designed so your organisation's phrase list never passes through unmask.tools infrastructure.</p>
+          <p>When you connect a URL-based repository (Team / Enterprise), the extension fetches your JSON file directly from the URL you provide — your own intranet, S3 bucket, SharePoint, or GitHub repo. The request goes from the employee's browser to your server. unmask.tools is not in that path.</p>
+          <p>Once loaded, phrases are cached in the browser's local storage and matched entirely on-device. Three technical controls ensure company phrases can never leak into the global dataset, regardless of the employee's sharing settings:</p>
+          <ul>
+            <li>Every company phrase is stored with an <code>isLocal: true</code> flag.</li>
+            <li>The global dataset submission filter in content.js explicitly blocks any detection where <code>isLocal</code> is true, before the submission even reaches the network layer.</li>
+            <li>Company phrase detections are visually distinct (MY COMPANY badge) and are excluded from the public detection report at the rendering layer.</li>
+          </ul>
+          <p>For the URL-based setup guide, hosting requirements, and MDM deployment instructions, see <a href="company.html">Company Repository Setup</a>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" id="data-security">
+        <div class="faq-q">Data flow reference — for security officers <span class="chevron">⌄</span></div>
+        <div class="faq-a">
+          <p>A complete summary of what data is processed where. Use this to validate unmask.shield against your organisation's data handling requirements.</p>
+          <table class="privacy-table" style="margin-top:12px;">
+            <thead>
+              <tr><th>Data</th><th>Leaves the device?</th><th>Reaches unmask.tools?</th><th>Stored?</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Page text — phrase matching</td>
+                <td class="yes-cell">Never</td>
+                <td class="yes-cell">Never</td>
+                <td class="yes-cell">Never — matching runs in-browser</td>
+              </tr>
+              <tr>
+                <td>Page text — AI Detection (unmask.tools API)</td>
+                <td>Yes, if AI Detection enabled</td>
+                <td>Yes — sent to ldm-analyze Edge Function</td>
+                <td class="yes-cell">Never — discarded after scoring</td>
+              </tr>
+              <tr>
+                <td>Page text — AI Detection (Chrome AI / Ollama)</td>
+                <td class="yes-cell">Never</td>
+                <td class="yes-cell">Never — fully on-device</td>
+                <td class="yes-cell">Never</td>
+              </tr>
+              <tr>
+                <td>Email &amp; message content</td>
+                <td class="yes-cell">Never (phrase matching only)</td>
+                <td class="yes-cell">Never</td>
+                <td class="yes-cell">Never</td>
+              </tr>
+              <tr>
+                <td>Company phrase list (URL-based repo)</td>
+                <td class="yes-cell">Never</td>
+                <td class="yes-cell">Never — fetched directly from your server</td>
+                <td class="yes-cell">Never</td>
+              </tr>
+              <tr>
+                <td>Company phrase detections</td>
+                <td class="yes-cell">Never</td>
+                <td class="yes-cell">Never — <code>isLocal</code> flag blocks submission at source</td>
+                <td class="yes-cell">Never</td>
+              </tr>
+              <tr>
+                <td>Global dataset contribution (phrase + domain)</td>
+                <td>Only if opted in</td>
+                <td>Yes — anonymous, no personal data</td>
+                <td>Yes — anonymised, no user identifier</td>
+              </tr>
+              <tr>
+                <td>API key usage count</td>
+                <td>Yes</td>
+                <td>Yes — used to enforce tier limits</td>
+                <td>Yes — count only, no query content</td>
+              </tr>
+              <tr>
+                <td>Custom / personal phrase library</td>
+                <td class="yes-cell">Never</td>
+                <td class="yes-cell">Never — stored in browser local storage only</td>
+                <td class="yes-cell">Local only</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top:12px;">For security officer review requests or Data Processing Agreement inquiries, contact <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>.</p>
         </div>
       </div>
 
