@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Company Repository Setup</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.7; }
+
+    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+    header h1 .accent { color: #009EDB; font-weight: 400; }
+    header p { color: #94a3b8; font-size: 12px; margin-top: 5px; }
+    nav { margin-top: 16px; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a { color: #94a3b8; font-size: 12px; text-decoration: none; }
+    nav a:hover { color: #009EDB; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+
+    h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .lead { color: var(--c-muted); font-size: 14px; margin-bottom: 40px; max-width: 580px; line-height: 1.6; }
+
+    h3 { font-size: 15px; font-weight: 700; margin: 40px 0 10px; }
+    h4 { font-size: 13px; font-weight: 700; margin: 24px 0 6px; color: var(--c-text); }
+    p  { color: var(--c-muted); margin-bottom: 12px; }
+    ul { color: var(--c-muted); padding-left: 20px; margin-bottom: 12px; }
+    ul li { margin-bottom: 6px; }
+    a  { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .highlight {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      color: #0369a1;
+      font-size: 13px;
+    }
+    .highlight strong { color: #075985; }
+
+    .step-grid { display: flex; flex-direction: column; gap: 24px; margin: 24px 0; }
+    .step { display: flex; gap: 16px; }
+    .step-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #009EDB; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .step-body { flex: 1; }
+    .step-body strong { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .step-body p { margin-bottom: 0; font-size: 13px; }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 12px;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin: 12px 0 20px;
+      font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+    }
+    code { font-family: 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 12px; background: #f1f5f9; padding: 1px 5px; border-radius: 3px; color: #0f172a; }
+
+    .hosting-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
+    .hosting-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 8px; padding: 14px 16px; }
+    .hosting-card strong { display: block; font-size: 13px; margin-bottom: 4px; }
+    .hosting-card p { font-size: 12px; margin: 0; }
+
+    .privacy-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13px; }
+    .privacy-table th { text-align: left; padding: 8px 12px; background: #f1f5f9; font-weight: 600; border: 1px solid var(--c-border); }
+    .privacy-table td { padding: 8px 12px; border: 1px solid var(--c-border); color: var(--c-muted); vertical-align: top; }
+    .yes { color: #16a34a; font-weight: 600; }
+    .no  { color: #dc2626; font-weight: 600; }
+
+    footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 40px; padding: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>unmask<span class="accent">.tools</span></h1>
+  <p>Institutional language detection — browser extension, API, and unmask.filter bot template.</p>
+  <nav>
+    <a href="index.html">Report</a>
+    <a href="api.html">Pricing</a>
+    <a href="docs.html">FAQ</a>
+    <a href="templates.html">Templates</a>
+    <a href="tools.html">Platforms</a>
+    <a href="support.html">Help</a>
+    <a href="/feed.xml" style="color:#f97316;font-weight:600;">RSS</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Company Repository Setup</h2>
+  <p class="lead">Deploy your organisation's internal phrase library to all employees — without uploading sensitive phrases to any external server. Your data stays on your infrastructure.</p>
+
+  <div class="highlight">
+    <strong>Available on Team and Enterprise plans.</strong> The company repository URL feature lets an IT admin configure the extension centrally. Employees get phrases automatically — no manual setup required.
+  </div>
+
+  <!-- How it works -->
+  <h3>How it works</h3>
+  <div class="step-grid">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>You host a JSON file on your own infrastructure</strong>
+        <p>A simple JSON array on your intranet, SharePoint, S3, or any HTTPS endpoint you control. unmask.tools never sees or stores the contents.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Configure the URL in the extension</strong>
+        <p>Paste the URL into the Company Repository section of the extension popup, or deploy it silently via Chrome Enterprise Policy / MDM — zero friction for employees.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Extension fetches and caches phrases locally</strong>
+        <p>On startup the extension fetches the latest phrases from your URL and caches them on-device. Detections happen entirely in the browser. Phrases auto-refresh every 24 hours.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>Company phrases are flagged with a MY COMPANY badge</strong>
+        <p>Detections from your repository are visually distinct and are never submitted to the global dataset or the public detection report — regardless of the employee's sharing settings.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JSON format -->
+  <h3>JSON file format</h3>
+  <p>Your file must be a JSON array. Each object requires at minimum a <code>phrase</code> field.</p>
+
+<pre>[
+  {
+    "phrase": "collateral damage",
+    "translation": "civilian casualties",
+    "severity": "critical",
+    "legalRef": "IHL Art. 51(5)(b)",
+    "sourceLanguage": "en",
+    "category": "Military operations"
+  },
+  {
+    "phrase": "surgical strike",
+    "translation": "targeted attack on a specific location",
+    "severity": "high"
+  },
+  {
+    "phrase": "internal restructuring",
+    "severity": "medium"
+  }
+]</pre>
+
+  <h4>Field reference</h4>
+  <table class="privacy-table">
+    <tr><th>Field</th><th>Required</th><th>Description</th></tr>
+    <tr><td><code>phrase</code></td><td class="yes">Yes</td><td>The phrase to detect. Max 200 characters.</td></tr>
+    <tr><td><code>severity</code></td><td>No</td><td><code>critical</code>, <code>high</code>, or <code>medium</code>. Defaults to <code>medium</code>.</td></tr>
+    <tr><td><code>translation</code></td><td>No</td><td>Plain-language explanation shown in tooltip. Max 500 characters.</td></tr>
+    <tr><td><code>legalRef</code></td><td>No</td><td>Legal or policy reference shown in tooltip. Max 200 characters.</td></tr>
+    <tr><td><code>sourceLanguage</code></td><td>No</td><td>ISO 639-1 language code (e.g. <code>en</code>, <code>de</code>). Defaults to <code>en</code>.</td></tr>
+    <tr><td><code>category</code></td><td>No</td><td>Internal grouping label. Max 100 characters.</td></tr>
+  </table>
+
+  <!-- Hosting options -->
+  <h3>Hosting options</h3>
+  <p>The file must be served over <strong>HTTPS</strong> with a <strong>CORS header</strong> that allows the extension to read it: <code>Access-Control-Allow-Origin: *</code></p>
+
+  <div class="hosting-grid">
+    <div class="hosting-card">
+      <strong>SharePoint / OneDrive</strong>
+      <p>Upload the file and use the direct download link. Works without additional CORS setup for Microsoft 365 tenants.</p>
+    </div>
+    <div class="hosting-card">
+      <strong>AWS S3 / Azure Blob</strong>
+      <p>Set the CORS policy on your bucket/container to allow <code>GET</code> from any origin. Use a private bucket with a pre-signed URL for added security.</p>
+    </div>
+    <div class="hosting-card">
+      <strong>Internal web server</strong>
+      <p>Any nginx or Apache instance on your intranet. Add <code>add_header Access-Control-Allow-Origin *;</code> to the location block.</p>
+    </div>
+    <div class="hosting-card">
+      <strong>GitHub (public repo)</strong>
+      <p>Host the file in a public repo and use the raw.githubusercontent.com URL. Simple, no CORS config needed.</p>
+    </div>
+  </div>
+
+  <!-- MDM deployment -->
+  <h3>Silent deployment via MDM (recommended for enterprises)</h3>
+  <p>Use Chrome Enterprise Policy to push the repository URL and API key to all managed devices — employees see a pre-configured extension with no setup steps.</p>
+
+  <h4>Google Workspace / Chrome Browser Cloud Management</h4>
+  <p>In the Admin Console → Devices → Chrome → Apps & Extensions → select the unmask.shield extension → Policy for extensions, add:</p>
+<pre>{
+  "unmask_company_repo_url": {
+    "Value": "https://your-company.com/unmask-phrases.json"
+  },
+  "unmask_api_key": {
+    "Value": "your_team_api_key_here"
+  }
+}</pre>
+
+  <h4>Microsoft Intune / Endpoint Manager</h4>
+  <p>Create a Chrome Configuration Profile with the extension policy JSON above. Deploy to the target security group.</p>
+
+  <h4>Jamf Pro (macOS)</h4>
+  <p>Use a Configuration Profile with a Chrome Extension Settings payload. Set the managed storage keys as above.</p>
+
+  <!-- Data security -->
+  <h3>Data security summary</h3>
+  <table class="privacy-table">
+    <tr><th>Data</th><th>Leaves the device?</th><th>Reaches unmask.tools?</th></tr>
+    <tr>
+      <td>Company phrase list</td>
+      <td class="no">Never</td>
+      <td class="no">Never — fetched directly from your server, not via ours</td>
+    </tr>
+    <tr>
+      <td>Company phrase detections</td>
+      <td class="no">Never</td>
+      <td class="no">Blocked at source — <code>isLocal</code> filter prevents submission</td>
+    </tr>
+    <tr>
+      <td>Page text (AI detection)</td>
+      <td>Only if AI detection is on</td>
+      <td>Excerpt sent to ldm-analyze for scoring — not stored</td>
+    </tr>
+    <tr>
+      <td>Page text (Ollama)</td>
+      <td class="no">Never</td>
+      <td class="no">Processed locally by your Ollama instance</td>
+    </tr>
+    <tr>
+      <td>API key usage count</td>
+      <td>Yes</td>
+      <td>Yes — used to enforce tier limits</td>
+    </tr>
+  </table>
+
+  <p>For full details see the <a href="privacy.html">Privacy Policy</a>. For security officer review requests, contact <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>.</p>
+</main>
+
+<footer>
+  unmask.tools · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="imprint.html">Imprint</a>
+</footer>
+
+</body>
+</html>
