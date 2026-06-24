@@ -82,11 +82,6 @@
     .last-updated { font-size: 11px; color: var(--c-muted); margin-bottom: 28px; }
     .last-updated strong { color: var(--c-text); }
 
-    /* Footer */
-    footer { text-align: center; padding: 32px 20px; color: #94a3b8; font-size: 11px; border-top: 1px solid var(--c-border); }
-    footer a { color: #64748b; text-decoration: none; margin: 0 8px; }
-    footer a:hover { color: var(--c-accent); }
-
     @media (max-width: 700px) {
       .layout { flex-direction: column; }
       .toc { width: 100%; }
@@ -558,17 +553,6 @@
   </main>
 </div>
 
-<footer>
-  <div style="margin-bottom:8px;">
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-    <a href="imprint.html">Imprint</a>
-    <a href="docs.html">FAQ</a>
-    <a href="pricing.html">Pricing</a>
-  </div>
-  unmask.tools · <a href="https://chromewebstore.google.com" target="_blank">Chrome Web Store</a>
-</footer>
-
 <script>
   // Sidebar active link on scroll
   const sections = document.querySelectorAll('section[id]');
@@ -585,5 +569,6 @@
   sections.forEach(s => obs.observe(s));
 </script>
 
+<script src="/footer.js"></script>
 </body>
 </html>

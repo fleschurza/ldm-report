@@ -127,9 +127,6 @@
     .risk-bar-bg   { background: #f1f5f9; border-radius: 3px; height: 5px; overflow: hidden; }
     .risk-bar-fill { border-radius: 3px; height: 5px; transition: width 0.4s; }
 
-    footer { border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 11px; margin-top: 20px; padding: 20px 40px; text-align: center; }
-    footer a { color: var(--c-accent); text-decoration: none; }
-
     /* ── Card expand button ── */
     .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
     .card-header .card-title { margin-bottom: 0; }
@@ -171,7 +168,6 @@
 
       .sector-grid { grid-template-columns: 1fr; }
 
-      footer { padding: 16px; font-size: 10px; }
     }
   </style>
 </head>
@@ -301,33 +297,8 @@
   </main>
 </div>
 
-<footer>
-  <div style="margin-bottom:10px;">
-    <a href="https://unmask.tools" title="institutional language tracker">
-      <img id="counter-badge"
-           src="https://api.unmask.tools/counter"
-           alt="phrases unmasked — unmask.tools"
-           height="20"
-           style="vertical-align:middle;">
-    </a>
-    <span id="counter-text" style="margin-left:8px;font-size:11px;color:var(--c-muted);vertical-align:middle;"></span>
-  </div>
-  unmask.tools · Data collected with user consent · No personal data stored ·
-  Legal anchors: Geneva AP I · Rome Statute · UDHR · Planetary Boundaries ·
-  <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="imprint.html">Imprint</a>
-</footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-<script>
-fetch('https://api.unmask.tools/counter',
-      { headers: { Accept: 'application/json' } })
-  .then(r => r.json())
-  .then(d => {
-    const el = document.getElementById('counter-text');
-    if (el && d.detected_today != null)
-      el.textContent = `${d.unique_phrases.toLocaleString('en')} unique phrases · ${d.total_detected.toLocaleString('en')} total detections`;
-  })
-  .catch(() => {});
-</script>
+<script src="/footer.js"></script>
 
 <script>
 const SUPABASE_URL = 'https://ghoriibggfxahkkvvkpi.supabase.co';

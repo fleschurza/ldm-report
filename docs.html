@@ -986,29 +986,7 @@ curl -X POST \
   sections.forEach(s => observer.observe(s));
 </script>
 
-<footer style="border-top:1px solid #e2e8f0;color:#64748b;font-size:11px;margin-top:40px;padding:20px;text-align:center;">
-  <div style="margin-bottom:10px;">
-    <a href="https://unmask.tools" title="institutional language tracker">
-      <img src="https://api.unmask.tools/counter"
-           alt="phrases unmasked — unmask.tools"
-           height="20"
-           style="vertical-align:middle;">
-    </a>
-    <span id="counter-text" style="margin-left:8px;font-size:11px;color:#64748b;vertical-align:middle;"></span>
-  </div>
-  unmask.tools · <a href="privacy.html" style="color:#009EDB;text-decoration:none;">Privacy Policy</a> · <a href="terms.html" style="color:#009EDB;text-decoration:none;">Terms of Service</a> · <a href="imprint.html" style="color:#009EDB;text-decoration:none;">Imprint</a>
-</footer>
-<script>
-fetch('https://api.unmask.tools/counter',
-      { headers: { Accept: 'application/json' } })
-  .then(r => r.json())
-  .then(d => {
-    const el = document.getElementById('counter-text');
-    if (el && d.detected_today != null)
-      el.textContent = `${d.unique_phrases.toLocaleString('en')} unique phrases · ${d.total_detected.toLocaleString('en')} total detections`;
-  })
-  .catch(() => {});
-</script>
+<script src="/footer.js"></script>
 
 </body>
 </html>
