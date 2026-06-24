@@ -9,84 +9,85 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
   process.exit(1);
 }
 
-const path = `/rest/v1/confirmation_events?select=normalized_phrase,phrase,translation,legal_ref,severity,isic_section,isic_label,domain&order=normalized_phrase&limit=5000`;
+// Tiered promotion thresholds — must match promote-community-phrases.mjs
+const TIER_THRESHOLDS = {
+  critical: { confirms: 2, domains: 1 },
+  high:     { confirms: 3, domains: 2 },
+  medium:   { confirms: 3, domains: 3 },
+};
+
+function meetsThreshold(row) {
+  const t = TIER_THRESHOLDS[row.severity] || TIER_THRESHOLDS.medium;
+  return row.confirm_count >= t.confirms && row.domain_count >= t.domains;
+}
+
+// Read from global_index (not raw confirmation_events) so that:
+// - active = false deactivations are respected
+// - only enriched, curated phrases are distributed
+// - phrases the promote script added are included automatically
+const apiPath =
+  `/rest/v1/global_index` +
+  `?select=phrase,normalized_phrase,translation,legal_ref,severity,confirm_count,domain_count,confidence_score,active,lang` +
+  `&active=eq.true` +
+  `&confirm_count=gte.1` +  // exclude core-library phrases with no community signal
+  `&order=confirm_count.desc` +
+  `&limit=5000`;
+
 const host = SUPABASE_URL.replace('https://', '');
 
 const options = {
   hostname: host,
-  path,
+  path:     apiPath,
   headers: {
-    'apikey': SUPABASE_KEY,
+    'apikey':        SUPABASE_KEY,
     'Authorization': `Bearer ${SUPABASE_KEY}`,
-  }
+  },
 };
 
 https.get(options, (res) => {
   let data = '';
   res.on('data', chunk => data += chunk);
   res.on('end', () => {
-    let events;
+    let rows;
     try {
-      events = JSON.parse(data);
+      rows = JSON.parse(data);
     } catch (e) {
       console.error('Failed to parse Supabase response:', data.slice(0, 200));
       process.exit(1);
     }
 
-    if (!Array.isArray(events)) {
-      console.error('Unexpected response:', JSON.stringify(events).slice(0, 200));
+    if (!Array.isArray(rows)) {
+      console.error('Unexpected response:', JSON.stringify(rows).slice(0, 200));
       process.exit(1);
     }
 
-    console.log(`Fetched ${events.length} confirmation events`);
+    console.log(`Fetched ${rows.length} active community phrases from global_index`);
 
-    // Aggregate by normalized_phrase
-    const map = {};
-    for (const e of events) {
-      const key = e.normalized_phrase;
-      if (!key) continue;
-      if (!map[key]) {
-        map[key] = {
-          phrase:      e.phrase,
-          translation: e.translation || '',
-          legalRef:    e.legal_ref   || '',
-          severity:    e.severity    || 'medium',
-          isicSection: e.isic_section || null,
-          isicLabel:   e.isic_label   || null,
-          confirmCount: 0,
-          domains: new Set(),
-        };
-      }
-      map[key].confirmCount++;
-      if (e.domain) map[key].domains.add(e.domain);
-    }
+    // Apply tiered threshold filter
+    const promoted = rows
+      .filter(meetsThreshold)
+      .map(r => ({
+        phrase:           r.phrase,
+        normalizedPhrase: r.normalized_phrase,
+        translation:      r.translation,
+        legalRef:         r.legal_ref,
+        severity:         r.severity,
+        confirmCount:     r.confirm_count,
+        domainCount:      r.domain_count,
+        sourceLanguage:   r.lang || 'en',
+        isGlobal:         true,
+      }));
 
-    // Promote: confirmed >= 3 times across >= 3 distinct domains
-    const promoted = Object.entries(map)
-      .filter(([, p]) => p.confirmCount >= 3 && p.domains.size >= 3)
-      .map(([key, p]) => ({
-        phrase:         p.phrase,
-        normalizedPhrase: key,
-        translation:    p.translation,
-        legalRef:       p.legalRef,
-        severity:       p.severity,
-        isicSection:    p.isicSection,
-        isicLabel:      p.isicLabel,
-        confirmCount:   p.confirmCount,
-        domainCount:    p.domains.size,
-        sourceLanguage: 'en',
-        isGlobal:       true,
-      }))
-      .sort((a, b) => b.confirmCount - a.confirmCount);
-
-    console.log(`Promoted ${promoted.length} phrases (>= 3 confirms, >= 3 domains)`);
+    console.log(`Included ${promoted.length} phrases after tiered threshold filter`);
+    console.log(`  critical >= 2 confirms / 1 domain`);
+    console.log(`  high     >= 3 confirms / 2 domains`);
+    console.log(`  medium   >= 3 confirms / 3 domains`);
 
     const output = {
-      generated:  new Date().toISOString(),
-      count:      promoted.length,
-      minConfirms: 3,
-      minDomains:  3,
-      phrases:    promoted,
+      generated:   new Date().toISOString(),
+      count:       promoted.length,
+      thresholds:  TIER_THRESHOLDS,
+      phrases:     promoted,
     };
 
     fs.writeFileSync('community-phrases.json', JSON.stringify(output, null, 2));
