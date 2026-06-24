@@ -154,7 +154,7 @@
     <li><strong>Loops.so</strong> — transactional email delivery (welcome, upgrade, and licensing emails). <a href="https://loops.so/privacy" target="_blank">Privacy policy →</a></li>
     <li><strong>Resend</strong> — transactional email routing for support (help@) and data key delivery. <a href="https://resend.com/legal/privacy-policy" target="_blank">Privacy policy →</a></li>
     <li><strong>Anthropic</strong> — AI inference for the AI detection feature (API key users only). Text excerpts are forwarded to Anthropic's Claude API for analysis and are not retained by us. <a href="https://www.anthropic.com/privacy" target="_blank">Privacy policy →</a></li>
-    <li><strong>GitHub</strong> — hosts the community phrase library (<code>community-phrases.json</code>) via GitHub Pages, fetched by the extension on startup; automated phrase promotion workflows run via GitHub Actions. This is a static file request; GitHub's standard server logs (which may include IP addresses) apply to all extension users regardless of account status. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">Privacy statement →</a></li>
+    <li><strong>GitHub</strong> — hosts the community phrase library (<code>community-phrases.json</code>) via GitHub Pages, fetched by the extension on startup; automated phrase promotion workflows run via GitHub Actions. This is a static file request; GitHub's standard server logs (which may include IP addresses) apply to all extension users regardless of account status. Legal basis: Art. 6(1)(b) GDPR (necessary for performance of the service). <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">Privacy statement →</a></li>
   </ul>
   <p>We do not sell, rent, or share your <strong>personal data</strong> with any other third parties. Anonymised aggregate data (which contains no personal data) may be commercially licensed — see section 5a below.</p>
 
@@ -171,10 +171,10 @@
 
   <h3>6. Data retention</h3>
   <ul>
-    <li>Account data (email, name, key) is retained for as long as your account is active and for up to 90 days after deletion upon request.</li>
+    <li>Account data (email, name, key) is deleted within 30 days of account closure or a verified erasure request under Art. 17 GDPR, whichever comes first.</li>
     <li>Anonymised detection events (opt-in only) are retained indefinitely as part of the public research dataset. They contain no personal data.</li>
     <li>Monthly dataset snapshots are retained indefinitely for audit and historical licensing purposes. They contain no personal data.</li>
-    <li>Billing records are retained as required by applicable law (typically 7 years).</li>
+    <li>Billing records are retained for 7 years pursuant to § 132 BAO (Austrian federal fiscal code).</li>
   </ul>
 
   <h3>7. Your rights under GDPR</h3>
@@ -188,12 +188,20 @@
     <li><strong>Objection</strong> — object to processing based on legitimate interests</li>
     <li><strong>Withdraw consent</strong> — where processing is based on consent, you may withdraw it at any time via the extension settings</li>
   </ul>
-  <p>To exercise any of these rights, email <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>. We will respond within 30 days.</p>
+  <p>To exercise any of these rights, email <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>. We will respond within one month of receipt. For complex or numerous requests we may extend this by a further two months; in that case we will inform you within the first month.</p>
   <p>Please note: as submitted detection events are fully anonymised and cannot be linked back to you, they cannot be individually deleted once contributed to the dataset. Future contributions can be stopped at any time by disabling global data sharing in the extension settings.</p>
   <p>The competent supervisory authority for Austria is the <strong>Datenschutzbehörde (DSB)</strong>, <a href="https://www.dsb.gv.at" target="_blank">dsb.gv.at</a>. You have the right to lodge a complaint with the DSB if you believe your data has been processed unlawfully.</p>
 
   <h3>8. International transfers</h3>
-  <p>Our sub-processors (Supabase, Stripe, Loops.so, Resend, Anthropic, GitHub) may process data in the United States. Where this occurs, we rely on Standard Contractual Clauses (SCCs) as the transfer mechanism in accordance with GDPR Chapter V.</p>
+  <p>Some sub-processors are based in or transfer data to the United States. Where this occurs, we rely on Standard Contractual Clauses (SCCs) as the transfer mechanism in accordance with GDPR Art. 46(2)(c). The applicable mechanism per sub-processor is:</p>
+  <ul>
+    <li><strong>Supabase</strong> — EU region; no US transfer for stored data</li>
+    <li><strong>Stripe</strong> — USA; SCCs + EU-US Data Privacy Framework. <a href="https://stripe.com/en-at/legal/dpa" target="_blank">DPA →</a></li>
+    <li><strong>Loops.so</strong> — USA; SCCs. <a href="https://loops.so/privacy" target="_blank">Privacy policy →</a></li>
+    <li><strong>Resend</strong> — USA; SCCs. <a href="https://resend.com/legal/privacy-policy" target="_blank">Privacy policy →</a></li>
+    <li><strong>Anthropic</strong> — USA; SCCs (zero-retention API; text excerpts are not stored after inference). <a href="https://www.anthropic.com/legal/privacy" target="_blank">Privacy policy →</a></li>
+    <li><strong>GitHub</strong> — USA; SCCs + EU-US Data Privacy Framework. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">Privacy statement →</a></li>
+  </ul>
 
   <h3>9. Security</h3>
   <p>We implement appropriate technical and organisational measures to protect your personal data, including encrypted connections (TLS), access controls, and row-level security on our database. No method of transmission over the internet is 100% secure; we cannot guarantee absolute security.</p>
