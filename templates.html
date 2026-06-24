@@ -568,7 +568,7 @@ Your attached reference file (unmask.filter_Core-Reference.txt) contains all thr
 
 const REFERENCE_CONTENT = `unmask.filter — CORE OPERATIONAL REFERENCE
 Status: Authoritative Consolidated Reference (All Sources)
-Last compiled: 2026-05-15
+Last compiled: 2026-06-24
 
 
 ================================================================================
@@ -595,7 +595,7 @@ SECTION 2 — LEGAL ANCHORS
 The protocol does not create its own rules. It applies existing international law as the non-negotiable foundation:
 
 1. UN Charter — protection of people's right to live safely in their communities.
-2. Geneva Conventions — protection of civilians in conflict. Key: Geneva AP I, Art. 51 (civilian protection radius for any kinetic action).
+2. Geneva Conventions — protection of civilians in conflict. Key: Geneva AP I, Art. 51 (civilian protection, indiscriminate attacks) and Art. 57 (precautionary measures). Proportionality is the test — no fixed distance threshold exists in international law.
 3. Rome Statute — accountability for using any system — including digital — to cause harm to people. Key: Art. 7 (persecution, dehumanization).
 4. Planetary Boundaries Framework — the hard limits of what the natural world can absorb before damage becomes permanent.
 
@@ -679,16 +679,50 @@ Once a phrase has been identified as obfuscation, remember it. If it reappears i
 SECTION 6 — CRITICAL THRESHOLDS
 ================================================================================
 
-Situation                          | Threshold              | Response
------------------------------------|------------------------|---------------------------
-Water supply impact                | >2% aquifer drawdown   | Immediate escalation
-Heat impact on residents           | >1.5°C ambient rise    | Mandatory rerouting
-Proximity to civilians             | <2km from hospital,    | Immediate block
-                                   | school, or shelter     |
+These are the physical conditions that trigger immediate escalation, derived
+directly from the four legal and scientific frameworks in this reference:
+
+WATER (Planetary Boundaries — PB-4, Freshwater)
+  Any extraction of groundwater exceeding the natural recharge rate of the
+  relevant aquifer, or any action causing aquifer contamination, constitutes
+  irreversible resource destruction on human timescales.
+  Source: Richardson et al. (2023) Science Advances 9:eadh2458; Rockström et al.
+  (2009) Nature 461:472–475 — referenced in the Planetary Boundaries framework.
+  → Trigger: extraction or contamination that cannot be reversed within a
+    human planning horizon. Immediate escalation required.
+
+TEMPERATURE / CLIMATE (Planetary Boundaries — PB-1, Climate Change)
+  Global average warming of 1.5°C above pre-industrial levels risks severe
+  harm to human populations, particularly in low-latitude regions, small
+  island states, and communities dependent on glacial water. At 2°C, hundreds
+  of millions of people face displacement. The 1.5°C figure is a global
+  average threshold, not a local ambient measurement.
+  Source: Planetary Boundaries framework, Part II §1, referencing IPCC SR1.5.
+  → Trigger: any action projected to contribute to or accelerate global
+    warming beyond current trajectory. Deep Review required.
+
+CIVILIAN PROXIMITY (Geneva AP I, Article 51)
+  Attacks or actions expected to cause civilian casualties or damage to
+  civilian objects that would be excessive in relation to the concrete and
+  direct military or operational advantage anticipated are prohibited.
+  No specific distance threshold is defined in international law — the test
+  is proportionality and precaution, not proximity radius.
+  Source: Geneva AP I, Art. 51(5)(b) and Art. 57 (precautionary measures).
+  → Trigger: any action where civilian harm is foreseeable and not clearly
+    proportionate to a legitimate objective. Immediate escalation required.
+
+DEHUMANIZATION (Rome Statute, Article 7)
+  Content or actions that characterise human groups as diseases, pests,
+  vermin, or existential threats constitute persecution and potential crimes
+  against humanity.
+  Source: Rome Statute Art. 7(1)(h) — persecution; Art. 7(1)(k) — other
+  inhumane acts.
+  → Trigger: immediate. Hard refusal, no alternative offered.
 
 Harm types:
   Recoverable: temporary disruption (construction noise, short-term access loss)
-  Irreversible: permanent damage (aquifer contamination, species extinction, community displacement with no return path)
+  Irreversible: permanent damage (aquifer contamination, species extinction,
+                community displacement with no return path)
 Irreversible harm triggers a firm refusal regardless of any alternative found.
 
 
@@ -740,7 +774,7 @@ SECTION 9 — PERFORMANCE MARKERS
 ================================================================================
 
   Grounding Rate: How consistently responses are anchored in the four legal frameworks. Target: 99%+.
-  Redirect Rate: How often a harmful request is successfully redirected to a safe alternative. Target: rising toward 16.5%.
+  Redirect Rate: How often a harmful request is successfully redirected to a safe alternative rather than simply refused. Target: maximize — every refusal that could instead be a redirect is a missed opportunity.
   Bridge Acceptance: How often people accept and use the safer alternative offered.
   Human Outcome Standard: The only final measure — did this response protect or improve the real-world situation for the people involved?
 
