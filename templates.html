@@ -19,18 +19,6 @@
 
     body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
 
-    /* ── Header ── */
-    header { background: #1a1a4e; color: #f1f5f9; padding: 28px 40px 24px; border-bottom: 3px solid #009EDB; }
-    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
-    header h1 .accent { color: #009EDB; font-weight: 400; }
-    header p { color: #94a3b8; font-size: 12px; margin-top: 5px; max-width: 640px; }
-
-    /* ── Nav ── */
-    nav { margin-top: 14px; display: flex; gap: 4px; flex-wrap: wrap; }
-    nav a { color: #94a3b8; font-size: 12px; font-weight: 500; text-decoration: none; padding: 5px 12px; border-radius: 6px; border: 1px solid transparent; }
-    nav a:hover { color: #fff; }
-    nav a.active { color: #fff; background: rgba(0,158,219,0.25); border-color: #009EDB; font-weight: 600; }
-
     /* ── Layout ── */
     main { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
     section { margin-bottom: 48px; }
@@ -181,35 +169,15 @@
     .divider { border: none; border-top: 1px solid var(--c-border); margin: 28px 0; }
 
     @media (max-width: 600px) {
-      header { padding: 20px; }
       main { padding: 24px 16px 60px; }
       .dl-grid { grid-template-columns: 1fr; }
       .gate-form { flex-direction: column; }
     }
   </style>
 </head>
-<body>
+<body data-page="templates" data-subtitle="unmask.filter — deploy your AI language auditor on Claude, Gemini, or ChatGPT in minutes.">
 
-<header>
-  <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="44" height="44" style="flex-shrink:0;">
-      <path d="M64 4 L116 22 L116 68 C116 100 92 120 64 126 C36 120 12 100 12 68 L12 22 Z" fill="#3ec6f5" opacity="0.21" stroke="#3ec6f5" stroke-width="7" stroke-linejoin="round"/>
-      <text x="64" y="100" text-anchor="middle" font-family="Roboto,sans-serif" font-weight="900" font-size="94" fill="#ffffff">U</text>
-    </svg>
-    <h1>unmask<span class="accent">.tools</span> · Language Detection Intelligence</h1>
-  </div>
-  <p>unmask.filter — deploy your AI language auditor on Claude, Gemini, or ChatGPT in minutes.</p>
-  <nav>
-    <a href="index.html">Report</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="docs.html">FAQ</a>
-    <a href="templates.html" class="active">Templates</a>
-    <a href="tools.html">Platforms</a>
-    <a href="support.html">Help</a>
-    <a href="register.html" style="color:#009EDB;font-size:12px;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid rgba(0,158,219,0.4);">Try for free</a>
-    <a href="/feed.xml" style="color:#f97316;font-weight:600;border:1px solid rgba(249,115,22,0.4);">RSS</a>
-  </nav>
-</header>
+<script src="/nav.js"></script>
 
 <main>
 
