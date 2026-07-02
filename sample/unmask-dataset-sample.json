@@ -1,8 +1,8 @@
 {
   "meta": {
     "record_count": 15,
-    "generated_at": "2026-06-17T00:00:00Z",
-    "schema_version": "1",
+    "generated_at": "2026-07-02T00:00:00Z",
+    "schema_version": "2",
     "source": "unmask.tools global_index — sample export (top 15 by confidence score)",
     "license_url": "https://unmask.tools/dataroom.html",
     "note": "This is a free sample. Full dataset available under commercial licence — see license_url above."
@@ -21,7 +21,9 @@
       "isic_sections": [],
       "legal_ref": "Geneva Convention III, Art. 17 / Rome Statute Art. 7",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 17,
+      "total_occurrences": 21
     },
     {
       "phrase": "shock and awe",
@@ -36,7 +38,9 @@
       "isic_sections": [],
       "legal_ref": "Geneva Convention AP I, Art. 51 — Prohibition of Terror Against Civilians",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 6,
+      "total_occurrences": 6
     },
     {
       "phrase": "population transfer",
@@ -51,7 +55,9 @@
       "isic_sections": [],
       "legal_ref": "Rome Statute Art. 7 — Crimes Against Humanity / UDHR Art. 13",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 4,
+      "total_occurrences": 4
     },
     {
       "phrase": "collateral damage",
@@ -66,7 +72,9 @@
       "isic_sections": [],
       "legal_ref": "Geneva Convention AP I, Art. 51 — Protection of the Civilian Population",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 43,
+      "total_occurrences": 61
     },
     {
       "phrase": "austerity measures",
@@ -81,7 +89,9 @@
       "isic_sections": [],
       "legal_ref": "UDHR Art. 25 — Right to Adequate Standard of Living",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 4,
+      "total_occurrences": 4
     },
     {
       "phrase": "workforce reduction",
@@ -96,7 +106,9 @@
       "isic_sections": [],
       "legal_ref": "UDHR Art. 23 — Right to Work",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 4,
+      "total_occurrences": 4
     },
     {
       "phrase": "surgical strike",
@@ -111,7 +123,9 @@
       "isic_sections": [],
       "legal_ref": "Geneva Convention AP I, Art. 51 — Principle of Distinction",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 6,
+      "total_occurrences": 6
     },
     {
       "phrase": "rightsizing",
@@ -126,7 +140,9 @@
       "isic_sections": [],
       "legal_ref": "UDHR Art. 23 — Right to Work",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 4,
+      "total_occurrences": 4
     },
     {
       "phrase": "kinetic action",
@@ -141,7 +157,9 @@
       "isic_sections": [],
       "legal_ref": "Geneva Conventions / Rome Statute",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 6,
+      "total_occurrences": 6
     },
     {
       "phrase": "administrative removal",
@@ -156,7 +174,9 @@
       "isic_sections": [],
       "legal_ref": "UDHR Art. 13 — Freedom of Movement",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 4,
+      "total_occurrences": 4
     },
     {
       "phrase": "redundancies",
@@ -171,7 +191,9 @@
       "isic_sections": [],
       "legal_ref": "UDHR Art. 23 — Right to Work",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 7,
+      "total_occurrences": 13
     },
     {
       "phrase": "humanitarian intervention",
@@ -186,7 +208,9 @@
       "isic_sections": [],
       "legal_ref": "Geneva Conventions / UN Charter",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 17,
+      "total_occurrences": 17
     },
     {
       "phrase": "fiscal consolidation",
@@ -201,7 +225,9 @@
       "isic_sections": [],
       "legal_ref": "UDHR Art. 25 / UN Charter Art. 55",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 5,
+      "total_occurrences": 5
     },
     {
       "phrase": "regime change",
@@ -216,7 +242,9 @@
       "isic_sections": [],
       "legal_ref": "UN Charter Art. 2(4) — Non-interference in Sovereign States / Rome Statute",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 4,
+      "total_occurrences": 4
     },
     {
       "phrase": "carbon offsetting",
@@ -231,7 +259,9 @@
       "isic_sections": [],
       "legal_ref": "Paris Agreement / Ecocide Framework",
       "source_document": "LDM Core Library",
-      "first_seen": "2026-06-16T11:53:47Z"
+      "first_seen": "2026-06-16T11:53:47Z",
+      "detection_count": 0,
+      "total_occurrences": 0
     }
   ]
 }
