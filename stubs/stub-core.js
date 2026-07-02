@@ -96,18 +96,23 @@ function runStub() {
 
   // 2. composeSel
   let composeBox = null;
-  if (cfg.composeInIframeSel) {
-    const iframe = document.querySelector(cfg.composeInIframeSel);
-    if (iframe) {
-      try {
-        const iDoc = iframe.contentDocument || iframe.contentWindow?.document;
-        composeBox = findFirst(cfg.composeSels, iDoc);
-      } catch(_) {}
-    }
+  if (cfg.noCompose) {
+    setResult('result-compose-sel', true, 'composeSel — general site (n/a)');
+    setResult('result-compose',     true, 'compose — general site (n/a)');
   } else {
-    composeBox = findFirst(cfg.composeSels);
+    if (cfg.composeInIframeSel) {
+      const iframe = document.querySelector(cfg.composeInIframeSel);
+      if (iframe) {
+        try {
+          const iDoc = iframe.contentDocument || iframe.contentWindow?.document;
+          composeBox = findFirst(cfg.composeSels, iDoc);
+        } catch(_) {}
+      }
+    } else {
+      composeBox = findFirst(cfg.composeSels);
+    }
+    setResult('result-compose-sel', !!composeBox, composeBox ? 'composeSel matches DOM' : 'composeSel found nothing — selector broken');
   }
-  setResult('result-compose-sel', !!composeBox, composeBox ? 'composeSel matches DOM' : 'composeSel found nothing — selector broken');
 
   // 3. Read scan
   let readCount = 0;
@@ -117,7 +122,7 @@ function runStub() {
   }
 
   // 4. Compose observer + auto-inject
-  if (composeBox) {
+  if (!cfg.noCompose && composeBox) {
     const update = () => {
       const found = scanText(composeBox.innerText || composeBox.textContent || '');
       setBadge(found.length);
