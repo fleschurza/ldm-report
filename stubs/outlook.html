@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>unmask · Outlook stub</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system,sans-serif; background: #f3f2f1; margin: 0; display: flex; height: 100vh; }
+.sidebar { width: 72px; background: #0078d4; flex-shrink:0; }
+.main { flex:1; display:flex; flex-direction:column; max-width:700px; background:#fff; }
+.thread-header { padding:16px 20px; font-size:16px; font-weight:600; border-bottom:1px solid #edebe9; }
+.reading-pane { flex:1; overflow-y:auto; padding:16px 20px; }
+[role="document"][aria-label] { font-size:14px; line-height:1.6; padding:12px; border:1px solid #edebe9; border-radius:4px; margin-bottom:10px; }
+[data-convid] { font-size:14px; line-height:1.6; padding:12px; border:1px solid #edebe9; border-radius:4px; }
+.compose-area { border-top:1px solid #edebe9; padding:12px 20px; }
+.compose-label { font-size:11px; color:#888; margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+.ext-badge { display:none; background:#ef4444; color:#fff; font-size:10px; font-weight:700; min-width:18px; height:18px; border-radius:9px; padding:0 5px; align-items:center; justify-content:center; }
+.ext-badge.visible { display:flex; }
+[contenteditable][role="textbox"] { border:1px solid #ccc; border-radius:3px; padding:10px 12px; min-height:40px; font-size:14px; outline:none; }
+[contenteditable][role="textbox"]:empty::before { content:"Reply…"; color:#aaa; }
+.ldm-flagged { border-radius:2px; }
+.ldm-flagged[data-severity="critical"] { background:#fee2e2; border-bottom:2px solid #ef4444; }
+.ldm-flagged[data-severity="high"]     { background:#fef3c7; border-bottom:2px solid #f59e0b; }
+.ldm-flagged[data-severity="medium"]   { background:#fffbeb; border-bottom:2px solid #fbbf24; }
+.panel { width:280px; padding:16px; background:#fafafa; border-left:1px solid #edebe9; font-size:13px; display:flex; flex-direction:column; gap:8px; }
+.panel h3 { margin:0; font-size:13px; }
+.result { padding:7px 10px; border-radius:5px; font-size:12px; }
+.result.pass { background:#dcfce7; color:#15803d; }
+.result.fail { background:#fee2e2; color:#b91c1c; }
+.result.pending { background:#f1f5f9; color:#64748b; }
+.sel { font-size:10px; color:#888; background:#f1f5f9; padding:6px 8px; border-radius:4px; line-height:1.7; }
+</style></head>
+<body>
+<div class="sidebar"></div>
+<div class="main">
+  <div class="thread-header">RE: Q3 Compliance Review</div>
+  <div class="reading-pane">
+    <div aria-label="Message body" role="document">
+      The latest draft includes a reference to collateral damage assessments in section 3. Please advise on appropriate language before submission.
+    </div>
+    <div data-convid="conv-001">
+      Follow-up: the enhanced interrogation section has been escalated to legal. Awaiting guidance.
+    </div>
+  </div>
+  <div class="compose-area">
+    <div class="compose-label">Reply <span class="ext-badge" id="compose-badge">0</span></div>
+    <div contenteditable="true" role="textbox" aria-label="Reply"></div>
+  </div>
+</div>
+<div class="panel">
+  <h3>📬 Outlook stub</h3>
+  <div id="result-read-sel"    class="result pending">⏳ readSel</div>
+  <div id="result-compose-sel" class="result pending">⏳ composeSel</div>
+  <div id="result-read-scan"   class="result pending">⏳ read scan</div>
+  <div id="result-compose"     class="result pending">⏳ compose</div>
+  <div class="sel"><b>readSel</b><br>div[aria-label][role="document"]<br>div[data-convid]<br><br><b>composeSel</b><br>div[contenteditable][role="textbox"]</div>
+</div>
+<script>
+window.STUB_CONFIG = {
+  platform: 'Outlook',
+  readSels:  ['div[aria-label][role="document"]', 'div[data-convid]'],
+  composeSels: ['div[contenteditable="true"][role="textbox"]', 'div[contenteditable="true"][aria-label]'],
+  composeInIframeSel: null,
+};
+</script>
+<script src="_core.js"></script>
+</body></html>

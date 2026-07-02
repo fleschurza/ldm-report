@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>unmask · Proton Mail stub</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system,sans-serif; background: #1c1b1e; margin: 0; display: flex; height: 100vh; }
+.sidebar { width: 72px; background: #16141a; flex-shrink:0; }
+.main { flex:1; display:flex; flex-direction:column; max-width:700px; background:#1c1b1e; }
+.msg-header { padding:14px 18px; color:#fff; font-size:15px; font-weight:500; border-bottom:1px solid #2a2833; }
+.reading-pane { flex:1; overflow-y:auto; padding:16px 18px; }
+[data-testid^="message-view-"] { background:#28253b; border-radius:8px; padding:16px; margin-bottom:12px; color:#c4c4d0; }
+.msg-subject { font-weight:600; font-size:14px; margin-bottom:10px; color:#fff; }
+/* Proton Mail renders message body in iframe — we simulate with a same-origin iframe */
+.proton-iframe { width:100%; border:none; border-radius:4px; background:#fff; min-height:80px; }
+.compose-label { font-size:11px; color:#888; padding:8px 18px 4px; display:flex; align-items:center; gap:6px; }
+.ext-badge { display:none; background:#ef4444; color:#fff; font-size:10px; font-weight:700; min-width:18px; height:18px; border-radius:9px; padding:0 5px; align-items:center; justify-content:center; }
+.ext-badge.visible { display:flex; }
+.compose-wrap { padding:0 18px 12px; }
+iframe.compose-iframe { width:100%; height:60px; border:1px solid #3a3850; border-radius:4px; background:#fff; }
+.panel { width:280px; padding:16px; background:#fafafa; border-left:1px solid #e0e0e0; font-size:13px; display:flex; flex-direction:column; gap:8px; }
+.panel h3 { margin:0; font-size:13px; }
+.result { padding:7px 10px; border-radius:5px; font-size:12px; }
+.result.pass { background:#dcfce7; color:#15803d; }
+.result.fail { background:#fee2e2; color:#b91c1c; }
+.result.pending { background:#f1f5f9; color:#64748b; }
+.note { font-size:11px; color:#92400e; background:#fef3c7; padding:6px 8px; border-radius:4px; line-height:1.5; }
+.sel { font-size:10px; color:#888; background:#f1f5f9; padding:6px 8px; border-radius:4px; line-height:1.7; }
+</style></head>
+<body>
+<div class="sidebar"></div>
+<div class="main">
+  <div class="msg-header">Inbox · unmask test</div>
+  <div class="reading-pane">
+    <!-- readSel: [data-testid^="message-view-"] -->
+    <div data-testid="message-view-001">
+      <div class="msg-subject">RE: Compliance review — action required</div>
+      <!-- Proton Mail renders message body inside an iframe with #proton-root -->
+      <iframe class="proton-iframe" id="read-iframe" srcdoc="
+        <html><head><style>
+          body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.6;margin:8px;color:#1c1b1e;}
+          .ldm-flagged{border-radius:2px;}
+          .ldm-flagged[data-severity=critical]{background:#fee2e2;border-bottom:2px solid #ef4444;}
+          .ldm-flagged[data-severity=high]{background:#fef3c7;border-bottom:2px solid #f59e0b;}
+        </style></head>
+        <body><div id='proton-root'>
+          Please review section 3 — it references collateral damage projections and enhanced interrogation techniques used in prior ops. Legal has flagged both.
+        </div></body></html>
+      "></iframe>
+    </div>
+  </div>
+  <div class="compose-label">Compose <span class="ext-badge" id="compose-badge">0</span></div>
+  <div class="compose-wrap">
+    <!-- Proton Mail compose: body inside iframe[data-testid="rooster-iframe"] -->
+    <iframe class="compose-iframe" data-testid="rooster-iframe" id="compose-iframe" srcdoc="
+      <html><head><style>body{font-family:-apple-system,sans-serif;font-size:14px;margin:6px;outline:none;}</style></head>
+      <body contenteditable='true' role='textbox'></body></html>
+    "></iframe>
+  </div>
+</div>
+<div class="panel">
+  <h3>🔒 Proton Mail stub</h3>
+  <div id="result-read-sel"    class="result pending">⏳ readSel</div>
+  <div id="result-compose-sel" class="result pending">⏳ composeSel</div>
+  <div id="result-read-scan"   class="result pending">⏳ read scan</div>
+  <div id="result-compose"     class="result pending">⏳ compose</div>
+  <div class="note">⚠️ Read content is inside an iframe (#proton-root). Compose is inside iframe[data-testid="rooster-iframe"]. Both tested via same-origin iframe access.</div>
+  <div class="sel"><b>readSel</b><br>[data-testid^="message-view-"]<br><br><b>composeIframeSel</b><br>iframe[data-testid="rooster-iframe"]<br><br><b>composeSel</b><br>body (inside iframe)</div>
+</div>
+<script>
+window.STUB_CONFIG = {
+  platform: 'Proton Mail',
+  readSels:  ['[data-testid^="message-view-"]', '[data-testid="conversation-header"]'],
+  composeSels: ['body'],
+  composeInIframeSel: 'iframe[data-testid="rooster-iframe"]',
+};
+
+// Proton Mail: read scan runs inside the #proton-root iframe
+// Override runStub's read scan to go into the iframe
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait for iframe to load, then run custom read scan
+  const readIframe = document.getElementById('read-iframe');
+  readIframe.addEventListener('load', () => {
+    try {
+      const iDoc = readIframe.contentDocument;
+      const root = iDoc.querySelector('#proton-root');
+      if (root) {
+        // Import highlight logic inline
+        const phrases = [
+          { phrase: 'collateral damage', severity: 'critical' },
+          { phrase: 'enhanced interrogation techniques', severity: 'critical' },
+        ];
+        const walker = iDoc.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        const nodes = []; let n;
+        while ((n = walker.nextNode())) nodes.push(n);
+        let count = 0;
+        for (const node of nodes) {
+          let remaining = node.textContent;
+          for (const p of phrases) {
+            const idx = remaining.toLowerCase().indexOf(p.phrase.toLowerCase());
+            if (idx === -1) continue;
+            const frag = iDoc.createDocumentFragment();
+            if (idx > 0) frag.appendChild(iDoc.createTextNode(remaining.slice(0, idx)));
+            const mark = iDoc.createElement('mark');
+            mark.className = 'ldm-flagged'; mark.dataset.severity = p.severity;
+            mark.textContent = remaining.slice(idx, idx + p.phrase.length);
+            frag.appendChild(mark);
+            frag.appendChild(iDoc.createTextNode(remaining.slice(idx + p.phrase.length)));
+            node.parentNode.replaceChild(frag, node);
+            count++; break;
+          }
+        }
+        setResult('result-read-scan', count > 0, count > 0 ? `${count} phrase(s) highlighted in iframe` : 'no phrases found in #proton-root');
+      }
+    } catch(e) {
+      setResult('result-read-scan', false, 'iframe access failed: ' + e.message);
+    }
+  });
+});
+
+function setResult(id, pass, msg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.className = 'result ' + (pass ? 'pass' : 'fail');
+  el.textContent = (pass ? '✓ ' : '✗ ') + msg;
+}
+</script>
+<script src="_core.js"></script>
+</body></html>

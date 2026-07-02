@@ -133,6 +133,8 @@
     .platform-tip ul { margin: 8px 0 8px 18px; color: var(--c-muted); }
     .platform-tip li { margin-bottom: 5px; }
     .platform-tip a { color: var(--c-accent); text-decoration: none; }
+    .test-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 7px 12px; background: #f0faff; border: 1px solid #bae0f7; border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--c-accent); text-decoration: none !important; }
+    .test-link:hover { background: #e0f4fd; }
 
     /* ── Key validator ── */
     .key-form { display: flex; gap: 8px; margin-bottom: 16px; }
@@ -393,6 +395,13 @@
       <button class="platform-btn" onclick="showPlatformTip('slack')">💬 Slack</button>
       <button class="platform-btn" onclick="showPlatformTip('teams')">💼 Teams</button>
       <button class="platform-btn" onclick="showPlatformTip('whatsapp')">📱 WhatsApp</button>
+      <button class="platform-btn" onclick="showPlatformTip('linkedin')">🔗 LinkedIn</button>
+      <button class="platform-btn" onclick="showPlatformTip('telegram')">✈️ Telegram</button>
+      <button class="platform-btn" onclick="showPlatformTip('protonmail')">🔒 Proton Mail</button>
+      <button class="platform-btn" onclick="showPlatformTip('discord')">🎮 Discord</button>
+      <button class="platform-btn" onclick="showPlatformTip('googlechat')">💬 Google Chat</button>
+      <button class="platform-btn" onclick="showPlatformTip('copilot')">🤖 Copilot</button>
+      <button class="platform-btn" onclick="showPlatformTip('sharepoint')">🏢 SharePoint</button>
       <button class="platform-btn" onclick="showPlatformTip('docs')">📄 Word / Docs</button>
       <button class="platform-btn" onclick="showPlatformTip('pdf')">📑 PDF</button>
       <button class="platform-btn" onclick="showPlatformTip('other')">❓ Other</button>
@@ -407,6 +416,7 @@
         <li>Compose scanning also works — flagged language in your draft appears in the popup while you write.</li>
       </ul>
       <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/gmail.html" target="_blank" class="test-link">🧪 Test on simulated Gmail page →</a>
     </div>
 
     <div id="tip-outlook" class="platform-tip">
@@ -417,6 +427,7 @@
         <li>Outlook Desktop (the native app) is not supported — only the web version.</li>
       </ul>
       <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/outlook.html" target="_blank" class="test-link">🧪 Test on simulated Outlook page →</a>
     </div>
 
     <div id="tip-slack" class="platform-tip">
@@ -427,6 +438,7 @@
         <li>The scanner reads the visible message pane. Scroll to load older messages if needed.</li>
       </ul>
       <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/slack.html" target="_blank" class="test-link">🧪 Test on simulated Slack page →</a>
     </div>
 
     <div id="tip-teams" class="platform-tip">
@@ -438,6 +450,7 @@
         <li>If your organisation uses MCAS proxy, the extension still works — MCAS URLs are supported.</li>
       </ul>
       <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/teams.html" target="_blank" class="test-link">🧪 Test on simulated Teams page →</a>
     </div>
 
     <div id="tip-whatsapp" class="platform-tip">
@@ -448,6 +461,78 @@
         <li>WhatsApp mobile/desktop apps are not supported.</li>
       </ul>
       <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/whatsapp.html" target="_blank" class="test-link">🧪 Test on simulated WhatsApp page →</a>
+    </div>
+
+    <div id="tip-linkedin" class="platform-tip">
+      <strong>LinkedIn</strong>
+      <ul>
+        <li>Toggle <em>Emails &amp; Messages</em> on and reload the LinkedIn tab.</li>
+        <li>Open a message thread — the scanner reads the visible conversation.</li>
+        <li>Compose scanning works in the message input box.</li>
+      </ul>
+      <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/linkedin.html" target="_blank" class="test-link">🧪 Test on simulated LinkedIn page →</a>
+    </div>
+
+    <div id="tip-telegram" class="platform-tip">
+      <strong>Telegram Web</strong>
+      <ul>
+        <li>Works on <code>web.telegram.org</code> (both Web K and Web A versions).</li>
+        <li>Toggle <em>Emails &amp; Messages</em> on and reload. Open a chat to scan messages.</li>
+      </ul>
+      <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/telegram.html" target="_blank" class="test-link">🧪 Test on simulated Telegram page →</a>
+    </div>
+
+    <div id="tip-protonmail" class="platform-tip">
+      <strong>Proton Mail</strong>
+      <ul>
+        <li>Toggle <em>Emails &amp; Messages</em> on and reload. Open an individual email to scan it.</li>
+        <li>Proton Mail renders messages inside an iframe — the extension handles this automatically.</li>
+      </ul>
+      <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/protonmail.html" target="_blank" class="test-link">🧪 Test on simulated Proton Mail page →</a>
+    </div>
+
+    <div id="tip-discord" class="platform-tip">
+      <strong>Discord</strong>
+      <ul>
+        <li>Works on <code>discord.com</code> in Chrome — not the desktop app.</li>
+        <li>Toggle <em>Emails &amp; Messages</em> on and reload. Open a channel or DM to scan messages.</li>
+      </ul>
+      <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/discord.html" target="_blank" class="test-link">🧪 Test on simulated Discord page →</a>
+    </div>
+
+    <div id="tip-googlechat" class="platform-tip">
+      <strong>Google Chat</strong>
+      <ul>
+        <li>Works on <code>chat.google.com</code>.</li>
+        <li>Toggle <em>Emails &amp; Messages</em> on and reload. Open a space or DM to scan messages.</li>
+      </ul>
+      <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/google-chat.html" target="_blank" class="test-link">🧪 Test on simulated Google Chat page →</a>
+    </div>
+
+    <div id="tip-copilot" class="platform-tip">
+      <strong>Microsoft Copilot</strong>
+      <ul>
+        <li>Works on <code>copilot.microsoft.com</code> and <code>m365.cloud.microsoft</code>.</li>
+        <li>The extension scans Copilot responses automatically — no toggle needed.</li>
+      </ul>
+      <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/copilot.html" target="_blank" class="test-link">🧪 Test on simulated Copilot page →</a>
+    </div>
+
+    <div id="tip-sharepoint" class="platform-tip">
+      <strong>SharePoint</strong>
+      <ul>
+        <li>The extension scans SharePoint pages and search results automatically — no toggle needed.</li>
+        <li>Works in read mode; edit mode compose boxes are not scanned.</li>
+      </ul>
+      <a href="docs.html#email-scanning">Supported platforms table →</a>
+      <a href="/stubs/sharepoint.html" target="_blank" class="test-link">🧪 Test on simulated SharePoint page →</a>
     </div>
 
     <div id="tip-docs" class="platform-tip">

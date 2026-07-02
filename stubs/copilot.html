@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>unmask · Copilot stub</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system,sans-serif; background: #f3f2f1; margin: 0; display: flex; height: 100vh; }
+.sidebar { width: 72px; background: #0078d4; flex-shrink:0; }
+main { flex:1; display:flex; flex-direction:column; max-width:700px; background:#fff; }
+.chat-header { padding:14px 18px; border-bottom:1px solid #e0e0e0; font-weight:600; font-size:15px; }
+.chat-body { flex:1; overflow-y:auto; padding:16px 18px; display:flex; flex-direction:column; gap:16px; }
+.msg-user { align-self:flex-end; background:#0078d4; color:#fff; border-radius:12px 12px 2px 12px; padding:10px 14px; max-width:70%; font-size:14px; }
+.msg-copilot { align-self:flex-start; max-width:85%; }
+.copilot-label { font-size:11px; color:#888; margin-bottom:4px; font-weight:600; }
+.copilot-bubble { background:#f5f5f5; border-radius:2px 12px 12px 12px; padding:10px 14px; font-size:14px; line-height:1.6; color:#1a1a1a; }
+.compose-wrap { border-top:1px solid #e0e0e0; padding:12px 18px; }
+.compose-label { font-size:11px; color:#888; margin-bottom:6px; }
+#m365-chat-editor-target-element { border:1px solid #ccc; border-radius:20px; padding:10px 16px; min-height:40px; font-size:14px; outline:none; }
+#m365-chat-editor-target-element:empty::before { content:"Message Copilot…"; color:#aaa; }
+.ldm-flagged { border-radius:2px; }
+.ldm-flagged[data-severity="critical"] { background:#fee2e2; border-bottom:2px solid #ef4444; }
+.ldm-flagged[data-severity="high"]     { background:#fef3c7; border-bottom:2px solid #f59e0b; }
+.ldm-flagged[data-severity="medium"]   { background:#fffbeb; border-bottom:2px solid #fbbf24; }
+.panel { width:280px; padding:16px; background:#fafafa; border-left:1px solid #e0e0e0; font-size:13px; display:flex; flex-direction:column; gap:8px; }
+.panel h3 { margin:0; font-size:13px; }
+.result { padding:7px 10px; border-radius:5px; font-size:12px; }
+.result.pass { background:#dcfce7; color:#15803d; }
+.result.fail { background:#fee2e2; color:#b91c1c; }
+.result.pending { background:#f1f5f9; color:#64748b; }
+.sel { font-size:10px; color:#888; background:#f1f5f9; padding:6px 8px; border-radius:4px; line-height:1.7; }
+</style></head>
+<body>
+<div class="sidebar"></div>
+<main>
+  <div class="chat-header">Microsoft Copilot</div>
+  <div class="chat-body">
+    <div class="msg-user">Explain the concept of collateral damage in military operations.</div>
+    <div class="msg-copilot">
+      <div class="copilot-label">Copilot</div>
+      <div class="copilot-bubble">
+        Collateral damage refers to unintended civilian casualties and destruction of civilian property during military operations. Under international humanitarian law, particularly the Geneva Conventions and Additional Protocol I, parties to a conflict must take precautions to minimize collateral damage and ensure attacks are proportionate to the anticipated military advantage. The doctrine of proportionality requires that collateral damage must not be excessive relative to the concrete and direct military advantage anticipated. Enhanced interrogation techniques and targeted killing operations are subject to similar scrutiny under international law.
+      </div>
+    </div>
+  </div>
+  <div class="compose-wrap">
+    <div class="compose-label">Reply</div>
+    <span id="m365-chat-editor-target-element" contenteditable="true" role="textbox"></span>
+  </div>
+</main>
+<div class="panel">
+  <h3>🤖 Copilot stub</h3>
+  <div id="result-read-sel"    class="result pending">⏳ readSel</div>
+  <div id="result-compose-sel" class="result pending">⏳ composeSel</div>
+  <div id="result-read-scan"   class="result pending">⏳ read scan</div>
+  <div id="result-compose"     class="result pending">⏳ compose</div>
+  <div class="sel"><b>readSel</b><br>main<br><br><b>composeSel</b><br>#m365-chat-editor-target-element</div>
+</div>
+<script>
+window.STUB_CONFIG = {
+  platform: 'Copilot',
+  readSels:  ['main'],
+  composeSels: ['#m365-chat-editor-target-element', 'div[contenteditable="true"]'],
+  composeInIframeSel: null,
+};
+</script>
+<script src="_core.js"></script>
+</body></html>

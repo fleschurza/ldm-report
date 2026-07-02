@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>unmask · WhatsApp stub</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system,sans-serif; background: #111b21; margin: 0; display: flex; height: 100vh; }
+.sidebar { width: 72px; background: #202c33; flex-shrink:0; }
+.main { flex:1; display:flex; flex-direction:column; max-width:700px; background: #0b141a; }
+.chat-header { padding:12px 16px; background:#202c33; color:#e9edef; font-size:15px; font-weight:500; }
+[data-testid="conversation-panel-messages"] { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:8px; }
+.bubble-out { align-self:flex-end; background:#005c4b; color:#e9edef; border-radius:8px 0 8px 8px; padding:8px 12px; max-width:70%; font-size:14px; line-height:1.5; }
+.bubble-in  { align-self:flex-start; background:#202c33; color:#e9edef; border-radius:0 8px 8px 8px; padding:8px 12px; max-width:70%; font-size:14px; line-height:1.5; }
+.compose-row { background:#202c33; padding:8px 16px; display:flex; align-items:center; gap:8px; }
+.compose-label { font-size:11px; color:#8696a0; margin-bottom:4px; display:flex; align-items:center; gap:6px; }
+.ext-badge { display:none; background:#ef4444; color:#fff; font-size:10px; font-weight:700; min-width:18px; height:18px; border-radius:9px; padding:0 5px; align-items:center; justify-content:center; }
+.ext-badge.visible { display:flex; }
+[contenteditable][data-tab] { flex:1; background:#2a3942; color:#e9edef; border-radius:8px; padding:9px 12px; font-size:14px; outline:none; min-height:36px; }
+[contenteditable][data-tab]:empty::before { content:"Type a message"; color:#8696a0; }
+.ldm-flagged { border-radius:2px; }
+.ldm-flagged[data-severity="critical"] { background:#7f1d1d; border-bottom:2px solid #ef4444; }
+.ldm-flagged[data-severity="high"]     { background:#78350f; border-bottom:2px solid #f59e0b; }
+.ldm-flagged[data-severity="medium"]   { background:#713f12; border-bottom:2px solid #fbbf24; }
+.panel { width:280px; padding:16px; background:#fafafa; border-left:1px solid #e0e0e0; font-size:13px; display:flex; flex-direction:column; gap:8px; }
+.panel h3 { margin:0; font-size:13px; }
+.result { padding:7px 10px; border-radius:5px; font-size:12px; }
+.result.pass { background:#dcfce7; color:#15803d; }
+.result.fail { background:#fee2e2; color:#b91c1c; }
+.result.pending { background:#f1f5f9; color:#64748b; }
+.sel { font-size:10px; color:#888; background:#f1f5f9; padding:6px 8px; border-radius:4px; line-height:1.7; }
+</style></head>
+<body>
+<div class="sidebar"></div>
+<div class="main">
+  <div class="chat-header">Test Contact</div>
+  <div data-testid="conversation-panel-messages">
+    <div class="bubble-in">The briefing mentions collateral damage in sector 4 — have you reviewed it?</div>
+    <div class="bubble-out">Yes, and the enhanced interrogation section too. Sending notes shortly.</div>
+    <div class="bubble-in">Thanks. Nothing else urgent from my side.</div>
+  </div>
+  <div style="background:#202c33; padding:4px 16px 0;">
+    <div class="compose-label">Message <span class="ext-badge" id="compose-badge">0</span></div>
+  </div>
+  <div class="compose-row">
+    <div contenteditable="true" data-tab="10" aria-label="Type a message"></div>
+  </div>
+</div>
+<div class="panel">
+  <h3>💬 WhatsApp stub</h3>
+  <div id="result-read-sel"    class="result pending">⏳ readSel</div>
+  <div id="result-compose-sel" class="result pending">⏳ composeSel</div>
+  <div id="result-read-scan"   class="result pending">⏳ read scan</div>
+  <div id="result-compose"     class="result pending">⏳ compose</div>
+  <div class="sel"><b>readSel</b><br>div[data-testid="conversation-panel-messages"]<br><br><b>composeSel</b><br>div[contenteditable][data-tab]</div>
+</div>
+<script>
+window.STUB_CONFIG = {
+  platform: 'WhatsApp',
+  readSels:  ['div[data-testid="conversation-panel-messages"]', 'div[data-testid="msg-container"]'],
+  composeSels: ['div[contenteditable="true"][data-tab]'],
+  composeInIframeSel: null,
+};
+</script>
+<script src="_core.js"></script>
+</body></html>

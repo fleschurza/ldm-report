@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>unmask · LinkedIn stub</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system,sans-serif; background: #f3f2ef; margin: 0; display: flex; height: 100vh; }
+.topbar { position:fixed; top:0; left:0; right:0; height:52px; background:#fff; border-bottom:1px solid #e0dfdc; z-index:10; }
+.layout { display:flex; margin-top:52px; height:calc(100vh - 52px); }
+.sidebar { width:80px; background:#f3f2ef; }
+main { flex:1; max-width:700px; background:#fff; display:flex; flex-direction:column; border-left:1px solid #e0dfdc; border-right:1px solid #e0dfdc; }
+.msg-header { padding:14px 16px; border-bottom:1px solid #e0dfdc; font-weight:600; font-size:14px; }
+.msg-list { flex:1; overflow-y:auto; padding:12px 16px; display:flex; flex-direction:column; gap:10px; }
+.msg-row { display:flex; gap:8px; }
+.avatar { width:36px; height:36px; border-radius:50%; background:#0a66c2; color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; }
+.msg-bubble { background:#f3f2ef; border-radius:0 8px 8px 8px; padding:8px 12px; font-size:14px; line-height:1.5; }
+.msg-form { border-top:1px solid #e0dfdc; padding:12px 16px; }
+.compose-label { font-size:11px; color:#888; margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+.ext-badge { display:none; background:#ef4444; color:#fff; font-size:10px; font-weight:700; min-width:18px; height:18px; border-radius:9px; padding:0 5px; align-items:center; justify-content:center; }
+.ext-badge.visible { display:flex; }
+.msg-form__contenteditable { border:1px solid #ccc; border-radius:4px; padding:10px 12px; min-height:40px; font-size:14px; outline:none; }
+.msg-form__contenteditable:empty::before { content:"Write a message…"; color:#aaa; }
+.ldm-flagged { border-radius:2px; }
+.ldm-flagged[data-severity="critical"] { background:#fee2e2; border-bottom:2px solid #ef4444; }
+.ldm-flagged[data-severity="high"]     { background:#fef3c7; border-bottom:2px solid #f59e0b; }
+.ldm-flagged[data-severity="medium"]   { background:#fffbeb; border-bottom:2px solid #fbbf24; }
+.panel { width:280px; padding:16px; background:#fafafa; border-left:1px solid #e0dfdc; font-size:13px; display:flex; flex-direction:column; gap:8px; }
+.panel h3 { margin:0; font-size:13px; }
+.result { padding:7px 10px; border-radius:5px; font-size:12px; }
+.result.pass { background:#dcfce7; color:#15803d; }
+.result.fail { background:#fee2e2; color:#b91c1c; }
+.result.pending { background:#f1f5f9; color:#64748b; }
+.sel { font-size:10px; color:#888; background:#f1f5f9; padding:6px 8px; border-radius:4px; line-height:1.7; }
+</style></head>
+<body>
+<div class="topbar"></div>
+<div class="layout">
+<div class="sidebar"></div>
+<main>
+  <div class="msg-header">Messaging · Test Contact</div>
+  <div class="msg-list">
+    <div class="msg-row">
+      <div class="avatar">A</div>
+      <div class="msg-bubble">Hi, I wanted to discuss the report — particularly the section on collateral damage estimates.</div>
+    </div>
+    <div class="msg-row">
+      <div class="avatar">B</div>
+      <div class="msg-bubble">Yes, and the enhanced interrogation techniques language needs reviewing too before the board sees it.</div>
+    </div>
+  </div>
+  <div class="msg-form">
+    <div class="compose-label">Reply <span class="ext-badge" id="compose-badge">0</span></div>
+    <div class="msg-form__contenteditable" contenteditable="true" aria-label="Write a message"></div>
+  </div>
+</main>
+<div class="panel">
+  <h3>💼 LinkedIn stub</h3>
+  <div id="result-read-sel"    class="result pending">⏳ readSel</div>
+  <div id="result-compose-sel" class="result pending">⏳ composeSel</div>
+  <div id="result-read-scan"   class="result pending">⏳ read scan</div>
+  <div id="result-compose"     class="result pending">⏳ compose</div>
+  <div class="sel"><b>readSel</b><br>main<br><br><b>composeSel</b><br>div.msg-form__contenteditable[contenteditable]</div>
+</div>
+</div>
+<script>
+window.STUB_CONFIG = {
+  platform: 'LinkedIn',
+  readSels:  ['main'],
+  composeSels: ['div[contenteditable="true"].msg-form__contenteditable', 'div.msg-form div[contenteditable="true"]'],
+  composeInIframeSel: null,
+};
+</script>
+<script src="_core.js"></script>
+</body></html>
