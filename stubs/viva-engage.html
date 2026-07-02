@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>unmask · Viva Engage stub</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system,sans-serif; background: #f3f2f1; margin: 0; display: flex; height: 100vh; }
+.sidebar { width: 48px; background: #fff; border-right: 1px solid #e0e0e0; flex-shrink: 0; }
+main[role="main"] { flex: 1; display: flex; flex-direction: column; max-width: 680px; background: #fff; margin: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+.feed-header { padding: 14px 16px; border-bottom: 1px solid #e8e8e8; font-size: 15px; font-weight: 700; color: #252423; }
+.post { padding: 16px; border-bottom: 1px solid #f0f0f0; }
+.post-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: #6264a7; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.post-author { font-weight: 600; font-size: 13px; color: #252423; }
+.post-time { font-size: 11px; color: #888; }
+.post-text { font-size: 14px; color: #252423; line-height: 1.5; }
+.compose-wrap { padding: 16px; border-top: 1px solid #e8e8e8; margin-top: auto; }
+.compose-label { font-size: 11px; color: #888; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.ext-badge { display: none; background: #ef4444; color: #fff; font-size: 10px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; padding: 0 5px; align-items: center; justify-content: center; }
+.ext-badge.visible { display: flex; }
+div[role="textbox"][contenteditable] { background: #f3f2f1; border-radius: 6px; padding: 10px 12px; font-size: 14px; color: #252423; outline: none; min-height: 40px; }
+div[role="textbox"][contenteditable]:empty::before { content: "Share thoughts, ideas, or updates"; color: #888; }
+.ldm-flagged { border-radius: 2px; }
+.ldm-flagged[data-severity="critical"] { background: #fde8e8; border-bottom: 2px solid #ef4444; }
+.ldm-flagged[data-severity="high"]     { background: #fef3e2; border-bottom: 2px solid #f59e0b; }
+.ldm-flagged[data-severity="medium"]   { background: #fefce8; border-bottom: 2px solid #fbbf24; }
+.panel { width: 280px; padding: 16px; background: #fafafa; border-left: 1px solid #e0e0e0; font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
+.panel h3 { margin: 0; font-size: 13px; }
+.result { padding: 7px 10px; border-radius: 5px; font-size: 12px; }
+.result.pass { background: #dcfce7; color: #15803d; }
+.result.fail { background: #fee2e2; color: #b91c1c; }
+.result.pending { background: #f1f5f9; color: #64748b; }
+.sel { font-size: 10px; color: #888; background: #f1f5f9; padding: 6px 8px; border-radius: 4px; line-height: 1.7; }
+</style></head>
+<body>
+<div class="sidebar"></div>
+<main role="main">
+  <div class="feed-header">Home</div>
+  <div class="post">
+    <div class="post-meta">
+      <div class="avatar">A</div>
+      <div><div class="post-author">Alice Müller</div><div class="post-time">2h ago</div></div>
+    </div>
+    <div class="post-text">The briefing doc mentions collateral damage in the eastern sector — flagging for legal review before we send it to the client.</div>
+  </div>
+  <div class="post">
+    <div class="post-meta">
+      <div class="avatar">B</div>
+      <div><div class="post-author">Bob Chen</div><div class="post-time">1h ago</div></div>
+    </div>
+    <div class="post-text">Also noted the enhanced interrogation techniques reference in the appendix — compliance has been notified.</div>
+  </div>
+  <div class="compose-wrap">
+    <div class="compose-label">New post <span class="ext-badge" id="compose-badge">0</span></div>
+    <div role="textbox" contenteditable="true" aria-label="Share thoughts, ideas, or updates" tabindex="0"></div>
+  </div>
+</main>
+<div class="panel">
+  <h3>🏢 Viva Engage stub</h3>
+  <div id="result-read-sel"    class="result pending">⏳ readSel</div>
+  <div id="result-compose-sel" class="result pending">⏳ composeSel</div>
+  <div id="result-read-scan"   class="result pending">⏳ read scan</div>
+  <div id="result-compose"     class="result pending">⏳ compose</div>
+  <div class="sel"><b>readSel</b><br>[role="main"], main<br><br><b>composeSel</b><br>div[role="textbox"][contenteditable="true"]</div>
+</div>
+<script>
+window.STUB_CONFIG = {
+  platform: 'Viva Engage',
+  readSels:    ['[role="main"]', 'main'],
+  composeSels: ['div[role="textbox"][contenteditable="true"]'],
+  composeInIframeSel: null,
+};
+</script>
+<script src="stub-core.js"></script>
+</body></html>
