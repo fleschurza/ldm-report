@@ -160,7 +160,6 @@ function injectBanner() {
   document.body.style.paddingTop = '37px';
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  injectBanner();
-  runStub();
-});
+// _core.js loads at end of <body> — DOM is already parsed, call directly
+injectBanner();
+runStub();
