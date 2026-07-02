@@ -340,10 +340,17 @@ async function fetchTable(table) {
   const headers = { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` };
   let all = [], offset = 0;
   while (true) {
-    const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/${table}?select=*&order=ts.asc&offset=${offset}&limit=1000`,
-      { headers }
-    );
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 3000);
+    let res;
+    try {
+      res = await fetch(
+        `${SUPABASE_URL}/rest/v1/${table}?select=*&order=ts.asc&offset=${offset}&limit=1000`,
+        { headers, signal: controller.signal }
+      );
+    } finally {
+      clearTimeout(timer);
+    }
     const batch = await res.json();
     if (!Array.isArray(batch) || !batch.length) break;
     all = all.concat(batch);
