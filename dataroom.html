@@ -597,12 +597,14 @@
     }
   }
 
+  let copyResetTimer;
   function copyKey() {
     const key = document.getElementById('key-value').textContent;
     navigator.clipboard.writeText(key).then(() => {
       const btn = document.querySelector('.key-copy-btn');
       btn.textContent = 'Copied!';
-      setTimeout(() => { btn.textContent = 'Copy'; }, 1800);
+      clearTimeout(copyResetTimer);
+      copyResetTimer = setTimeout(() => { btn.textContent = 'Copy'; }, 1800);
     });
   }
 </script>

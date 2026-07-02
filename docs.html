@@ -975,14 +975,18 @@ curl -X POST \
   // Active TOC link on scroll
   const sections = document.querySelectorAll('section[id]');
   const tocLinks = document.querySelectorAll('.toc a');
+  let tocDebounce;
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        tocLinks.forEach(a => a.classList.remove('active'));
-        const active = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
+    clearTimeout(tocDebounce);
+    tocDebounce = setTimeout(() => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, 100);
   }, { rootMargin: '-10% 0px -75% 0px' });
   sections.forEach(s => observer.observe(s));
 </script>
