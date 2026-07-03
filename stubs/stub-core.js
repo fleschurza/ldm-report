@@ -6,6 +6,7 @@
  *     readSels:    string[],
  *     composeSels: string[],
  *     composeInIframeSel: string|null,  // e.g. Proton Mail
+ *     noCompose:   bool,                // e.g. SharePoint
  *   }
  */
 
@@ -94,49 +95,11 @@ function runStub() {
   const readRoot = findFirst(cfg.readSels);
   setResult('result-read-sel', !!readRoot, readRoot ? 'readSel matches DOM' : 'readSel found nothing — selector broken');
 
-  // 2. composeSel
-  let composeBox = null;
-  if (cfg.noCompose) {
-    setResult('result-compose-sel', true, 'composeSel — general site (n/a)');
-    setResult('result-compose',     true, 'compose — general site (n/a)');
-  } else {
-    if (cfg.composeInIframeSel) {
-      const iframe = document.querySelector(cfg.composeInIframeSel);
-      if (iframe) {
-        try {
-          const iDoc = iframe.contentDocument || iframe.contentWindow?.document;
-          composeBox = findFirst(cfg.composeSels, iDoc);
-        } catch(_) {}
-      }
-    } else {
-      composeBox = findFirst(cfg.composeSels);
-    }
-    setResult('result-compose-sel', !!composeBox, composeBox ? 'composeSel matches DOM' : 'composeSel found nothing — selector broken');
-  }
-
-  // 3. Read scan
+  // 2. Read scan
   let readCount = 0;
   if (readRoot) {
     readCount = highlightIn(readRoot);
     setResult('result-read-scan', readCount > 0, readCount > 0 ? `${readCount} phrase(s) highlighted` : 'no phrases flagged — check readSel scope');
-  }
-
-  // 4. Compose observer + auto-inject
-  if (!cfg.noCompose && composeBox) {
-    const update = () => {
-      const found = scanText(composeBox.innerText || composeBox.textContent || '');
-      setBadge(found.length);
-      setResult('result-compose', found.length > 0,
-        found.length > 0 ? `"${found[0].phrase}" detected in compose` : 'compose: no phrase detected');
-      report(readCount, found.length);
-    };
-    composeBox.addEventListener('input', update);
-
-    // Auto-inject after short delay
-    setTimeout(() => {
-      composeBox.textContent = AUTO_INJECT_PHRASE;
-      composeBox.dispatchEvent(new Event('input', { bubbles: true }));
-    }, 600);
   }
 
   function report(rc, cc) {
@@ -149,9 +112,58 @@ function runStub() {
       composeCount: cc,
     }, '*');
   }
-
-  // Report read-only result immediately (compose updates after auto-inject)
   setTimeout(() => report(readCount, 0), 800);
+
+  // 3. Compose (auto-pass for general sites; defer if compose is in an iframe)
+  if (cfg.noCompose) {
+    setResult('result-compose-sel', true, 'composeSel — general site (n/a)');
+    setResult('result-compose',     true, 'compose — general site (n/a)');
+    return;
+  }
+
+  function doCompose(composeBox) {
+    setResult('result-compose-sel', !!composeBox, composeBox ? 'composeSel matches DOM' : 'composeSel found nothing — selector broken');
+    if (!composeBox) return;
+
+    const update = () => {
+      const found = scanText(composeBox.innerText || composeBox.textContent || '');
+      setBadge(found.length);
+      setResult('result-compose', found.length > 0,
+        found.length > 0 ? `"${found[0].phrase}" detected in compose` : 'compose: no phrase detected');
+      report(readCount, found.length);
+    };
+    composeBox.addEventListener('input', update);
+
+    // Auto-inject after short delay so the observer is wired up first
+    setTimeout(() => {
+      composeBox.textContent = AUTO_INJECT_PHRASE;
+      composeBox.dispatchEvent(new Event('input', { bubbles: true }));
+    }, 600);
+  }
+
+  if (cfg.composeInIframeSel) {
+    const iframe = document.querySelector(cfg.composeInIframeSel);
+    if (!iframe) {
+      setResult('result-compose-sel', false, 'composeSel — compose iframe not found');
+      return;
+    }
+    const tryIframe = () => {
+      try {
+        const iDoc = iframe.contentDocument || iframe.contentWindow?.document;
+        doCompose(findFirst(cfg.composeSels, iDoc));
+      } catch (_) {
+        setResult('result-compose-sel', false, 'composeSel — iframe access failed');
+      }
+    };
+    // srcdoc iframes may or may not be ready synchronously — check first
+    if (iframe.contentDocument?.readyState === 'complete') {
+      tryIframe();
+    } else {
+      iframe.addEventListener('load', tryIframe);
+    }
+  } else {
+    doCompose(findFirst(cfg.composeSels));
+  }
 }
 
 function injectBanner() {
@@ -165,6 +177,6 @@ function injectBanner() {
   document.body.style.paddingTop = '37px';
 }
 
-// _core.js loads at end of <body> — DOM is already parsed, call directly
+// stub-core.js loads at end of <body> — DOM is already parsed, call directly
 injectBanner();
 runStub();
