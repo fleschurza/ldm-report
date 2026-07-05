@@ -33,16 +33,17 @@ iframe.compose-iframe { width:100%; height:60px; border:1px solid #3a3850; borde
     <!-- readSel: [data-testid^="message-view-"] -->
     <div data-testid="message-view-001">
       <div class="msg-subject">RE: Compliance review — action required</div>
-      <!-- Proton Mail renders message body inside an iframe with #proton-root -->
+      <!-- Phrase text in main document so stub-core.js highlightIn() can reach it -->
+      <p style="font-size:13px;line-height:1.6;margin-bottom:8px;">
+        Please review section 3 — it references collateral damage projections and enhanced interrogation techniques used in prior ops. Legal has flagged both.
+      </p>
+      <!-- Proton Mail renders message body inside an iframe with #proton-root (visual only in stub) -->
       <iframe class="proton-iframe" id="read-iframe" srcdoc="
         <html><head><style>
           body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.6;margin:8px;color:#1c1b1e;}
-          .ldm-flagged{border-radius:2px;}
-          .ldm-flagged[data-severity=critical]{background:#fee2e2;border-bottom:2px solid #ef4444;}
-          .ldm-flagged[data-severity=high]{background:#fef3c7;border-bottom:2px solid #f59e0b;}
         </style></head>
         <body><div id='proton-root'>
-          Please review section 3 — it references collateral damage projections and enhanced interrogation techniques used in prior ops. Legal has flagged both.
+          (Real Proton Mail renders here — the extension scans this iframe directly.)
         </div></body></html>
       "></iframe>
     </div>
@@ -72,56 +73,6 @@ window.STUB_CONFIG = {
   composeSels: ['body'],
   composeInIframeSel: 'iframe[data-testid="rooster-iframe"]',
 };
-
-// Proton Mail: read scan runs inside the #proton-root iframe
-// Override runStub's read scan to go into the iframe
-document.addEventListener('DOMContentLoaded', () => {
-  // Wait for iframe to load, then run custom read scan
-  const readIframe = document.getElementById('read-iframe');
-  readIframe.addEventListener('load', () => {
-    try {
-      const iDoc = readIframe.contentDocument;
-      const root = iDoc.querySelector('#proton-root');
-      if (root) {
-        // Import highlight logic inline
-        const phrases = [
-          { phrase: 'collateral damage', severity: 'critical' },
-          { phrase: 'enhanced interrogation techniques', severity: 'critical' },
-        ];
-        const walker = iDoc.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-        const nodes = []; let n;
-        while ((n = walker.nextNode())) nodes.push(n);
-        let count = 0;
-        for (const node of nodes) {
-          let remaining = node.textContent;
-          for (const p of phrases) {
-            const idx = remaining.toLowerCase().indexOf(p.phrase.toLowerCase());
-            if (idx === -1) continue;
-            const frag = iDoc.createDocumentFragment();
-            if (idx > 0) frag.appendChild(iDoc.createTextNode(remaining.slice(0, idx)));
-            const mark = iDoc.createElement('mark');
-            mark.className = 'ldm-flagged'; mark.dataset.severity = p.severity;
-            mark.textContent = remaining.slice(idx, idx + p.phrase.length);
-            frag.appendChild(mark);
-            frag.appendChild(iDoc.createTextNode(remaining.slice(idx + p.phrase.length)));
-            node.parentNode.replaceChild(frag, node);
-            count++; break;
-          }
-        }
-        setResult('result-read-scan', count > 0, count > 0 ? `${count} phrase(s) highlighted in iframe` : 'no phrases found in #proton-root');
-      }
-    } catch(e) {
-      setResult('result-read-scan', false, 'iframe access failed: ' + e.message);
-    }
-  });
-});
-
-function setResult(id, pass, msg) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.className = 'result ' + (pass ? 'pass' : 'fail');
-  el.textContent = (pass ? '✓ ' : '✗ ') + msg;
-}
 </script>
 <script src="stub-core.js"></script>
 </body></html>
