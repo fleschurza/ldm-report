@@ -353,11 +353,8 @@ function copyKey() {
   });
 }
 
-// On load: check for token in URL hash (#token=...).
-// Hash is never sent in HTTP requests so email scanners cannot see or consume it.
 (function init() {
-  const hash  = window.location.hash.slice(1); // strip leading #
-  const token = new URLSearchParams(hash).get('token');
+  const token = new URLSearchParams(window.location.search).get('token');
   if (token) {
     history.replaceState(null, '', window.location.pathname);
     show('loading-state');
