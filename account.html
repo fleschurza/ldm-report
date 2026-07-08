@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — My Account</title>
+  <link rel="preconnect" href="https://ghoriibggfxahkkvvkpi.supabase.co">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+    main { max-width: 480px; margin: 60px auto; padding: 0 20px 80px; }
+
+    .card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .card-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .card-sub   { color: var(--c-muted); font-size: 13px; margin-bottom: 28px; line-height: 1.6; }
+
+    .form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-row label { font-size: 12px; font-weight: 600; color: var(--c-text); }
+    .form-row input {
+      padding: 9px 12px;
+      border: 1px solid var(--c-border);
+      border-radius: 7px;
+      font-size: 13px;
+      font-family: inherit;
+      background: var(--c-bg);
+      color: var(--c-text);
+      transition: border-color 0.15s;
+    }
+    .form-row input:focus { outline: none; border-color: var(--c-accent); }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      background: var(--c-accent);
+      color: #fff;
+      transition: opacity 0.15s;
+      margin-top: 8px;
+    }
+    .btn:hover    { opacity: 0.88; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--c-accent);
+      border: 1px solid var(--c-accent);
+      margin-top: 8px;
+    }
+
+    .form-note  { font-size: 11px; color: var(--c-muted); margin-top: 10px; text-align: center; }
+    .error-msg  { color: #dc2626; font-size: 12px; margin-top: 10px; display: none; }
+
+    /* ── Sent state ── */
+    .sent-box {
+      display: none;
+      text-align: center;
+      padding: 8px 0;
+    }
+    .sent-box .icon  { font-size: 40px; margin-bottom: 16px; }
+    .sent-box h2     { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .sent-box p      { color: var(--c-muted); font-size: 13px; }
+
+    /* ── Account info state ── */
+    .account-box { display: none; }
+
+    .account-email {
+      font-size: 13px;
+      color: var(--c-muted);
+      margin-bottom: 24px;
+    }
+
+    .tier-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .tier-free { background: #f1f5f9; color: #64748b; }
+    .tier-pro  { background: #eff6ff; color: #1d4ed8; }
+    .tier-team { background: #f0fdf4; color: #15803d; }
+
+    .key-section {
+      margin: 20px 0;
+    }
+    .key-section label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .key-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .key-display {
+      flex: 1;
+      padding: 9px 12px;
+      border: 1px solid var(--c-border);
+      border-radius: 7px;
+      font-size: 12px;
+      font-family: 'SF Mono', 'Cascadia Code', monospace;
+      background: var(--c-bg);
+      color: var(--c-text);
+      letter-spacing: 0.03em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .copy-btn {
+      flex-shrink: 0;
+      padding: 9px 14px;
+      border-radius: 7px;
+      border: 1px solid var(--c-border);
+      background: var(--c-surface);
+      color: var(--c-text);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      font-family: inherit;
+    }
+    .copy-btn:hover  { background: var(--c-accent); color: #fff; border-color: var(--c-accent); }
+    .copy-btn.copied { background: #22c55e; color: #fff; border-color: #22c55e; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .stat-label { font-size: 11px; color: var(--c-muted); font-weight: 500; }
+    .stat-value { font-size: 20px; font-weight: 700; margin-top: 4px; letter-spacing: -0.02em; }
+
+    .inactive-banner {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12px;
+      color: #991b1b;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 520px) {
+      main { margin-top: 32px; }
+      .card { padding: 24px; }
+    }
+  </style>
+</head>
+<body data-page="account" data-subtitle="Access your unmask.tools account and API key.">
+
+<script src="/nav.js"></script>
+
+<main>
+  <div class="card">
+
+    <!-- ── State 1: Email form ── -->
+    <div id="email-state">
+      <div class="card-title">Sign in to your account</div>
+      <div class="card-sub">Enter your email and we'll send you a one-time link to access your account details and API key.</div>
+
+      <div class="form-row">
+        <label for="email-input">Email address</label>
+        <input type="email" id="email-input" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <button class="btn" id="send-btn" onclick="sendLink()">Send me a link</button>
+      <div class="error-msg" id="email-error"></div>
+      <p class="form-note">The link expires after 15 minutes and works once only.</p>
+    </div>
+
+    <!-- ── State 2: Email sent ── -->
+    <div class="sent-box" id="sent-state">
+      <div class="icon">📬</div>
+      <h2>Check your inbox</h2>
+      <p>If an account exists for that email, we've sent a sign-in link. It expires in 15 minutes.</p>
+    </div>
+
+    <!-- ── State 3: Account info ── -->
+    <div style="display:none;" id="account-state">
+      <div class="card-title" id="account-title">My Account</div>
+      <div class="account-email" id="account-email"></div>
+
+      <div class="inactive-banner" id="inactive-banner">
+        Your account is currently inactive. Contact support if you think this is an error.
+      </div>
+
+      <div class="key-section">
+        <label>API Key</label>
+        <div class="key-row">
+          <div class="key-display" id="key-display"></div>
+          <button class="copy-btn" id="copy-btn" onclick="copyKey()">Copy</button>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Plan</div>
+          <div class="stat-value" id="stat-tier">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Daily AI limit</div>
+          <div class="stat-value" id="stat-limit">—</div>
+        </div>
+      </div>
+
+      <p class="form-note" style="margin-top:0;">Need help? <a href="/support.html" style="color:var(--c-accent);">Visit support</a></p>
+    </div>
+
+    <!-- ── State 4: Loading ── -->
+    <div style="display:none;" id="loading-state">
+      <p style="color:var(--c-muted);font-size:13px;">Verifying…</p>
+    </div>
+
+    <!-- ── State 5: Error (bad token) ── -->
+    <div style="display:none;text-align:center;padding:8px 0;" id="token-error-state">
+      <div style="font-size:40px;margin-bottom:16px;">🔗</div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:8px;">Link expired or already used</div>
+      <p style="color:var(--c-muted);font-size:13px;margin-bottom:24px;">Magic links work once and expire after 15 minutes. Request a new one below.</p>
+      <button class="btn" style="margin-top:0;" onclick="resetToEmail()">Request a new link</button>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const SUPABASE_URL = 'https://ghoriibggfxahkkvvkpi.supabase.co';
+const ANON_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdob3JpaWJnZ2Z4YWhra3Z2a3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk0MDgzMjIsImV4cCI6MjA2NDk4NDMyMn0.fCsP6uirJmf31MsAV_jTXt5n7OWcFJlqUqVoGE5JIus';
+
+let currentKey = '';
+
+function show(id) {
+  ['email-state', 'sent-state', 'account-state', 'loading-state', 'token-error-state']
+    .forEach(s => { const el = document.getElementById(s); if (el) el.style.display = s === id ? 'block' : 'none'; });
+}
+
+function resetToEmail() {
+  show('email-state');
+}
+
+async function sendLink() {
+  const email = document.getElementById('email-input').value.trim();
+  const errEl = document.getElementById('email-error');
+  errEl.style.display = 'none';
+
+  if (!email || !email.includes('@')) {
+    errEl.textContent = 'Please enter a valid email address.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('send-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    await fetch(`${SUPABASE_URL}/functions/v1/send-magic-link`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': ANON_KEY },
+      body: JSON.stringify({ email }),
+    });
+    // Always show success — don't leak account existence
+    show('sent-state');
+  } catch (_) {
+    errEl.textContent = 'Something went wrong. Please try again.';
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Send me a link';
+  }
+}
+
+async function verifyToken(token) {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/verify-magic-link`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': ANON_KEY },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) {
+      show('token-error-state');
+      return;
+    }
+    renderAccount(data);
+  } catch (_) {
+    show('token-error-state');
+  }
+}
+
+function renderAccount(data) {
+  currentKey = data.key || '';
+
+  document.getElementById('account-email').textContent = data.email || '';
+
+  const tierLabels = { free: 'Free', pro: 'Pro', team: 'Team' };
+  const tier = (data.tier || 'free').toLowerCase();
+  document.getElementById('account-title').innerHTML =
+    'My Account <span class="tier-badge tier-' + tier + '">' + (tierLabels[tier] || tier) + '</span>';
+
+  document.getElementById('stat-tier').textContent    = tierLabels[tier] || tier;
+  document.getElementById('stat-limit').textContent   = data.daily_ai_limit != null ? data.daily_ai_limit : '—';
+  document.getElementById('key-display').textContent  = currentKey;
+
+  if (!data.active) {
+    document.getElementById('inactive-banner').style.display = 'block';
+  }
+
+  show('account-state');
+}
+
+function copyKey() {
+  if (!currentKey) return;
+  navigator.clipboard.writeText(currentKey).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// On load: check for token in URL
+(function init() {
+  const params = new URLSearchParams(window.location.search);
+  const token  = params.get('token');
+  if (token) {
+    // Remove token from URL immediately (single-use — don't expose in history)
+    history.replaceState(null, '', window.location.pathname);
+    show('loading-state');
+    verifyToken(token);
+  }
+})();
+</script>
+
+<script src="/footer.js"></script>
+</body>
+</html>
