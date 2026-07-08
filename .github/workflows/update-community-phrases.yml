@@ -22,7 +22,7 @@ jobs:
       - name: Generate community-phrases.json
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node .github/scripts/generate-community-phrases.js
 
       - name: Commit if changed
