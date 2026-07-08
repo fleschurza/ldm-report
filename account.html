@@ -260,7 +260,6 @@
 
 <script>
 const SUPABASE_URL = 'https://ghoriibggfxahkkvvkpi.supabase.co';
-const ANON_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdob3JpaWJnZ2Z4YWhra3Z2a3BpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk0MDgzMjIsImV4cCI6MjA2NDk4NDMyMn0.fCsP6uirJmf31MsAV_jTXt5n7OWcFJlqUqVoGE5JIus';
 
 let currentKey = '';
 
@@ -291,7 +290,7 @@ async function sendLink() {
   try {
     await fetch(`${SUPABASE_URL}/functions/v1/send-magic-link`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'apikey': ANON_KEY },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
     });
     // Always show success — don't leak account existence
@@ -308,7 +307,7 @@ async function verifyToken(token) {
   try {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/verify-magic-link`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'apikey': ANON_KEY },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token }),
     });
     const data = await res.json();
