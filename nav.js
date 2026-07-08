@@ -27,18 +27,31 @@
     ? '<p style="color:#94a3b8;font-size:12px;margin-top:5px;max-width:640px;">' + SUB + '</p>'
     : '';
 
+  var S_ACCOUNT = 'color:#94a3b8;font-size:12px;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;border:1px solid transparent;transition:color 0.15s,border-color 0.15s;';
+  var accountActive = PAGE === 'account';
+  var S_ACCOUNT_FINAL = accountActive
+    ? 'color:#fff;font-size:12px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;border:1px solid rgba(148,163,184,0.4);'
+    : S_ACCOUNT;
+
   document.write(
     '<style>' +
     '#site-nav{background:#1a1a4e;color:#f1f5f9;padding:28px 40px 24px;border-bottom:3px solid #009EDB;}' +
-    '@media(max-width:640px){#site-nav{padding:18px 16px 16px;}#site-nav h1{font-size:16px !important;}#site-nav svg.logo{width:32px !important;height:32px !important;}}' +
+    '@media(max-width:640px){#site-nav{padding:18px 16px 16px;}#site-nav h1{font-size:16px !important;}#site-nav svg.logo{width:32px !important;height:32px !important;}#site-nav .acct-label{display:none;}}' +
+    '#site-nav a.acct:hover{color:#fff !important;border-color:rgba(148,163,184,0.4) !important;}' +
     '</style>' +
     '<header id="site-nav">' +
-    '<div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">' +
+    '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">' +
+    '<div style="display:flex;align-items:center;gap:14px;">' +
     '<svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="44" height="44" style="flex-shrink:0;">' +
     '<path d="M64 4 L116 22 L116 68 C116 100 92 120 64 126 C36 120 12 100 12 68 L12 22 Z" fill="#3ec6f5" opacity="0.21" stroke="#3ec6f5" stroke-width="7" stroke-linejoin="round"/>' +
     '<text x="64" y="100" text-anchor="middle" font-family="Roboto,sans-serif" font-weight="900" font-size="94" fill="#ffffff">U</text>' +
     '</svg>' +
     '<h1 style="font-size:20px;font-weight:700;letter-spacing:-0.02em;">unmask<span style="color:#009EDB;font-weight:400;">.tools</span> &middot; Language Detection Intelligence</h1>' +
+    '</div>' +
+    '<a href="/account.html" class="acct" style="' + S_ACCOUNT_FINAL + '">' +
+    '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>' +
+    '<span class="acct-label">My Account</span>' +
+    '</a>' +
     '</div>' +
     subtitleHtml +
     '<nav style="margin-top:14px;display:flex;gap:4px;flex-wrap:wrap;">' +
