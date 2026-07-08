@@ -242,7 +242,15 @@
       <p class="form-note" style="margin-top:0;">Need help? <a href="/support.html" style="color:var(--c-accent);">Visit support</a></p>
     </div>
 
-    <!-- ── State 4: Loading ── -->
+    <!-- ── State 4: Confirm (shown when token is in URL — protects against email scanner pre-fetch) ── -->
+    <div style="display:none;text-align:center;padding:8px 0;" id="confirm-state">
+      <div style="font-size:40px;margin-bottom:16px;">🔑</div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:8px;">Open your account</div>
+      <p style="color:var(--c-muted);font-size:13px;margin-bottom:24px;">Click below to view your API key and account details.</p>
+      <button class="btn" style="margin-top:0;" id="confirm-btn" onclick="confirmToken()">Show my account</button>
+    </div>
+
+    <!-- ── State 5: Loading ── -->
     <div style="display:none;" id="loading-state">
       <p style="color:var(--c-muted);font-size:13px;">Verifying…</p>
     </div>
@@ -264,7 +272,7 @@ const SUPABASE_URL = 'https://ghoriibggfxahkkvvkpi.supabase.co';
 let currentKey = '';
 
 function show(id) {
-  ['email-state', 'sent-state', 'account-state', 'loading-state', 'token-error-state']
+  ['email-state', 'sent-state', 'account-state', 'confirm-state', 'loading-state', 'token-error-state']
     .forEach(s => { const el = document.getElementById(s); if (el) el.style.display = s === id ? 'block' : 'none'; });
 }
 
@@ -352,15 +360,27 @@ function copyKey() {
   });
 }
 
-// On load: check for token in URL
+let pendingToken = null;
+
+function confirmToken() {
+  if (!pendingToken) return;
+  const btn = document.getElementById('confirm-btn');
+  btn.disabled = true;
+  btn.textContent = 'Verifying…';
+  show('loading-state');
+  verifyToken(pendingToken);
+  pendingToken = null;
+}
+
+// On load: check for token in URL — show confirm button, do NOT verify yet.
+// Email scanners fetch the page but don't click buttons, so the token stays valid.
 (function init() {
   const params = new URLSearchParams(window.location.search);
   const token  = params.get('token');
   if (token) {
-    // Remove token from URL immediately (single-use — don't expose in history)
+    pendingToken = token;
     history.replaceState(null, '', window.location.pathname);
-    show('loading-state');
-    verifyToken(token);
+    show('confirm-state');
   }
 })();
 </script>
