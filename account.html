@@ -308,7 +308,7 @@ async function verifyToken(token) {
   try {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/verify-magic-link`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${SUPABASE_ANON}` },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token }),
     });
     const data = await res.json();
