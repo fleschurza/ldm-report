@@ -52,7 +52,7 @@
 
 <main>
   <h2>Privacy Policy</h2>
-  <p class="meta">Last updated: 24 June 2026 · Controller: Andreas Fleschurz (<a href="imprint.html">Imprint</a>) · Contact: <a href="mailto:hello@unmask.tools">hello@unmask.tools</a></p>
+  <p class="meta">Last updated: 14 July 2026 · Controller: Andreas Fleschurz (<a href="imprint.html">Imprint</a>) · Contact: <a href="mailto:hello@unmask.tools">hello@unmask.tools</a></p>
 
   <div class="highlight">
     <strong>Short version:</strong> The extension reads page text locally on your device to detect phrases. No page content is sent to our servers unless you explicitly enable global data sharing (off by default). We collect only what is necessary to run the service and never sell your data.
@@ -60,6 +60,8 @@
 
   <h3>1. Who we are</h3>
   <p>unmask.tools is an independent language analysis tool operated by Andreas Fleschurz, Rebengasse 1-7/25, 2700 Wiener Neustadt, Austria. References to "we", "us", or "our" in this policy refer to the operator. For data protection enquiries, contact <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>.</p>
+  <p>The protection of your personal data is important to us. This Privacy Policy explains which personal data we process, for which purposes and on which legal bases, how long we retain the data, which recipients may receive it and which rights you have under applicable data protection law.</p>
+  <p>The short summary at the beginning of this Privacy Policy is provided for convenience only and does not replace the complete information below.</p>
 
   <h3>2. What data we collect and why</h3>
 
@@ -113,7 +115,6 @@
     <li>The full text of pages you visit — page content is processed locally in your browser</li>
     <li>Your browsing history</li>
     <li>Any personally identifiable information from the pages you scan</li>
-    <li>IP addresses (beyond what is inherent in standard HTTP requests)</li>
     <li>Cookies or tracking pixels on unmask.tools web pages</li>
   </ul>
 
@@ -126,17 +127,17 @@
   <p>Extension settings (API key, Ollama configuration, toggle state, custom phrases) are stored exclusively in <code>chrome.storage.local</code> on your device and are never transmitted to our servers.</p>
 
   <h3>5. Data sharing and third parties</h3>
-  <p>We use the following sub-processors:</p>
+  <p>We use the following service providers and recipients of personal data where necessary for the provision of the Service:</p>
   <ul>
     <li><strong>Supabase</strong> — database and Edge Functions hosting (EU region). <a href="https://supabase.com/privacy" target="_blank">Privacy policy →</a></li>
     <li><strong>Stripe</strong> — payment processing. <a href="https://stripe.com/privacy" target="_blank">Privacy policy →</a></li>
     <li><strong>Loops.so</strong> — transactional email delivery (welcome, upgrade, and licensing emails). <a href="https://loops.so/privacy" target="_blank">Privacy policy →</a></li>
     <li><strong>Resend</strong> — transactional email routing for support (help@) and data key delivery. <a href="https://resend.com/legal/privacy-policy" target="_blank">Privacy policy →</a></li>
-    <li><strong>Anthropic</strong> — AI inference for the AI detection feature (API key users only). Text excerpts are forwarded to Anthropic's Claude API for analysis and are not retained by us. <a href="https://www.anthropic.com/privacy" target="_blank">Privacy policy →</a></li>
+    <li><strong>Anthropic</strong> — provider of AI inference services for the AI-assisted analysis feature (API key users only). Anthropic processes text excerpts solely on our behalf and in accordance with our instructions as a processor within the meaning of Art. 28 GDPR. Text excerpts are transmitted only for the purpose of generating the requested AI analysis and are not retained by us after processing. <a href="https://www.anthropic.com/privacy" target="_blank">Privacy policy →</a></li>
     <li><strong>GitHub</strong> — hosts the community phrase library (<code>community-phrases.json</code>) via GitHub Pages, fetched by the extension on startup; automated phrase promotion workflows run via GitHub Actions. This is a static file request; GitHub's standard server logs (which may include IP addresses) apply to all extension users regardless of account status. Legal basis: Art. 6(1)(b) GDPR (necessary for performance of the service). <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">Privacy statement →</a></li>
     <li><strong>Cloudflare</strong> — DNS, CDN, and edge network for unmask.tools; Cloudflare Workers power the public API (api.unmask.tools); Cloudflare Email Routing handles inbound email (help@, hello@). Cloudflare processes IP addresses and standard HTTP request metadata (URL, user agent, timestamps) as part of normal traffic routing and DDoS protection. No page content or personal account data is shared beyond network-layer metadata. Legal basis: Art. 6(1)(f) GDPR (legitimate interest — necessary to deliver and protect the service). <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Privacy policy →</a></li>
   </ul>
-  <p>We do not sell, rent, or share your <strong>personal data</strong> with any other third parties. Anonymised aggregate data (which contains no personal data) may be commercially licensed — see section 5a below.</p>
+  <p>We do not sell, rent, or share your personal data with any other third parties. Where you have voluntarily enabled the global data sharing feature described in section 4, anonymised detection events submitted by you may be incorporated into this aggregated dataset. Only anonymised information is included; no personal data is incorporated into the dataset. Anonymised aggregate data (which contains no personal data) may be commercially licensed — see section 5a below.</p>
 
   <h3>5a. Commercial dataset licensing</h3>
   <p>unmask.tools may make the anonymised aggregate phrase dataset available to research institutions, data analytics companies, and similar organisations under a commercial data licence. This dataset consists exclusively of:</p>
@@ -146,7 +147,7 @@
     <li>Language code and industry sector codes (ISIC)</li>
     <li>Applicable legal or regulatory references</li>
   </ul>
-  <p><strong>No personal data is included.</strong> No email addresses, API keys, account identifiers, or any data that could be used to identify you is ever part of these exports. The legal basis for this processing is our legitimate interest in funding the research mission of unmask.tools (Article 6(1)(f) GDPR), balanced against the minimal privacy impact given the fully anonymised nature of the data.</p>
+  <p>The dataset contains only anonymised information that cannot be linked back to individual users. No email addresses, API keys, account identifiers, or any data that could be used to identify you is ever part of these exports. The legal basis for this processing is our legitimate interest in funding the research mission of unmask.tools (Article 6(1)(f) GDPR), balanced against the minimal privacy impact given the fully anonymised nature of the data.</p>
   <p>You can learn more, view a sample dataset, and submit a licensing inquiry on our <a href="dataroom.html">Data Room</a> page.</p>
 
   <h3>6. Data retention</h3>
