@@ -176,6 +176,54 @@
       margin-bottom: 16px;
     }
 
+    /* ── Withdrawal (§ 13a FAGG) ── */
+    .withdraw-section {
+      display: none;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--c-border);
+    }
+    .withdraw-link {
+      background: none;
+      border: none;
+      color: #b91c1c;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      font-family: inherit;
+      padding: 0;
+    }
+    .withdraw-link:hover { color: #7f1d1d; }
+
+    .withdraw-confirm {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 12px;
+    }
+    .withdraw-confirm p { color: #7f1d1d; font-size: 12px; line-height: 1.6; margin-bottom: 12px; }
+    .withdraw-confirm-actions { display: flex; gap: 8px; }
+    .withdraw-confirm-actions button {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+    }
+    .withdraw-cancel-btn { background: transparent; border: 1px solid var(--c-border) !important; color: var(--c-text); }
+    .withdraw-confirm-btn { background: #dc2626; color: #fff; }
+    .withdraw-confirm-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .withdraw-result { display: none; font-size: 12px; margin-top: 10px; line-height: 1.6; }
+    .withdraw-result.success { color: #15803d; }
+    .withdraw-result.error   { color: #b91c1c; }
+
     @media (max-width: 520px) {
       main { margin-top: 32px; }
       .card { padding: 24px; }
@@ -240,6 +288,24 @@
       </div>
 
       <p class="form-note" style="margin-top:0;">Need help? <a href="/support.html" style="color:var(--c-accent);">Visit support</a></p>
+
+      <!-- § 13a FAGG electronic withdrawal function — available throughout the
+           14-day statutory withdrawal period for any active paid subscription. -->
+      <div class="withdraw-section" id="withdraw-section">
+        <button class="withdraw-link" id="withdraw-open-btn" onclick="openWithdrawConfirm()">Withdraw from contract</button>
+
+        <div class="withdraw-confirm" id="withdraw-confirm-box">
+          <p>
+            This immediately cancels your subscription and deactivates your API key — it does not just stop future renewals like normal cancellation. Because you requested that we begin the service right away, you may owe reasonable compensation for the value of what you've already used before withdrawing (see <a href="/terms.html" style="color:#7f1d1d;">Terms §6</a>). This action cannot be undone.
+          </p>
+          <div class="withdraw-confirm-actions">
+            <button class="withdraw-cancel-btn" onclick="closeWithdrawConfirm()">Cancel</button>
+            <button class="withdraw-confirm-btn" id="withdraw-confirm-btn" onclick="submitWithdrawal()">Confirm withdrawal</button>
+          </div>
+        </div>
+
+        <div class="withdraw-result" id="withdraw-result"></div>
+      </div>
     </div>
 
     <!-- ── State 4: Loading ── -->
@@ -339,7 +405,61 @@ function renderAccount(data) {
     document.getElementById('inactive-banner').style.display = 'block';
   }
 
+  // § 13a FAGG electronic withdrawal function — offer it for any active paid
+  // subscription. The 14-day window itself is enforced server-side; if it has
+  // passed, submitWithdrawal() surfaces the server's explanatory error instead.
+  const isPaidActive = data.active && data.tier && data.tier !== 'personal';
+  document.getElementById('withdraw-section').style.display = isPaidActive ? 'block' : 'none';
+
   show('account-state');
+}
+
+function openWithdrawConfirm() {
+  document.getElementById('withdraw-open-btn').style.display = 'none';
+  document.getElementById('withdraw-confirm-box').style.display = 'block';
+}
+
+function closeWithdrawConfirm() {
+  document.getElementById('withdraw-confirm-box').style.display = 'none';
+  document.getElementById('withdraw-open-btn').style.display = 'inline';
+}
+
+async function submitWithdrawal() {
+  const btn = document.getElementById('withdraw-confirm-btn');
+  const resultEl = document.getElementById('withdraw-result');
+  resultEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Processing…';
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/withdraw-subscription`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key: currentKey }),
+    });
+    const data = await res.json();
+
+    if (res.ok && data.ok) {
+      document.getElementById('withdraw-confirm-box').style.display = 'none';
+      document.getElementById('withdraw-section').innerHTML =
+        '<div class="withdraw-result success" style="display:block;">' +
+        'Your withdrawal has been received and your subscription has been cancelled immediately. ' +
+        'A confirmation has been sent to your email.</div>';
+      document.getElementById('inactive-banner').style.display = 'block';
+    } else {
+      resultEl.className = 'withdraw-result error';
+      resultEl.textContent = data.message || 'Something went wrong. Please contact support.';
+      resultEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Confirm withdrawal';
+    }
+  } catch (_) {
+    resultEl.className = 'withdraw-result error';
+    resultEl.textContent = 'Something went wrong. Please try again or contact support.';
+    resultEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Confirm withdrawal';
+  }
 }
 
 function copyKey() {
