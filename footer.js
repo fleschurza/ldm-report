@@ -20,7 +20,10 @@
     '<br>' +
     '<a href="/privacy.html" style="' + LS + '">Privacy Policy</a> &nbsp;·&nbsp;' +
     '<a href="/terms.html"   style="' + LS + '">Terms of Service</a> &nbsp;·&nbsp;' +
-    '<a href="/imprint.html" style="' + LS + '">Imprint</a>';
+    '<a href="/imprint.html" style="' + LS + '">Imprint</a>' +
+    '<br>' +
+    '<span style="color:#94a3b8;">Andreas Fleschurz &nbsp;·&nbsp; UID ATU 66901212 &nbsp;·&nbsp; ' +
+    'VAT-exempt small business, § 6 (1) 27 UStG</span>';
 
   document.body.appendChild(footer);
 
