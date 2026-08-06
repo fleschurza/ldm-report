@@ -176,6 +176,21 @@
       margin-bottom: 16px;
     }
 
+    /* Renewal payment is failing but Stripe is still retrying — access
+       continues, so this warns without alarming (amber, not red). */
+    .dunning-banner {
+      display: none;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #78350f;
+      margin-bottom: 16px;
+    }
+    .dunning-banner strong { font-weight: 700; }
+
     /* ── Withdrawal (§ 13a FAGG) ── */
     .withdraw-section {
       display: none;
@@ -266,6 +281,11 @@
 
       <div class="inactive-banner" id="inactive-banner">
         Your account is currently inactive. Contact support if you think this is an error.
+      </div>
+
+      <div class="dunning-banner" id="dunning-banner">
+        <strong>We couldn't process your last payment.</strong>
+        Your access continues while we retry, but if the payment keeps failing your subscription will be cancelled and your key will return to the free Personal tier. Check the email we sent you for a link to update your payment method, or contact <a href="mailto:hello@unmask.tools" style="color:#78350f;">hello@unmask.tools</a>.
       </div>
 
       <div class="key-section">
@@ -401,8 +421,18 @@ function renderAccount(data) {
   document.getElementById('stat-limit').textContent   = data.daily_ai_limit != null ? data.daily_ai_limit : '—';
   document.getElementById('key-display').textContent  = currentKey;
 
+  // Reset both first — otherwise a banner shown by an earlier render would
+  // survive into a later one, since the branches below only ever set 'block'.
+  document.getElementById('inactive-banner').style.display = 'none';
+  document.getElementById('dunning-banner').style.display  = 'none';
+
   if (!data.active) {
     document.getElementById('inactive-banner').style.display = 'block';
+  } else if (data.payment_failed_at) {
+    // Only while still active: once Stripe exhausts its retries the
+    // subscription is cancelled and the inactive banner above takes over,
+    // so the two never show together.
+    document.getElementById('dunning-banner').style.display = 'block';
   }
 
   // § 13a FAGG electronic withdrawal function — offer it for any active paid
