@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Confirm your order</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+    main { max-width: 560px; margin: 0 auto; padding: 48px 20px 80px; }
+
+    h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .meta { color: var(--c-muted); font-size: 12px; margin-bottom: 32px; }
+
+    .order-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .order-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 10px 0; flex-wrap: wrap; }
+    .order-row + .order-row { border-top: 1px solid var(--c-border); }
+    .order-label { color: var(--c-muted); font-size: 13px; }
+    .order-value { font-weight: 700; font-size: 14px; }
+    .order-value.price { font-size: 20px; }
+    .order-value.price span { font-size: 12px; font-weight: 400; color: var(--c-muted); }
+
+    .info-block {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      color: #0369a1;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    .consent-box {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .consent-row input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--c-accent);
+      cursor: pointer;
+    }
+    .consent-row label { font-size: 13px; color: var(--c-text); line-height: 1.55; cursor: pointer; }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 13px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.15s, background 0.15s;
+    }
+    .btn-primary { background: #009EDB; color: #fff; }
+    .btn-primary:hover:not([aria-disabled="true"]) { opacity: 0.88; }
+    .btn-primary[aria-disabled="true"] {
+      background: var(--c-border);
+      color: var(--c-muted);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .checkout-hint { text-align: center; font-size: 11.5px; color: var(--c-muted); margin-top: 10px; }
+    .checkout-hint a { color: var(--c-accent); text-decoration: none; }
+    .checkout-hint a:hover { text-decoration: underline; }
+
+    .error-card { background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 20px; color: #b91c1c; font-size: 13px; }
+    .error-card a { color: #b91c1c; font-weight: 600; }
+  </style>
+</head>
+<body data-page="checkout">
+
+<script src="/nav.js"></script>
+
+<main>
+  <div id="checkoutContent"></div>
+</main>
+
+<script>
+  const TIERS = {
+    pro: {
+      name: 'Pro',
+      price: '€15',
+      interval: 'month',
+      stripeUrl: 'https://buy.stripe.com/test_14A14gcQn3yqbZJ4Tzfbq01',
+    },
+    team: {
+      name: 'Team',
+      price: '€59',
+      interval: 'month',
+      stripeUrl: 'https://buy.stripe.com/test_14A7sEg2zb0S0h13Pvfbq02',
+    },
+    enterprise: {
+      name: 'Enterprise',
+      price: '€199',
+      interval: 'month',
+      stripeUrl: 'https://buy.stripe.com/test_3cI14g03B3yq0h1adTfbq03',
+    },
+  };
+
+  const params = new URLSearchParams(location.search);
+  const tierKey = params.get('tier');
+  const tier = TIERS[tierKey];
+  const content = document.getElementById('checkoutContent');
+
+  if (!tier) {
+    content.innerHTML = `
+      <h2>Confirm your order</h2>
+      <p class="meta">&nbsp;</p>
+      <div class="error-card">
+        We couldn't identify which plan you selected. Please go back to <a href="pricing.html">pricing</a> and choose a plan again.
+      </div>
+    `;
+  } else {
+    content.innerHTML = `
+      <h2>Confirm your order</h2>
+      <p class="meta">Last step before payment · unmask.tools ${tier.name} subscription</p>
+
+      <div class="order-card">
+        <div class="order-row">
+          <span class="order-label">Plan</span>
+          <span class="order-value">${tier.name}</span>
+        </div>
+        <div class="order-row">
+          <span class="order-label">Price</span>
+          <span class="order-value price">${tier.price} <span>/ ${tier.interval}, incl. VAT · billed monthly, auto-renews until cancelled</span></span>
+        </div>
+        <div class="order-row">
+          <span class="order-label">Cancellation</span>
+          <span class="order-value" style="font-weight:400;font-size:13px;color:var(--c-muted);">Cancel any time — takes effect at the end of the current billing period. See <a href="terms.html" style="color:var(--c-accent);">Terms §5</a>.</span>
+        </div>
+      </div>
+
+      <div class="info-block">
+        By continuing you'll be redirected to Stripe to complete payment. Full terms — including your 14-day right of withdrawal, service description, and business details — are available in our <a href="terms.html" style="color:#0369a1;font-weight:600;">Terms of Service</a> and <a href="privacy.html" style="color:#0369a1;font-weight:600;">Privacy Policy</a>.
+      </div>
+
+      <div class="consent-box">
+        <div class="consent-row">
+          <input type="checkbox" id="consentCheckbox">
+          <label for="consentCheckbox">
+            I expressly request that unmask.tools begin providing the digital service before expiry of the 14-day withdrawal period. I am aware that, in the event of withdrawal, I may owe reasonable compensation for the value of services already provided up to the point of withdrawal.
+          </label>
+        </div>
+      </div>
+
+      <a href="#" id="continueBtn" class="btn btn-primary" aria-disabled="true">Continue to payment →</a>
+      <p class="checkout-hint">By continuing you also confirm you have read the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+    `;
+
+    const checkbox = document.getElementById('consentCheckbox');
+    const continueBtn = document.getElementById('continueBtn');
+
+    checkbox.addEventListener('change', () => {
+      continueBtn.setAttribute('aria-disabled', checkbox.checked ? 'false' : 'true');
+    });
+
+    continueBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!checkbox.checked) return;
+      window.location.href = tier.stripeUrl;
+    });
+  }
+</script>
+
+<script src="/footer.js"></script>
+</body>
+</html>
