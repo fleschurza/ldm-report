@@ -37,6 +37,12 @@
     .order-value { font-weight: 700; font-size: 14px; }
     .order-value.price { font-size: 20px; }
     .order-value.price span { font-size: 12px; font-weight: 400; color: var(--c-muted); }
+    .order-value.plain { font-weight: 400; font-size: 13px; color: var(--c-muted); }
+
+    .features-label { color: var(--c-muted); font-size: 13px; padding: 10px 0 4px; border-top: 1px solid var(--c-border); margin-top: 4px; }
+    .features-list { list-style: none; display: flex; flex-direction: column; gap: 6px; padding-bottom: 4px; }
+    .features-list li { font-size: 13px; color: var(--c-text); display: flex; align-items: flex-start; gap: 8px; }
+    .features-list li::before { content: '✓'; color: #009EDB; font-weight: 700; flex-shrink: 0; }
 
     .info-block {
       background: #f0f9ff;
@@ -48,13 +54,19 @@
       font-size: 12.5px;
       line-height: 1.6;
     }
+    .info-block ul { margin: 6px 0 0; padding-left: 18px; }
+    .info-block li { margin-bottom: 4px; }
+    .info-block a { color: #0369a1; font-weight: 600; }
 
     .consent-box {
       background: var(--c-surface);
       border: 1px solid var(--c-border);
       border-radius: 12px;
       padding: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .consent-row {
@@ -71,6 +83,7 @@
       cursor: pointer;
     }
     .consent-row label { font-size: 13px; color: var(--c-text); line-height: 1.55; cursor: pointer; }
+    .consent-row label a { color: var(--c-accent); }
 
     .btn {
       display: block;
@@ -117,18 +130,45 @@
       price: '€15',
       interval: 'month',
       stripeUrl: 'https://buy.stripe.com/test_14A14gcQn3yqbZJ4Tzfbq01',
+      features: [
+        'Static phrase detection',
+        '300 AI scans / day',
+        'unmask.filter bot template (Claude · Gemini · ChatGPT)',
+        '1 seat',
+        'Priority support',
+      ],
     },
     team: {
       name: 'Team',
       price: '€59',
       interval: 'month',
       stripeUrl: 'https://buy.stripe.com/test_14A7sEg2zb0S0h13Pvfbq02',
+      features: [
+        'Static phrase detection',
+        '1,500 AI scans / day (shared)',
+        'API access included',
+        'Unlimited seats — 1 key',
+        'Company phrase repository',
+        'MDM deployment (Chrome Enterprise / Intune / Jamf)',
+        'unmask.filter bot template (Claude · Gemini · ChatGPT)',
+        'Priority support',
+      ],
     },
     enterprise: {
       name: 'Enterprise',
       price: '€199',
       interval: 'month',
       stripeUrl: 'https://buy.stripe.com/test_3cI14g03B3yq0h1adTfbq03',
+      features: [
+        'Static phrase detection',
+        '5,000 AI scans / day (shared)',
+        'API access included',
+        'Unlimited seats — 1 key',
+        'Company phrase repository',
+        'MDM deployment (Chrome Enterprise / Intune / Jamf)',
+        'unmask.filter bot template (Claude · Gemini · ChatGPT)',
+        'Onboarding call included',
+      ],
     },
   };
 
@@ -160,13 +200,23 @@
           <span class="order-value price">${tier.price} <span>/ ${tier.interval}, incl. VAT · billed monthly, auto-renews until cancelled</span></span>
         </div>
         <div class="order-row">
-          <span class="order-label">Cancellation</span>
-          <span class="order-value" style="font-weight:400;font-size:13px;color:var(--c-muted);">Cancel any time — takes effect at the end of the current billing period. See <a href="terms.html" style="color:var(--c-accent);">Terms §5</a>.</span>
+          <span class="order-label">Contract term</span>
+          <span class="order-value plain">No minimum term — cancel any time, effective end of current billing period. See <a href="terms.html" style="color:var(--c-accent);">Terms §5</a>.</span>
         </div>
+        <div class="features-label">What's included</div>
+        <ul class="features-list">
+          ${tier.features.map(f => `<li>${f}</li>`).join('')}
+        </ul>
       </div>
 
       <div class="info-block">
-        By continuing you'll be redirected to Stripe to complete payment. Full terms — including your 14-day right of withdrawal, service description, and business details — are available in our <a href="terms.html" style="color:#0369a1;font-weight:600;">Terms of Service</a> and <a href="privacy.html" style="color:#0369a1;font-weight:600;">Privacy Policy</a>.
+        <strong>Before you continue:</strong>
+        <ul>
+          <li>Payment is processed by Stripe. Access to the ${tier.name} plan begins immediately once payment succeeds.</li>
+          <li>You have a statutory 14-day right of withdrawal — see <a href="terms.html">Terms §6</a> and the mandatory consent below.</li>
+          <li>Statutory warranty rights for digital services apply and are unaffected by this purchase — see <a href="terms.html">Terms §8</a>.</li>
+          <li>Business details (operator, address, contact) are listed in our <a href="imprint.html">Imprint</a>.</li>
+        </ul>
       </div>
 
       <div class="consent-box">
@@ -176,22 +226,33 @@
             I expressly request that unmask.tools begin providing the digital service before expiry of the 14-day withdrawal period. I am aware that, in the event of withdrawal, I may owe reasonable compensation for the value of services already provided up to the point of withdrawal.
           </label>
         </div>
+        <div class="consent-row">
+          <input type="checkbox" id="termsCheckbox">
+          <label for="termsCheckbox">
+            I have read and accept the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.
+          </label>
+        </div>
       </div>
 
       <a href="#" id="continueBtn" class="btn btn-primary" aria-disabled="true">Continue to payment →</a>
-      <p class="checkout-hint">By continuing you also confirm you have read the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+      <p class="checkout-hint">You'll be redirected to Stripe to complete payment securely.</p>
     `;
 
-    const checkbox = document.getElementById('consentCheckbox');
+    const consentCheckbox = document.getElementById('consentCheckbox');
+    const termsCheckbox = document.getElementById('termsCheckbox');
     const continueBtn = document.getElementById('continueBtn');
 
-    checkbox.addEventListener('change', () => {
-      continueBtn.setAttribute('aria-disabled', checkbox.checked ? 'false' : 'true');
-    });
+    function updateButtonState() {
+      const bothChecked = consentCheckbox.checked && termsCheckbox.checked;
+      continueBtn.setAttribute('aria-disabled', bothChecked ? 'false' : 'true');
+    }
+
+    consentCheckbox.addEventListener('change', updateButtonState);
+    termsCheckbox.addEventListener('change', updateButtonState);
 
     continueBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      if (!checkbox.checked) return;
+      if (!consentCheckbox.checked || !termsCheckbox.checked) return;
       window.location.href = tier.stripeUrl;
     });
   }
