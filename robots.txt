@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /stubs/
+Disallow: /sample/
+Disallow: /stress-test/
+Disallow: /account.html
+Disallow: /checkout.html
+Allow: /
+
+Sitemap: https://unmask.tools/sitemap.xml
