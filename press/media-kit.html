@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Media Kit</title>
+  <link rel="canonical" href="https://unmask.tools/press/media-kit.html">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --c-bg:#f8fafc; --c-surface:#ffffff; --c-border:#e2e8f0; --c-text:#0f172a; --c-muted:#64748b; --c-accent:#009EDB; }
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.7; }
+    main { max-width: 860px; margin: 0 auto; padding: 48px 20px 80px; }
+    h1 { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+    .subhead { color: var(--c-muted); font-size: 14px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--c-border); }
+    h2 { font-size: 16px; font-weight: 700; margin: 32px 0 14px; }
+    a { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { display: inline-block; margin-bottom: 24px; font-size: 13px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 14px; text-align: center; }
+    .card img { max-width: 100%; max-height: 130px; object-fit: contain; margin-bottom: 10px; }
+    .card.dark { background: #1a1a4e; }
+    .card-name { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .card-dl { font-size: 11px; }
+
+    .shot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+    .shot-card { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; overflow: hidden; }
+    .shot-card img { width: 100%; display: block; }
+    .shot-card-label { padding: 10px 12px; font-size: 12px; }
+  </style>
+</head>
+<body data-page="press">
+
+<script src="/nav.js"></script>
+
+<main>
+  <a class="back" href="/press/index.html">← Back to press release</a>
+  <h1>Media kit</h1>
+  <p class="subhead">Right-click any image to save, or use the download link below it. Everything here is also the single source of truth used to generate the Chrome Web Store listing itself — nothing here is a separate, potentially-drifted copy.</p>
+
+  <h2>Icon</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="/press/assets/unmask-icon-512.png" alt="unmask.shield icon">
+      <div class="card-name">Icon, 512×512</div>
+      <a class="card-dl" href="/press/assets/unmask-icon-512.png" download>Download PNG</a>
+    </div>
+  </div>
+
+  <h2>Wordmark</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="/press/assets/unmask-wordmark.png" alt="unmask.tools wordmark, light background">
+      <div class="card-name">On light background</div>
+      <a class="card-dl" href="/press/assets/unmask-wordmark.png" download>Download PNG</a>
+    </div>
+    <div class="card dark">
+      <img src="/press/assets/unmask-wordmark-on-dark.png" alt="unmask.tools wordmark, dark background">
+      <div class="card-name" style="color:#fff;">On dark background</div>
+      <a class="card-dl" href="/press/assets/unmask-wordmark-on-dark.png" download style="color:#7dd3fc;">Download PNG</a>
+    </div>
+  </div>
+
+  <h2>Promotional tiles</h2>
+  <div class="grid">
+    <div class="card dark">
+      <img src="/press/assets/unmask-promo-tile.png" alt="Promo tile, 440x280">
+      <div class="card-name" style="color:#fff;">440×280</div>
+      <a class="card-dl" href="/press/assets/unmask-promo-tile.png" download style="color:#7dd3fc;">Download PNG</a>
+    </div>
+    <div class="card dark">
+      <img src="/press/assets/unmask-promo-tile-large.png" alt="Promo tile, 1400x560">
+      <div class="card-name" style="color:#fff;">1400×560</div>
+      <a class="card-dl" href="/press/assets/unmask-promo-tile-large.png" download style="color:#7dd3fc;">Download PNG</a>
+    </div>
+  </div>
+
+  <h2>Product screenshots</h2>
+  <div class="shot-grid">
+    <div class="shot-card">
+      <img src="/press/assets/screenshot-1-popup-overview.png" alt="Popup overview with a critical-violation detail card">
+      <div class="shot-card-label">Popup overview + detail card — <a href="/press/assets/screenshot-1-popup-overview.png" download>download</a></div>
+    </div>
+    <div class="shot-card">
+      <img src="/press/assets/screenshot-2-gmail-compose.png" alt="Gmail compose with the extension popup open">
+      <div class="shot-card-label">Gmail compose — <a href="/press/assets/screenshot-2-gmail-compose.png" download>download</a></div>
+    </div>
+    <div class="shot-card">
+      <img src="/press/assets/screenshot-3-phrase-detail.png" alt="Phrase detail card showing plain-language translation and legal citation">
+      <div class="shot-card-label">Phrase detail card — <a href="/press/assets/screenshot-3-phrase-detail.png" download>download</a></div>
+    </div>
+    <div class="shot-card">
+      <img src="/press/assets/screenshot-4-findings-expanded.png" alt="Detections list expanded">
+      <div class="shot-card-label">Detections list expanded — <a href="/press/assets/screenshot-4-findings-expanded.png" download>download</a></div>
+    </div>
+    <div class="shot-card">
+      <img src="/press/assets/screenshot-5-report-site.png" alt="unmask.tools Report page">
+      <div class="shot-card-label">Report page — <a href="/press/assets/screenshot-5-report-site.png" download>download</a></div>
+    </div>
+  </div>
+
+  <h2>Colours</h2>
+  <p style="font-size:13px;color:var(--c-muted);">Navy <code>#1a1a4e</code> · Accent <code>#009EDB</code> · Shield <code>#3ec6f5</code> (21% opacity)</p>
+
+  <h2>Other resources</h2>
+  <p><a href="/press/index.html">Press release</a> · <a href="/press/verification-guide.html">Verification guide</a> · <a href="/press/technical-faq.html">Technical FAQ</a> · <a href="/press/non-technical-faq.html">Non-technical FAQ</a> · <a href="/press/one-pager.html">One-pager</a></p>
+
+  <p style="margin-top:24px;">Questions or need a different format: <a href="mailto:af@unmask.tools">af@unmask.tools</a></p>
+</main>
+
+<script src="/footer.js"></script>
+</body>
+</html>

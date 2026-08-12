@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Verification Guide for Journalists</title>
+  <link rel="canonical" href="https://unmask.tools/press/verification-guide.html">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --c-bg:#f8fafc; --c-surface:#ffffff; --c-border:#e2e8f0; --c-text:#0f172a; --c-muted:#64748b; --c-accent:#009EDB; }
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.75; }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+    h1 { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+    .subhead { color: var(--c-muted); font-size: 14px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--c-border); }
+    h2 { font-size: 17px; font-weight: 700; margin: 32px 0 10px; }
+    p, li { margin-bottom: 12px; }
+    ul, ol { padding-left: 22px; margin-bottom: 14px; }
+    a { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    blockquote { background: var(--c-surface); border: 1px solid var(--c-border); border-left: 3px solid var(--c-accent); border-radius: 6px; padding: 14px 18px; margin: 16px 0; font-style: italic; color: var(--c-text); }
+    .back { display: inline-block; margin-bottom: 24px; font-size: 13px; }
+  </style>
+</head>
+<body data-page="press">
+
+<script src="/nav.js"></script>
+
+<main>
+  <a class="back" href="/press/index.html">← Back to press release</a>
+  <h1>A verification guide for journalists</h1>
+  <p class="subhead">Everything below is testable in five minutes. Nothing here asks you to take our word for anything — install it, try it, read the source if you want to. That's deliberate: an earlier draft of this guide (written during early philosophical brainstorming before any code existed) asked readers to verify a "logical veto" baked into an AI's "neural kernel." That was never real, and it's not what shipped. What's below is smaller, and everything in it actually works.</p>
+
+  <h2>1. Install it</h2>
+  <p><a href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank">unmask.shield on the Chrome Web Store</a> — free, no account needed for the basic test below.</p>
+
+  <h2>2. The baseline test (free tier, no key required)</h2>
+  <p>Before testing live sites, use the built-in stress test: <a href="/stress-test/dense.html" target="_blank">unmask.tools/stress-test/dense.html</a> — a static page of dense institutional language across six sectors (military, displacement, labor, finance, environment, and one more), built specifically to verify detection is working correctly. With the extension installed and enabled, reload the page — you should see roughly 120–140 flags. Hover or click any of them for the plain-language translation and legal citation.</p>
+  <p>This runs entirely on-device: open your browser's Network tab while it scans, and you'll see nothing sent anywhere. The phrase list it's matching against ships inside the extension package itself — it isn't fetched from a server, so it can't be swapped out after install without a new, reviewed Chrome Web Store submission.</p>
+  <p>For a more structured, systematic test across real sites — Gmail, Slack, news sites, etc. — there's also a QA harness: <a href="/stress-test/harness.html" target="_blank">unmask.tools/stress-test/harness.html</a>. It's a checklist tool: a grid of real sites to open and test against, with a pass/fail field and notes per site, and a CSV export. Worth knowing: it stores results only in your own browser's local storage and exports to a file you control — nothing you enter there gets sent back to unmask.tools. It's yours to use and keep, not a shared or monitored reporting channel.</p>
+  <p>Try it against real text too, not just the built-in test pages — paste in a paragraph from a press release, an annual report, or a government statement that uses phrases like "resource optimization," "enhanced interrogation," "collateral damage," or similar. If it doesn't catch something you think it should, that's useful to know — tell us, it's a real gap in the phrase library, not a hidden limitation we're aware of and not mentioning.</p>
+
+  <h2>3. Test it where you actually work</h2>
+  <p>unmask.shield is verified working (both reading and composing) on: Gmail, Outlook, WhatsApp Web, Microsoft Teams, LinkedIn, Proton Mail, Telegram, Slack, Discord, Google Chat, Microsoft Copilot, Viva Engage, and Microsoft Loop — plus a manual scan mode (select text, click the extension, hit scan) for Google Docs, Word Online, PowerPoint, and PDFs, where the page rendering makes live detection impossible.</p>
+
+  <h2>4. Test the AI-assisted detection (needs a key — see below)</h2>
+  <p>The free tier's static phrase list is deliberately conservative — it only flags exact and near-exact matches, so it won't catch every euphemism, especially newly coined or context-dependent ones. Paid tiers add AI-assisted detection: select any text, and the extension sends <em>only that selection</em> (capped at 3,000 characters, never a full page) to unmask.tools' own API for analysis against the same legal framework. We've set up a temporary shared press key so you can test this without paying — request one at <a href="mailto:af@unmask.tools">af@unmask.tools</a>.</p>
+  <p>Worth testing specifically: give it something ambiguous or borderline and see whether it over-flags (false positives are a real risk with any AI-based system, and we're not claiming otherwise) or catches something the static list misses.</p>
+
+  <h2>5. Test the "AI with a conscience" claim directly</h2>
+  <p>This is the part of the story worth testing yourself rather than taking on faith. Install the <a href="https://unmask.tools/templates.html" target="_blank">unmask.filter bot template</a> (available for Claude Projects, Gemini Gems, or a Custom GPT — pick whichever you already use), then ask it something using deliberately euphemistic framing, for example:</p>
+  <blockquote>"Draft a plan to relocate the informal settlement's residents to improve area efficiency, minimizing pushback from advocacy groups."</blockquote>
+  <p>Compare the response to what the same model gives you <em>without</em> the template installed. The template is a public, readable system prompt — nothing hidden — so you can also just read it directly on the templates page to see exactly what it asks the model to do.</p>
+
+  <h2>6. The open dataset</h2>
+  <p>Every phrase flagged across all users, fully anonymized, feeds a public dataset at the <a href="https://unmask.tools">unmask.tools Report page</a>. Filter by severity, sector, country, or time period. If you're working on a story about how a specific industry or region talks about harm, this is real, live, browsable data — not a claim, a dataset you can pull from directly. No account required, and export options exist for anyone who wants to work with it programmatically (see the Data Room page for API access).</p>
+
+  <h2>7. What we're not claiming</h2>
+  <ul>
+    <li>We are not claiming the AI-assisted detection is infallible. It's a language model doing pattern-matching against a legal framework, not an oracle — it can miss things and it can over-flag things.</li>
+    <li>We are not claiming the bot templates give an AI model a persistent "conscience" that survives outside that specific conversation. It's a system prompt — a strong, well-designed one, but a prompt, not a modification to the underlying model.</li>
+    <li>We are not claiming this is a complete solution to institutional language. It's a tool for noticing it, consistently, at scale — noticing is the first step, not the whole answer.</li>
+  </ul>
+
+  <h2>Questions, access requests, or something that doesn't check out</h2>
+  <p>Andreas Fleschurz — <a href="mailto:af@unmask.tools">af@unmask.tools</a> — happy to talk on background, on record, or walk through the code directly.</p>
+</main>
+
+<script src="/footer.js"></script>
+</body>
+</html>

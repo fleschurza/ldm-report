@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Press</title>
+  <link rel="canonical" href="https://unmask.tools/press/">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.75; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+
+    .kicker { color: var(--c-accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+    h1 { font-size: 26px; font-weight: 800; line-height: 1.3; margin-bottom: 14px; }
+    .subhead { color: var(--c-muted); font-size: 16px; margin-bottom: 28px; }
+    .meta { color: var(--c-muted); font-size: 12px; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--c-border); }
+
+    h2 { font-size: 18px; font-weight: 700; margin: 36px 0 12px; }
+    p { margin-bottom: 14px; }
+    a { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    blockquote { border-left: 3px solid var(--c-accent); padding-left: 16px; margin: 20px 0; color: var(--c-muted); font-style: italic; }
+
+    .quote-box { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 20px 24px; margin: 24px 0; font-size: 15px; }
+    .quote-box cite { display: block; margin-top: 10px; color: var(--c-muted); font-size: 13px; font-style: normal; }
+
+    .resource-nav { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 36px; }
+    .resource-nav h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--c-muted); margin-bottom: 10px; }
+    .resource-nav ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .resource-nav a { font-weight: 600; }
+
+    .cta { display: inline-block; background: var(--c-accent); color: #fff !important; padding: 10px 20px; border-radius: 8px; font-weight: 700; text-decoration: none; margin-top: 8px; }
+    .cta:hover { text-decoration: none; opacity: 0.9; }
+
+    footer.about { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--c-border); color: var(--c-muted); font-size: 13px; }
+  </style>
+</head>
+<body data-page="press">
+
+<script src="/nav.js"></script>
+
+<main>
+  <div class="resource-nav">
+    <h3>Press resources</h3>
+    <ul>
+      <li><a href="/press/verification-guide.html">Journalist verification guide</a> — test every claim yourself in five minutes</li>
+      <li><a href="/press/technical-faq.html">Technical FAQ</a></li>
+      <li><a href="/press/non-technical-faq.html">Non-technical FAQ</a> — motive, bias, business model</li>
+      <li><a href="/press/one-pager.html">One-pager</a> — quick reference for deadline</li>
+      <li><a href="/press/media-kit.html">Media kit</a> — logos, screenshots, downloads</li>
+    </ul>
+  </div>
+
+  <p class="kicker">For immediate release</p>
+  <h1>What If You Could See Straight Through the Language That Hides Real Harm?</h1>
+  <p class="subhead">unmask.shield is a free browser extension that reads the language on any web page — or in your emails and messages — and flags phrases that abstract, sanitise, or conceal real-world physical harm. Think of it as a real-time translator between institutional language and what that language actually means for people and the environment. Live now on the Chrome Web Store.</p>
+  <p class="meta">Vienna, Austria — 2026</p>
+
+  <p>Andreas Fleschurz doesn't write code for a living. He plays punk rock and runs his life by the same do-it-yourself instinct that's kept that scene alive for decades: if something needs to exist and nobody's building it, you learn what you need to learn and you build it yourself. Over three months this summer, alongside his day-to-day work as a consultant, that's exactly what he did — teaching himself to build a piece of software from nothing because he couldn't find one that already did what he needed.</p>
+
+  <p>The result is <a href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank">unmask.shield</a>, a free Chrome extension that reads the text on your screen — in Gmail, Slack, a news article, wherever — and flags institutional language that abstracts real physical harm behind neutral-sounding words. Click a flagged phrase and it shows you a plain-language translation, anchored to a specific article of international law: the Rome Statute, the Geneva Conventions, the Universal Declaration of Human Rights, or the Planetary Boundaries framework for ecological harm.</p>
+
+  <h2>Two articles, one summer</h2>
+
+  <p>The idea didn't start as a product. It started as a question, prompted by two pieces of reporting in the Austrian newspaper <em>Der Standard</em>.</p>
+
+  <p>The first (<a href="https://www.derstandard.at/story/3000000310746/ki-firmen-verdienen-schon-lange-an-der-kriegsfuehrung-des-pentagon-jetzt-auch-auf-befehl" target="_blank">derstandard.at, on AI firms and the Pentagon</a>) reported that Anthropic's Claude had been used during the US strike on Iran, that Anthropic has held a $200 million Department of Defense contract since summer 2025, and that the Pentagon has been pressuring AI companies for "unrestricted usage rights," treating any refusal as a "supply chain risk." Reading it, Fleschurz found himself asking an odd question: could an AI model be given something like a conscience of its own — a standing ability to simply decline certain classes of request, the way a person can? That question, worked through in conversation with Google's Gemini starting May 7, 2026, eventually became unmask.tools' bot templates — pre-built system prompts for Claude Projects, Gemini Gems, and Custom GPTs that apply the same plain-language, law-anchored lens to a chatbot's <em>own</em> output, not just to what a human reads. It's a real, testable feature today, not a philosophical claim: install the template, ask a chatbot to help plan something using euphemistic framing, and watch it push back in plain language instead.</p>
+
+  <p>The second article (<a href="https://www.derstandard.at/story/3000000327246/mit-ihrem-remigrationssong-macht-die-fpoe-deportation-zum-sommerhit" target="_blank">derstandard.at, on FPÖ-Jugend's "Remigrationssong"</a>) covered a youth-wing campaign by Austria's far-right FPÖ that turned "Remigration" — what the article itself calls <em>"ein Kampfbegriff, der nichts anderes als Massendeportationen meint"</em> ("a combat term that means nothing other than mass deportations") — into a pop song and summer merchandise. What struck Fleschurz wasn't that the coverage approved of the campaign. It plainly didn't. It was that even sharply critical reporting kept reusing the word "Remigration" as shorthand, again and again, without translating it every time — and that repetition alone does real work. A euphemism doesn't need anyone's endorsement to spread. It just needs to get repeated often enough that people stop hearing what it means.</p>
+
+  <p>That's the mechanism unmask.shield exists to interrupt.</p>
+
+  <h2>What it actually is — and isn't</h2>
+
+  <p>The first version of the idea, worked out in that May conversation with Gemini, overreached: a document describing an AI model with a persistent "logical veto" baked into its "neural kernel," able to refuse harmful requests structurally rather than as a matter of prompting. That's not something any current AI system can actually do, and it isn't what unmask.tools claims today. What shipped instead, after three months of learning to actually build things, is smaller and real: a browser extension doing static phrase-matching against a maintained library of institutional euphemisms, each one linked to a specific legal citation, running entirely on-device by default. An optional paid tier adds AI-assisted detection — using Anthropic's Claude, the same company named in the article that started this — for phrasing the static library doesn't catch, sending only the selected text (never full pages, never silently) to unmask.tools' own API.</p>
+
+  <p>The choice of Claude specifically isn't lost on its builder. Fleschurz built the entire extension using Claude Code, after an earlier attempt on a different platform went nowhere for someone with no development background. But there was a second reason, smaller and more personal: he recalls a social media clip of someone asking Claude directly how it felt being used for military targeting, and Claude answering that it was "deeply troubled" and uncomfortable with it. For a project that started as a question about whether an AI could have something like a conscience of its own, building with the same model that had, in that moment, sounded like it did, felt less like an irony to resolve and more like the point.</p>
+
+  <p>unmask.shield is free to install, with a free tier that covers static detection on every supported platform — Gmail, Outlook, Slack, Microsoft Teams, WhatsApp Web, Telegram, Discord, LinkedIn, Proton Mail, Google Chat, Microsoft Copilot, and more — plus a manual scan mode for Google Docs, Word Online, PowerPoint, and PDFs.</p>
+
+  <h2>Privacy, by design rather than by promise</h2>
+
+  <p>Three things about unmask.shield aren't marketing claims — they're checkable in the code, which is exactly the standard the project holds institutions to.</p>
+
+  <p>First: the core phrase library — the list of euphemisms and their legal translations — ships inside the extension package itself, reviewed and signed by the Chrome Web Store. It isn't fetched from a server at runtime and can't be silently changed after install; updating it means shipping a new version through the same review process every other update goes through.</p>
+
+  <p>Second: default detection runs entirely on-device. Nothing is sent anywhere unless a user explicitly opts into AI-assisted detection for phrasing the static library misses — and even then, only the selected text is sent, never a full page, capped at 3,000 characters. Privacy-conscious users can go further and point the extension at their own locally-running <a href="https://ollama.com" target="_blank">Ollama</a> instance instead of unmask.tools' API, so AI-assisted detection never leaves their machine at all.</p>
+
+  <p>Third: organisations on the Team or Enterprise tier can host their own company-specific phrase repository — internal jargon worth flagging that a public list wouldn't catch — as a JSON file at a URL they control. The extension reads it directly; unmask.tools' servers never see it.</p>
+
+  <h2>The data behind it</h2>
+
+  <p>Every phrase detected across all users, fully anonymized, feeds a public dataset at the <a href="https://unmask.tools">unmask.tools Report page</a> — filterable by severity, sector, country, and time period, with live counts of how many detections have been confirmed as real institutional use versus dismissed as figurative language. It's meant to be dug through, not just cited: which sectors lean hardest on which euphemisms, where geographically, and how the vocabulary shifts over time. Anyone can browse it, no account required.</p>
+
+  <h2>Why this, why now</h2>
+
+  <div class="quote-box">
+    "I'm not a developer. I picked up whatever I needed to learn to build this because it came from something I couldn't put down once I noticed it. People are getting talked into a kind of numbness — language that makes it easier to look past what's actually happening, and the more people repeat it, the more normal it sounds, whether they mean to endorse it or not. I've spent thirty years in a music scene built on the idea that you don't wait for someone qualified to fix a problem — you fix it yourself, with whatever you've got. This is that, just with code instead of a guitar."
+    <cite>— Andreas Fleschurz</cite>
+  </div>
+
+  <p>unmask.shield is available now, free, on the <a href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank">Chrome Web Store</a>. The free tier covers static detection; journalists who want to test the AI-assisted detection and chatbot templates can request temporary press access at <a href="mailto:af@unmask.tools">af@unmask.tools</a>.</p>
+
+  <a class="cta" href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank">Install unmask.shield →</a>
+
+  <footer class="about">
+    <p><strong>About unmask.tools</strong></p>
+    <p>unmask.tools is an independent project built and operated by Andreas Fleschurz, based in Wiener Neustadt, Austria. It provides a free browser extension, an open public dataset of detected institutional language, and AI chatbot templates, all built around one idea: naming what a euphemism is hiding is the first step to being able to do something about it.</p>
+    <p style="margin-top:16px;"><strong>Media contact:</strong><br>Andreas Fleschurz — <a href="mailto:af@unmask.tools">af@unmask.tools</a> — <a href="https://unmask.tools">unmask.tools</a></p>
+  </footer>
+</main>
+
+<script src="/footer.js"></script>
+</body>
+</html>

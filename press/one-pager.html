@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.shield — Quick Reference (Press)</title>
+  <link rel="canonical" href="https://unmask.tools/press/one-pager.html">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --c-bg:#f8fafc; --c-surface:#ffffff; --c-border:#e2e8f0; --c-text:#0f172a; --c-muted:#64748b; --c-accent:#009EDB; }
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.7; }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+    h1 { font-size: 22px; font-weight: 800; margin-bottom: 24px; }
+    .fact { margin-bottom: 18px; }
+    .fact dt { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--c-accent); margin-bottom: 4px; }
+    .fact dd { color: var(--c-text); }
+    a { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { display: inline-block; margin-bottom: 24px; font-size: 13px; }
+  </style>
+</head>
+<body data-page="press">
+
+<script src="/nav.js"></script>
+
+<main>
+  <a class="back" href="/press/index.html">← Back to press release</a>
+  <h1>unmask.shield — quick reference</h1>
+
+  <dl>
+    <div class="fact">
+      <dt>What it is</dt>
+      <dd>A free Chrome extension that flags institutional euphemisms — language that abstracts real physical harm — wherever you read or write it, and shows a plain-language translation anchored to a specific legal citation (Rome Statute, Geneva Conventions, UDHR, or the Planetary Boundaries framework).</dd>
+    </div>
+    <div class="fact">
+      <dt>Who built it</dt>
+      <dd>Andreas Fleschurz, one person, self-taught, no development background, built solo over three months (May–August 2026) alongside unrelated day-to-day work. Based in Wiener Neustadt, Austria.</dd>
+    </div>
+    <div class="fact">
+      <dt>Status</dt>
+      <dd>Live now on the <a href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank">Chrome Web Store</a>, free.</dd>
+    </div>
+    <div class="fact">
+      <dt>The core mechanic</dt>
+      <dd>Static, on-device phrase-matching by default (nothing transmitted). Optional AI-assisted detection for phrases the static list misses (only the selected text, capped at 3,000 characters, sent to unmask.tools' own API — or run entirely locally via Ollama).</dd>
+    </div>
+    <div class="fact">
+      <dt>Verified platforms</dt>
+      <dd>Gmail, Outlook, WhatsApp Web, Microsoft Teams, LinkedIn, Proton Mail, Telegram, Slack, Discord, Google Chat, Microsoft Copilot, Viva Engage, Microsoft Loop — plus manual scan for Google Docs, Word Online, PowerPoint, PDFs.</dd>
+    </div>
+    <div class="fact">
+      <dt>Business model</dt>
+      <dd>Free tier is the full static-detection feature set, permanently, no account required. Paid tiers (€15–€199/month) add AI-assisted detection and organizational features (team seats, private company phrase repository, MDM deployment). No investors, no funding round.</dd>
+    </div>
+    <div class="fact">
+      <dt>The open dataset</dt>
+      <dd>Every flagged phrase, fully anonymized, feeds a public, filterable dataset at unmask.tools' <a href="/index.html">Report page</a> — severity, sector, country, time period. Free to browse, API access available for research/commercial use.</dd>
+    </div>
+    <div class="fact">
+      <dt>The origin, in one line</dt>
+      <dd>Two pieces of <em>Der Standard</em> reporting — one on Claude's use in military targeting, one on media repeating the political euphemism "Remigration" without translating it — led to a philosophical question about whether AI could have a conscience of its own, which became a real, working tool over the following three months.</dd>
+    </div>
+    <div class="fact">
+      <dt>What it explicitly does not do</dt>
+      <dd>Block, hide, edit, or censor anything. It shows a translation and citation alongside the original text; the original stays exactly as written.</dd>
+    </div>
+    <div class="fact">
+      <dt>Press contact / press API key access</dt>
+      <dd><a href="mailto:af@unmask.tools">af@unmask.tools</a></dd>
+    </div>
+  </dl>
+</main>
+
+<script src="/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Technical FAQ (Press)</title>
+  <link rel="canonical" href="https://unmask.tools/press/technical-faq.html">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --c-bg:#f8fafc; --c-surface:#ffffff; --c-border:#e2e8f0; --c-text:#0f172a; --c-muted:#64748b; --c-accent:#009EDB; }
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.75; }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+    h1 { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
+    .subhead { color: var(--c-muted); font-size: 14px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--c-border); }
+    .qa { margin-bottom: 22px; }
+    .qa h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .qa p { color: var(--c-text); }
+    a { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { display: inline-block; margin-bottom: 24px; font-size: 13px; }
+  </style>
+</head>
+<body data-page="press">
+
+<script src="/nav.js"></script>
+
+<main>
+  <a class="back" href="/press/index.html">← Back to press release</a>
+  <h1>Technical FAQ</h1>
+  <p class="subhead">For journalists, researchers, and anyone who wants the actual mechanics rather than the pitch. Every answer here is checkable against the shipped code (the extension is not open source, but specific claims below can be verified live, in the browser Network tab, or on request).</p>
+
+  <div class="qa">
+    <h3>How does detection actually work?</h3>
+    <p>Static phrase-matching by default. The extension ships with a maintained library of institutional euphemisms (bundled inside the extension package, not fetched from a server), each phrase linked to a specific legal citation. A content script scans visible page text and compose fields against that library and highlights matches. This runs entirely on-device; nothing is transmitted for the free tier.</p>
+  </div>
+
+  <div class="qa">
+    <h3>What does the paid "AI-assisted detection" actually send, and where?</h3>
+    <p>Only the text a user explicitly selects, capped at 3,000 characters — never a full page, never passively, only on an explicit action. It's sent to unmask.tools' own Supabase Edge Function, which forwards it to Anthropic's Claude API for analysis, then returns the result. Anthropic's standard 30-day data retention applies to that request (not zero-retention — we asked, and were told ZDR isn't available at our account tier; our privacy policy states this plainly).</p>
+  </div>
+
+  <div class="qa">
+    <h3>Can I use it without sending anything to any company's servers at all?</h3>
+    <p>Yes. The extension supports pointing AI-assisted detection at a locally-running <a href="https://ollama.com" target="_blank">Ollama</a> instance instead of unmask.tools' API. In that configuration, nothing leaves the user's machine, including for the AI-assisted path.</p>
+  </div>
+
+  <div class="qa">
+    <h3>What permissions does the extension request, and why?</h3>
+    <p><code>activeTab</code> (scan the page you're currently viewing, only on explicit invocation), <code>storage</code> (save settings, API key, and phrase libraries locally), <code>clipboardRead</code>/<code>clipboardWrite</code> (for scanning documents Chrome can't read from the DOM — Google Docs, PDFs — via explicit copy-and-scan, and for copying flagged phrases on click), <code>host_permissions: &lt;all_urls&gt;</code> (because institutional language shows up on domains that can't be enumerated in advance — internal company tools, any news site, any email provider). Full justification text, written against the actual code, is public in the Chrome Web Store listing's Privacy Practices section.</p>
+  </div>
+
+  <div class="qa">
+    <h3>Can the phrase library be silently changed or expanded without users knowing?</h3>
+    <p>No. It ships inside the reviewed, signed extension package. Updating it means shipping a new version through Chrome Web Store review, the same process any other update goes through — there's no server-side toggle that changes what gets flagged without a visible version bump.</p>
+  </div>
+
+  <div class="qa">
+    <h3>What's the "bot template" / "give a chatbot a conscience" feature, mechanically?</h3>
+    <p>A system prompt — nothing more exotic than that. Pre-built templates for Claude Projects, Gemini Gems, and Custom GPTs instruct the underlying model to apply the same plain-language, legally-anchored framework to its own responses. It's not a modification to model weights and it doesn't persist outside that conversation context — it's a well-designed prompt, publicly readable on the <a href="/templates.html">templates page</a>, not a hidden mechanism.</p>
+  </div>
+
+  <div class="qa">
+    <h3>Which platforms is this verified to work on?</h3>
+    <p>Read and compose, tested: Gmail, Outlook (all variants), WhatsApp Web, Microsoft Teams, LinkedIn, Proton Mail, Telegram, Slack, Discord, Google Chat, Microsoft Copilot, Viva Engage, Microsoft Loop. Manual scan mode (select text, click extension, scan): Google Docs, Word Online, PowerPoint, PDFs — these render to canvas or cross-origin frames that a content script can't read live. Not supported: Google Meet chat (not in the DOM), Google Drive previews (canvas rendering).</p>
+  </div>
+
+  <div class="qa">
+    <h3>Where does the open dataset come from, and what's actually in it?</h3>
+    <p>Every phrase flagged, across all users, gets logged fully anonymized (no email, no API key, no identifying data) if the user has global data sharing enabled (opt-in, off by default). That feeds a public dataset — phrase, severity, sector, domain, country, confirmation count — browsable at unmask.tools' <a href="/index.html">Report page</a>, exportable via a public API for research/commercial licensing.</p>
+  </div>
+
+  <div class="qa">
+    <h3>Is this open source?</h3>
+    <p>Not currently. Happy to discuss what verification is possible short of that — code walkthroughs, specific claim verification — on request.</p>
+  </div>
+
+  <p>Questions not covered here: <a href="mailto:af@unmask.tools">af@unmask.tools</a></p>
+</main>
+
+<script src="/footer.js"></script>
+</body>
+</html>
