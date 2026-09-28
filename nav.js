@@ -15,6 +15,7 @@
   var S_INACTIVE = 'color:#94a3b8;font-size:12px;font-weight:500;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid transparent;';
   var S_ACTIVE   = 'color:#fff;font-size:12px;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:6px;background:rgba(0,158,219,0.25);border:1px solid #009EDB;';
   var S_TRY      = 'color:#009EDB;font-size:12px;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid rgba(0,158,219,0.4);';
+  var S_INSTALL  = 'color:#fff;font-size:12px;font-weight:700;text-decoration:none;padding:5px 14px;border-radius:6px;background:#009EDB;';
 
   var navLinks = PAGES.map(function (p) {
     var s = p.id === PAGE ? S_ACTIVE : S_INACTIVE;
@@ -56,6 +57,7 @@
     subtitleHtml +
     '<nav style="margin-top:14px;display:flex;gap:4px;flex-wrap:wrap;">' +
     navLinks +
+    '<a href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank" rel="noopener" style="' + S_INSTALL + '">Add to Chrome</a>' +
     '<a href="/register.html" style="' + tryStyle + '">Try for free</a>' +
     '<a href="/feed.xml" style="color:#f97316;font-size:12px;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:6px;border:1px solid rgba(249,115,22,0.4);display:flex;align-items:center;gap:5px;" title="Subscribe to RSS feed">' +
     '<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>' +

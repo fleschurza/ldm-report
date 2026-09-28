@@ -3,12 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>unmask.tools — Language Detection Intelligence Report</title>
+  <title>unmask.shield — Free Chrome Extension That Flags Institutional Euphemisms</title>
+  <meta name="description" content="unmask.shield is a free Chrome extension that flags institutional euphemisms — language that abstracts real physical harm — wherever you read or write it, and shows a plain-language translation anchored to the Rome Statute, the Geneva Conventions, and the UDHR. Static detection runs entirely on-device; no account required.">
   <link rel="canonical" href="https://unmask.tools/">
   <link rel="alternate" type="application/rss+xml" title="unmask.tools — Institutional Double-Speak Wire" href="/feed.xml">
   <link rel="preconnect" href="https://ghoriibggfxahkkvvkpi.supabase.co">
   <link rel="preconnect" href="https://api.unmask.tools">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://unmask.tools/">
+  <meta property="og:site_name" content="unmask.tools">
+  <meta property="og:title" content="unmask.shield — Free Chrome Extension That Flags Institutional Euphemisms">
+  <meta property="og:description" content="Reads the language on any web page — or in your emails and messages — and flags phrases that abstract, sanitise, or conceal real-world physical harm. A real-time translator between institutional language and what it actually means for people and the environment.">
+  <meta property="og:image" content="https://unmask.tools/press/assets/unmask-promo-tile-large.png">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="560">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="unmask.shield — Free Chrome Extension That Flags Institutional Euphemisms">
+  <meta name="twitter:description" content="Reads the language on any web page and flags phrases that abstract or conceal real-world physical harm, with a plain-language translation anchored to international law.">
+  <meta name="twitter:image" content="https://unmask.tools/press/assets/unmask-promo-tile-large.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "unmask.shield",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "url": "https://unmask.tools/",
+    "description": "A free Chrome extension that flags institutional euphemisms — language that abstracts real physical harm — wherever you read or write it, and shows a plain-language translation anchored to a specific legal citation (Rome Statute, Geneva Conventions, UDHR).",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "downloadUrl": "https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo",
+    "author": {
+      "@type": "Person",
+      "name": "Andreas Fleschurz"
+    }
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -25,6 +62,21 @@
     }
 
     body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+
+    /* Static hero — real server-rendered content, not populated by JS, so search
+       engines and AI crawlers (most of which don't execute JavaScript) see what
+       this product actually is, not just an empty dashboard shell. */
+    .hero { background: #1a1a4e; padding: 36px 40px 32px; }
+    .hero-inner { max-width: 760px; }
+    .hero h1 { color: #ffffff; font-size: 26px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; }
+    .hero p { color: #cbd5e1; font-size: 15px; line-height: 1.6; margin-bottom: 20px; max-width: 640px; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .hero-cta { background: var(--c-accent); color: #fff; font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block; }
+    .hero-cta:hover { background: #0077a8; }
+    .hero-cta-secondary { color: #cbd5e1; font-size: 13px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.25); padding: 9px 18px; border-radius: 8px; }
+    .hero-cta-secondary:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .hero-scroll-note { color: #64748b; font-size: 11px; margin-top: 22px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    @media (max-width: 640px) { .hero { padding: 28px 16px 24px; } .hero h1 { font-size: 21px; } }
 
     .header-meta { background: #1a1a4e; display: flex; gap: 28px; margin-top: 0; padding: 0 40px 20px; flex-wrap: wrap; }
     .header-stat .val { font-size: 26px; font-weight: 800; color: #f1f5f9; letter-spacing: -0.03em; }
@@ -175,6 +227,20 @@
 <body data-page="report" data-subtitle="Community-confirmed euphemisms that abstract physical harm to people — anchored in international humanitarian law, the Rome Statute, and Planetary Boundaries science.">
 
 <script src="/nav.js"></script>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>unmask.shield flags institutional language that hides real harm</h1>
+    <p>A free Chrome extension that reads the language on any web page — or in your emails and messages — and flags phrases that abstract, sanitise, or conceal real-world physical harm. Click a flagged phrase for a plain-language translation anchored to a specific legal citation: the Rome Statute, the Geneva Conventions, or the Universal Declaration of Human Rights. Static detection runs entirely on-device, free, with no account required.</p>
+    <div class="hero-ctas">
+      <a class="hero-cta" href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank" rel="noopener">Add to Chrome — Free</a>
+      <a class="hero-cta-secondary" href="/docs.html">How it works →</a>
+    </div>
+  </div>
+</section>
+
+<div class="hero-scroll-note" style="padding:0 40px;">↓ Below: the live, public dataset every install can optionally contribute to</div>
+
 <div class="header-meta">
     <div class="header-stat"><div class="val" id="hDetected">—</div><div class="lbl">Detected</div></div>
     <div class="header-stat"><div class="val" id="hConfirmed" style="color:#86efac;">—</div><div class="lbl">Real use</div></div>
