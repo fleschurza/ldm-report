@@ -22,7 +22,7 @@
 
 ## Data and transparency
 
-- [Report page](https://unmask.tools/): the live, public dataset — every phrase flagged across all users who opt in, fully anonymized, filterable by severity, sector, country, and time period.
+- [Report page](https://unmask.tools/report.html): the live, public dataset — every phrase flagged across all users who opt in, fully anonymized, filterable by severity, sector, country, and time period.
 - [Data Room](https://unmask.tools/dataroom.html): dataset licensing for research/commercial use, sample export.
 - [Privacy policy](https://unmask.tools/privacy.html)
 - [Terms of service](https://unmask.tools/terms.html)
