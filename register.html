@@ -103,15 +103,16 @@
 
     <!-- Form state -->
     <div id="form-state">
-      <div class="card-title">Get your free key</div>
-      <div class="card-sub">Personal tier — 50 AI-assisted detections per day, free forever. Your key is delivered instantly by email.</div>
+      <div class="banner" id="ref-banner" style="display:none;margin-bottom:18px;padding:12px 14px;border-radius:8px;font-size:12px;line-height:1.5;"></div>
+      <div class="card-title">Catch what the static list misses</div>
+      <div class="card-sub">unmask.shield is already flagging euphemisms for you — that's the free, permanent static tier, and it needs nothing from you. A free key adds AI-assisted detection on top: it reads the phrasing the static library doesn't recognise yet, so nothing slips through just because it's new or oddly worded. Delivered instantly by email, no card required.</div>
 
       <div class="perks">
         <ul>
-          <li>Static phrase detection — unlimited</li>
-          <li>AI detection — 50 scans / day</li>
+          <li>AI-assisted detection — 50 scans / day, catches what static matching misses</li>
+          <li>Static phrase detection — unlimited, already running whether you register or not</li>
           <li>Works in Chrome (Firefox coming soon)</li>
-          <li>No credit card required</li>
+          <li>No credit card, cancel anytime — it's free</li>
         </ul>
       </div>
 
@@ -144,6 +145,26 @@
 </main>
 
 <script>
+  // First-run / post-update prompt from the extension lands here with a ref
+  // param — a small contextual banner, not a separate page to maintain.
+  (function () {
+    var ref = new URLSearchParams(location.search).get('ref');
+    var banner = document.getElementById('ref-banner');
+    if (ref === 'install') {
+      banner.style.display = 'block';
+      banner.style.background = '#f0f9ff';
+      banner.style.border = '1px solid #bae6fd';
+      banner.style.color = '#0369a1';
+      banner.innerHTML = '👋 <strong>unmask.shield is installed and already working</strong> — the static detection below is the full free tier, running now, no account needed. This form is only for the optional AI-assisted layer.';
+    } else if (ref === 'update') {
+      banner.style.display = 'block';
+      banner.style.background = '#f0f9ff';
+      banner.style.border = '1px solid #bae6fd';
+      banner.style.color = '#0369a1';
+      banner.innerHTML = '🎉 <strong>unmask.shield just updated</strong> — the popup now shows your remaining AI scans at a glance. If you haven\'t already, a free key unlocks that layer.';
+    }
+  })();
+
   document.getElementById('register-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn      = document.getElementById('submit-btn');
