@@ -20,8 +20,22 @@
 
     body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
 
-    main { max-width: 480px; margin: 60px auto; padding: 0 20px 80px; }
+    main { max-width: 640px; margin: 0 auto; padding: 40px 20px 80px; }
 
+    /* ── Header / intro ── */
+    .kicker { color: var(--c-accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+    h1 { font-size: 24px; font-weight: 800; line-height: 1.3; margin-bottom: 14px; }
+    .intro { color: var(--c-muted); font-size: 14px; line-height: 1.65; margin-bottom: 32px; max-width: 560px; }
+
+    /* ── Numbered steps ── */
+    .steps { margin-bottom: 36px; }
+    .step { display: flex; gap: 14px; margin-bottom: 18px; align-items: flex-start; }
+    .step-num { background: var(--c-accent); color: #fff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-body strong { display: block; margin-bottom: 2px; font-size: 13.5px; }
+    .step-body span { color: var(--c-muted); font-size: 12.5px; line-height: 1.55; }
+    .step-body code { background: var(--c-bg); border: 1px solid var(--c-border); border-radius: 4px; padding: 1px 5px; font-size: 11.5px; color: var(--c-text); }
+
+    /* ── Card (the actual form) ── */
     .card {
       background: var(--c-surface);
       border: 1px solid var(--c-border);
@@ -29,8 +43,8 @@
       padding: 32px;
     }
 
-    .card-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
-    .card-sub { color: var(--c-muted); font-size: 13px; margin-bottom: 28px; line-height: 1.6; }
+    .card-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+    .card-sub { color: var(--c-muted); font-size: 12.5px; margin-bottom: 22px; line-height: 1.6; }
 
     .form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
     .form-row label { font-size: 12px; font-weight: 600; color: var(--c-text); }
@@ -83,13 +97,17 @@
     .error-msg { color: #dc2626; font-size: 12px; margin-top: 10px; display: none; }
 
     /* What you get */
-    .perks { margin: 24px 0 28px; padding: 16px; background: #f0f9ff; border-radius: 8px; border: 1px solid #bae6fd; }
+    .perks { margin: 20px 0 4px; padding: 14px 16px; background: #f0f9ff; border-radius: 8px; border: 1px solid #bae6fd; }
     .perks ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
     .perks li { font-size: 12px; color: #0369a1; }
     .perks li::before { content: '✓ '; font-weight: 700; }
 
+    .dataset-note { color: var(--c-muted); font-size: 12.5px; margin-top: 28px; line-height: 1.6; }
+    .dataset-note a { color: var(--c-accent); }
+
     @media (max-width: 520px) {
-      main { margin-top: 32px; }
+      main { padding-top: 28px; }
+      h1 { font-size: 20px; }
       .card { padding: 24px; }
     }
   </style>
@@ -99,22 +117,31 @@
 <script src="/nav.js"></script>
 
 <main>
+  <p class="kicker" id="kicker">Free, forever</p>
+  <h1 id="headline">Get your free key</h1>
+  <p class="intro" id="intro">unmask.shield is already flagging institutional euphemisms for you — that's the free, permanent static tier, and it runs with no account at all. This key is only for the optional layer on top: AI-assisted detection for the phrasing the static list doesn't recognise yet.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><strong>Try the free tier right now, no key needed</strong><span>Open Gmail or any text field and paste: <code>Kinetic operations resulted in acceptable collateral effects.</code> Click the underlined phrases for the plain-language translation and legal citation.</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><strong>The static list won't catch everything</strong><span>It's a maintained phrase library, not AI — new or context-dependent euphemisms can slip through unrecognised.</span></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><strong>A free key adds AI-assisted detection</strong><span>Reads the phrasing the static library misses. Only your selected text is ever sent, capped at 3,000 characters — or skip our servers entirely and run it locally via Ollama.</span></div>
+    </div>
+  </div>
+
   <div class="card">
 
     <!-- Form state -->
     <div id="form-state">
-      <div class="banner" id="ref-banner" style="display:none;margin-bottom:18px;padding:12px 14px;border-radius:8px;font-size:12px;line-height:1.5;"></div>
-      <div class="card-title">Catch what the static list misses</div>
-      <div class="card-sub">unmask.shield is already flagging euphemisms for you — that's the free, permanent static tier, and it needs nothing from you. A free key adds AI-assisted detection on top: it reads the phrasing the static library doesn't recognise yet, so nothing slips through just because it's new or oddly worded. Delivered instantly by email, no card required.</div>
-
-      <div class="perks">
-        <ul>
-          <li>AI-assisted detection — 50 scans / day, catches what static matching misses</li>
-          <li>Static phrase detection — unlimited, already running whether you register or not</li>
-          <li>Works in Chrome (Firefox coming soon)</li>
-          <li>No credit card, cancel anytime — it's free</li>
-        </ul>
-      </div>
+      <div class="card-title">Get your free key</div>
+      <div class="card-sub">50 AI-assisted detections a day, free forever. Delivered instantly by email, no card required.</div>
 
       <form id="register-form">
         <div class="form-row">
@@ -129,6 +156,16 @@
         <div class="error-msg" id="error-msg"></div>
         <p class="form-note">No spam. Key + occasional product updates only. Unsubscribe any time.</p>
       </form>
+
+      <div class="perks">
+        <ul>
+          <li>AI-assisted detection — 50 scans / day, catches what static matching misses</li>
+          <li>Static phrase detection — unlimited, already running whether you register or not</li>
+          <li>Works in Chrome (Firefox coming soon)</li>
+          <li>No credit card, cancel anytime — it's free</li>
+        </ul>
+      </div>
+
       <p style="font-size:12px;color:var(--c-muted);text-align:center;margin-top:16px;">Already have a key? <a href="account.html" style="color:var(--c-accent);text-decoration:none;">Sign in to your account →</a></p>
     </div>
 
@@ -142,26 +179,26 @@
     </div>
 
   </div>
+
+  <p class="dataset-note">Every phrase you optionally choose to share (off by default) feeds a public, anonymised dataset that journalists and researchers use to track institutional language — see the <a href="/index.html">Report page</a>.</p>
 </main>
 
 <script>
   // First-run / post-update prompt from the extension lands here with a ref
-  // param — a small contextual banner, not a separate page to maintain.
+  // param — adjusts the header framing in place rather than a separate page.
   (function () {
     var ref = new URLSearchParams(location.search).get('ref');
-    var banner = document.getElementById('ref-banner');
+    var kicker = document.getElementById('kicker');
+    var headline = document.getElementById('headline');
+    var intro = document.getElementById('intro');
     if (ref === 'install') {
-      banner.style.display = 'block';
-      banner.style.background = '#f0f9ff';
-      banner.style.border = '1px solid #bae6fd';
-      banner.style.color = '#0369a1';
-      banner.innerHTML = '👋 <strong>unmask.shield is installed and already working</strong> — the static detection below is the full free tier, running now, no account needed. This form is only for the optional AI-assisted layer.';
+      kicker.textContent = "You're all set";
+      headline.textContent = 'unmask.shield is already working — this step is optional';
+      intro.textContent = 'The static detection you just got is the full free tier, not a trial: it runs entirely on-device and needs nothing from you. Everything below explains what it does now, and what a free key adds on top if you want it.';
     } else if (ref === 'update') {
-      banner.style.display = 'block';
-      banner.style.background = '#f0f9ff';
-      banner.style.border = '1px solid #bae6fd';
-      banner.style.color = '#0369a1';
-      banner.innerHTML = '🎉 <strong>unmask.shield just updated</strong> — the popup now shows your remaining AI scans at a glance. If you haven\'t already, a free key unlocks that layer.';
+      kicker.textContent = "What's new";
+      headline.textContent = 'A quick note — unmask.shield just got a couple of upgrades';
+      intro.textContent = 'The popup now shows your remaining AI scans at a glance, and a couple of other small improvements. If you haven\'t already, a free key unlocks the AI-assisted layer described below.';
     }
   })();
 
