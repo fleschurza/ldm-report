@@ -46,12 +46,12 @@
 
   <div class="qa">
     <h3>What permissions does the extension request, and why?</h3>
-    <p><code>activeTab</code> (scan the page you're currently viewing, only on explicit invocation), <code>storage</code> (save settings, API key, and phrase libraries locally), <code>clipboardRead</code>/<code>clipboardWrite</code> (for scanning documents Chrome can't read from the DOM — Google Docs, PDFs — via explicit copy-and-scan, and for copying flagged phrases on click), <code>host_permissions: &lt;all_urls&gt;</code> (because institutional language shows up on domains that can't be enumerated in advance — internal company tools, any news site, any email provider). Full justification text, written against the actual code, is public in the Chrome Web Store listing's Privacy Practices section.</p>
+    <p><code>activeTab</code> (scan the page you're currently viewing, only on explicit invocation), <code>storage</code> (save settings, API key, and phrase libraries locally), <code>clipboardRead</code>/<code>clipboardWrite</code> (for scanning documents Chrome can't read from the DOM — Google Docs, PDFs — via explicit copy-and-scan, and for copying flagged phrases on click), <code>host_permissions: &lt;all_urls&gt;</code> (because institutional language shows up on domains that can't be enumerated in advance — internal company tools, any news site, any email provider). Full justification text, written against the actual code, is public in the Chrome Web Store and Microsoft Edge Add-ons listings' Privacy Practices sections.</p>
   </div>
 
   <div class="qa">
     <h3>Can the phrase library be silently changed or expanded without users knowing?</h3>
-    <p>No. It ships inside the reviewed, signed extension package. Updating it means shipping a new version through Chrome Web Store review, the same process any other update goes through — there's no server-side toggle that changes what gets flagged without a visible version bump.</p>
+    <p>No. It ships inside the reviewed, signed extension package. Updating it means shipping a new version through Chrome Web Store (and Microsoft Edge Add-ons) review, the same process any other update goes through — there's no server-side toggle that changes what gets flagged without a visible version bump.</p>
   </div>
 
   <div class="qa">
