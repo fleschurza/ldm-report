@@ -93,7 +93,7 @@
 
   <p>Three things about unmask.shield aren't marketing claims — they're checkable in the code, which is exactly the standard the project holds institutions to.</p>
 
-  <p>First: the core phrase library — the list of euphemisms and their legal translations — ships inside the extension package itself, reviewed and signed by the Chrome Web Store. It isn't fetched from a server at runtime and can't be silently changed after install; updating it means shipping a new version through the same review process every other update goes through.</p>
+  <p>First: the core phrase library — the list of euphemisms and their legal translations — ships inside the extension package itself, reviewed and signed by the Chrome Web Store and Microsoft Edge Add-ons. It isn't fetched from a server at runtime and can't be silently changed after install; updating it means shipping a new version through the same review process every other update goes through.</p>
 
   <p>Second: default detection runs entirely on-device. Nothing is sent anywhere unless a user explicitly opts into AI-assisted detection for phrasing the static library misses — and even then, only the selected text is sent, never a full page, capped at 3,000 characters. Privacy-conscious users can go further and point the extension at their own locally-running <a href="https://ollama.com" target="_blank">Ollama</a> instance instead of unmask.tools' API, so AI-assisted detection never leaves their machine at all.</p>
 

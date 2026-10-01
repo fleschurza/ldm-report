@@ -1,6 +1,6 @@
 # unmask.tools
 
-> unmask.shield is a free Chrome extension that flags institutional euphemisms —
+> unmask.shield is a free browser extension (Chrome, Microsoft Edge) that flags institutional euphemisms —
 > language that abstracts real physical harm — wherever a user reads or writes it, and
 > shows a plain-language translation anchored to a specific legal citation (Rome
 > Statute, Geneva Conventions, Universal Declaration of Human Rights, or the Planetary
@@ -15,6 +15,7 @@
 ## Product
 
 - [Chrome Web Store listing](https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo): install unmask.shield, free.
+- [Microsoft Edge Add-ons listing](https://microsoftedge.microsoft.com/addons/detail/unmaskshield/mlcikbjjdpgfmgjmhojkhabndfkomjmn): install unmask.shield, free.
 - [Pricing](https://unmask.tools/pricing.html): free tier (static detection, every supported platform, permanent) plus paid tiers (Pro/Team/Enterprise) adding AI-assisted detection, team seats, a private company phrase repository, and MDM deployment.
 - [Platform coverage](https://unmask.tools/tools.html): verified working on Gmail, Outlook, Slack, Microsoft Teams, WhatsApp Web, Telegram, Discord, LinkedIn, Proton Mail, Google Chat, Microsoft Copilot, Viva Engage, Microsoft Loop, plus manual scan mode for Google Docs, Word Online, PowerPoint, and PDFs.
 - [FAQ / docs](https://unmask.tools/docs.html): how detection works, data handling, platform-by-platform notes.
