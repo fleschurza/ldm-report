@@ -36,8 +36,9 @@
   document.write(
     '<style>' +
     '#site-nav{background:#1a1a4e;color:#f1f5f9;padding:28px 40px 24px;border-bottom:3px solid #009EDB;}' +
-    '@media(max-width:640px){#site-nav{padding:18px 16px 16px;}#site-nav h1{font-size:16px !important;}#site-nav svg.logo{width:32px !important;height:32px !important;}#site-nav .acct-label{display:none;}}' +
+    '@media(max-width:640px){#site-nav{padding:18px 16px 16px;}#site-nav h1{font-size:16px !important;}#site-nav svg.logo{width:32px !important;height:32px !important;}#site-nav .acct-label{display:none;}#site-nav .install-links{display:none !important;}}' +
     '#site-nav a.acct:hover{color:#fff !important;border-color:rgba(148,163,184,0.4) !important;}' +
+    '#site-nav .install-links a:hover{color:#fff !important;}' +
     '</style>' +
     '<header id="site-nav">' +
     '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">' +
@@ -48,10 +49,17 @@
     '</svg>' +
     '<h1 style="font-size:20px;font-weight:700;letter-spacing:-0.02em;">unmask<span style="color:#009EDB;font-weight:400;">.tools</span> &middot; Language Detection Intelligence</h1>' +
     '</div>' +
+    '<div style="display:flex;align-items:center;gap:14px;">' +
+    '<div class="install-links" style="display:flex;align-items:center;gap:10px;">' +
+    '<a href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank" rel="noopener" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:6px;border:1px solid transparent;transition:color 0.15s;">Chrome ↗</a>' +
+    '<a href="https://microsoftedge.microsoft.com/addons/detail/unmaskshield/mlcikbjjdpgfmgjmhojkhabndfkomjmn" target="_blank" rel="noopener" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:6px;border:1px solid transparent;transition:color 0.15s;">Edge ↗</a>' +
+    '<span style="width:1px;height:16px;background:rgba(148,163,184,0.25);"></span>' +
+    '</div>' +
     '<a href="/account.html" class="acct" style="' + S_ACCOUNT_FINAL + '">' +
     '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>' +
     '<span class="acct-label">My Account</span>' +
     '</a>' +
+    '</div>' +
     '</div>' +
     subtitleHtml +
     '<nav style="margin-top:14px;display:flex;gap:4px;flex-wrap:wrap;">' +
