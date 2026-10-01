@@ -51,8 +51,8 @@
     '</div>' +
     '<div style="display:flex;align-items:center;gap:14px;">' +
     '<div class="install-links" style="display:flex;align-items:center;gap:10px;">' +
-    '<a href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank" rel="noopener" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:6px;border:1px solid transparent;transition:color 0.15s;">Chrome ↗</a>' +
-    '<a href="https://microsoftedge.microsoft.com/addons/detail/unmaskshield/mlcikbjjdpgfmgjmhojkhabndfkomjmn" target="_blank" rel="noopener" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:6px;border:1px solid transparent;transition:color 0.15s;">Edge ↗</a>' +
+    '<a href="https://chromewebstore.google.com/detail/unmaskshield/fkhloolmcnkjhaiolbckmnjockmlecpo" target="_blank" rel="noopener" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:6px;border:1px solid transparent;transition:color 0.15s;">Add to Chrome ↗</a>' +
+    '<a href="https://microsoftedge.microsoft.com/addons/detail/unmaskshield/mlcikbjjdpgfmgjmhojkhabndfkomjmn" target="_blank" rel="noopener" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:6px;border:1px solid transparent;transition:color 0.15s;">Add to Edge ↗</a>' +
     '<span style="width:1px;height:16px;background:rgba(148,163,184,0.25);"></span>' +
     '</div>' +
     '<a href="/account.html" class="acct" style="' + S_ACCOUNT_FINAL + '">' +
