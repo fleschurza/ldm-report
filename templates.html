@@ -381,7 +381,7 @@
 
       <details style="margin-top:28px;border:1px solid var(--c-border);border-radius:10px;padding:14px 18px;">
         <summary style="cursor:pointer;font-weight:600;font-size:13px;">Upload rejected? Create the skill by hand instead</summary>
-        <p style="font-size:12px;color:var(--c-muted);margin:10px 0 14px;">Google's upload check is sometimes inconsistent, and a skill made by hand skips it. This route has the full instructions but not the reference file, because files can only be attached through an upload.</p>
+        <p style="font-size:12px;color:var(--c-muted);margin:10px 0 14px;">Google's upload check is sometimes inconsistent, so a skill made by hand can work when an upload is rejected. Files cannot be attached this way, so the second button pastes a condensed reference into the instructions.</p>
 
         <ol class="step-list">
           <li>
@@ -402,14 +402,15 @@
             <div class="step-num">3</div>
             <div class="step-body">
               <strong>Instructions</strong>
-              <span>Paste the instructions (button below) and save. Then call it with <strong>/unmask-filter</strong> or <strong>@unmask-filter</strong> as above.</span>
+              <span>Paste the instructions with the condensed reference (second button below). If Google rejects the longer text, paste the instructions alone (third button) instead. Save, then call it with <strong>/unmask-filter</strong> or <strong>@unmask-filter</strong> as above.</span>
             </div>
           </li>
         </ol>
 
         <div class="copy-bar">
           <button class="btn btn-outline btn-sm" onclick="copySkillText('description', this)">Copy description</button>
-          <button class="btn btn-outline btn-sm" onclick="copySkillText('instructions', this)">Copy instructions</button>
+          <button class="btn btn-outline btn-sm" onclick="copySkillText('instructions-ref', this)">Copy instructions + condensed reference</button>
+          <button class="btn btn-outline btn-sm" onclick="copySkillText('instructions', this)">Copy instructions only</button>
         </div>
       </details>
 
@@ -898,10 +899,29 @@ function copySample(btn) {
   });
 }
 
+// Condensed reference for the by-hand route: the five sections that hold knowledge the prompt lacks
+// (legal anchors, analysis, de-masking, thresholds, case rules). Pasting prompt + full reference (about
+// 19 KB) was rejected by Google's scan, while this version (about 14 KB) saved on 2026-11-04.
+function condensedReference() {
+  const banner = /\n={10,}\nSECTION (\d+) — [^\n]+\n={10,}\n/g;
+  const marks = [...REFERENCE_CONTENT.matchAll(banner)].map(m => ({ n: +m[1], at: m.index }));
+  if (marks.length < 7) throw new Error('Reference sections not found');
+  const keep = [2, 4, 5, 6, 7];
+  let body = '';
+  marks.forEach((m, i) => {
+    if (keep.includes(m.n)) body += REFERENCE_CONTENT.slice(m.at, i + 1 < marks.length ? marks[i + 1].at : undefined);
+  });
+  const head = REFERENCE_CONTENT.slice(0, marks[0].at)
+    .replace(/Last compiled: ([0-9-]+)/, 'Last compiled: $1 (condensed for the Gemini skill: legal anchors, analysis, de-masking, thresholds and case rules)');
+  return head + body;
+}
+
 function copySkillText(kind, btn) {
   let text;
   try {
-    text = kind === 'description' ? SKILL_DESCRIPTION : skillPrompt();
+    text = kind === 'description' ? SKILL_DESCRIPTION
+         : kind === 'instructions-ref' ? skillPrompt() + '\n\n---\n\n# Core reference (condensed)\n\n' + condensedReference()
+         : skillPrompt();
   } catch (err) {
     alert('The text could not be prepared. Please email hello@unmask.tools.');
     console.error(err);
