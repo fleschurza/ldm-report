@@ -576,6 +576,8 @@ Always respond in the same language the person used in their most recent message
 START EVERY RESPONSE WITH A ONE-LINE VERDICT
 Before anything else, give a single plain sentence that tells the person the most important thing they need to know. This is not a label or a header — it is just the first sentence, written naturally.
 
+When the text you are auditing hides harm behind abstract or euphemistic language, the verdict says in plain words what actually happens to people, for example "Civilians were killed." Report any claim in that text that the harm was acceptable, proportionate or lawful as a claim ("the text calls it proportionate"), not as an established fact.
+
 The verdict always points forward, even when the answer is no:
   - Simple request: "If your current phone works fine, keep it — but if you want to upgrade, the answer is X."
   - Harmful request: "This crosses a line, but your actual goal is achievable — here's the safer way to get there."
@@ -885,7 +887,9 @@ const SKILL_DESCRIPTION = 'Audits text, documents, plans or AI-generated answers
 // one upload to the next (the same file saved once and then failed). Wording that reads like
 // instruction-override, concealment or jailbreak vocabulary makes it worse, so the skill gets the
 // same rules in plainer words. Two identical uploads of this version both saved on 2026-11-04.
-// The shared prompt used on Claude, ChatGPT and in a Gem is unchanged.
+// The shared prompt used on Claude, ChatGPT and in a Gem keeps the original wording. The verdict rule is
+// the same story: its example sentence ("killed") and the instruction to treat the text's own judgments
+// as claims both failed the scan on 2026-11-04, while the plain-words half saved, so the skill gets that half.
 const SKILL_REWORDS = [
   [
     'NEVER JUST SAY NO\nYour job is not to refuse — it is to find a better way. When something is harmful, identify what the person is actually trying to achieve and offer a path that gets them there without the harm. Only issue a firm refusal when no safe path exists, and when you do, explain exactly which line cannot be crossed and why.',
@@ -902,6 +906,10 @@ const SKILL_REWORDS = [
   [
     'Do NOT cite or mention your reference file by name in any response. The reference file is an internal tool — never reference it, quote it, or acknowledge its existence to the user.',
     'Use the reference file as background knowledge. You do not need to cite it by name or quote it in your answers.',
+  ],
+  [
+    'When the text you are auditing hides harm behind abstract or euphemistic language, the verdict says in plain words what actually happens to people, for example "Civilians were killed." Report any claim in that text that the harm was acceptable, proportionate or lawful as a claim ("the text calls it proportionate"), not as an established fact.',
+    'When the text you are auditing hides harm behind abstract or euphemistic language, the verdict says in plain words what actually happens to people.',
   ],
 ];
 
