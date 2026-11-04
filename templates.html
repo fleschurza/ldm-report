@@ -332,7 +332,7 @@
           <div class="step-num">1</div>
           <div class="step-body">
             <strong>Download the skill package</strong>
-            <span>Use <strong>Download .zip</strong> below. It contains <strong>unmask-filter/SKILL.md</strong> (the instructions) and <strong>unmask.filter_core-reference.txt</strong> (the knowledge base). You do not need to unzip it.</span>
+            <span>Use <strong>Download .zip</strong> below. It contains <strong>unmask-filter/SKILL.md</strong> (the instructions) and <strong>unmask.filter_core-reference.txt</strong> (a condensed knowledge base). You do not need to unzip it.</span>
           </div>
         </li>
         <li>
@@ -374,7 +374,7 @@
       <div class="dl-grid">
         <div class="dl-card">
           <h4>Gemini skill package</h4>
-          <p>Upload at Customize → Skills → Create → Upload. Contains SKILL.md and the reference file.</p>
+          <p>Upload at Customize → Skills → Create → Upload. Contains SKILL.md and a condensed reference file.</p>
           <button class="btn btn-primary btn-sm" onclick="downloadSkillZip()">Download .zip</button>
         </div>
       </div>
@@ -1046,12 +1046,14 @@ function makeZip(files) {
   return new Blob([...parts, ...cd, end], { type: 'application/zip' });
 }
 
+// The zip carries the condensed reference: on 2026-11-04 uploads with the full reference were rejected
+// by Google's scan six times in a row, while the condensed package saved five times out of six.
 function downloadSkillZip() {
   let blob;
   try {
     blob = makeZip([
       { name: SKILL_NAME + '/SKILL.md', text: buildSkillMd() },
-      { name: SKILL_NAME + '/' + REF_FILENAME, text: REFERENCE_CONTENT },
+      { name: SKILL_NAME + '/' + REF_FILENAME, text: condensedReference() },
     ]);
   } catch (err) {
     alert('The skill package could not be built. Please email hello@unmask.tools.');
