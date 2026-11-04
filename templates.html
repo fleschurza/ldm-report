@@ -339,7 +339,7 @@
           <div class="step-num">2</div>
           <div class="step-body">
             <strong>Upload it in Gemini</strong>
-            <span>Open <a href="https://gemini.google.com" target="_blank" rel="noopener" style="color:var(--c-accent);">gemini.google.com</a> in a browser (or the Gemini Mac app) → Customize → Skills → Create → Upload, and choose the .zip file. File upload is not available in the mobile app. If Google says the file failed its security scan, upload it again; if it keeps failing, email hello@unmask.tools.</span>
+            <span>Open <a href="https://gemini.google.com" target="_blank" rel="noopener" style="color:var(--c-accent);">gemini.google.com</a> in a browser (or the Gemini Mac app) → Customize → Skills → Create → Upload, and choose the .zip file. File upload is not available in the mobile app. If Google says the file failed its security scan, upload it again; if it keeps failing, create the skill by hand (see below) or email hello@unmask.tools.</span>
           </div>
         </li>
         <li>
@@ -378,6 +378,40 @@
           <button class="btn btn-primary btn-sm" onclick="downloadSkillZip()">Download .zip</button>
         </div>
       </div>
+
+      <details style="margin-top:28px;border:1px solid var(--c-border);border-radius:10px;padding:14px 18px;">
+        <summary style="cursor:pointer;font-weight:600;font-size:13px;">Upload rejected? Create the skill by hand instead</summary>
+        <p style="font-size:12px;color:var(--c-muted);margin:10px 0 14px;">Google's upload check is sometimes inconsistent, and a skill made by hand skips it. This route has the full instructions but not the reference file, because files can only be attached through an upload.</p>
+
+        <ol class="step-list">
+          <li>
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>Start a new skill</strong>
+              <span>In Gemini open Customize → Skills → Create → Create manually.</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>Name and description</strong>
+              <span>Name it <strong>unmask-filter</strong>, then paste the description (button below).</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>Instructions</strong>
+              <span>Paste the instructions (button below) and save. Then call it with <strong>/unmask-filter</strong> or <strong>@unmask-filter</strong> as above.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="copy-bar">
+          <button class="btn btn-outline btn-sm" onclick="copySkillText('description', this)">Copy description</button>
+          <button class="btn btn-outline btn-sm" onclick="copySkillText('instructions', this)">Copy instructions</button>
+        </div>
+      </details>
 
       <details style="margin-top:28px;border:1px solid var(--c-border);border-radius:10px;padding:14px 18px;">
         <summary style="cursor:pointer;font-weight:600;font-size:13px;">Work or school account (or prefer a Gem)? Set up a Gem instead</summary>
@@ -508,8 +542,8 @@
     <!-- Version info -->
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
       <div>
-        <p style="font-size:12px;margin:0;color:var(--c-muted);"><strong style="color:var(--c-text);">Version:</strong> unmask.filter &nbsp;·&nbsp; Last updated: 2026-05-15</p>
-        <p style="font-size:12px;margin:4px 0 0;color:var(--c-muted);">All three platforms run identical instructions. Update by re-uploading the reference file.</p>
+        <p style="font-size:12px;margin:0;color:var(--c-muted);"><strong style="color:var(--c-text);">Version:</strong> unmask.filter &nbsp;·&nbsp; Last updated: 2026-11-04</p>
+        <p style="font-size:12px;margin:4px 0 0;color:var(--c-muted);">The Claude, ChatGPT and Gem versions run identical instructions. The Gemini skill uses the same rules in plainer wording, which Google's upload check requires. Update by re-uploading the reference file.</p>
       </div>
       <a href="docs.html" class="btn btn-outline btn-sm">View full FAQ →</a>
     </div>
@@ -858,6 +892,22 @@ function copyPrompt(platform) {
 
 function copySample(btn) {
   navigator.clipboard.writeText(document.getElementById('try-sample').textContent.trim()).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  });
+}
+
+function copySkillText(kind, btn) {
+  let text;
+  try {
+    text = kind === 'description' ? SKILL_DESCRIPTION : skillPrompt();
+  } catch (err) {
+    alert('The text could not be prepared. Please email hello@unmask.tools.');
+    console.error(err);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(() => {
     const orig = btn.textContent;
     btn.textContent = 'Copied!';
     setTimeout(() => { btn.textContent = orig; }, 2000);
