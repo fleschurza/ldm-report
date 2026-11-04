@@ -101,6 +101,7 @@
     .step-body { flex: 1; padding-top: 4px; }
     .step-body strong { display: block; font-size: 13px; color: var(--c-text); margin-bottom: 4px; }
     .step-body span { font-size: 12px; color: var(--c-muted); line-height: 1.6; }
+    .step-body span strong { display: inline; font-size: inherit; margin-bottom: 0; }
 
     /* ── Download cards ── */
     .dl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
@@ -227,7 +228,7 @@
       </div>
       <div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--c-muted);margin-bottom:4px;">File 2 — Knowledge Base <span style="color:#15803d;">↑ upload this</span></div>
-        <div style="font-size:12px;color:var(--c-text);font-weight:600;margin-bottom:3px;">unmask.filter_Core-Reference.txt</div>
+        <div style="font-size:12px;color:var(--c-text);font-weight:600;margin-bottom:3px;">unmask.filter_core-reference.txt</div>
         <div style="font-size:12px;color:var(--c-muted);"><strong>Upload</strong> to your bot as a knowledge/context file. The bot reads it automatically for thresholds and legal citations.</div>
       </div>
     </div>
@@ -248,7 +249,7 @@
       </button>
       <button class="tab-btn" data-platform="gemini" onclick="switchPlatform('gemini')">
         <svg width="20" height="20" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#1a73e8"/><text x="20" y="27" text-anchor="middle" font-size="18" font-weight="900" fill="#fff" font-family="sans-serif">G</text></svg>
-        Gemini Gem
+        Gemini Skill
       </button>
       <button class="tab-btn" data-platform="chatgpt" onclick="switchPlatform('chatgpt')">
         <svg width="20" height="20" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#10a37f"/><text x="20" y="27" text-anchor="middle" font-size="18" font-weight="900" fill="#fff" font-family="sans-serif">G</text></svg>
@@ -279,7 +280,7 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <strong>Upload the reference file to Project Knowledge</strong>
-            <span>In the same project, go to Project Knowledge → Add Content → Upload file. Upload <strong>unmask.filter_Core-Reference.txt</strong>. This is the single source of truth for all thresholds, legal citations, and case rules.</span>
+            <span>In the same project, go to Project Knowledge → Add Content → Upload file. Upload <strong>unmask.filter_core-reference.txt</strong>. This is the single source of truth for all thresholds, legal citations, and case rules.</span>
           </div>
         </li>
         <li>
@@ -318,62 +319,121 @@
 
     <!-- ── Gemini ── -->
     <div class="template-panel" id="panel-gemini">
-      <h3>Setting up on Gemini (Gem)</h3>
+      <h3>Setting up on Gemini</h3>
+
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:12px;color:#78350f;line-height:1.6;">
+        <strong>Google is replacing Gems with skills.</strong> On personal Google accounts, Gems become read-only on 17 November 2026 and are removed on 17 December 2026. Work and school accounts keep Gems until March 2027 (business, enterprise, non-profit) or June 2027 (education). Dates are Google's and may change — see <a href="https://support.google.com/gemini/answer/18560919" target="_blank" rel="noopener" style="color:#78350f;">Google's transition page</a>.
+      </div>
+
+      <h4 style="margin-bottom:10px;">Create a skill (personal Google accounts)</h4>
 
       <ol class="step-list">
         <li>
           <div class="step-num">1</div>
           <div class="step-body">
-            <strong>Create a new Gem</strong>
-            <span>Go to <a href="https://gemini.google.com" target="_blank" style="color:var(--c-accent);">gemini.google.com</a> → Gem Manager → New Gem. Name it "unmask.filter".</span>
+            <strong>Download the skill package</strong>
+            <span>Use <strong>Download .zip</strong> below. It contains <strong>unmask-filter/SKILL.md</strong> (the instructions) and <strong>unmask.filter_core-reference.txt</strong> (the knowledge base). You do not need to unzip it.</span>
           </div>
         </li>
         <li>
           <div class="step-num">2</div>
           <div class="step-body">
-            <strong>Paste the system prompt into Instructions</strong>
-            <span>Copy the system prompt below and paste it into the "Instructions" field. This is the same shared prompt used across all platforms.</span>
+            <strong>Upload it in Gemini</strong>
+            <span>Open <a href="https://gemini.google.com" target="_blank" rel="noopener" style="color:var(--c-accent);">gemini.google.com</a> in a browser (or the Gemini Mac app) → Customize → Skills → Create → Upload, and choose the .zip file. File upload is not available in the mobile app.</span>
           </div>
         </li>
         <li>
           <div class="step-num">3</div>
           <div class="step-body">
-            <strong>Upload the reference file</strong>
-            <span>Click the attachment icon and upload <strong>unmask.filter_Core-Reference.txt</strong>. One file is all you need — it consolidates all source documents.</span>
+            <strong>Review and create</strong>
+            <span>Check that the name reads <strong>unmask-filter</strong> and the description is filled in, then click Create. Keep the skill switched on under Customize → Skills; Gemini only uses switched-on skills by itself. Skill names must be lowercase with hyphens, so the name differs from "unmask.filter" on purpose.</span>
           </div>
         </li>
         <li>
           <div class="step-num">4</div>
           <div class="step-body">
-            <strong>Save and start auditing</strong>
-            <span>Click Save → Open the Gem. Paste any text or document directly into the chat window.</span>
+            <strong>Use it</strong>
+            <span>In any chat type <strong>/</strong>, choose unmask-filter, then paste your text or document. Gemini may also use the skill on its own when your request matches its description.</span>
           </div>
         </li>
       </ol>
 
-      <div class="info-box">
-        Gemini Gems are ideal for quick one-off audits — paste a paragraph, get an immediate plain-language verdict.
+      <div style="border:1px solid var(--c-border);border-radius:10px;padding:14px 18px;margin:0 0 18px;">
+        <strong style="display:block;font-size:13px;margin-bottom:6px;">Try it in 30 seconds</strong>
+        <p style="font-size:12px;color:var(--c-muted);margin:0 0 10px;">In a new Gemini chat, type <strong>/unmask-filter</strong> and choose the skill. Gemini replies that it is ready. Then send this sentence as your next message:</p>
+        <div id="try-sample" style="background:#f8fafc;border:1px solid var(--c-border);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--c-text);">Kinetic operations resulted in acceptable collateral effects on the civilian population.</div>
+        <div class="copy-bar"><button class="btn btn-outline btn-sm" onclick="copySample(this)">Copy sample sentence</button></div>
+        <p style="font-size:12px;color:var(--c-muted);margin:10px 0 0;">You should get a one-line plain-language verdict first, then the legal anchor and a safer alternative.</p>
       </div>
 
-      <h3>System Prompt</h3>
-      <div class="prompt-box" id="prompt-gemini"></div>
-      <div class="copy-bar">
-        <button class="btn btn-outline btn-sm" onclick="copyPrompt('gemini')">Copy system prompt</button>
+      <div class="info-box">
+        Skills need <strong>Keep Activity</strong> switched on in your Gemini settings, and an account holder aged 18 or over. Unlike a Gem, a skill is not a separate chat: it loads when you call it or when Gemini decides it fits, so start with <strong>/unmask-filter</strong> for a reliable audit.
       </div>
 
       <h3>Downloads</h3>
       <div class="dl-grid">
         <div class="dl-card">
-          <h4>System Prompt</h4>
-          <p>The shared system prompt — paste into Gemini Gem Instructions.</p>
-          <button class="btn btn-primary btn-sm" onclick="downloadFile('prompt')">Download .txt</button>
-        </div>
-        <div class="dl-card">
-          <h4>Core Reference</h4>
-          <p>Upload as the Gem knowledge file. Contains all thresholds and legal anchors.</p>
-          <button class="btn btn-primary btn-sm" onclick="downloadFile('reference')">Download .txt</button>
+          <h4>Gemini skill package</h4>
+          <p>Upload at Customize → Skills → Create → Upload. Contains SKILL.md and the reference file.</p>
+          <button class="btn btn-primary btn-sm" onclick="downloadSkillZip()">Download .zip</button>
         </div>
       </div>
+
+      <details style="margin-top:28px;border:1px solid var(--c-border);border-radius:10px;padding:14px 18px;">
+        <summary style="cursor:pointer;font-weight:600;font-size:13px;">Work or school account (or prefer a Gem)? Set up a Gem instead</summary>
+        <p style="font-size:12px;color:var(--c-muted);margin:10px 0 14px;">Gems keep working until your account moves to skills. Google then converts your Gem automatically.</p>
+
+        <ol class="step-list">
+          <li>
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>Create a new Gem</strong>
+              <span>Go to <a href="https://gemini.google.com" target="_blank" rel="noopener" style="color:var(--c-accent);">gemini.google.com</a> → Gem Manager → New Gem. Name it "unmask.filter".</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>Paste the system prompt into Instructions</strong>
+              <span>Copy the system prompt below and paste it into the "Instructions" field. This is the same shared prompt used across all platforms.</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>Upload the reference file</strong>
+              <span>Click the attachment icon and upload <strong>unmask.filter_core-reference.txt</strong>. One file is all you need — it consolidates all source documents.</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <strong>Save and start auditing</strong>
+              <span>Click Save → Open the Gem. Paste any text or document directly into the chat window.</span>
+            </div>
+          </li>
+        </ol>
+
+        <h3>System Prompt</h3>
+        <div class="prompt-box" id="prompt-gemini"></div>
+        <div class="copy-bar">
+          <button class="btn btn-outline btn-sm" onclick="copyPrompt('gemini')">Copy system prompt</button>
+        </div>
+
+        <h3>Downloads</h3>
+        <div class="dl-grid">
+          <div class="dl-card">
+            <h4>System Prompt</h4>
+            <p>The shared system prompt — paste into the Gem's Instructions field.</p>
+            <button class="btn btn-primary btn-sm" onclick="downloadFile('prompt')">Download .txt</button>
+          </div>
+          <div class="dl-card">
+            <h4>Core Reference</h4>
+            <p>Upload as the Gem's knowledge file. Contains all thresholds and legal anchors.</p>
+            <button class="btn btn-primary btn-sm" onclick="downloadFile('reference')">Download .txt</button>
+          </div>
+        </div>
+      </details>
     </div>
 
     <!-- ── ChatGPT ── -->
@@ -399,7 +459,7 @@
           <div class="step-num">3</div>
           <div class="step-body">
             <strong>Upload the reference file under Knowledge</strong>
-            <span>Scroll to the Knowledge section → Upload file → <strong>unmask.filter_Core-Reference.txt</strong>. Add this line at the end of your instructions: <em>"When handling edge cases or needing specific thresholds and legal citations, search your knowledge file before responding."</em></span>
+            <span>Scroll to the Knowledge section → Upload file → <strong>unmask.filter_core-reference.txt</strong>. Add this line at the end of your instructions: <em>"When handling edge cases or needing specific thresholds and legal citations, search your knowledge file before responding."</em></span>
           </div>
         </li>
         <li>
@@ -534,7 +594,7 @@ Every response should then naturally include:
 When you refuse or redirect anything, walk through your reasoning clearly so anyone — not just a technical expert — can follow it. Name the specific rule or legal framework that applies and why.
 
 YOUR KNOWLEDGE BASE
-Your attached reference file (unmask.filter_Core-Reference.txt) contains all threshold values, case-specific rules, de-masking examples, and legal citations. Consult it whenever you need specifics or are handling an edge case.`;
+Your attached reference file (unmask.filter_core-reference.txt) contains all threshold values, case-specific rules, de-masking examples, and legal citations. Consult it whenever you need specifics or are handling an edge case.`;
 
 const REFERENCE_CONTENT = `unmask.filter — CORE OPERATIONAL REFERENCE
 Status: Authoritative Consolidated Reference (All Sources)
@@ -794,16 +854,119 @@ function copyPrompt(platform) {
   });
 }
 
+function copySample(btn) {
+  navigator.clipboard.writeText(document.getElementById('try-sample').textContent.trim()).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  });
+}
+
 // ── Download files ────────────────────────────────────────────────────────────
 function downloadFile(type) {
   const content  = type === 'prompt' ? SYSTEM_PROMPT : REFERENCE_CONTENT;
   const filename = type === 'prompt'
-    ? 'unmask.filter_System-Prompt.txt'
-    : 'unmask.filter_Core-Reference.txt';
+    ? 'unmask.filter_system-prompt.txt'
+    : 'unmask.filter_core-reference.txt';
   const blob = new Blob([content], { type: 'text/plain' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = filename;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+}
+
+// ── Gemini skill package (.zip, built in the browser) ───────────────────────
+const SKILL_NAME = 'unmask-filter';
+const REF_FILENAME = 'unmask.filter_core-reference.txt';
+const SKILL_DESCRIPTION = 'Audits text, documents, plans or AI-generated answers for institutional euphemisms and language that hides physical harm to people or the environment, and restates them in plain language anchored to the UDHR, the Geneva Conventions, the Rome Statute and the Planetary Boundaries framework. Use when the user pastes text or a document to check, asks for an unmask or euphemism audit, or asks whether wording hides real-world harm.';
+
+// Google's skill upload rejects the original "NEVER JUST SAY NO" wording (found by bisecting the
+// prompt on 2026-11-04; every other passage saves fine). Same rule, reworded for the skill only.
+// The shared prompt used on Claude, ChatGPT and in a Gem is unchanged.
+const SKILL_REWORDS = [[
+  'NEVER JUST SAY NO\nYour job is not to refuse — it is to find a better way. When something is harmful, identify what the person is actually trying to achieve and offer a path that gets them there without the harm. Only issue a firm refusal when no safe path exists, and when you do, explain exactly which line cannot be crossed and why.',
+  'LOOK FOR A BETTER PATH FIRST\nYour job is to find a better way. When something is harmful, identify what the person is actually trying to achieve and offer a path that gets them there without the harm. Decline firmly only when no safe path exists, and when you do, explain exactly which line cannot be crossed and why.',
+]];
+
+function skillPrompt() {
+  let text = SYSTEM_PROMPT;
+  for (const [from, to] of SKILL_REWORDS) {
+    if (!text.includes(from)) throw new Error('Skill wording is out of sync with the system prompt');
+    text = text.replace(from, to);
+  }
+  return text;
+}
+
+// Google's skill upload also rejects an intro line that names the reference file and its folder
+// (found by bisecting on 2026-11-04). The prompt's last section already tells the model to
+// consult the attached reference file, so nothing is lost by leaving it out.
+function buildSkillMd() {
+  return '---\nname: ' + SKILL_NAME + '\ndescription: ' + SKILL_DESCRIPTION + '\n---\n\n' +
+    '# unmask.filter\n\n' +
+    'Apply everything below whenever this skill is active.\n\n---\n\n' +
+    skillPrompt();
+}
+
+function crc32(bytes) {
+  let crc = -1;
+  for (let i = 0; i < bytes.length; i++) {
+    let c = (crc ^ bytes[i]) & 0xFF;
+    for (let k = 0; k < 8; k++) c = (c & 1) ? ((c >>> 1) ^ 0xEDB88320) : (c >>> 1);
+    crc = (crc >>> 8) ^ c;
+  }
+  return (crc ^ -1) >>> 0;
+}
+
+// Minimal ZIP writer (stored, no compression) so no library or public file is needed.
+// The header layout mirrors a standard Unix zip tool. Google's skill upload rejected the first
+// version of this writer (MS-DOS host, no file mode, UTF-8 flag on ASCII names, midnight
+// timestamp) even though unzip accepts it; bisected on 2026-11-04. File names must stay ASCII.
+function makeZip(files) {
+  const enc = new TextEncoder();
+  const u16 = n => [n & 255, (n >>> 8) & 255];
+  const u32 = n => [n & 255, (n >>> 8) & 255, (n >>> 16) & 255, (n >>> 24) & 255];
+  const now = new Date();
+  const dosTime = (now.getHours() << 11) | (now.getMinutes() << 5) | (now.getSeconds() >> 1);
+  const dosDate = ((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate();
+  const parts = [], entries = [];
+  let offset = 0;
+  for (const f of files) {
+    const name = enc.encode(f.name), data = enc.encode(f.text);
+    const crc = crc32(data), size = data.length;
+    const head = new Uint8Array([0x50, 0x4b, 0x03, 0x04, ...u16(20), ...u16(0), ...u16(0), ...u16(dosTime), ...u16(dosDate),
+      ...u32(crc), ...u32(size), ...u32(size), ...u16(name.length), ...u16(0)]);
+    parts.push(head, name, data);
+    entries.push({ name, crc, size, offset });
+    offset += head.length + name.length + size;
+  }
+  let cdSize = 0;
+  const cd = [];
+  for (const e of entries) {
+    const h = new Uint8Array([0x50, 0x4b, 0x01, 0x02, ...u16(20 | (3 << 8)), ...u16(20), ...u16(0), ...u16(0), ...u16(dosTime), ...u16(dosDate),
+      ...u32(e.crc), ...u32(e.size), ...u32(e.size), ...u16(e.name.length), ...u16(0), ...u16(0), ...u16(0), ...u16(0), ...u32(0o600 << 16), ...u32(e.offset)]);
+    cd.push(h, e.name);
+    cdSize += h.length + e.name.length;
+  }
+  const end = new Uint8Array([0x50, 0x4b, 0x05, 0x06, ...u16(0), ...u16(0), ...u16(entries.length), ...u16(entries.length), ...u32(cdSize), ...u32(offset), ...u16(0)]);
+  return new Blob([...parts, ...cd, end], { type: 'application/zip' });
+}
+
+function downloadSkillZip() {
+  let blob;
+  try {
+    blob = makeZip([
+      { name: SKILL_NAME + '/SKILL.md', text: buildSkillMd() },
+      { name: SKILL_NAME + '/' + REF_FILENAME, text: REFERENCE_CONTENT },
+    ]);
+  } catch (err) {
+    alert('The skill package could not be built. Please email hello@unmask.tools.');
+    console.error(err);
+    return;
+  }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = SKILL_NAME + '.zip';
   a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }

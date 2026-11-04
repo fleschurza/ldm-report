@@ -19,7 +19,7 @@
 - [Pricing](https://unmask.tools/pricing.html): free tier (static detection, every supported platform, permanent) plus paid tiers (Pro/Team/Enterprise) adding AI-assisted detection, team seats, a private company phrase repository, and MDM deployment.
 - [Platform coverage](https://unmask.tools/tools.html): verified working on Gmail, Outlook, Slack, Microsoft Teams, WhatsApp Web, Telegram, Discord, LinkedIn, Proton Mail, Google Chat, Microsoft Copilot, Viva Engage, Microsoft Loop, plus manual scan mode for Google Docs, Word Online, PowerPoint, and PDFs.
 - [FAQ / docs](https://unmask.tools/docs.html): how detection works, data handling, platform-by-platform notes.
-- [Bot templates](https://unmask.tools/templates.html): system prompts for Claude Projects, Gemini Gems, and Custom GPTs that apply the same plain-language, law-anchored framework to a chatbot's own output.
+- [Bot templates](https://unmask.tools/templates.html): system prompts for Claude Projects, Gemini skills, and Custom GPTs that apply the same plain-language, law-anchored framework to a chatbot's own output.
 
 ## Data and transparency
 
