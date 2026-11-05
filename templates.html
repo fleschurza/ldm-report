@@ -326,37 +326,44 @@
       </div>
 
       <h4 style="margin-bottom:10px;">Create a skill (personal Google accounts)</h4>
+      <p style="font-size:12px;color:var(--c-muted);margin:0 0 14px;">Creating the skill by hand (copy and paste, no file) is the reliable route. Google's file upload check is inconsistent, so the upload is offered further down as an option.</p>
 
       <ol class="step-list">
         <li>
           <div class="step-num">1</div>
           <div class="step-body">
-            <strong>Download the skill package</strong>
-            <span>Use <strong>Download .zip</strong> below. It contains <strong>SKILL.md</strong> (the instructions) and <strong>unmask.filter_core-reference.md</strong> (a condensed knowledge base). You do not need to unzip it.</span>
+            <strong>Start a new skill</strong>
+            <span>Open <a href="https://gemini.google.com" target="_blank" rel="noopener" style="color:var(--c-accent);">gemini.google.com</a> in a browser or the Gemini Mac app → Customize → Skills → Create → <strong>Create manually</strong>.</span>
           </div>
         </li>
         <li>
           <div class="step-num">2</div>
           <div class="step-body">
-            <strong>Upload it in Gemini</strong>
-            <span>Open <a href="https://gemini.google.com" target="_blank" rel="noopener" style="color:var(--c-accent);">gemini.google.com</a> in a browser (or the Gemini Mac app) → Customize → Skills → Create → Upload, and choose the .zip file. File upload is not available in the mobile app. If Google says the file failed its security scan, just upload it again: its check is inconsistent, and the same file often saves on the second or third try. If it keeps failing, create the skill by hand (see below) or email hello@unmask.tools.</span>
+            <strong>Name and description</strong>
+            <span>Name it <strong>unmask-filter-skill</strong> (skill names must be lowercase with hyphens, so it differs from "unmask.filter" on purpose). Click <strong>Copy description</strong> below and paste it into the description field.</span>
           </div>
         </li>
         <li>
           <div class="step-num">3</div>
           <div class="step-body">
-            <strong>Review and create</strong>
-            <span>Check that the name reads <strong>unmask-filter-skill</strong> and the description is filled in, then click Create. Keep the skill switched on under Customize → Skills; Gemini only uses switched-on skills by itself. Skill names must be lowercase with hyphens, so the name differs from "unmask.filter" on purpose.</span>
+            <strong>Instructions</strong>
+            <span>Click <strong>Copy instructions + condensed reference</strong> below and paste it into the instructions field. If Google rejects the longer text, use <strong>Copy instructions only</strong> instead. Save, and keep the skill switched on under Customize → Skills.</span>
           </div>
         </li>
         <li>
           <div class="step-num">4</div>
           <div class="step-body">
             <strong>Use it</strong>
-            <span>In any chat type <strong>/</strong> (or <strong>@</strong>, depending on your Gemini version), choose unmask-filter-skill, then paste your text or document. Don't count on Gemini picking the skill up by itself: call it with <strong>/unmask-filter-skill</strong> or <strong>@unmask-filter-skill</strong> whenever you want an audit. Asking Gemini to "use the unmask-filter-skill skill" also works; it inserts the mention for you.</span>
+            <span>In any chat type <strong>/</strong> (or <strong>@</strong>, depending on your Gemini version), choose unmask-filter-skill, then paste your text or document. Don't count on Gemini picking the skill up by itself: call it with <strong>/unmask-filter-skill</strong> or <strong>@unmask-filter-skill</strong> whenever you want an audit.</span>
           </div>
         </li>
       </ol>
+
+      <div class="copy-bar">
+        <button class="btn btn-outline btn-sm" onclick="copySkillText('description', this)">Copy description</button>
+        <button class="btn btn-primary btn-sm" onclick="copySkillText('instructions-ref', this)">Copy instructions + condensed reference</button>
+        <button class="btn btn-outline btn-sm" onclick="copySkillText('instructions', this)">Copy instructions only</button>
+      </div>
 
       <div style="border:1px solid var(--c-border);border-radius:10px;padding:14px 18px;margin:0 0 18px;">
         <strong style="display:block;font-size:13px;margin-bottom:6px;">Try it in 30 seconds</strong>
@@ -370,47 +377,27 @@
         Skills need <strong>Keep Activity</strong> switched on in your Gemini settings, and an account holder aged 18 or over. Unlike a Gem, a skill is not a separate chat: it loads when you call it, and Gemini does not reliably load it by itself, so start with <strong>/unmask-filter-skill</strong> (or <strong>@unmask-filter-skill</strong>) for a reliable audit.
       </div>
 
-      <h3>Downloads</h3>
-      <div class="dl-grid">
-        <div class="dl-card">
-          <h4>Gemini skill package</h4>
-          <p>Upload at Customize → Skills → Create → Upload. Contains SKILL.md and a condensed reference file.</p>
-          <button class="btn btn-primary btn-sm" onclick="downloadSkillZip()">Download .zip</button>
-        </div>
-      </div>
-
       <details style="margin-top:28px;border:1px solid var(--c-border);border-radius:10px;padding:14px 18px;">
-        <summary style="cursor:pointer;font-weight:600;font-size:13px;">Upload rejected? Create the skill by hand instead</summary>
-        <p style="font-size:12px;color:var(--c-muted);margin:10px 0 14px;">Google's upload check is sometimes inconsistent, so a skill made by hand can work when an upload is rejected. Files cannot be attached this way, so the second button pastes a condensed reference into the instructions.</p>
-
+        <summary style="cursor:pointer;font-weight:600;font-size:13px;">Prefer to upload a file? Optional, may need several tries</summary>
+        <p style="font-size:12px;color:var(--c-muted);margin:10px 0 14px;">Google's upload security check is inconsistent: the same file can be accepted once and rejected the next time. If the upload keeps failing, use the copy-and-paste route above.</p>
         <ol class="step-list">
           <li>
             <div class="step-num">1</div>
             <div class="step-body">
-              <strong>Start a new skill</strong>
-              <span>In Gemini open Customize → Skills → Create → Create manually.</span>
+              <strong>Download the package</strong>
+              <span>It contains <strong>unmask-filter-skill/SKILL.md</strong> (the instructions) and <strong>unmask.filter_core-reference.txt</strong> (a condensed knowledge base). You do not need to unzip it.</span>
             </div>
           </li>
           <li>
             <div class="step-num">2</div>
             <div class="step-body">
-              <strong>Name and description</strong>
-              <span>Name it <strong>unmask-filter-skill</strong>, then paste the description (button below).</span>
-            </div>
-          </li>
-          <li>
-            <div class="step-num">3</div>
-            <div class="step-body">
-              <strong>Instructions</strong>
-              <span>Paste the instructions with the condensed reference (second button below). If Google rejects the longer text, paste the instructions alone (third button) instead. Save, then call it with <strong>/unmask-filter-skill</strong> or <strong>@unmask-filter-skill</strong> as above.</span>
+              <strong>Upload it in Gemini</strong>
+              <span>Customize → Skills → Create → Upload, and choose the .zip file (browser or Mac app; upload is not available in the mobile app). If Google says the file failed its security scan, try again a few times or email hello@unmask.tools.</span>
             </div>
           </li>
         </ol>
-
         <div class="copy-bar">
-          <button class="btn btn-outline btn-sm" onclick="copySkillText('description', this)">Copy description</button>
-          <button class="btn btn-outline btn-sm" onclick="copySkillText('instructions-ref', this)">Copy instructions + condensed reference</button>
-          <button class="btn btn-outline btn-sm" onclick="copySkillText('instructions', this)">Copy instructions only</button>
+          <button class="btn btn-outline btn-sm" onclick="downloadSkillZip()">Download .zip</button>
         </div>
       </details>
 
@@ -952,9 +939,8 @@ function downloadFile(type) {
 
 // ── Gemini skill package (.zip, built in the browser) ───────────────────────
 const SKILL_NAME = 'unmask-filter-skill';
-// The zip ships the reference as .md: Google's own list of accepted file types names .md but not .txt
-// (experiment of 2026-11-05, to see whether it makes the upload scan more reliable).
-const REF_FILENAME = 'unmask.filter_core-reference.md';
+// Tried on 2026-11-05 and made no difference to the upload scan: .md instead of .txt, and SKILL.md at the zip root.
+const REF_FILENAME = 'unmask.filter_core-reference.txt';
 const SKILL_DESCRIPTION = 'Audits text, documents, plans or AI-generated answers for institutional euphemisms and language that hides physical harm to people or the environment, and restates them in plain language anchored to the UDHR, the Geneva Conventions, the Rome Statute and the Planetary Boundaries framework. Use when the user pastes text or a document to check, asks for an unmask or euphemism audit, or asks whether wording hides real-world harm.';
 
 // Google's skill upload runs a content scan that is borderline on our prompt and not consistent from
@@ -993,7 +979,7 @@ function skillPrompt() {
     if (!text.includes(from)) throw new Error('Skill wording is out of sync with the system prompt');
     text = text.replace(from, to);
   }
-  return text.split('unmask.filter_core-reference.txt').join(REF_FILENAME);
+  return text;
 }
 
 // Google's skill upload also rejects an intro line that names the reference file and its folder
@@ -1056,8 +1042,8 @@ function downloadSkillZip() {
   let blob;
   try {
     blob = makeZip([
-      { name: 'SKILL.md', text: buildSkillMd() },
-      { name: REF_FILENAME, text: condensedReference() },
+      { name: SKILL_NAME + '/SKILL.md', text: buildSkillMd() },
+      { name: SKILL_NAME + '/' + REF_FILENAME, text: condensedReference() },
     ]);
   } catch (err) {
     alert('The skill package could not be built. Please email hello@unmask.tools.');
