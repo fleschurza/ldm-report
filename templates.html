@@ -913,7 +913,9 @@ function condensedReference() {
   });
   const head = REFERENCE_CONTENT.slice(0, marks[0].at)
     .replace(/Last compiled: ([0-9-]+)/, 'Last compiled: $1 (condensed for the Gemini skill: legal anchors, analysis, de-masking, thresholds and case rules)');
-  return head + body;
+  // Lines made of "=====" are left out: pasting the reference with them failed Google's scan, and
+  // the same text without them saved (user test, 2026-11-05).
+  return (head + body).replace(/^={5,}[ \t]*\n/gm, '').replace(/\n{3,}/g, '\n\n');
 }
 
 function copySkillText(kind, btn) {
