@@ -332,7 +332,7 @@
           <div class="step-num">1</div>
           <div class="step-body">
             <strong>Download the skill package</strong>
-            <span>Use <strong>Download .zip</strong> below. It contains <strong>unmask-filter-skill/SKILL.md</strong> (the instructions) and <strong>unmask.filter_core-reference.txt</strong> (a condensed knowledge base). You do not need to unzip it.</span>
+            <span>Use <strong>Download .zip</strong> below. It contains <strong>unmask-filter-skill/SKILL.md</strong> (the instructions) and <strong>unmask.filter_core-reference.md</strong> (a condensed knowledge base). You do not need to unzip it.</span>
           </div>
         </li>
         <li>
@@ -950,7 +950,9 @@ function downloadFile(type) {
 
 // ── Gemini skill package (.zip, built in the browser) ───────────────────────
 const SKILL_NAME = 'unmask-filter-skill';
-const REF_FILENAME = 'unmask.filter_core-reference.txt';
+// The zip ships the reference as .md: Google's own list of accepted file types names .md but not .txt
+// (experiment of 2026-11-05, to see whether it makes the upload scan more reliable).
+const REF_FILENAME = 'unmask.filter_core-reference.md';
 const SKILL_DESCRIPTION = 'Audits text, documents, plans or AI-generated answers for institutional euphemisms and language that hides physical harm to people or the environment, and restates them in plain language anchored to the UDHR, the Geneva Conventions, the Rome Statute and the Planetary Boundaries framework. Use when the user pastes text or a document to check, asks for an unmask or euphemism audit, or asks whether wording hides real-world harm.';
 
 // Google's skill upload runs a content scan that is borderline on our prompt and not consistent from
@@ -989,7 +991,7 @@ function skillPrompt() {
     if (!text.includes(from)) throw new Error('Skill wording is out of sync with the system prompt');
     text = text.replace(from, to);
   }
-  return text;
+  return text.split('unmask.filter_core-reference.txt').join(REF_FILENAME);
 }
 
 // Google's skill upload also rejects an intro line that names the reference file and its folder
