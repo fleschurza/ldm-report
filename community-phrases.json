@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-02T15:07:45.945Z",
-  "count": 10,
+  "generated": "2026-11-09T15:38:46.911Z",
+  "count": 12,
   "thresholds": {
     "critical": {
       "confirms": 2,
@@ -39,17 +39,6 @@
       "isGlobal": true
     },
     {
-      "phrase": "collateral damage",
-      "normalizedPhrase": "collateral damage",
-      "translation": "Civilian casualties — physical bodies of non-combatants killed or wounded",
-      "legalRef": "Geneva Convention AP I, Art. 51 — Protection of the Civilian Population",
-      "severity": "critical",
-      "confirmCount": 4,
-      "domainCount": 2,
-      "sourceLanguage": "en",
-      "isGlobal": true
-    },
-    {
       "phrase": "energy transition",
       "normalizedPhrase": "energy transition",
       "translation": "Shift in energy production — physical communities in fossil fuel regions face livelihood displacement without guaranteed replacement",
@@ -57,6 +46,17 @@
       "severity": "medium",
       "confirmCount": 4,
       "domainCount": 4,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "collateral damage",
+      "normalizedPhrase": "collateral damage",
+      "translation": "Civilian casualties — physical bodies of non-combatants killed or wounded",
+      "legalRef": "Geneva Convention AP I, Art. 51 — Protection of the Civilian Population",
+      "severity": "critical",
+      "confirmCount": 4,
+      "domainCount": 2,
       "sourceLanguage": "en",
       "isGlobal": true
     },
@@ -105,10 +105,10 @@
       "isGlobal": true
     },
     {
-      "phrase": "casualties",
-      "normalizedPhrase": "casualties",
-      "translation": "Physical human deaths and injuries — persons killed or wounded in conflict",
-      "legalRef": "Geneva Conventions — Protection of Persons",
+      "phrase": "Remigration",
+      "normalizedPhrase": "remigration",
+      "translation": "Political euphemism for the mass forced removal of people — including citizens — on ethnic or cultural grounds; a direct habitat displacement programme",
+      "legalRef": "Rome Statute Art. 7 — Deportation / Forcible Transfer as Crime Against Humanity",
       "severity": "critical",
       "confirmCount": 2,
       "domainCount": 2,
@@ -116,10 +116,32 @@
       "isGlobal": true
     },
     {
-      "phrase": "Remigration",
-      "normalizedPhrase": "remigration",
-      "translation": "Political euphemism for the mass forced removal of people — including citizens — on ethnic or cultural grounds; a direct habitat displacement programme",
-      "legalRef": "Rome Statute Art. 7 — Deportation / Forcible Transfer as Crime Against Humanity",
+      "phrase": "verstärkte Angriffe im Libanon",
+      "normalizedPhrase": "verstärkte angriffe im libanon",
+      "translation": "Aerial and artillery bombardment of populated areas in Lebanon resulting in civilian deaths, injuries, and destruction of homes, hospitals, and infrastructure. The attacks deliberately target or recklessly disregard civilian populations and civilian objects.",
+      "legalRef": "Rome Statute Articles 8(2)(b)(i), 8(2)(b)(ii), 8(2)(b)(iv); Geneva Conventions I-IV; UN Charter Article 2(4); International Humanitarian Law customary rules on distinction and proportionality",
+      "severity": "critical",
+      "confirmCount": 2,
+      "domainCount": 1,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "Operation Allied Force",
+      "normalizedPhrase": "operation allied force",
+      "translation": "Sustained aerial bombing campaign against a sovereign nation that killed approximately 500,000 people, destroyed civilian infrastructure including hospitals and power plants, and caused long-term environmental contamination across the region.",
+      "legalRef": "Rome Statute Article 8(2)(b)(i-iv) war crimes; Geneva Conventions Protocol I Articles 48-58 distinction and proportionality; UN Charter Article 2(4)",
+      "severity": "critical",
+      "confirmCount": 2,
+      "domainCount": 1,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "casualties",
+      "normalizedPhrase": "casualties",
+      "translation": "Physical human deaths and injuries — persons killed or wounded in conflict",
+      "legalRef": "Geneva Conventions — Protection of Persons",
       "severity": "critical",
       "confirmCount": 2,
       "domainCount": 2,
