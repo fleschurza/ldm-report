@@ -900,15 +900,20 @@ async function renderEntryDetail(term) {
   wrap.style.display = 'block';
   main.innerHTML = '<div class="empty">Loading…</div>';
 
-  const normalized = term.toLowerCase().trim();
+  // global_index has no anon SELECT grant (deliberately, to protect the paid
+  // ldm-export licence tiers from being bypassed via direct reads) — so this goes
+  // through the narrow, free, single-phrase ldm-phrase-lookup function instead of
+  // querying global_index directly.
   let row = null;
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/global_index?select=*&normalized_phrase=eq.${encodeURIComponent(normalized)}&active=eq.true&limit=1`,
+      `${SUPABASE_URL}/functions/v1/ldm-phrase-lookup?term=${encodeURIComponent(term)}`,
       { headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }
     );
-    const data = await res.json();
-    row = Array.isArray(data) && data[0] ? data[0] : null;
+    if (res.ok) {
+      const body = await res.json();
+      row = body?.data ?? null;
+    }
   } catch (err) {
     console.error(err);
   }
