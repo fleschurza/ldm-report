@@ -196,7 +196,7 @@
             <li><strong>"Carbon offsetting"</strong> → continuing emissions while paying to avoid reducing them</li>
             <li><strong>"Flux migratoires"</strong> → reducing human beings to a statistical flow</li>
           </ul>
-          <p>The phrase library draws from four legal and scientific frameworks: the Rome Statute (ICC), Geneva Conventions (AP I), UN Declaration of Human Rights, and Planetary Boundaries science. Detected phrases link back to the specific article or boundary they relate to.</p>
+          <p>The phrase library draws from six legal and scientific frameworks: the Rome Statute (ICC), Geneva Conventions (AP I), the Genocide Convention, ICERD, the UN Declaration of Human Rights, and Planetary Boundaries science. Detected phrases link back to the specific article or boundary they relate to.</p>
         </div>
       </div>
 
@@ -324,7 +324,7 @@
       <div class="faq-item">
         <div class="faq-q">How does the Invoke Protocol work? <span class="chevron">⌄</span></div>
         <div class="faq-a">
-          <p>The Invoke Protocol is a framing prompt you insert at the start of an AI conversation. It instructs the AI to apply the UDHR, Geneva Conventions, Rome Statute, and Planetary Boundaries as hard constraints on every response — treating people and the environment as primary, not as externalities.</p>
+          <p>The Invoke Protocol is a framing prompt you insert at the start of an AI conversation. It instructs the AI to apply the UDHR, Geneva Conventions, Rome Statute, the Genocide Convention, ICERD, and Planetary Boundaries as hard constraints on every response — treating people and the environment as primary, not as externalities.</p>
           <p>When the extension detects you're on Claude, ChatGPT, or Gemini, it can inject this prompt directly into the chat input. On other platforms, it copies the prompt to your clipboard for manual paste.</p>
           <p>This works in a conversation context — it doesn't modify the AI permanently, just sets a frame for that conversation.</p>
         </div>
@@ -341,8 +341,8 @@
       <div class="faq-item">
         <div class="faq-q">What do Critical, High, and Medium mean? <span class="chevron">⌄</span></div>
         <div class="faq-a">
-          <p><strong>Critical</strong> — language that abstracts killing, torture, forced detention, mass deportation, ecocide, or planetary tipping point transgression. Anchored to the Rome Statute of the ICC and Geneva Convention absolute prohibitions.</p>
-          <p><strong>High</strong> — language that abstracts serious but non-lethal harm: forced displacement, ecosystem collapse, mass livelihood destruction, critical resource deprivation. Anchored to UDHR economic and social rights and Planetary Boundaries thresholds.</p>
+          <p><strong>Critical</strong> — language that abstracts killing, torture, forced detention, mass deportation, ecocide, genocide incitement, or planetary tipping point transgression. Anchored to the Rome Statute of the ICC, the Genocide Convention, and Geneva Convention absolute prohibitions.</p>
+          <p><strong>High</strong> — language that abstracts serious but non-lethal harm: forced displacement, ecosystem collapse, mass livelihood destruction, critical resource deprivation, racist propaganda. Anchored to UDHR economic and social rights, ICERD, and Planetary Boundaries thresholds.</p>
           <p><strong>Medium</strong> — language that abstracts institutional and structural harm: greenwashing, labour abstraction, governance euphemism, colonial-pattern framing. These phrases are harmful in aggregate and systemically, rather than in a single instance.</p>
         </div>
       </div>
@@ -924,7 +924,7 @@ curl -X POST \
         <tbody>
           <tr><td>phrase</td><td>string</td><td>The detected phrase as it appears in the text</td></tr>
           <tr><td>translation</td><td>string</td><td>Plain-language description of the physical reality it conceals</td></tr>
-          <tr><td>legalRef</td><td>string</td><td>Citation to Rome Statute, Geneva Conventions, UDHR, or Planetary Boundaries</td></tr>
+          <tr><td>legalRef</td><td>string</td><td>Citation to Rome Statute, Geneva Conventions, Genocide Convention, ICERD, UDHR, or Planetary Boundaries</td></tr>
           <tr><td>severity</td><td><span class="severity-badge critical">critical</span> <span class="severity-badge high">high</span> <span class="severity-badge medium">medium</span></td><td>Harm severity level</td></tr>
           <tr><td>occurrences</td><td>number</td><td>Times the phrase appears (phrase matches only)</td></tr>
           <tr><td>confidence</td><td>number 0–100</td><td>AI confidence score (AI detections only)</td></tr>

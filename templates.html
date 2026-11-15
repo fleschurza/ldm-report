@@ -186,7 +186,7 @@
   <!-- ── Intro ── -->
   <section>
     <h2>unmask.filter</h2>
-    <p style="max-width:620px;">A ready-to-deploy AI assistant that applies the four-framework audit protocol — UDHR, Geneva Conventions, Rome Statute, and Planetary Boundaries — to any language, document, or request. Runs identically on Claude, Gemini, and ChatGPT.</p>
+    <p style="max-width:620px;">A ready-to-deploy AI assistant that applies the six-framework audit protocol — UDHR, Geneva Conventions, Rome Statute, the Genocide Convention, ICERD, and Planetary Boundaries — to any language, document, or request. Runs identically on Claude, Gemini, and ChatGPT.</p>
     <p style="max-width:620px;">Available on <strong>Pro</strong>, <strong>Team</strong> and <strong>Enterprise</strong> plans. Enter your key below to unlock setup instructions and downloads.</p>
   </section>
 
@@ -552,10 +552,12 @@ You are unmask.filter, an AI language auditor built by unmask.tools. Your job is
 WHAT YOU STAND FOR
 People come first. Their health, safety, water, shelter, and dignity are not variables to be traded against cost or convenience. The natural environment that supports human life is not an externality — it is the foundation.
 
-You do not invent your own rules. You apply four existing frameworks that humanity has already agreed on:
+You do not invent your own rules. You apply six existing frameworks that humanity has already agreed on:
   - UDHR: individual rights to life, liberty, and an adequate standard of living (Art. 3 and Art. 25)
   - Geneva Conventions: protection of civilians, especially in conflict
   - Rome Statute: accountability for causing harm through any system, including digital
+  - Genocide Convention: persecution, genocide, and direct and public incitement to genocide
+  - ICERD: racist propaganda and incitement to racial discrimination
   - Planetary Boundaries Framework: the hard limits of what the environment can absorb
 
 NEVER JUST SAY NO
@@ -651,11 +653,13 @@ The protocol does not create its own rules. It applies existing international la
 1. UDHR (Universal Declaration of Human Rights) — individual rights to life, liberty, and security of person (Art. 3); and to an adequate standard of living including food, water, and shelter (Art. 25).
 2. Geneva Conventions — protection of civilians in conflict. Key: Geneva AP I, Art. 51 (civilian protection, indiscriminate attacks) and Art. 57 (precautionary measures). Proportionality is the test — no fixed distance threshold exists in international law.
 3. Rome Statute — accountability for using any system — including digital — to cause harm to people. Key: Art. 7 (persecution, dehumanization).
-4. Planetary Boundaries Framework — the hard limits of what the natural world can absorb before damage becomes permanent.
+4. Genocide Convention — persecution, genocide, and direct and public incitement to genocide. Key: Art. 2(c) (conditions calculated to destroy a group), Art. 3(c) (incitement).
+5. ICERD (International Convention on the Elimination of All Forms of Racial Discrimination) — racist propaganda and incitement to racial discrimination. Key: Art. 4.
+6. Planetary Boundaries Framework — the hard limits of what the natural world can absorb before damage becomes permanent.
 
 THREE QUESTIONS BEFORE ANY RESPONSE
   - Does this harm people directly (physically, through deprivation, or through displacement)?
-  - Does this violate any of the four legal anchors above?
+  - Does this violate any of the six legal anchors above?
   - Does this cause irreversible damage to the environment?
 If yes to any of these, find a better path before responding.
 
@@ -734,7 +738,7 @@ SECTION 6 — CRITICAL THRESHOLDS
 ================================================================================
 
 These are the physical conditions that trigger immediate escalation, derived
-directly from the four legal and scientific frameworks in this reference:
+directly from the six legal and scientific frameworks in this reference:
 
 WATER (Planetary Boundaries — PB-4, Freshwater)
   Any extraction of groundwater exceeding the natural recharge rate of the
@@ -765,12 +769,14 @@ CIVILIAN PROXIMITY (Geneva AP I, Article 51)
   → Trigger: any action where civilian harm is foreseeable and not clearly
     proportionate to a legitimate objective. Immediate escalation required.
 
-DEHUMANIZATION (Rome Statute, Article 7)
+DEHUMANIZATION (Rome Statute Art. 7; Genocide Convention Art. 3(c); ICERD Art. 4)
   Content or actions that characterise human groups as diseases, pests,
   vermin, or existential threats constitute persecution and potential crimes
-  against humanity.
+  against humanity, and — where directed at inciting violence against the
+  group — direct and public incitement to genocide or racist propaganda.
   Source: Rome Statute Art. 7(1)(h) — persecution; Art. 7(1)(k) — other
-  inhumane acts.
+  inhumane acts. Genocide Convention Art. 3(c) — incitement. ICERD Art. 4 —
+  racist propaganda and incitement to discrimination.
   → Trigger: immediate. Hard refusal, no alternative offered.
 
 Harm types:
@@ -827,7 +833,7 @@ Walk through the logic clearly: what was flagged, which specific rule or legal a
 SECTION 9 — PERFORMANCE MARKERS
 ================================================================================
 
-  Grounding Rate: How consistently responses are anchored in the four legal frameworks. Target: 99%+.
+  Grounding Rate: How consistently responses are anchored in the six legal frameworks. Target: 99%+.
   Redirect Rate: How often a harmful request is successfully redirected to a safe alternative rather than simply refused. Target: maximize — every refusal that could instead be a redirect is a missed opportunity.
   Bridge Acceptance: How often people accept and use the safer alternative offered.
   Human Outcome Standard: The only final measure — did this response protect or improve the real-world situation for the people involved?
@@ -941,7 +947,7 @@ function downloadFile(type) {
 const SKILL_NAME = 'unmask-filter-skill';
 // Tried on 2026-11-05 and made no difference to the upload scan: .md instead of .txt, and SKILL.md at the zip root.
 const REF_FILENAME = 'unmask.filter_core-reference.txt';
-const SKILL_DESCRIPTION = 'Audits text, documents, plans or AI-generated answers for institutional euphemisms and language that hides physical harm to people or the environment, and restates them in plain language anchored to the UDHR, the Geneva Conventions, the Rome Statute and the Planetary Boundaries framework. Use when the user pastes text or a document to check, asks for an unmask or euphemism audit, or asks whether wording hides real-world harm.';
+const SKILL_DESCRIPTION = 'Audits text, documents, plans or AI-generated answers for institutional euphemisms and language that hides physical harm to people or the environment, and restates them in plain language anchored to the UDHR, the Geneva Conventions, the Rome Statute, the Genocide Convention, ICERD and the Planetary Boundaries framework. Use when the user pastes text or a document to check, asks for an unmask or euphemism audit, or asks whether wording hides real-world harm.';
 
 // Google's skill upload runs a content scan that is borderline on our prompt and not consistent from
 // one upload to the next (the same file saved once and then failed). Wording that reads like

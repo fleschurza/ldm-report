@@ -16,7 +16,7 @@
     '</div>' +
     'unmask.tools &nbsp;·&nbsp; Data collected with user consent &nbsp;·&nbsp; No personal data stored &nbsp;·&nbsp;' +
     '<br style="display:none;" class="footer-br">' +
-    ' Legal anchors: Geneva AP I &nbsp;·&nbsp; Rome Statute &nbsp;·&nbsp; UDHR &nbsp;·&nbsp; Planetary Boundaries &nbsp;·&nbsp;' +
+    ' Legal anchors: Geneva AP I &nbsp;·&nbsp; Rome Statute &nbsp;·&nbsp; Genocide Convention &nbsp;·&nbsp; ICERD &nbsp;·&nbsp; UDHR &nbsp;·&nbsp; Planetary Boundaries &nbsp;·&nbsp;' +
     '<br>' +
     '<a href="/privacy.html" style="' + LS + '">Privacy Policy</a> &nbsp;·&nbsp;' +
     '<a href="/terms.html"   style="' + LS + '">Terms of Service</a> &nbsp;·&nbsp;' +
