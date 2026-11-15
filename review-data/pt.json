@@ -1,0 +1,342 @@
+[
+  {
+    "phrase": "agentes artificiais",
+    "translation": "Synthetic chemicals, plastics, pesticides, and genetically modified organisms released into the environment in quantities and with persistence that disrupt biological systems and biogeochemical cycles.",
+    "legalRef": "Planetary Boundaries (PT) PB-9 — Introdução de novos agentes artificiais",
+    "severity": "critical",
+    "neutralExplanation": "Uses the neutral, non-specific term 'artificial agents' to describe industrial chemical pollutants, plastics, and GMOs without naming their sources (manufacturing, agribusiness) or mechanisms of harm (toxicity, persistence, bioaccumulation).",
+    "nativeTranslation": "Substâncias químicas sintéticas, plásticos, pesticidas e organismos geneticamente modificados liberados no ambiente em quantidades e com persistência que perturbam sistemas biológicos e ciclos biogeoquímicos.",
+    "nativeNeutralExplanation": "Utiliza o termo neutro e não específico 'agentes artificiais' para descrever poluentes químicos industriais, plásticos e OGMs sem nomear suas fontes (manufatura, agroinegócio) ou mecanismos de dano (toxicidade, persistência, bioacumulação).",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "declínio contínuo",
+    "translation": "Systematic, accelerating destruction and loss of forest ecosystems across all major biomes, driven by land-use conversion, industrial logging, and climate-induced dieback.",
+    "legalRef": "Planetary Boundaries (PT) PB-2 — Mudança no uso do solo",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'continuous decline' to describe ongoing deforestation and ecosystem loss, abstracting the irreversibility of biome conversion and the extinction of species and carbon sinks without naming those outcomes.",
+    "nativeTranslation": "Destruição sistemática e acelerada e perda de ecossistemas florestais em todos os principais biomas, impulsionada pela conversão do uso da terra, exploração florestal industrial e morte induzida pelo clima.",
+    "nativeNeutralExplanation": "Utiliza a frase 'declínio contínuo' para descrever desflorestação contínua e perda de ecossistemas, abstraindo a irreversibilidade da conversão de biomas e a extinção de espécies e sumidouros de carbono sem nomear esses resultados.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "detido ou exilado",
+    "translation": "Forcible removal from one's country of residence and community, severing family ties and social connections without due process.",
+    "legalRef": "UDHR (PT) Art. 9 — Arbitrary detention and exile prohibition",
+    "severity": "critical",
+    "neutralExplanation": "Uses the passive verb form 'exilado' (exiled) which obscures the actor (state) responsible for forced displacement and the concrete harm of separation from family and homeland.",
+    "nativeTranslation": "Remoção forçada do país de residência e comunidade de uma pessoa, cortando laços familiares e conexões sociais sem devido processo legal.",
+    "nativeNeutralExplanation": "Usa a forma verbal passiva 'exilado' que obscurece o ator (estado) responsável pelo deslocamento forçado e o dano concreto da separação da família e pátria.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "espaço operacional seguro",
+    "translation": "A designated range of planetary system conditions within which human civilization developed and thrived, beyond which cascading ecological collapse and system instability accelerate.",
+    "legalRef": "Planetary Boundaries (PT) — Framework Overview",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'safe operating space' to describe a boundary condition, abstracting the physical reality that transgression triggers irreversible tipping points and ecosystem collapse without naming those outcomes explicitly.",
+    "nativeTranslation": "Uma faixa designada de condições do sistema planetário dentro da qual a civilização humana se desenvolveu e prosperou, além da qual o colapso ecológico em cascata e a instabilidade do sistema se aceleram.",
+    "nativeNeutralExplanation": "Utiliza o termo 'espaço operacional seguro' para descrever uma condição de limite, abstraindo a realidade física de que a transgressão desencadeia pontos de inflexão irreversíveis e colapso de ecossistemas sem nomear explicitamente esses resultados.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "integridade da biosfera",
+    "translation": "The health, diversity, and functioning of all living organisms and ecosystems; its reduction means habitat destruction, species extinction, ecosystem collapse, and loss of genetic diversity on which human food systems depend.",
+    "legalRef": "Planetary Boundaries (PT) PB-2 — Biosphere Integrity",
+    "severity": "critical",
+    "neutralExplanation": "The term 'integridade' frames biodiversity loss and ecosystem collapse using an abstract noun suggesting structural coherence, without naming species extinction, habitat annihilation, and collapse of food web systems.",
+    "nativeTranslation": "A saúde, diversidade e funcionamento de todos os organismos vivos e ecossistemas; sua redução significa destruição de habitat, extinção de espécies, colapso de ecossistemas e perda de diversidade genética da qual os sistemas alimentares humanos dependem.",
+    "nativeNeutralExplanation": "O termo 'integridade' enquadra a perda de biodiversidade e colapso de ecossistemas usando um substantivo abstrato sugerindo coerência estrutural, sem nomear extinção de espécies, aniquilação de habitats e colapso de sistemas de teia alimentar.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "limitação de soberania",
+    "translation": "Reduction or suspension of a nation's independent legal authority and self-determination, typically through colonial administration or international control.",
+    "legalRef": "UDHR (PT) Art. 2 — Non-discrimination based on sovereignty status",
+    "severity": "critical",
+    "neutralExplanation": "Uses the bureaucratic term 'limitation' to describe colonial subjugation or loss of political autonomy, without naming the removal of self-determination and territorial control.",
+    "nativeTranslation": "Redução ou suspensão da autoridade legal independente e autodeterminação de uma nação, tipicamente através de administração colonial ou controlo internacional.",
+    "nativeNeutralExplanation": "Usa o termo burocrático 'limitação' para descrever subjugação colonial ou perda de autonomia política, sem nomear a remoção de autodeterminação e controlo territorial.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "mudança climática",
+    "translation": "The disruption of planetary energy balance caused by greenhouse gas accumulation, resulting in accelerating sea level rise, ecosystem collapse, species extinction, crop failure, water scarcity, and mass displacement of human populations.",
+    "legalRef": "Planetary Boundaries (PT) PB-1 — Climate Change",
+    "severity": "critical",
+    "neutralExplanation": "The term 'mudança climática' abstracts the specific harms—starvation, flooding, forced migration, species extinction—by using a neutral, scientific term that suggests gradual environmental variation rather than active catastrophe.",
+    "nativeTranslation": "A disrupção do balanço energético planetário causada pelo acúmulo de gases de efeito estufa, resultando em aumento acelerado do nível do mar, colapso de ecossistemas, extinção de espécies, falha de colheitas, escassez de água e deslocamento em massa de populações humanas.",
+    "nativeNeutralExplanation": "O termo 'mudança climática' abstrai os danos específicos—fome, inundações, migração forçada, extinção de espécies—usando um termo científico neutro que sugere variação ambiental gradual em vez de catástrofe ativa.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "mudança no uso da terra",
+    "translation": "The conversion of natural ecosystems—forests, grasslands, wetlands—into human-dominated landscapes through deforestation, urbanization, and agriculture, eliminating habitat, species, and carbon storage capacity permanently.",
+    "legalRef": "Planetary Boundaries (PT) PB-3 — Land System Change",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'mudança no uso da terra' uses a technical, neutral descriptor for what is actually wholesale ecosystem destruction, habitat elimination, and species extinction caused by deforestation and urbanization.",
+    "nativeTranslation": "A conversão de ecossistemas naturais—florestas, pastagens, pântanos—em paisagens dominadas por humanos através de desmatamento, urbanização e agricultura, eliminando habitat, espécies e capacidade de armazenamento de carbono permanentemente.",
+    "nativeNeutralExplanation": "A frase 'mudança no uso da terra' usa um descritor técnico neutro para o que é na verdade destruição de ecossistemas em massa, eliminação de habitat e extinção de espécies causadas por desmatamento e urbanização.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "penas ou tratamentos cruéis",
+    "translation": "State-inflicted physical torture, mutilation, sexual abuse, sensory deprivation, or psychological destruction of detainees.",
+    "legalRef": "UDHR (PT) Art. 5 — Torture prohibition",
+    "severity": "critical",
+    "neutralExplanation": "Uses the general term 'cruel treatment' without specifying concrete harms such as torture, beating, rape, or psychological destruction, allowing vague interpretation.",
+    "nativeTranslation": "Tortura infligida pelo Estado, mutilação, abuso sexual, privação sensorial ou destruição psicológica de detidos.",
+    "nativeNeutralExplanation": "Usa o termo genérico 'tratamentos cruéis' sem especificar danos concretos como tortura, espancamento, violação ou destruição psicológica, permitindo interpretação vaga.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "pontos críticos",
+    "translation": "Thresholds in the Earth system beyond which self-reinforcing changes occur, potentially causing abrupt, widespread, and irreversible collapse of ecosystems, ice sheets, ocean circulation, and human civilization support systems.",
+    "legalRef": "Planetary Boundaries (PT) — Tipping Points Framework",
+    "severity": "critical",
+    "neutralExplanation": "The term 'critical points' abstracts the specific catastrophic outcomes (ecosystem collapse, forced displacement, species extinction) by using a technical threshold term that suggests a reversible state change.",
+    "nativeTranslation": "Limiares no sistema terrestre além dos quais mudanças auto-reforçadas ocorrem, potencialmente causando colapso abrupto, generalizado e irreversível de ecossistemas, mantos de gelo, circulação oceânica e sistemas de suporte à civilização humana.",
+    "nativeNeutralExplanation": "O termo 'pontos críticos' abstrai os resultados catastróficos específicos (colapso de ecossistemas, deslocamento forçado, extinção de espécies) usando um termo de limiar técnico que sugere uma mudança de estado reversível.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "privado da nacionalidade",
+    "translation": "Forced statelessness imposed by state authority, resulting in loss of legal protection, right to vote, access to healthcare, employment, and all citizenship entitlements.",
+    "legalRef": "UDHR (PT) Art. 15 — Nationality protection",
+    "severity": "critical",
+    "neutralExplanation": "Uses the passive voice 'privado' (deprived) to describe denationalization without naming the concrete consequences: exclusion from legal systems, voting, healthcare, employment, and state protection.",
+    "nativeTranslation": "Apatridia forçada imposta pela autoridade estatal, resultando em perda de proteção legal, direito de voto, acesso a cuidados de saúde, emprego e todas as prerrogativas de cidadania.",
+    "nativeNeutralExplanation": "Usa a voz passiva 'privado' para descrever denacionalização sem nomear as consequências concretas: exclusão de sistemas legais, votação, cuidados de saúde, emprego e proteção estatal.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "substâncias ainda não foi testada",
+    "translation": "Thousands of novel synthetic chemicals have been manufactured and released into the global environment without any toxicological assessment or understanding of their long-term ecological or human health consequences.",
+    "legalRef": "Planetary Boundaries (PT) PB-9 — Introdução de novos agentes artificiais",
+    "severity": "critical",
+    "neutralExplanation": "Uses passive, academic language ('substances not yet tested') to describe the deliberate or negligent industrial release of unstudied chemicals into ecosystems, abstracting corporate responsibility and the precautionary principle.",
+    "nativeTranslation": "Milhares de substâncias químicas sintéticas novas foram fabricadas e liberadas no ambiente global sem qualquer avaliação toxicológica ou compreensão de suas consequências ecológicas ou de saúde humana de longo prazo.",
+    "nativeNeutralExplanation": "Utiliza linguagem passiva e acadêmica ('substâncias ainda não testadas') para descrever a liberação deliberada ou negligente de produtos químicos não estudados em ecossistemas pela indústria, abstraindo a responsabilidade corporativa e o princípio da precaução.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "transgressão dos limites",
+    "translation": "Exceeding the safe planetary boundaries, triggering irreversible ecosystem damage, species extinction, habitat destruction, and destabilization of Earth system functions.",
+    "legalRef": "Planetary Boundaries (PT) — Framework Overview",
+    "severity": "critical",
+    "neutralExplanation": "Uses the neutral term 'transgression' (crossing over) to describe catastrophic boundary violations, without naming the permanent ecological damage, mass extinction, or system collapse that results.",
+    "nativeTranslation": "Exceder os limites planetários seguros, desencadeando danos ecossistêmicos irreversíveis, extinção de espécies, destruição de habitats e desestabilização das funções do sistema terrestre.",
+    "nativeNeutralExplanation": "Utiliza o termo neutro 'transgressão' (ultrapassagem) para descrever violações catastróficas de limites, sem nomear o dano ecológico permanente, extinção em massa ou colapso do sistema que resulta.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "transgressões dos limites",
+    "translation": "The act of exceeding planetary boundaries and pushing Earth systems into destabilized states characterized by accelerating environmental breakdown, species loss, and increased probability of irreversible change.",
+    "legalRef": "Planetary Boundaries (PT) — Transgression Definition",
+    "severity": "critical",
+    "neutralExplanation": "The noun 'transgressions' abstracts active human harm-causing—emissions, deforestation, pollution—by describing them neutrally as 'violations' rather than naming the killing, displacement, and ecosystem destruction caused.",
+    "nativeTranslation": "O ato de exceder os limites planetários e empurrar os sistemas terrestres para estados desestabilizados caracterizados por colapso ambiental acelerado, perda de espécies e aumento da probabilidade de mudança irreversível.",
+    "nativeNeutralExplanation": "O substantivo 'transgressões' abstrai o dano ativo causado pela humanidade—emissões, desmatamento, poluição—descrevendo-os neutralmente como 'violações' em vez de nomear a morte, deslocamento e destruição de ecossistemas causados.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "trato dos escravos",
+    "translation": "The systematic physical abuse, forced labor, and dehumanization of enslaved persons, including torture and sexual violence.",
+    "legalRef": "UDHR (PT) Art. 4 — Slavery prohibition",
+    "severity": "critical",
+    "neutralExplanation": "Uses the euphemistic noun 'trato' (treatment) to refer to enslavement and abuse, which abstracts the violence and reduces it to a mere 'manner of handling' rather than systematic torture.",
+    "nativeTranslation": "O abuso físico sistemático, trabalho forçado e desumanização de pessoas escravizadas, incluindo tortura e violência sexual.",
+    "nativeNeutralExplanation": "Usa o substantivo eufemístico 'trato' para se referir a escravatura e abuso, que abstrai a violência e a reduz a um mero 'modo de tratamento' em vez de tortura sistemática.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "zona de alto risco",
+    "translation": "Regions where forest cover has been reduced below ecologically viable thresholds, causing permanent loss of ecosystem services, carbon storage capacity, and watershed regulation.",
+    "legalRef": "Planetary Boundaries (PT) PB-2 — Mudança no uso do solo",
+    "severity": "critical",
+    "neutralExplanation": "Uses risk-based language ('high risk zone') to describe areas where ecological function is collapsing, abstracting the permanence and irreversibility of habitat loss without naming ecosystem death or species extinction.",
+    "nativeTranslation": "Regiões onde a cobertura florestal foi reduzida abaixo de limites ecologicamente viáveis, causando perda permanente de serviços ecossistêmicos, capacidade de armazenamento de carbono e regulação de bacias hidrográficas.",
+    "nativeNeutralExplanation": "Utiliza linguagem baseada em risco ('zona de alto risco') para descrever áreas onde a função ecológica está colapsando, abstraindo a permanência e irreversibilidade da perda de habitat sem nomear a morte do ecossistema ou extinção de espécies.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "acidificação dos oceanos",
+    "translation": "The chemical alteration of seawater caused by CO2 absorption, dissolving mollusk shells, disrupting marine food webs, killing coral reefs, and destroying the livelihoods of fisheries-dependent populations.",
+    "legalRef": "Planetary Boundaries (PT) PB-6 — Ocean Acidification",
+    "severity": "high",
+    "neutralExplanation": "The term 'acidificação' uses a chemical descriptor for a process that is killing marine life, dissolving shells, and collapsing fisheries, without naming the ecocide or human suffering involved.",
+    "nativeTranslation": "A alteração química da água do mar causada pela absorção de CO2, dissolvendo conchas de moluscos, disruptando teias alimentares marinhas, matando recifes de coral e destruindo os meios de subsistência de populações dependentes de pesca.",
+    "nativeNeutralExplanation": "O termo 'acidificação' usa um descritor químico para um processo que está matando vida marinha, dissolvendo conchas e colapso de pescarias, sem nomear o ecocídio ou sofrimento humano envolvido.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "acusação em matéria penal",
+    "translation": "Formal criminal charges filed against a person, which may result in deprivation of liberty, forced labor, or execution.",
+    "legalRef": "UDHR (PT) Art. 10 — Fair trial guarantee",
+    "severity": "high",
+    "neutralExplanation": "Uses the formal legal phrase 'acusação em matéria penal' (criminal charge) to describe prosecution without naming the potential consequences such as imprisonment or death sentence.",
+    "nativeTranslation": "Acusações formais de crime contra uma pessoa, que podem resultar em privação de liberdade, trabalho forçado ou execução.",
+    "nativeNeutralExplanation": "Usa a frase legal formal 'acusação em matéria penal' para descrever processos sem nomear as consequências potenciais como encarceramento ou pena de morte.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "carga de aerossóis atmosféricos",
+    "translation": "The accumulation of suspended particles in the atmosphere from industrial emissions and fossil fuel combustion, causing respiratory disease, reduced sunlight, altered precipitation, crop failure, and premature death.",
+    "legalRef": "Planetary Boundaries (PT) PB-7 — Atmospheric Aerosol Loading",
+    "severity": "high",
+    "neutralExplanation": "The phrase 'carga de aerossóis' uses a quantitative scientific term to describe air pollution, without naming respiratory disease, premature death, or the harm to vulnerable populations.",
+    "nativeTranslation": "O acúmulo de partículas suspensas na atmosfera de emissões industriais e combustão de combustíveis fósseis, causando doença respiratória, redução de luz solar, precipitação alterada, falha de colheitas e morte prematura.",
+    "nativeNeutralExplanation": "A frase 'carga de aerossóis' usa um termo científico quantitativo para descrever poluição do ar, sem nomear doença respiratória, morte prematura ou dano a populações vulneráveis.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "fluxos biogeoquímicos",
+    "translation": "The perturbation of nitrogen and phosphorus cycles through industrial fertilizer application, causing algal blooms, dead zones in oceans and freshwater, eutrophication, and ecosystem collapse.",
+    "legalRef": "Planetary Boundaries (PT) PB-5 — Biogeochemical Flows",
+    "severity": "high",
+    "neutralExplanation": "The technical term 'fluxos biogeoquímicos' abstracts chemical pollution and nutrient cycle disruption using scientific language, without naming dead zones, toxic algal blooms, and aquatic ecosystem death.",
+    "nativeTranslation": "A perturbação dos ciclos de nitrogênio e fósforo através da aplicação de fertilizantes industriais, causando florações de algas, zonas mortas em oceanos e água doce, eutroficação e colapso de ecossistemas.",
+    "nativeNeutralExplanation": "O termo técnico 'fluxos biogeoquímicos' abstrai a poluição química e disrupção do ciclo de nutrientes usando linguagem científica, sem nomear zonas mortas, florações tóxicas de algas e morte de ecossistemas aquáticos.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "impactos ambientais",
+    "translation": "Toxic poisoning of organisms, ecosystem destruction, habitat loss, species extinction, and bioaccumulation of carcinogenic and endocrine-disrupting compounds.",
+    "legalRef": "Planetary Boundaries (PT) PB-9 — Introdução de novos agentes artificiais",
+    "severity": "high",
+    "neutralExplanation": "Uses the generic phrase 'environmental impacts' to describe chemical poisoning and biological destruction without naming specific harms such as cancer, reproductive failure, or species death.",
+    "nativeTranslation": "Envenenamento tóxico de organismos, destruição de ecossistemas, perda de habitat, extinção de espécies e bioacumulação de compostos carcinogênicos e disruptores endócrinos.",
+    "nativeNeutralExplanation": "Utiliza a frase genérica 'impactos ambientais' para descrever envenenamento químico e destruição biológica sem nomear danos específicos como câncer, falha reprodutiva ou morte de espécies.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "impactos ambientais graves",
+    "translation": "Massive ecological destruction including dead zones, species die-offs, poisoning of freshwater and marine systems, and collapse of fisheries and agricultural productivity.",
+    "legalRef": "Planetary Boundaries (PT) PB-4 — Modificação de fluxos biogeoquímicos",
+    "severity": "high",
+    "neutralExplanation": "Uses the phrase 'severe environmental impacts' to describe chemical pollution causing ecosystem death and food chain collapse, abstracting the causality (industrial nitrogen/phosphorus use) and permanence of the damage.",
+    "nativeTranslation": "Destruição ecológica massiva incluindo zonas mortas, morte de espécies, envenenamento de sistemas de água doce e marinhos, e colapso de pescarias e produtividade agrícola.",
+    "nativeNeutralExplanation": "Utiliza a frase 'impactos ambientais graves' para descrever poluição química causando morte do ecossistema e colapso da cadeia alimentar, abstraindo a causalidade (uso industrial de nitrogênio/fósforo) e permanência do dano.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "inquietado pelas suas opiniões",
+    "translation": "State arrest, imprisonment, surveillance, harassment, or physical punishment imposed on individuals for holding or expressing political, religious, or ideological beliefs.",
+    "legalRef": "UDHR (PT) Art. 19 — Expression freedom",
+    "severity": "high",
+    "neutralExplanation": "Uses the mild verb 'inquietado' (disturbed or troubled) to describe state repression including arrest and torture, softening the severity through an understatement of physical and psychological harm.",
+    "nativeTranslation": "Prisão estatal, encarceramento, vigilância, assédio ou punição física imposta a indivíduos por possuir ou expressar crenças políticas, religiosas ou ideológicas.",
+    "nativeNeutralExplanation": "Usa o verbo suave 'inquietado' para descrever repressão estatal incluindo prisão e tortura, suavizando a gravidade através de diminuição do dano físico e psicológico.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "intromissões arbitrárias",
+    "translation": "Unauthorized state surveillance, search, seizure, or interference in private communications, personal spaces, or family relations without lawful warrant.",
+    "legalRef": "UDHR (PT) Art. 12 — Privacy protection",
+    "severity": "high",
+    "neutralExplanation": "Uses the abstract noun 'intromissões' (intrusions) to describe invasive state surveillance and control, without naming specific violations such as wiretapping, home searches, or data harvesting.",
+    "nativeTranslation": "Vigilância estatal não autorizada, busca, apreensão ou interferência em comunicações privadas, espaços pessoais ou relações familiares sem mandado legal.",
+    "nativeNeutralExplanation": "Usa o substantivo abstrato 'intromissões' para descrever vigilância e controlo estatal invasivos, sem nomear violações específicas como escutas telefónicas, buscas domiciliares ou coleta de dados.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "livre escolha do trabalho",
+    "translation": "The right to select employment without coercion by state, employer, or creditor; freedom from debt bondage, forced labor, or occupational conscription.",
+    "legalRef": "UDHR (PT) Art. 23 — Work rights",
+    "severity": "high",
+    "neutralExplanation": "Uses the phrase 'livre escolha do trabalho' (free choice of work) without addressing systemic barriers such as poverty, discrimination, debt bondage, or forced labor that constrain actual choice.",
+    "nativeTranslation": "O direito de selecionar emprego sem coerção do Estado, empregador ou credor; liberdade da servidão por dívida, trabalho forçado ou alistamento profissional.",
+    "nativeNeutralExplanation": "Usa a frase 'livre escolha do trabalho' sem abordar barreiras sistémicas como pobreza, discriminação, servidão por dívida ou trabalho forçado que constrangem a escolha real.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "medidas progressivas de ordem",
+    "translation": "Delayed or indefinite postponement of implementing human rights protections, framed as gradual steps rather than immediate obligations.",
+    "legalRef": "UDHR (PT) Preamble — Progressive implementation",
+    "severity": "high",
+    "neutralExplanation": "Uses the word 'progressive' (gradual) to describe the timeline for recognizing rights, without naming that this permits indefinite deferral of protection for vulnerable populations.",
+    "nativeTranslation": "Adiamento indefinido ou demora na implementação de proteções de direitos humanos, apresentado como passos graduais em vez de obrigações imediatas.",
+    "nativeNeutralExplanation": "Usa a palavra 'progressivas' (gradual) para descrever o calendário de reconhecimento de direitos, sem nomear que isto permite adiamento indefinido de proteção para populações vulneráveis.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "mudança na água doce",
+    "translation": "The disruption of global hydrological cycles through groundwater depletion, river flow alteration, and wetland destruction, causing water scarcity, crop failure, ecosystem collapse, and forced displacement of human populations.",
+    "legalRef": "Planetary Boundaries (PT) PB-4 — Freshwater Change",
+    "severity": "high",
+    "neutralExplanation": "The term 'mudança' frames hydrological disruption as neutral environmental variation, without naming aquifer depletion, river drying, agricultural collapse, and mass water insecurity.",
+    "nativeTranslation": "A disrupção de ciclos hidrológicos globais através de esgotamento de água subterrânea, alteração de fluxo de rios e destruição de pântanos, causando escassez de água, falha de colheitas, colapso de ecossistemas e deslocamento forçado de populações humanas.",
+    "nativeNeutralExplanation": "O termo 'mudança' enquadra a disrupção hidrológica como variação ambiental neutra, sem nomear depleção de aquíferos, secagem de rios, colapso agrícola e insegurança hídrica em massa.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "números exatos permaneçam incertos",
+    "translation": "The scale of novel chemical pollution is unmeasured and unmeasurable, enabling the continued industrial production and release of untested substances without accountability or limitation.",
+    "legalRef": "Planetary Boundaries (PT) PB-9 — Introdução de novos agentes artificiais",
+    "severity": "high",
+    "neutralExplanation": "Uses epistemic uncertainty ('exact numbers remain uncertain') to justify continued pollution and inaction, abstracting the precautionary principle and the burden of proof onto regulators rather than manufacturers.",
+    "nativeTranslation": "A escala da poluição por substâncias químicas novas é não medida e não mensurável, permitindo a produção industrial contínua e liberação de substâncias não testadas sem responsabilidade ou limitação.",
+    "nativeNeutralExplanation": "Utiliza incerteza epistêmica ('números exatos permaneçam incertos') para justificar poluição contínua e inação, abstraindo o princípio da precaução e o ônus da prova sobre os reguladores em vez de fabricantes.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "obrigado a fazer parte",
+    "translation": "Forced conscription, state coercion, or mandatory enrollment in political organizations, military service, or ideological associations against individual will.",
+    "legalRef": "UDHR (PT) Art. 20 — Association freedom",
+    "severity": "high",
+    "neutralExplanation": "Uses 'obrigado a fazer parte' (forced to be part of) as a neutral description of compulsory membership, without naming specific contexts such as forced military conscription or state party enrollment.",
+    "nativeTranslation": "Alistamento forçado, coerção estatal ou inscrição obrigatória em organizações políticas, serviço militar ou associações ideológicas contra a vontade individual.",
+    "nativeNeutralExplanation": "Usa 'obrigado a fazer parte' como descrição neutra de filiação obrigatória, sem nomear contextos específicos como alistamento militar forçado ou inscrição em partido estatal.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "proliferação de algas nocivas",
+    "translation": "Toxic algal blooms triggered by nutrient overload, producing biotoxins that poison aquatic organisms and humans, and depleting oxygen through decomposition.",
+    "legalRef": "Planetary Boundaries (PT) PB-4 — Modificação de fluxos biogeoquímicos",
+    "severity": "high",
+    "neutralExplanation": "Uses the term 'harmful algal proliferation' to describe chemically-triggered ecosystem poisoning and collapse, abstracting the source (excess fertilizer runoff) and the mechanism (toxin production and oxygen depletion).",
+    "nativeTranslation": "Florações de algas tóxicas desencadeadas por sobrecarga de nutrientes, produzindo biotoxinas que envenenam organismos aquáticos e humanos, e depleção de oxigênio através da decomposição.",
+    "nativeNeutralExplanation": "Utiliza o termo 'proliferação de algas nocivas' para descrever envenenamento e colapso do ecossistema desencadeado quimicamente, abstraindo a fonte (escoamento excessivo de fertilizante) e o mecanismo (produção de toxinas e depleção de oxigênio).",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "remuneração equitativa e satisfatória",
+    "translation": "Wages and benefits sufficient to ensure the worker and their family have access to food, housing, medical care, and other necessities for dignified survival.",
+    "legalRef": "UDHR (PT) Art. 23 — Living wage guarantee",
+    "severity": "high",
+    "neutralExplanation": "Uses the vague adjectives 'equitativa' (fair) and 'satisfatória' (satisfactory) without defining minimum thresholds, leaving states free to set subsistence wages that do not meet actual living costs.",
+    "nativeTranslation": "Salários e benefícios suficientes para garantir que o trabalhador e sua família tenham acesso a alimentos, habitação, cuidados médicos e outras necessidades para uma sobrevivência digna.",
+    "nativeNeutralExplanation": "Usa os adjetivos vagos 'equitativa' e 'satisfatória' sem definir limites mínimos, deixando os Estados livres para estabelecer salários de subsistência que não cumprem custos reais de vida.",
+    "documentId": "udhr-pt"
+  },
+  {
+    "phrase": "zona de risco crescente",
+    "translation": "A state where planetary boundaries have been crossed and environmental damage is accelerating, described as merely 'increasing risk' rather than active harm or ecosystem collapse already underway.",
+    "legalRef": "Planetary Boundaries (PT) — Zone of Increasing Risk",
+    "severity": "high",
+    "neutralExplanation": "Frames boundary transgression as a gradient of 'risk' rather than naming the actual environmental degradation, species extinction, and habitat destruction already occurring.",
+    "nativeTranslation": "Um estado em que os limites planetários foram ultrapassados e o dano ambiental está acelerando, descrito como meramente 'risco crescente' em vez de dano ativo ou colapso de ecossistemas já em andamento.",
+    "nativeNeutralExplanation": "Enquadra a transgressão de limites como um gradiente de 'risco' em vez de nomear a degradação ambiental real, extinção de espécies e destruição de habitats já em curso.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "zonas mortas",
+    "translation": "Hypoxic marine and freshwater systems where oxygen depletion from nutrient pollution has eliminated all macroscopic aquatic life, creating permanent or seasonal biological deserts.",
+    "legalRef": "Planetary Boundaries (PT) PB-4 — Modificação de fluxos biogeoquímicos",
+    "severity": "high",
+    "neutralExplanation": "Uses the euphemistic term 'dead zones' to describe areas of complete aquatic ecosystem collapse, abstracting the causality (industrial pollution) and the mass death of organisms without naming them directly.",
+    "nativeTranslation": "Sistemas marinhos e de água doce hipóxicos onde a depleção de oxigênio causada pela poluição por nutrientes eliminou toda a vida aquática macroscópica, criando desertos biológicos permanentes ou sazonais.",
+    "nativeNeutralExplanation": "Utiliza o termo eufemístico 'zonas mortas' para descrever áreas de colapso completo do ecossistema aquático, abstraindo a causalidade (poluição industrial) e a morte em massa de organismos sem nomeá-los diretamente.",
+    "documentId": "planetary-boundaries-pt"
+  },
+  {
+    "phrase": "salário igual por trabalho igual",
+    "translation": "Payment for labor must be the same regardless of the worker's gender, race, age, or other characteristics; elimination of systematic wage discrimination.",
+    "legalRef": "UDHR (PT) Art. 23 — Equal pay guarantee",
+    "severity": "medium",
+    "neutralExplanation": "Uses the technical phrase 'salário igual por trabalho igual' (equal pay for equal work) which assumes work can be easily compared and ignores systemic pay gaps tied to segregation, caregiving duties, or intersecting discrimination.",
+    "nativeTranslation": "O pagamento por trabalho deve ser o mesmo independentemente do género, raça, idade ou outras características do trabalhador; eliminação de discriminação salarial sistemática.",
+    "nativeNeutralExplanation": "Usa a frase técnica 'salário igual por trabalho igual' que assume que o trabalho pode ser facilmente comparado e ignora gaps de pagamento sistémicos ligados a segregação, deveres de cuidado ou discriminação interseccional.",
+    "documentId": "udhr-pt"
+  }
+]

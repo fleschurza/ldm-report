@@ -1,0 +1,352 @@
+[
+  {
+    "phrase": "أعمال عنف منفردة أو متقطعة",
+    "translation": "Isolated incidents of killing, torture, sexual assault, or other serious bodily harm that fall below the threshold of systematic armed conflict, permitting states to avoid accountability for widespread but non-continuous violence.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(d) — Sporadic or isolated acts of violence",
+    "severity": "critical",
+    "neutralExplanation": "Uses the temporal qualifiers 'isolated' or 'sporadic' to exclude violence from jurisdiction, without quantifying the harm or naming that such acts may still constitute systematic patterns of abuse.",
+    "nativeTranslation": "الحوادث المنفصلة من القتل أو التعذيب أو الاعتداء الجنسي أو غيرها من الأضرار البدنية الخطيرة التي تقل عن عتبة النزاع المسلح المنهجي.",
+    "nativeNeutralExplanation": "تستخدم المؤهلات الزمنية 'منفردة' أو 'متقطعة' لاستبعاد العنف من الاختصاص، دون تحديد حجم الضرر أو الإشارة إلى أن مثل هذه الأعمال قد تشكل أنماطاً منهجية للإساءة.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "أفعال لاإنسانية أخرى",
+    "translation": "Severe acts causing extreme suffering, physical or mental harm, or grave injury, not enumerated in the statute but functionally equivalent to listed crimes against humanity.",
+    "legalRef": "Rome Statute (AR) Art. 7(1)(k) — Crimes Against Humanity / Other Inhumane Acts",
+    "severity": "critical",
+    "neutralExplanation": "Uses the catch-all phrase 'other inhumane acts' (أفعال لاإنسانية أخرى) to encompass unspecified severe harms, permitting broad interpretation while avoiding explicit enumeration of the specific acts and suffering involved.",
+    "nativeTranslation": "أفعال شديدة تسبب معاناة قصوى أو ضررًا جسديًا أو عقليًا خطيرًا، غير محددة في النظام الأساسي لكنها معادلة وظيفيًا للجرائم المدرجة ضد الإنسانية.",
+    "nativeNeutralExplanation": "يستخدم عبارة شاملة 'أفعال لاإنسانية أخرى' لتغطية أضرار شديدة غير محددة، مما يسمح بالتفسير الواسع مع تجنب التعداد الصريح للأفعال المحددة والمعاناة المرتبطة بها.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "إبعاد السكان أو النقل القسري",
+    "translation": "Forcible removal of civilian populations from their homes and territories, resulting in dispossession, displacement, and loss of property and livelihood.",
+    "legalRef": "Rome Statute (AR) Art. 7(1)(d) — Crimes Against Humanity / Deportation; Art. 8(2)(a)(vii) — War Crimes / Unlawful Deportation; Art. 8(2)(e)(viii) — War Crimes / Population Transfer",
+    "severity": "critical",
+    "neutralExplanation": "Uses euphemistic administrative language ('إبعاد' and 'نقل') to describe coercive removal of populations, omitting the violence, dispossession, family separation, and permanent loss of home that result from such acts.",
+    "nativeTranslation": "إزالة المدنيين بالقوة من منازلهم وأراضيهم، مما يترتب عليه نزع الملكية والتشريد وفقدان الممتلكات والعيش.",
+    "nativeNeutralExplanation": "يستخدم لغة إدارية ملطفة ('إبعاد' و'نقل') لوصف إزالة السكان بالقوة، مما يغفل العنف والنزع والفصل العائلي وفقدان المنزل الدائم الذي ينتج عن هذه الأعمال.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "إجراءات لم تباشر بشكل مستقل أو نزيه",
+    "translation": "Criminal proceedings controlled, influenced, or manipulated by state authorities or other perpetrators to protect the accused from accountability, conceal evidence, or intimidate witnesses.",
+    "legalRef": "Rome Statute (AR) Art. 17(2)(c) — Non-independent or impartial proceedings",
+    "severity": "critical",
+    "neutralExplanation": "Uses the procedural language 'لم تباشر بشكل مستقل أو نزيه' (not conducted independently or impartially) to describe what may be show trials, fabricated evidence, or state protection of perpetrators, without naming the perversion of justice or political control.",
+    "nativeTranslation": "إجراءات جنائية يتحكم فيها أو يؤثر عليها أو يتلاعب بها السلطات الحكومية أو المرتكبون الآخرون لحماية المتهم من المساءلة أو إخفاء الأدلة أو الضغط على الشهود.",
+    "nativeNeutralExplanation": "يستخدم اللغة الإجرائية 'لم تباشر بشكل مستقل أو نزيه' لوصف ما قد يكون محاكمات صورية أو أدلة مزيفة أو حماية الدولة للجناة، دون تسمية تشويه العدالة أو السيطرة السياسية.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "إرجاء التحقيق أو المقاضاة",
+    "translation": "Indefinite suspension of criminal investigation and prosecution of perpetrators of genocide, crimes against humanity, or war crimes, allowing accused persons to remain at large without accountability.",
+    "legalRef": "Rome Statute (AR) Art. 16 — Deferral of Investigation or Prosecution",
+    "severity": "critical",
+    "neutralExplanation": "Uses the procedural term 'إرجاء' (deferral/postponement) to describe what amounts to indefinite suspension of accountability, without naming the consequence that perpetrators escape justice and victims remain uncompensated.",
+    "nativeTranslation": "تعليق غير محدد للتحقيق الجنائي والمقاضاة في جرائم الإبادة الجماعية والجرائم ضد الإنسانية أو جرائم الحرب، مما يسمح للمتهمين بالبقاء دون محاسبة.",
+    "nativeNeutralExplanation": "يستخدم المصطلح الإجرائي 'إرجاء' لوصف ما يعادل تعليقاً غير محدود للمسؤولية، دون تسمية النتيجة وهي هروب الجناة من العدالة وبقاء الضحايا بدون تعويض.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "إصدار أوامر بتشريد السكان المدنيين",
+    "translation": "Forcible removal and displacement of civilian populations from their homes, lands, and territories, causing homelessness, loss of livelihoods, and destruction of community structures.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(e)(viii) — Ordering displacement",
+    "severity": "critical",
+    "neutralExplanation": "Uses the bureaucratic passive 'issuing orders' to describe forced displacement, abstracting the physical reality of families separated from homes and communities destroyed.",
+    "nativeTranslation": "إزالة قسرية وتهجير السكان المدنيين من منازلهم وأراضيهم، مما يسبب تشردهم وفقدان سبل عيشهم وتدمير البنية المجتمعية.",
+    "nativeNeutralExplanation": "تستخدم الصيغة البيروقراطية السلبية 'إصدار أوامر' لوصف التهجير القسري، مما يجرد الواقع المادي لفصل الأسر عن منازلهم وتدمير المجتمعات.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "استعمال القوة المسلحة",
+    "translation": "Invasion, bombardment, military occupation, blockade, or armed attack by one state against another state's territory, sovereignty, or population.",
+    "legalRef": "Rome Statute (AR) Art. 8 bis(2) — Use of armed force",
+    "severity": "critical",
+    "neutralExplanation": "Uses the abstract term 'use of armed force' to describe military invasion, occupation, or assault, without naming civilian casualties, displacement, or destruction of infrastructure.",
+    "nativeTranslation": "الغزو أو القصف أو الاحتلال العسكري أو الحصار أو الهجوم المسلح من قبل دولة واحدة ضد إقليم دولة أخرى أو سيادتها أو سكانها.",
+    "nativeNeutralExplanation": "تستخدم المصطلح المجرد 'استعمال القوة المسلحة' لوصف الغزو العسكري أو الاحتلال أو الهجوم، دون تسمية الضحايا المدنيين أو التهجير أو تدمير البنية التحتية.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "اضطرابات وتوترات داخلية",
+    "translation": "Internal state violence, civil unrest, and armed confrontation between government forces and civilian populations or groups, characterized by mass killing, displacement, or systematic harm.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(d) — Exclusion of internal disturbances and tensions",
+    "severity": "critical",
+    "neutralExplanation": "Uses the administrative term 'disturbances and tensions' to exclude systematic violence within state borders from the definition of non-international armed conflict, without naming the deaths, injuries, or displacement that may occur.",
+    "nativeTranslation": "العنف المسلح داخل الدولة والمواجهات بين قوات الحكومة والسكان المدنيين أو الجماعات، مصحوبة بالقتل الجماعي أو التهجير أو الأذى المنهجي.",
+    "nativeNeutralExplanation": "تستخدم المصطلح الإداري 'اضطرابات وتوترات' لاستبعاد العنف المنهجي داخل حدود الدولة من تعريف النزاع المسلح غير الدولي، دون تسمية الوفيات أو الإصابات أو التهجير التي قد تحدث.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "اعتقال تعسفي",
+    "translation": "Unlawful, arbitrary detention or imprisonment without due process, legal authorization, or judicial oversight.",
+    "legalRef": "UDHR (AR) Art. 9 — Protection from Arbitrary Detention",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'arbitrary detention' uses a legal euphemism that allows states to claim detention was 'lawful' (i.e., authorized by decree or internal regulation) even when it violated substantive rights or bypassed courts.",
+    "nativeTranslation": "السجن غير القانوني والتحكمي بدون الحد الأدنى من الإجراءات القانونية أو التفويض القانوني أو الرقابة القضائية.",
+    "nativeNeutralExplanation": "تستخدم عبارة 'اعتقال تعسفي' تعريفاً قانونياً يسمح للدول بالادعاء بأن الاعتقال كان 'قانونياً' حتى لو تجاوز السلطات الحد الأقصى أو تجاهل المحاكم.",
+    "documentId": "udhr-ar"
+  },
+  {
+    "phrase": "الاختفاء القسري للأشخاص",
+    "translation": "Arrest, detention, or abduction of persons by state or political organization, followed by denial of their detention, resulting in prolonged loss of liberty, torture risk, and family separation without legal recourse.",
+    "legalRef": "Rome Statute (AR) Art. 7(1)(i) — Crimes Against Humanity / Enforced Disappearance",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'disappearance' (اختفاء) to mask state-perpetrated abduction, torture, and unlawful detention, omitting explicit reference to the perpetrator agency, the violence of capture, and the intentional denial of legal protection.",
+    "nativeTranslation": "القبض على أشخاص أو احتجازهم أو اختطافهم من قبل دولة أو منظمة سياسية، يتبعه إنكار احتجازهم، مما يسفر عن فقدان الحرية لفترة طويلة وخطر التعذيب والفصل العائلي بدون سبل انتصاف قانونية.",
+    "nativeNeutralExplanation": "يستخدم مصطلح 'اختفاء' لإخفاء الاختطاف والتعذيب والاحتجاز غير القانوني من قبل الدولة، مما يغفل وكالة الفاعل والعنف في الاعتقال والإنكار المتعمد للحماية القانونية.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "تعمد تجويع المدنيين كأسلوب من أساليب الحرب",
+    "translation": "Deliberate starvation of civilian populations through blockade, denial of food and medical supplies, resulting in malnutrition, disease, and death.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(b)(xxv) — War Crimes / Starvation of Civilians",
+    "severity": "critical",
+    "neutralExplanation": "Describes intentional deprivation of sustenance as a 'method of warfare' (أسلوب من أساليب الحرب), using military language that frames mass starvation as a legitimate tactic, omitting the mass suffering and death it causes.",
+    "nativeTranslation": "تجويع متعمد للسكان المدنيين من خلال الحصار أو حرمانهم من الغذاء والإمدادات الطبية، مما يؤدي إلى سوء التغذية والمرض والوفيات.",
+    "nativeNeutralExplanation": "يصف الحرمان المتعمد من المواد الغذائية كـ 'أسلوب من أساليب الحرب'، مستخدماً لغة عسكرية تطر جوع الجماهير كتكتيك شرعي، مما يغفل المعاناة الجماعية والوفيات.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "حرمان تعسفي من جنسيته",
+    "translation": "Deliberate, unlawful stripping of citizenship status to render a person stateless, without nationality, or ineligible for legal protection or state services.",
+    "legalRef": "UDHR (AR) Art. 15(2) — Protection from Arbitrary Denationalization",
+    "severity": "critical",
+    "neutralExplanation": "Uses 'arbitrary denationalization' to describe state removal of citizenship; permits authorities to argue removal was 'lawful' or 'non-arbitrary' if authorized by decree, even if it rendered the person stateless.",
+    "nativeTranslation": "سلب متعمد وغير قانوني لمركز الجنسية لجعل الشخص بلا جنسية أو غير مؤهل للحماية القانونية أو الخدمات الحكومية.",
+    "nativeNeutralExplanation": "تستخدم 'حرمان تعسفي من الجنسية' لوصف إزالة الدولة للمواطنة؛ تسمح للسلطات بالادعاء بأن السلب كان 'قانونياً' إذا كان مرخصاً بمرسوم.",
+    "documentId": "udhr-ar"
+  },
+  {
+    "phrase": "حماية السكان المدنيين المعنيين",
+    "translation": "The claimed protection of civilians used as justification for forced displacement, ethnic cleansing, or population transfers that remove communities from their territories.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(e)(viii) — Displacement unless for civilian security",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'protection of civilians' as a stated exemption to prohibit forced displacement, permitting states to frame ethnic cleansing or population removal as humanitarian action.",
+    "nativeTranslation": "الحماية المزعومة للمدنيين التي تُستخدم كتبرير للتهجير القسري أو التطهير العرقي أو نقل السكان الذي يزيل المجتمعات من أراضيها.",
+    "nativeNeutralExplanation": "تستخدم عبارة 'حماية السكان المدنيين' كاستثناء مذكور لمنع التهجير القسري، مما يسمح للدول بتأطير التطهير العرقي أو نقل السكان كعمل إنساني.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "حماية الشخص المعني من المسؤولية الجنائية",
+    "translation": "Deliberate state protection of a perpetrator of genocide, crimes against humanity, or war crimes from criminal investigation and prosecution, ensuring the accused escapes punishment.",
+    "legalRef": "Rome Statute (AR) Art. 17(2)(a) — Protection from criminal responsibility",
+    "severity": "critical",
+    "neutralExplanation": "Uses the indirect phrase 'حماية...من المسؤولية الجنائية' (protection from criminal responsibility) to describe state-level impunity and collusion, abstracting the political decision to shelter perpetrators without naming complicity or betrayal of victims.",
+    "nativeTranslation": "حماية الدولة المتعمدة لمرتكب الإبادة الجماعية أو جرائم ضد الإنسانية أو جرائم الحرب من التحقيق والمقاضاة الجنائية، مما يضمن هروب المتهم من العقاب.",
+    "nativeNeutralExplanation": "يستخدم مصطلح غير مباشر 'حماية...من المسؤولية الجنائية' لوصف الحصانة على مستوى الدولة والتواطؤ، مما يجرد القرار السياسي لحماية الجناة دون تسمية التواطؤ أو خيانة الضحايا.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "خسائر تبعية في الأرواح",
+    "translation": "Civilian deaths caused by military attacks, presented as incidental rather than foreseeable or intentional consequences of military operations.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(b)(iv) — War Crimes / Disproportionate Attack",
+    "severity": "critical",
+    "neutralExplanation": "Uses the word 'incidental' (تبعية) to frame civilian deaths as unintended side effects, omitting that such deaths may be foreseeable, predictable, or accepted as a cost of military action.",
+    "nativeTranslation": "وفيات المدنيين الناجمة عن الهجمات العسكرية، المقدمة على أنها عرضية بدلاً من كونها نتائج متوقعة أو مقصودة للعمليات العسكرية.",
+    "nativeNeutralExplanation": "يستخدم كلمة 'تبعية' لوصف وفيات المدنيين كآثار جانبية غير مقصودة، مما يغفل أن هذه الوفيات قد تكون متوقعة أو مقبولة كتكلفة للعمل العسكري.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "ضرب حصار على موانئ دولة ما أو على سواحلها",
+    "translation": "Naval or military blockade preventing food, medicine, fuel, and humanitarian supplies from reaching civilian populations, causing starvation, disease, and death.",
+    "legalRef": "Rome Statute (AR) Art. 8 bis(2)(c) — Blockading ports or coasts",
+    "severity": "critical",
+    "neutralExplanation": "Uses the militarized term 'blockade' to describe siege warfare, without naming the resulting starvation, malnutrition, disease spread, or death of civilian populations.",
+    "nativeTranslation": "الحصار البحري أو العسكري الذي يمنع الغذاء والأدوية والوقود والمساعدات الإنسانية من الوصول إلى السكان المدنيين، مما يسبب الجوع والمرض والموت.",
+    "nativeNeutralExplanation": "تستخدم المصطلح العسكري 'حصار' لوصف حرب الحصار، دون تسمية الجوع والسوء التغذية أو انتشار الأمراض أو وفيات السكان المدنيين الناتجة.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "عدم الرغبة في الاضطلاع بالتحقيق",
+    "translation": "A state's deliberate choice not to investigate perpetrators of mass atrocities within its borders, permitting impunity for genocide, crimes against humanity, or war crimes.",
+    "legalRef": "Rome Statute (AR) Art. 17(1)(a) — Unwillingness to investigate",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'عدم الرغبة' (unwillingness/lack of will) as a neutral legal criterion, abstracting state-level collusion, protection of perpetrators, or deliberate abandonment of victims without naming the institutional failure or political protection of killers.",
+    "nativeTranslation": "اختيار الدولة المتعمد عدم التحقيق في مرتكبي الفظائع الجماعية داخل حدودها، مما يسمح بالإفلات من العقاب في جرائم الإبادة الجماعية والجرائم ضد الإنسانية أو جرائم الحرب.",
+    "nativeNeutralExplanation": "يستخدم مصطلح 'عدم الرغبة' كمعيار قانوني محايد، مما يجرد الحماية السياسية والتواطؤ على مستوى الدولة أو الحماية المتعمدة للجناة دون تسمية الفشل المؤسسي أو الحماية السياسية للقتلة.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "عمل عدواني",
+    "translation": "Military invasion, occupation, or armed aggression by one state against another, resulting in death, displacement, and destruction of civilian infrastructure.",
+    "legalRef": "Rome Statute (AR) Art. 8 bis(1) — Crime of Aggression",
+    "severity": "critical",
+    "neutralExplanation": "Uses the abstract term 'عمل عدواني' (an act/action of aggression) instead of naming specific harms such as invasion, bombing, occupation, killing of civilians, or forced displacement that result from such aggression.",
+    "nativeTranslation": "غزو عسكري واحتلال أو عدوان مسلح من دولة ضد أخرى، يسفر عن الوفيات والتشريد والدمار في البنية التحتية المدنية.",
+    "nativeNeutralExplanation": "يستخدم مصطلح مجرد 'عمل عدواني' بدلاً من تسمية الأضرار المحددة مثل الغزو والقصف والاحتلال وقتل المدنيين أو التشريد القسري الناجمة عن هذا العدوان.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "قذف إقليم دولة أخرى بالقنابل",
+    "translation": "Aerial bombardment, missile strikes, or artillery attacks on civilian areas, hospitals, schools, and residential neighborhoods, killing civilians and destroying critical infrastructure.",
+    "legalRef": "Rome Statute (AR) Art. 8 bis(2)(b) — Bombarding territory",
+    "severity": "critical",
+    "neutralExplanation": "Uses the technical term 'bombardment' to describe aerial attacks on civilian targets, without naming the resulting civilian casualties, trauma, or destruction of homes and hospitals.",
+    "nativeTranslation": "القصف الجوي أو الضربات الصاروخية أو هجمات المدفعية على المناطق المدنية والمستشفيات والمدارس والأحياء السكنية، مما يؤدي إلى قتل المدنيين وتدمير البنية التحتية الحيوية.",
+    "nativeNeutralExplanation": "تستخدم المصطلح التقني 'قذف بالقنابل' لوصف الهجمات الجوية على الأهداف المدنية، دون تسمية الضحايا المدنيين الناتجين أو الصدمات أو تدمير المنازل والمستشفيات.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "قيام القوات المسلحة لدولة ما بغزو إقليم دولة أخرى",
+    "translation": "Military invasion and conquest of another state's territory, resulting in loss of sovereignty, military occupation, civilian deaths, displacement, and resource extraction.",
+    "legalRef": "Rome Statute (AR) Art. 8 bis(2)(a) — Invasion of territory",
+    "severity": "critical",
+    "neutralExplanation": "Uses the militarized term 'invasion' to describe territorial conquest, without naming occupation, colonial settlement, or the systematic displacement and harm to civilian populations.",
+    "nativeTranslation": "الغزو العسكري والفتح الإقليمي لدولة أخرى، مما يؤدي إلى فقدان السيادة والاحتلال العسكري والوفيات المدنية والتهجير واستخراج الموارد.",
+    "nativeNeutralExplanation": "تستخدم المصطلح العسكري 'غزو' لوصف الفتح الإقليمي، دون تسمية الاحتلال أو الاستيطان الاستعماري أو التهجير المنهجي والأذى للسكان المدنيين.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "معاملة لاإنسانية",
+    "translation": "Severe physical or psychological harm, torture, degradation, and violation of human dignity inflicted on prisoners, detainees, or protected persons.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(a)(ii) — War Crimes / Inhumane Treatment; Art. 8(2)(c)(i) — War Crimes / Violence Against Person (Non-International)",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'inhumane treatment' (معاملة لاإنسانية) as a generalized category, omitting specific description of the types of suffering—torture, sexual violence, starvation, medical experimentation—that fall within it.",
+    "nativeTranslation": "الإضرار الشديد جسدياً أو نفسياً والتعذيب والإذلال وانتهاك الكرامة الإنسانية الموجهة للسجناء والمحتجزين أو الأشخاص المحميين.",
+    "nativeNeutralExplanation": "يستخدم مصطلح 'معاملة لاإنسانية' كفئة عامة، مما يغفل الوصف المحدد لأنواع المعاناة—التعذيب والعنف الجنسي والجوع والتجارب الطبية—التي تندرج فيها.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "ملاحقة ناشئة بالفعل",
+    "translation": "Prior, existing criminal charges or prosecution that authorities use to deny asylum or refuge to a person fleeing persecution.",
+    "legalRef": "UDHR (AR) Art. 14(2) — Exclusion from Asylum",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'prosecution arising in fact' to permit states to claim that refusal to grant asylum is justified by prior charges, without requiring proof, independent verification, or due process.",
+    "nativeTranslation": "تهم جنائية سابقة أو متابعات قضائية تستخدمها السلطات لرفض منح اللجوء لشخص يفر من الاضطهاد.",
+    "nativeNeutralExplanation": "تستخدم عبارة 'ملاحقة ناشئة بالفعل' لتسمح للدول بالادعاء بأن رفض منح اللجوء مبرر بالتهم السابقة، دون إثبات أو تحقق مستقل.",
+    "documentId": "udhr-ar"
+  },
+  {
+    "phrase": "نقل أجزاء من سكانها المدنيين",
+    "translation": "Settlement of an occupying power's civilian population into occupied territory, displacing and subordinating indigenous or prior populations, and consolidating territorial control.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(b)(viii) — War Crimes / Population Transfer by Occupying Power",
+    "severity": "critical",
+    "neutralExplanation": "Uses neutral administrative phrasing ('نقل أجزاء') to describe forced settlement and demographic transformation of occupied territory, omitting the coercive displacement, demographic change, and territorial appropriation that result.",
+    "nativeTranslation": "توطين السكان المدنيين لسلطة الاحتلال في الأراضي المحتلة، مما يؤدي لتشريد السكان الأصليين أو السابقين وإخضاعهم، وتعزيز السيطرة الإقليمية.",
+    "nativeNeutralExplanation": "يستخدم صيغة إدارية محايدة ('نقل أجزاء') لوصف التوطين القسري والتحول الديمغرافي للأراضي المحتلة، مما يغفل التشريد القسري والتغيير الديمغرافي والاستيلاء الإقليمي.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "نهب أي بلدة أو مكان",
+    "translation": "Systematic theft, seizure, and plunder of civilian property, crops, livestock, and resources, leaving populations without means of survival.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(e)(v) — Pillaging",
+    "severity": "critical",
+    "neutralExplanation": "Uses the historical term 'pillage' (nهب) rather than naming systematic theft, starvation, or resource theft as mechanisms of civilian destruction.",
+    "nativeTranslation": "السرقة المنهجية والاستيلاء على الممتلكات المدنية والمحاصيل والماشية والموارد، مما يترك السكان بدون وسائل البقاء.",
+    "nativeNeutralExplanation": "تستخدم المصطلح التاريخي 'نهب' بدلاً من تسمية السرقة المنهجية أو الجوع أو سرقة الموارد كآليات لتدمير المدنيين.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "هجوم موجه ضد السكان المدنيين",
+    "translation": "Systematic or repeated military strikes targeting civilian persons and locations, resulting in death, injury, displacement, and infrastructure destruction.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(b)(i) — War Crimes / Attacks on Civilians; Art. 8(2)(e)(i) — War Crimes / Attacks on Civilians (Non-International)",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'attack' (هجوم) in military technical language, omitting reference to the deaths, injuries, and suffering of civilians targeted, presenting intentional targeting of non-combatants as a neutral operational concept.",
+    "nativeTranslation": "ضربات عسكرية منهجية أو متكررة تستهدف الأشخاص والمواقع المدنية، مما ينجم عنها وفيات وإصابات وتشريد وتدمير للبنية التحتية.",
+    "nativeNeutralExplanation": "يستخدم مصطلح 'هجوم' بلغة تقنية عسكرية، مما يغفل وفيات وإصابات ومعاناة المدنيين المستهدفين، وتقديم استهداف المدنيين غير المقاتلين كمفهوم عملياتي محايد.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "انهيار كلي أو جوهري لنظامها القضائي",
+    "translation": "A state's total or near-total inability to arrest, try, or punish perpetrators of atrocities because its courts, police, and prisons have been destroyed or rendered non-functional by conflict or state failure.",
+    "legalRef": "Rome Statute (AR) Art. 17(3) — Inability criterion",
+    "severity": "high",
+    "neutralExplanation": "Uses the euphemistic phrase 'انهيار كلي أو جوهري' (total or substantial collapse) to describe systematic destruction of state institutions that prevents accountability, abstracting the violence or deliberate dismantling that caused the collapse without naming the human cost.",
+    "nativeTranslation": "عدم قدرة الدولة الكلي أو شبه الكلي على اعتقال ومحاكمة ومعاقبة مرتكبي الفظائع لأن محاكمها والشرطة والسجون قد دمرت أو أصبحت غير فعالة بسبب الصراع أو فشل الدولة.",
+    "nativeNeutralExplanation": "يستخدم مصطلح 'انهيار كلي أو جوهري' لوصف تدمير منهجي لمؤسسات الدولة يمنع المساءلة، مما يجرد العنف أو التفكيك المتعمد الذي تسبب في الانهيار دون تسمية التكلفة البشرية.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "تأخير لا مبرر له في الإجراءات",
+    "translation": "Prolonged, deliberate delays in criminal proceedings that prevent timely prosecution and allow perpetrators to evade accountability, witnesses to die or forget, and victims to lose hope for justice.",
+    "legalRef": "Rome Statute (AR) Art. 17(2)(b) — Unjustified delay",
+    "severity": "high",
+    "neutralExplanation": "Uses the neutral legal term 'تأخير لا مبرر له' (unjustified delay) to describe what may be intentional obstruction of justice, without naming the effect: witness death, evidence decay, perpetrator flight, or victim suffering.",
+    "nativeTranslation": "تأخيرات طويلة وقصدية في الإجراءات الجنائية التي تمنع المقاضاة في الوقت المناسب وتسمح للجناة بتجنب المساءلة والشهود بالموت أو النسيان والضحايا بفقدان الأمل في العدالة.",
+    "nativeNeutralExplanation": "يستخدم المصطلح القانوني المحايد 'تأخير لا مبرر له' لوصف ما قد يكون انسداداً متعمداً في العدالة، دون تسمية التأثير: وفاة الشهود وتحلل الأدلة وهروب الجناة أو معاناة الضحايا.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "تدخل تعسفي",
+    "translation": "Arbitrary interference with private life, family affairs, home, or correspondence — used to abstract state surveillance, warrantless searches, or forced entry.",
+    "legalRef": "UDHR (AR) Art. 12 — Privacy Protection",
+    "severity": "high",
+    "neutralExplanation": "Uses the legal term 'arbitrary' to describe state intrusion, which permits officials to claim their actions were 'non-arbitrary' (i.e., lawful) even when they violated privacy without consent or proportionality.",
+    "nativeTranslation": "التدخل غير القانوني والمبالغ فيه في الحياة الخاصة والعائلية والسكن والمراسلات — يُستخدم لإخفاء المراقبة الحكومية أو التفتيش بدون أمر أو الدخول بالقوة.",
+    "nativeNeutralExplanation": "تستخدم كلمة قانونية 'تعسفي' لوصف التدخل الحكومي، مما يسمح للمسؤولين بالادعاء بأن إجراءاتهم كانت 'غير تعسفية' (أي قانونية) حتى لو انتهكت الخصوصية بدون موافقة.",
+    "documentId": "udhr-ar"
+  },
+  {
+    "phrase": "حملات تمس الشرف",
+    "translation": "Public defamation, false accusation, or smear campaigns orchestrated by state or corporate actors to discredit, humiliate, or isolate a person or group.",
+    "legalRef": "UDHR (AR) Art. 12 — Protection from Attack on Honour",
+    "severity": "high",
+    "neutralExplanation": "Uses the euphemism 'campaigns that touch honour' instead of naming coordinated defamation, harassment, or state-sponsored disinformation, which obscures systematic reputational harm.",
+    "nativeTranslation": "حملات تشويه عام أو اتهامات كاذبة أو حملات تشهير ينظمها الدولة أو الشركات لتشويه سمعة أو إذلال شخص أو مجموعة.",
+    "nativeNeutralExplanation": "تستخدم التلطيف 'حملات تمس الشرف' بدلاً من تسمية التشهير المنظم أو التحرش أو نشر المعلومات الكاذبة برعاية الدولة، مما يخفي الضرر المنهجي على السمعة.",
+    "documentId": "udhr-ar"
+  },
+  {
+    "phrase": "ضرورات عسكرية ملحة",
+    "translation": "Military necessity cited as justification for destruction of civilian property, ecosystems, or infrastructure, permitting combatants to claim wartime exigency overrides protection of non-military targets.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(e)(xii) — Exception for military necessity",
+    "severity": "high",
+    "neutralExplanation": "Uses the term 'military necessity' as a standing exemption to the prohibition on destruction of property, without defining necessity or requiring proportionality assessment.",
+    "nativeTranslation": "الضرورة العسكرية المستشهد بها كتبرير لتدمير الممتلكات المدنية أو النظم الإيكولوجية أو البنية التحتية.",
+    "nativeNeutralExplanation": "تستخدم مصطلح 'الضرورة العسكرية' كاستثناء دائم من الحظر على تدمير الممتلكات، دون تحديد الضرورة أو المتطلبات.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "ضرورة عسكرية تبرر",
+    "translation": "A military justification standard permitting destruction, seizure, or harm to civilians and civilian objects when claimed to serve military objectives, without requiring proportionality or necessity review.",
+    "legalRef": "Rome Statute (AR) Art. 8(2)(b)(xiii) — War Crimes / Destruction of Enemy Property",
+    "severity": "high",
+    "neutralExplanation": "Uses the phrase 'military necessity' (ضرورة عسكرية) as a blanket justification that can rationalize extensive harm without external scrutiny, omitting mechanisms for verifying whether claimed necessity is genuine.",
+    "nativeTranslation": "معيار تبرير عسكري يسمح بتدمير أو الاستيلاء على أو الإضرار بالمدنيين والممتلكات المدنية عند الادعاء بخدمتها للأهداف العسكرية، دون الحاجة لمراجعة التناسب أو الضرورة.",
+    "nativeNeutralExplanation": "يستخدم عبارة 'ضرورة عسكرية' كمبرر عام يمكن أن يبرر الأضرار الكبيرة دون مراجعة خارجية، مما يغفل آليات التحقق من كون الضرورة المزعومة حقيقية.",
+    "documentId": "rome-statute-ar"
+  },
+  {
+    "phrase": "قيود يقررها القانون",
+    "translation": "Limitations on rights that are formally authorized by law — permitting states to restrict fundamental freedoms via decree, regulation, or legislation without requiring independent justification or proportionality review.",
+    "legalRef": "UDHR (AR) Art. 29(2) — Legal Limitation of Rights",
+    "severity": "high",
+    "neutralExplanation": "Uses the phrase 'restrictions determined by law' to permit any limitation that is formally written into statute or regulation, without requiring proof of necessity, proportionality, or public interest.",
+    "nativeTranslation": "قيود على الحقوق مرخصة رسمياً بموجب القانون — تسمح للدول بتقييد الحريات الأساسية عبر المراسيم أو اللوائح دون الحاجة إلى تبرير مستقل أو مراجعة التناسب.",
+    "nativeNeutralExplanation": "تستخدم عبارة 'قيود يقررها القانون' للسماح بأي قيد موضح رسمياً في القانون أو اللائحة، دون الحاجة إلى إثبات الضرورة أو التناسب أو المصلحة العامة.",
+    "documentId": "udhr-ar"
+  },
+  {
+    "phrase": "إجراءات مطردة",
+    "translation": "Incremental, gradual measures that defer or indefinitely postpone full implementation of human rights protections, allowing violations to continue.",
+    "legalRef": "UDHR (AR) Preamble — 'إجراءات مطردة' (Gradual Measures)",
+    "severity": "medium",
+    "neutralExplanation": "Uses the word 'gradual' or 'incremental' to describe the pace of securing human rights, which permits authorities to delay enforcement indefinitely without naming that constraint.",
+    "nativeTranslation": "تدابير تدريجية بطيئة تؤجل أو تؤخر تطبيق حماية حقوق الإنسان بشكل كامل، مما يسمح باستمرار الانتهاكات.",
+    "nativeNeutralExplanation": "تستخدم كلمة 'مطردة' (تدريجية) لوصف وتيرة تأمين حقوق الإنسان، مما يسمح للسلطات بتأجيل التطبيق إلى ما لا نهاية دون تسمية هذا التأخير.",
+    "documentId": "udhr-ar"
+  },
+  {
+    "phrase": "تنمية الشخصية النمو الحر الكامل",
+    "translation": "Full, unrestricted personal development and self-actualization — often invoked by states to justify restricting individual freedoms in the name of 'collective development'.",
+    "legalRef": "UDHR (AR) Art. 29(1) — Personal Development Duty",
+    "severity": "medium",
+    "neutralExplanation": "Uses the phrase 'free and full development of personality' as justification for community duties and state-imposed restrictions, without specifying what constitutes 'full' development or who decides.",
+    "nativeTranslation": "التطور الشخصي الكامل وغير المقيد والتحقق الذاتي — غالباً ما تستخدمه الدول لتبرير تقييد الحريات الفردية باسم 'التطور الجماعي'.",
+    "nativeNeutralExplanation": "تستخدم عبارة 'النمو الحر الكامل للشخصية' كتبرير لواجبات المجتمع والقيود المفروضة من الدولة، دون تحديد ما يشكل 'النمو الكامل' أو من يقرر ذلك.",
+    "documentId": "udhr-ar"
+  },
+  {
+    "phrase": "جرائم من تلك المشار إليها",
+    "translation": "Heinous crimes such as genocide, crimes against humanity, and war crimes, described only by reference number rather than explicit description of the suffering, death, and destruction they involve.",
+    "legalRef": "Rome Statute (AR) Art. 18(2) — Referenced crimes",
+    "severity": "medium",
+    "neutralExplanation": "Uses the distancing phrase 'جرائم من تلك المشار إليها' (crimes referred to), which points to crime definitions elsewhere rather than naming the acts—killing, rape, ethnic cleansing, torture—that constitute them.",
+    "nativeTranslation": "جرائم بشعة مثل الإبادة الجماعية والجرائم ضد الإنسانية وجرائم الحرب، يتم وصفها فقط بالإشارة إلى رقم بدلاً من الوصف الصريح للمعاناة والموت والدمار الذي تنطوي عليه.",
+    "nativeNeutralExplanation": "يستخدم مصطلح التباعد 'جرائم من تلك المشار إليها' الذي يشير إلى تعريفات الجرائم في أماكن أخرى بدلاً من تسمية الأفعال—القتل والاغتصاب والتطهير العرقي والتعذيب—التي تشكلها.",
+    "documentId": "rome-statute-ar"
+  }
+]

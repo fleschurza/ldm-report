@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>unmask.tools — Language Review</title>
+  <link rel="canonical" href="https://unmask.tools/review.html">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.7; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+
+    h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .lead { color: var(--c-muted); font-size: 14px; margin-bottom: 24px; max-width: 580px; line-height: 1.6; }
+
+    p  { color: var(--c-muted); margin-bottom: 12px; }
+    a  { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--c-text); }
+
+    .how-banner {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 13px;
+      color: #075985;
+    }
+    .how-banner strong { color: #0c4a6e; }
+
+    .count { color: var(--c-muted); font-size: 12px; margin-bottom: 20px; }
+
+    .entry { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+    .entry-phrase { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .entry-ref { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-accent); background: #e0f2fe; border-radius: 4px; padding: 2px 8px; margin-bottom: 8px; }
+    .entry-field { font-size: 13px; margin-bottom: 4px; }
+    .entry-field .k { color: var(--c-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 6px; }
+    .entry-native { background: #fafaf9; border-left: 3px solid var(--c-accent); padding: 8px 12px; margin-top: 8px; border-radius: 0 6px 6px 0; }
+
+    .load-msg { color: var(--c-muted); font-size: 13px; padding: 40px 0; text-align: center; }
+  </style>
+</head>
+<body data-page="review" data-subtitle="Dictionary entries by source language, for native-speaker review.">
+
+<script src="/nav.js"></script>
+
+<main>
+  <h2 id="pageTitle">Language Review</h2>
+  <p class="lead" id="pageLead">Entries extracted from a source document in this language, not yet reviewed by a native speaker.</p>
+
+  <div class="how-banner">
+    <strong>How to respond:</strong> just reply to the message you received. Point at a phrase by its text
+    (shown below) and say what's wrong — mistranslation, a bad fit, a missing nuance, whatever you see. Anything
+    you flag gets fixed or pulled and credited to you in that entry's change log.
+  </div>
+
+  <div class="count" id="entryCount"></div>
+  <div id="entries"><div class="load-msg">Loading…</div></div>
+</main>
+
+<script src="/footer.js"></script>
+<script>
+  var LANG_NAMES = { 'ar': 'Arabic', 'pl-ru': 'Polish & Russian', 'es': 'Spanish', 'pt': 'Portuguese' };
+  var params = new URLSearchParams(window.location.search);
+  var lang = params.get('lang') || '';
+
+  if (LANG_NAMES[lang]) {
+    document.getElementById('pageTitle').textContent = LANG_NAMES[lang] + ' — Language Review';
+    document.title = 'unmask.tools — ' + LANG_NAMES[lang] + ' Review';
+  }
+
+  function esc(s) {
+    return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function render(entries) {
+    document.getElementById('entryCount').textContent = entries.length + ' entries';
+    document.getElementById('entries').innerHTML = entries.map(function (e) {
+      var native = '';
+      if (e.nativeTranslation) {
+        native = '<div class="entry-native">' +
+          '<div class="entry-field"><span class="k">Native translation</span>' + esc(e.nativeTranslation) + '</div>' +
+          (e.nativeNeutralExplanation ? '<div class="entry-field"><span class="k">Native explanation</span>' + esc(e.nativeNeutralExplanation) + '</div>' : '') +
+          '</div>';
+      }
+      return '<div class="entry">' +
+        '<div class="entry-ref">' + esc(e.legalRef || '') + '</div>' +
+        '<div class="entry-phrase">' + esc(e.phrase) + '</div>' +
+        '<div class="entry-field"><span class="k">Plain translation</span>' + esc(e.translation || '') + '</div>' +
+        '<div class="entry-field"><span class="k">What it does</span>' + esc(e.neutralExplanation || '') + '</div>' +
+        native +
+        '</div>';
+    }).join('');
+  }
+
+  if (!LANG_NAMES[lang]) {
+    document.getElementById('entries').innerHTML = '<div class="load-msg">No language specified. Use ?lang=ar, ?lang=pl-ru, ?lang=es, or ?lang=pt.</div>';
+  } else {
+    fetch('/review-data/' + lang + '.json')
+      .then(function (r) { return r.json(); })
+      .then(render)
+      .catch(function () {
+        document.getElementById('entries').innerHTML = '<div class="load-msg">Could not load entries.</div>';
+      });
+  }
+</script>
+</body>
+</html>

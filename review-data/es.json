@@ -1,0 +1,712 @@
+[
+  {
+    "phrase": "actividades bajo su responsabilidad",
+    "translation": "Mass killings, systematic sexual violence, torture, or ethnic cleansing operations conducted by subordinates working under the superior's direct authority.",
+    "legalRef": "Rome Statute (ES) Art. 28(2)(b) — Superior Responsibility",
+    "severity": "critical",
+    "neutralExplanation": "Uses the bland administrative phrase 'activities under his responsibility' (actividades bajo su responsabilidad) to subsume atrocities and war crimes under the label of generic organizational activity, abstracting the nature and scale of violence.",
+    "nativeTranslation": "Asesinatos en masa, violencia sexual sistemática, tortura u operaciones de limpieza étnica conducidas por subordinados que trabajan bajo la autoridad directa del superior.",
+    "nativeNeutralExplanation": "Utiliza la frase administrativa bland 'actividades bajo su responsabilidad' para subsumir atrocidades y crímenes de guerra bajo la etiqueta de actividad organizacional genérica, abstrayendo la naturaleza y escala de la violencia.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "actos aislados y esporádicos",
+    "translation": "Individual or scattered incidents of violence used to deny systematic persecution or campaign status to coordinated violence affecting many victims over time.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(d) and (f) — Exclusion of sporadic violence",
+    "severity": "critical",
+    "neutralExplanation": "Uses temporal and distributional framing ('isolated and sporadic acts') to obscure the cumulative harm and systematic nature of repeated violence against the same or related victim populations.",
+    "nativeTranslation": "Incidentes individuales o dispersos de violencia utilizados para negar estatus de persecución sistemática o campaña a la violencia coordinada que afecta a muchas víctimas en el tiempo.",
+    "nativeNeutralExplanation": "Utiliza encuadre temporal y distribucional ('actos aislados y esporádicos') para obscurecer el daño acumulativo y naturaleza sistemática de violencia repetida contra las mismas poblaciones victimales o relacionadas.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "actos de violencia",
+    "translation": "Physical assault, murder, arson, rape, torture, and other direct bodily harm inflicted on individuals or groups on the basis of their race or ethnicity.",
+    "legalRef": "ICERD (ES) Art. 4(a) — Prohibición de actos de violencia racial",
+    "severity": "critical",
+    "neutralExplanation": "The generic term 'actos de violencia' (acts of violence) abstains from specifying the types, severity, scale, or targeted nature of racial violence, treating murder and arson identically and omitting the systematic intent to terrorize or eliminate.",
+    "nativeTranslation": "Asalto físico, asesinato, incendio, violación, tortura y otro daño corporal directo infligido a individuos o grupos sobre la base de su raza o etnia.",
+    "nativeNeutralExplanation": "El término genérico 'actos de violencia' abstiene de especificar los tipos, gravedad, escala o naturaleza dirigida de la violencia racial, tratando el asesinato y el incendio de manera idéntica y omitiendo la intención sistemática de aterrorizar o eliminar.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "aprehensión, la detención o el secuestro",
+    "translation": "The unlawful capture, imprisonment, or abduction of persons by state agents or with state knowledge and support, followed by torture, killing, or indefinite detention.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(i) — Enforced Disappearance",
+    "severity": "critical",
+    "neutralExplanation": "Lists 'aprehensión, detención, secuestro' as equivalent terms, which obscures that state abduction differs from lawful detention and that victims are typically killed or tortured.",
+    "nativeTranslation": "La captura ilegal, encarcelación o rapto de personas por agentes estatales o con conocimiento y apoyo estatal, seguido de tortura, asesinato o detención indefinida.",
+    "nativeNeutralExplanation": "Lista 'aprehensión, detención, secuestro' como términos equivalentes, oscureciendo que el rapto estatal difiere de la detención legal y que las víctimas generalmente son torturadas o asesinadas.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "ataque generalizado o sistemático",
+    "translation": "A widespread pattern of killings, torture, sexual violence, or forced displacement carried out against a civilian population as deliberate policy or coordinated practice.",
+    "legalRef": "Rome Statute (ES) Art. 7(1) — Crimes Against Humanity",
+    "severity": "critical",
+    "neutralExplanation": "Uses abstract administrative language ('ataque generalizado o sistemático') to describe repeated acts of mass violence, without naming the specific harms inflicted on individual victims.",
+    "nativeTranslation": "Un patrón generalizado de asesinatos, torturas, violencia sexual o desplazamientos forzados cometidos contra población civil como política deliberada o práctica coordinada.",
+    "nativeNeutralExplanation": "Utiliza lenguaje administrativo abstracto ('ataque generalizado o sistemático') para describir actos repetidos de violencia masiva, sin nombrar los daños específicos infligidos a las víctimas individuales.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "aumento acelerado del nivel del mar",
+    "translation": "Rapid inundation of coastal regions, island nations, and deltaic agricultural areas due to thermal expansion of warming seawater and melting of polar ice sheets.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses 'accelerated sea level rise' to describe the permanent displacement of hundreds of millions of people and destruction of coastal infrastructure and agriculture, using technical language instead of naming mass migration and habitat loss.",
+    "nativeTranslation": "Inundación rápida de regiones costeras, naciones insulares y áreas agrícolas deltáicas debido a la expansión térmica del agua de mar en calentamiento y la fusión de capas de hielo polar.",
+    "nativeNeutralExplanation": "Utiliza 'aumento acelerado del nivel del mar' para describir el desplazamiento permanente de cientos de millones de personas y destrucción de infraestructura costera y agricultura, usando lenguaje técnico en lugar de nombrar migración masiva y pérdida de hábitat.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "cambios en el uso del suelo",
+    "translation": "Deforestation, habitat destruction, conversion of biodiverse ecosystems to monoculture plantations, and replacement of native species with industrial agriculture.",
+    "legalRef": "Planetary Boundaries (ES) PB-4 — Cambios en el uso del suelo",
+    "severity": "critical",
+    "neutralExplanation": "Uses the neutral term 'changes' to describe large-scale ecological destruction and species habitat elimination, without naming deforestation, extinction, or ecocide.",
+    "nativeTranslation": "Deforestación, destrucción de hábitat, conversión de ecosistemas biodiversos a plantaciones de monocultivo, y reemplazo de especies nativas con agricultura industrial.",
+    "nativeNeutralExplanation": "Utiliza el término neutral 'cambios' para describir la destrucción ecológica a gran escala y la eliminación del hábitat de especies, sin nombrar deforestación, extinción o ecocidio.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "confinamiento ilícito de una mujer",
+    "translation": "Imprisoning a woman against her will while pregnant or after forced impregnation to alter the ethnic or racial composition of a population or to commit genocide.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(f) — Forced Pregnancy",
+    "severity": "critical",
+    "neutralExplanation": "Uses 'confinamiento ilícito' (unlawful confinement) to describe forced impregnation and reproductive imprisonment, which obscures the sexual violence and bodily violation.",
+    "nativeTranslation": "Encarcelar a una mujer contra su voluntad mientras está embarazada o después de un embarazo forzado para alterar la composición étnica o racial de una población o cometer genocidio.",
+    "nativeNeutralExplanation": "Utiliza 'confinamiento ilícito' para describir impregnación forzada e encarcelación reproductiva, oscureciendo la violencia sexual y la violación corporal.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "costumbres y tradiciones locales",
+    "translation": "Historical and ongoing practices of racial segregation, exclusion, violence, and discrimination sanctioned or normalized by customary law and social practice.",
+    "legalRef": "ICERD (ES) Art. 4 — Racist propaganda and incitement to racial discrimination",
+    "severity": "critical",
+    "neutralExplanation": "Frames systems of racial discrimination and segregation as neutral 'customs and traditions,' avoiding language that names their discriminatory or violent character.",
+    "nativeTranslation": "Prácticas históricas y continuas de segregación racial, exclusión, violencia y discriminación sancionadas o normalizadas por la ley consuetudinaria y la práctica social.",
+    "nativeNeutralExplanation": "Enmarca sistemas de discriminación racial y segregación como 'costumbres y tradiciones' neutrales, evitando lenguaje que nombre su carácter discriminatorio o violento.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "daños superfluos o sufrimientos innecesarios",
+    "translation": "Weapons that mutilate, burn, dismember, or cause prolonged agony in human bodies, judged acceptable if military utility is claimed to justify the suffering.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(b)(xx) — Weapons causing superfluous injury or suffering",
+    "severity": "critical",
+    "neutralExplanation": "Uses abstract comparative terms ('superfluous' or 'unnecessary' suffering) that obscure the specific nature of injuries and deaths caused, and allow military utility claims to override definitions of harm.",
+    "nativeTranslation": "Armas que mutilan, queman, desmembran o causan agonía prolongada en cuerpos humanos, juzgadas aceptables si la utilidad militar se reclama para justificar el sufrimiento.",
+    "nativeNeutralExplanation": "Utiliza términos comparativos abstractos ('daños superfluos' o 'sufrimientos innecesarios') que obscurecen la naturaleza específica de lesiones y muertes causadas, y permiten que reclamaciones de utilidad militar anulen definiciones de daño.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "dejarlas fuera del amparo de la ley",
+    "translation": "Placing disappeared persons outside legal protection by refusing to acknowledge their detention or fate, leaving them vulnerable to torture, killing, or indefinite disappearance.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(i) — Enforced Disappearance",
+    "severity": "critical",
+    "neutralExplanation": "Uses the passive phrase 'fuera del amparo de la ley' (outside the protection of law) to describe the state practice of placing detainees beyond reach of courts or access to legal counsel.",
+    "nativeTranslation": "Colocar a personas desaparecidas fuera de protección legal al rehusar reconocer su detención o suerte, dejándolas vulnerables a tortura, asesinato o desaparición indefinida.",
+    "nativeNeutralExplanation": "Utiliza la frase pasiva 'fuera del amparo de la ley' para describir la práctica estatal de colocar a detenidos fuera del alcance de tribunales o acceso a asesoramiento legal.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "deliberadamente hubiere hecho caso omiso",
+    "translation": "A superior consciously ignored clear evidence that subordinates were committing systematic torture, rape, mass murder, or forced deportation.",
+    "legalRef": "Rome Statute (ES) Art. 28(2)(a) — Superior Responsibility",
+    "severity": "critical",
+    "neutralExplanation": "Uses the euphemistic phrase 'deliberately disregarded' (deliberadamente hizo caso omiso) to describe willful blindness to atrocities, without naming the specific harms of mass killing, rape, torture, or displacement that the superior ignored.",
+    "nativeTranslation": "Un superior ignoró conscientemente evidencia clara de que los subordinados estaban cometiendo tortura sistemática, violación, asesinato en masa o deportación forzada.",
+    "nativeNeutralExplanation": "Utiliza la frase eufemística 'deliberadamente hizo caso omiso' para describir la ceguera voluntaria ante atrocidades, sin nombrar los daños específicos de asesinato masivo, violación, tortura o desplazamiento que el superior ignoró.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "desplazamiento de las personas afectadas",
+    "translation": "The forced removal of a population from their homes, land, and communities through violence, threat, or coercion, resulting in permanent or long-term displacement.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(d) — Deportation or Forcible Transfer",
+    "severity": "critical",
+    "neutralExplanation": "Uses the passive construction 'desplazamiento' (displacement) to describe forced expulsion and ethnic cleansing, which obscures the agents and the violence of removal.",
+    "nativeTranslation": "La expulsión forzada de una población de sus hogares, tierras y comunidades mediante violencia, amenaza o coerción, resultando en desplazamiento permanente o a largo plazo.",
+    "nativeNeutralExplanation": "Utiliza la construcción pasiva 'desplazamiento' para describir expulsión forzada y limpieza étnica, lo que oscurece los agentes y la violencia de la expulsión.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "disturbios o tensiones internas",
+    "translation": "State-sponsored violence, massacres, or systematic repression of civilian populations characterized as merely internal disorder rather than armed conflict or persecution.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(d) and (f) — Non-international armed conflict threshold",
+    "severity": "critical",
+    "neutralExplanation": "Uses bureaucratic minimization ('disturbances and internal tensions') to exclude systematic violence from war crimes liability by denying it the status of armed conflict, without naming the actual harm or casualties.",
+    "nativeTranslation": "Violencia patrocinada por el Estado, masacres o represión sistemática de poblaciones civiles caracterizadas como simple desorden interno en lugar de conflicto armado o persecución.",
+    "nativeNeutralExplanation": "Utiliza minimización burocrática ('disturbios o tensiones internas') para excluir violencia sistemática de responsabilidad por crímenes de guerra negando el estatus de conflicto armado, sin nombrar el daño real o bajas.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "ejercicio de los atributos del derecho de propiedad",
+    "translation": "Treating human beings as commodities or property, controlling their bodies, labor, movement, sexuality, and reproductive capacity without consent.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(c) — Slavery",
+    "severity": "critical",
+    "neutralExplanation": "Uses property law language ('atributos del derecho de propiedad') to describe enslavement, which transforms the juridical ownership of persons into abstract legal terminology.",
+    "nativeTranslation": "Tratar a seres humanos como mercancías o propiedad, controlando sus cuerpos, trabajo, movimiento, sexualidad y capacidad reproductiva sin consentimiento.",
+    "nativeNeutralExplanation": "Utiliza lenguaje de derecho de propiedad ('atributos del derecho de propiedad') para describir la esclavitud, lo que transforma la propiedad jurídica de personas en terminología legal abstracta.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "elemento tendencioso",
+    "translation": "Content in textbooks and curricula that promotes racial superiority, ethnic hatred, dehumanization, or exclusion of specific racial or ethnic groups.",
+    "legalRef": "ICERD (ES) Art. 4 — Racist propaganda and incitement to racial discrimination",
+    "severity": "critical",
+    "neutralExplanation": "Uses the neutral term 'biased element' to describe educational propaganda promoting racial hatred and dehumanization, without naming the specific harm or ideological content.",
+    "nativeTranslation": "Contenido en libros de texto y currículos que promueve superioridad racial, odio étnico, deshumanización o exclusión de grupos raciales o étnicos específicos.",
+    "nativeNeutralExplanation": "Utiliza el término neutral 'elemento tendencioso' para describir propaganda educativa que promueve odio racial y deshumanización, sin nombrar el daño específico o contenido ideológico.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "escasez de agua",
+    "translation": "Depletion of freshwater aquifers, rivers, and lakes due to over-extraction, pollution, and climate-driven evaporation, rendering water unavailable for human consumption and agriculture.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'scarcity' to describe the active destruction and depletion of freshwater systems, avoiding verbs like 'drain' and abstracting a resource collapse as a natural supply shortage.",
+    "nativeTranslation": "Agotamiento de acuíferos de agua dulce, ríos y lagos debido a la sobreextracción, contaminación y evaporación inducida por el clima, haciendo el agua no disponible para el consumo humano y la agricultura.",
+    "nativeNeutralExplanation": "Utiliza el término 'escasez' para describir la destrucción activa y el agotamiento de sistemas de agua dulce, evitando verbos como 'drenar' y abstrayendo un colapso de recursos como una escasez natural de suministro.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "eventos climáticos extremos",
+    "translation": "Hurricanes, floods, droughts, heatwaves, and wildfires that displace populations, destroy infrastructure, kill livestock and crops, and cause mass mortality.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses 'extreme weather events' to neutralize language about climate-driven disasters, avoiding verbs like 'kill,' 'destroy,' 'displace' and abstracting human and ecological harm as 'extremeness' of natural phenomena.",
+    "nativeTranslation": "Huracanes, inundaciones, sequías, olas de calor e incendios forestales que desplazan poblaciones, destruyen infraestructuras, matan ganado y cosechas, y causan mortalidad masiva.",
+    "nativeNeutralExplanation": "Utiliza 'eventos climáticos extremos' para neutralizar el lenguaje sobre desastres impulsados por el clima, evitando verbos como 'matar', 'destruir', 'desplazar' y abstrayendo el daño humano y ecológico como 'extremidad' de fenómenos naturales.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "expulsión u otros actos coactivos",
+    "translation": "Forced removal of persons from their homes through violence, threats, or intimidation, often accompanied by destruction of property and severance from land and community.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(d) — Deportation or Forcible Transfer",
+    "severity": "critical",
+    "neutralExplanation": "Uses the vague phrase 'actos coactivos' (coercive acts) instead of naming specific methods of forced removal such as arson, threats, violence, or family separation.",
+    "nativeTranslation": "Expulsión forzada de personas de sus hogares mediante violencia, amenazas o intimidación, frecuentemente acompañada de destrucción de propiedad y separación de tierra y comunidad.",
+    "nativeNeutralExplanation": "Utiliza la frase vaga 'actos coactivos' en lugar de nombrar métodos específicos de expulsión forzada como incendios, amenazas, violencia o separación familiar.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "forzamiento radiativo global",
+    "translation": "The accumulation of greenhouse gases in the atmosphere that trap heat, causing atmospheric temperature rise, climate destabilization, and cascading ecosystem collapse.",
+    "legalRef": "Planetary Boundaries (ES) PB-1 — Cambio Climático",
+    "severity": "critical",
+    "neutralExplanation": "Uses the technical term 'radiative forcing' to describe planetary heating, without naming the human populations facing heat death, crop failure, water scarcity, or forced migration.",
+    "nativeTranslation": "La acumulación de gases de efecto invernadero en la atmósfera que atrapa calor, causando aumento de temperatura atmosférica, desestabilización climática, y colapso de ecosistemas en cascada.",
+    "nativeNeutralExplanation": "Utiliza el término técnico 'forzamiento radiativo' para describir calentamiento planetario, sin nombrar a las poblaciones humanas enfrentando muerte por calor, fallo de cultivos, escasez de agua, o migración forzada.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "hubiere debido saber",
+    "translation": "A commander possessed objective knowledge or constructive knowledge that subordinates were committing or about to commit mass killings, sexual enslavement, torture, or ethnic cleansing, but took no action.",
+    "legalRef": "Rome Statute (ES) Art. 28(1)(a) — Command Responsibility",
+    "severity": "critical",
+    "neutralExplanation": "Uses the conditional phrase 'should have known' (hubiere debido saber) as a lower epistemic threshold than actual knowledge, obscuring whether the commander actually knew of atrocities or merely had circumstances that would indicate them.",
+    "nativeTranslation": "Un comandante poseía conocimiento objetivo o conocimiento constructivo de que los subordinados estaban cometiendo o estaban a punto de cometer asesinatos masivos, esclavitud sexual, tortura o limpieza étnica, pero no tomó ninguna acción.",
+    "nativeNeutralExplanation": "Utiliza la frase condicional 'hubiere debido saber' como un umbral epistémico más bajo que el conocimiento real, oscureciendo si el comandante realmente sabía de atrocidades o simplemente tenía circunstancias que las indicarían.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "ideas basadas en la superioridad",
+    "translation": "Pseudo-scientific, religious, or political doctrines that claim certain races or ethnic groups are inherently superior in intelligence, moral character, capability, or worth, used to justify enslavement, colonialism, genocide, and systematic oppression.",
+    "legalRef": "ICERD (ES) Art. 4 — Condena de ideas basadas en superioridad racial",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'ideas basadas en la superioridad' uses abstract intellectual language ('ideas') to describe systematic dehumanization and genocidal ideology, omitting the material violence, enslavement, and mass death these doctrines have produced historically.",
+    "nativeTranslation": "Doctrinas pseudocientíficas, religiosas o políticas que afirman que ciertas razas o grupos étnicos son inherentemente superiores en inteligencia, carácter moral, capacidad o valor, utilizadas para justificar la esclavitud, colonialismo, genocidio y opresión sistemática.",
+    "nativeNeutralExplanation": "La frase 'ideas basadas en la superioridad' utiliza lenguaje intelectual abstracto ('ideas') para describir la dehumanización sistemática e ideología genocida, omitiendo la violencia material, la esclavitud y la muerte masiva que estas doctrinas han producido históricamente.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "imposición intencional de condiciones de vida",
+    "translation": "Deliberately withholding food, water, medical care, or other necessities from a civilian population with the aim of causing mass death or physical destruction.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(b) — Extermination",
+    "severity": "critical",
+    "neutralExplanation": "Uses technical phrasing ('imposición intencional de condiciones de vida') instead of naming the specific deprivations (starvation, disease, exposure) that kill civilians.",
+    "nativeTranslation": "Retener deliberadamente alimentos, agua, atención médica u otras necesidades de una población civil con el objetivo de causar muerte masiva o destrucción física.",
+    "nativeNeutralExplanation": "Utiliza fraseología técnica ('imposición intencional de condiciones de vida') en lugar de nombrar las privaciones específicas (hambre, enfermedad, exposición) que matan civiles.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "incitación a la discriminación",
+    "translation": "Speech, propaganda, media campaigns, and organized communications that explicitly encourage, promote, or direct violence, harassment, exclusion, and denial of rights against people of a particular race or ethnicity.",
+    "legalRef": "ICERD (ES) Art. 4(a) — Incitación a discriminación racial",
+    "severity": "critical",
+    "neutralExplanation": "The term 'incitación a la discriminación' abstracts the active communication of harm by using neutral language that omits the targeted recipients, the intent to cause injury, and the real-world violence and exclusion that result.",
+    "nativeTranslation": "Discurso, propaganda, campañas mediáticas y comunicaciones organizadas que explícitamente alientan, promueven o dirigen violencia, acoso, exclusión y negación de derechos contra personas de una raza o etnia particular.",
+    "nativeNeutralExplanation": "El término 'incitación a la discriminación' abstrae la comunicación activa del daño mediante lenguaje neutral que omite los receptores objetivo, la intención de causar injuria y la violencia y exclusión real que resultan.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "integridad funcional",
+    "translation": "The total available energy within ecosystems that flows through food webs; its degradation means ecosystems can no longer support the biomass and biodiversity they historically sustained.",
+    "legalRef": "Planetary Boundaries (ES) PB-2 — Integridad de la Biósfera",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'functional integrity' as a biophysical variable, without naming that its loss means the ecosystem's capacity to feed populations and sustain life processes is collapsing.",
+    "nativeTranslation": "La energía total disponible dentro de los ecosistemas que fluye a través de redes alimentarias; su degradación significa que los ecosistemas ya no pueden sostener la biomasa y biodiversidad que históricamente sustentaban.",
+    "nativeNeutralExplanation": "Utiliza el término 'integridad funcional' como una variable biofísica, sin nombrar que su pérdida significa que la capacidad del ecosistema para alimentar poblaciones y sostener procesos de vida está colapsando.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "introducción de nuevas entidades",
+    "translation": "The widespread release into the environment of synthetic chemicals, plastics, persistent organic pollutants, and genetically modified organisms, most of which remain unstudied for ecological impacts.",
+    "legalRef": "Planetary Boundaries (ES) PB-9 — Introducción de nuevas entidades",
+    "severity": "critical",
+    "neutralExplanation": "Uses the passive, abstract phrase 'introduction of novel entities' to describe the industrial release of toxic substances, without naming chemical poisoning, plastic contamination, or ecological disruption.",
+    "nativeTranslation": "La liberación generalizada en el medio ambiente de químicos sintéticos, plásticos, contaminantes orgánicos persistentes, y organismos genéticamente modificados, la mayoría de los cuales permanecen sin estudiar para impactos ecológicos.",
+    "nativeNeutralExplanation": "Utiliza la frase pasiva y abstracta 'introducción de nuevas entidades' para describir la liberación industrial de sustancias tóxicas, sin nombrar envenenamiento químico, contaminación plástica, o disrupción ecológica.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "línea de conducta",
+    "translation": "A pattern of repeated deliberate acts of mass killing, torture, or sexual violence that collectively constitute a crime, rather than isolated incidents.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(a) — Attack Against Civilian Population",
+    "severity": "critical",
+    "neutralExplanation": "Uses the bureaucratic term 'línea de conducta' (pattern of conduct) to abstract a series of violent acts into institutional language, obscuring the cumulative human suffering.",
+    "nativeTranslation": "Un patrón de actos deliberados repetidos de asesinatos masivos, torturas o violencia sexual que en conjunto constituyen un crimen, en lugar de incidentes aislados.",
+    "nativeNeutralExplanation": "Utiliza el término burocrático 'línea de conducta' para abstraer una serie de actos violentos en lenguaje institucional, oscureciendo el sufrimiento humano acumulativo.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "métodos de hacer la guerra",
+    "translation": "Deliberate starvation, withholding of food, water, medicine, and shelter from civilian populations as a weapon, concealed within generic war terminology.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(b)(xxv) — Intentional starvation of civilian population",
+    "severity": "critical",
+    "neutralExplanation": "Uses generic military euphemism ('methods of warfare') to describe deliberate mass starvation, which abstracts the method as one tactical choice among others without naming the specific suffering of deprivation and death.",
+    "nativeTranslation": "Hambruna deliberada, retención de alimento, agua, medicina y refugio de poblaciones civiles como arma, ocultada en terminología genérica de guerra.",
+    "nativeNeutralExplanation": "Utiliza eufemismo militar genérico ('métodos de hacer la guerra') para describir hambruna masiva deliberada, que abstrae el método como una opción táctica entre otras sin nombrar el sufrimiento específico de deprivación y muerte.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "modos de pensar tradicionales",
+    "translation": "Deeply embedded racist beliefs and hateful attitudes held by populations against racial, ethnic, and religious groups.",
+    "legalRef": "ICERD (ES) Art. 4 — Racist propaganda and incitement to racial discrimination",
+    "severity": "critical",
+    "neutralExplanation": "Uses the abstract term 'modes of thinking' to refer to racist ideology and hatred, without naming the actual content of those beliefs or their violent consequences.",
+    "nativeTranslation": "Creencias racistas profundamente arraigadas y actitudes de odio mantenidas por poblaciones contra grupos raciales, étnicos y religiosos.",
+    "nativeNeutralExplanation": "Utiliza el término abstracto 'modos de pensar' para referirse a la ideología racista y al odio, sin nombrar el contenido real de esas creencias ni sus consecuencias violentas.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "negativa a informar sobre la privación de libertad",
+    "translation": "A state's or political organization's refusal to acknowledge or disclose the detention, torture, or killing of disappeared persons, denying families information about their fate.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(i) — Enforced Disappearance",
+    "severity": "critical",
+    "neutralExplanation": "Uses administrative language ('negativa a informar') to describe the concealment of abduction and killing, which obscures the state crime of making persons vanish without trace.",
+    "nativeTranslation": "La negativa de un estado u organización política a reconocer o divulgar la detención, tortura o asesinato de personas desaparecidas, negando a las familias información sobre su suerte.",
+    "nativeNeutralExplanation": "Utiliza lenguaje administrativo ('negativa a informar') para describir el ocultamiento de rapto y asesinato, oscureciendo el crimen de estado de hacer desaparecer a personas sin dejar rastro.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "no haber ejercido un control apropiado",
+    "translation": "A military commander or superior allowed subordinates to commit mass atrocities, torture, sexual violence, or forced displacement without intervention, investigation, or prosecution.",
+    "legalRef": "Rome Statute (ES) Art. 28(1) — Command Responsibility",
+    "severity": "critical",
+    "neutralExplanation": "Uses the abstract term 'appropriate control' (control apropiado) to describe the failure to prevent or prosecute crimes, without naming the specific acts of killing, rape, torture, or deportation that occurred under the superior's authority.",
+    "nativeTranslation": "Un comandante militar o superior permitió que subordinados cometieran atrocidades masivas, tortura, violencia sexual o desplazamiento forzado sin intervención, investigación o enjuiciamiento.",
+    "nativeNeutralExplanation": "Utiliza el término abstracto 'control apropiado' para describir el incumplimiento de prevenir o enjuiciar crímenes, sin nombrar los actos específicos de asesinato, violación, tortura o deportación que ocurrieron bajo la autoridad del superior.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "no hubiere adoptado todas las medidas necesarias",
+    "translation": "A superior failed to prevent, stop, or report systematic mass atrocities including genocide, rape camps, torture facilities, or forced labor operations under their command.",
+    "legalRef": "Rome Statute (ES) Art. 28(2)(c) — Superior Responsibility",
+    "severity": "critical",
+    "neutralExplanation": "Uses the procedural term 'failed to adopt all necessary measures' (no hubiere adoptado todas las medidas necesarias) to describe institutional failure to stop or prosecute mass atrocities, without naming the specific crimes of genocide, torture, rape, or forced displacement.",
+    "nativeTranslation": "Un superior no impidió, detuvo o denunció atrocidades masivas sistemáticas incluyendo genocidio, campos de violación, instalaciones de tortura u operaciones de trabajo forzado bajo su mando.",
+    "nativeNeutralExplanation": "Utiliza el término procedural 'no hubiere adoptado todas las medidas necesarias' para describir falta institucional en detener o enjuiciar atrocidades masivas, sin nombrar los crímenes específicos de genocidio, tortura, violación o desplazamiento forzado.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "odio racial",
+    "translation": "Systematic dehumanization, vilification, and incitement to violence against people of a particular race or ethnicity, including propaganda, intimidation, and calls for harm.",
+    "legalRef": "ICERD (ES) Art. 4 — Condena de propaganda y organizaciones que promuevan odio racial",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'odio racial' abstracts the concrete manifestations of hate—incitement to murder, assault, arson, and displacement—by naming only the emotional state rather than the violence and harm it produces.",
+    "nativeTranslation": "Dehumanización sistemática, vilificación e incitación a la violencia contra personas de una raza o etnia particular, incluyendo propaganda, intimidación y llamados al daño.",
+    "nativeNeutralExplanation": "La frase 'odio racial' abstrae las manifestaciones concretas del odio—incitación al asesinato, asalto, incendio y desplazamiento—nombrando solo el estado emocional en lugar de la violencia y el daño que produce.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "organizaciones que se inspiren en ideas",
+    "translation": "Formal and informal groups—including political parties, militia, cells, and networks—organized explicitly to promote, fund, recruit for, or carry out racial terrorism, genocide, ethnic cleansing, and systematic discrimination.",
+    "legalRef": "ICERD (ES) Art. 4(b) — Prohibición de organizaciones racistas",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'organizaciones que se inspiren en ideas' (organizations inspired by ideas) uses passive, intellectual language to describe active criminal organizations that plan and execute violence, abstracting their function as instruments of racial terror.",
+    "nativeTranslation": "Grupos formales e informales—incluyendo partidos políticos, milicias, células y redes—organizados explícitamente para promover, financiar, reclutar para o ejecutar terrorismo racial, genocidio, limpieza étnica y discriminación sistemática.",
+    "nativeNeutralExplanation": "La frase 'organizaciones que se inspiren en ideas' utiliza lenguaje pasivo e intelectual para describir organizaciones criminales activas que planean y ejecutan violencia, abstrayendo su función como instrumentos de terror racial.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "pérdida de diversidad genética",
+    "translation": "Extinction of species and collapse of genetic variation within surviving populations, reducing ecosystem resilience and adaptive capacity to future environmental stress.",
+    "legalRef": "Planetary Boundaries (ES) PB-2 — Integridad de la Biósfera",
+    "severity": "critical",
+    "neutralExplanation": "Uses the clinical term 'genetic diversity loss' to describe species extinction and population collapse, without naming the irreversible destruction of life forms or evolutionary potential.",
+    "nativeTranslation": "Extinción de especies y colapso de la variación genética dentro de las poblaciones supervivientes, reduciendo la resiliencia del ecosistema y la capacidad de adaptación al estrés ambiental futuro.",
+    "nativeNeutralExplanation": "Utiliza el término clínico 'pérdida de diversidad genética' para describir la extinción de especies y el colapso de poblaciones, sin nombrar la destrucción irreversible de formas de vida o potencial evolutivo.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "personas protegidas",
+    "translation": "Prisoners of war, the wounded, sick, and civilians detained or in custody, whose status provides theoretical legal protection but which is routinely ignored or violated.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(a) — War crimes against protected persons",
+    "severity": "critical",
+    "neutralExplanation": "Uses categorical legal label ('protected persons') to denote victims without naming their vulnerability, lack of power to resist, or the specific abuses (torture, killing, experimentation) inflicted upon them.",
+    "nativeTranslation": "Prisioneros de guerra, heridos, enfermos y civiles detenidos o en custodia, cuyo estatus proporciona protección legal teórica pero que es rutinariamente ignorada o violada.",
+    "nativeNeutralExplanation": "Utiliza etiqueta legal categórica ('personas protegidas') para denotar víctimas sin nombrar su vulnerabilidad, falta de poder para resistir, o abusos específicos (tortura, muerte, experimentación) infligidos sobre ellos.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "política de un Estado",
+    "translation": "An official government decision or tacit understanding to commit or tolerate mass atrocities such as killings, torture, or forced displacement.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(a) — Attack Against Civilian Population",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'política' (policy) to describe state-sanctioned mass violence, which can normalize atrocities as routine governance rather than crimes.",
+    "nativeTranslation": "Una decisión oficial del gobierno o un entendimiento tácito de cometer o tolerar atrocidades masivas como asesinatos, torturas o desplazamientos forzados.",
+    "nativeNeutralExplanation": "Utiliza el término 'política' para describir violencia masiva sancionada por el estado, lo que puede normalizar atrocidades como gobernanza rutinaria en lugar de crímenes.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "políticas gubernamentales basadas en la superioridad",
+    "translation": "State-mandated systems of racial apartheid, segregation, forced displacement, violence, and dehumanization of racial and ethnic minorities.",
+    "legalRef": "ICERD (ES) Art. 4 — Racist propaganda and incitement to racial discrimination",
+    "severity": "critical",
+    "neutralExplanation": "Uses the abstract phrase 'policies based on superiority' to describe apartheid and state violence, avoiding direct naming of forced displacement, murder, or systematic dehumanization.",
+    "nativeTranslation": "Sistemas mandatados por el estado de apartheid racial, segregación, desplazamiento forzado, violencia y deshumanización de minorías raciales y étnicas.",
+    "nativeNeutralExplanation": "Utiliza la frase abstracta 'políticas basadas en la superioridad' para describir apartheid y violencia estatal, evitando el nombre directo de desplazamiento forzado, asesinato o deshumanización sistemática.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "prejuicios muy arraigados",
+    "translation": "Institutionalized and systematized racial hatred, discrimination, and dehumanization embedded in legal codes, media narratives, and state practices.",
+    "legalRef": "ICERD (ES) Art. 4 — Racist propaganda and incitement to racial discrimination",
+    "severity": "critical",
+    "neutralExplanation": "Uses the word 'prejudices' (implying mere personal bias) to describe systemic racial hatred and discrimination, obscuring their institutional force and collective harm.",
+    "nativeTranslation": "Odio racial institucionalizado y sistematizado, discriminación y deshumanización incrustados en códigos legales, narrativas mediáticas y prácticas estatales.",
+    "nativeNeutralExplanation": "Utiliza la palabra 'prejuicios' (implicando mero sesgo personal) para describir odio racial sistémico y discriminación, ocultando su fuerza institucional y daño colectivo.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "privación del acceso a alimentos o medicinas",
+    "translation": "Systematic denial of food or medical treatment to a civilian population or group, causing mass starvation, disease, or death.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(b) — Extermination",
+    "severity": "critical",
+    "neutralExplanation": "Describes mass starvation and preventable death through 'privación del acceso' (denial of access), a passive construction that obscures intentional causation of death.",
+    "nativeTranslation": "Negación sistemática de alimentos o tratamiento médico a una población civil o grupo, causando hambruna masiva, enfermedad o muerte.",
+    "nativeNeutralExplanation": "Describe la muerte masiva por hambre e inanición preventiva mediante 'privación del acceso' (denial of access), una construcción pasiva que oscurece la causación intencional de la muerte.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "puntos críticos",
+    "translation": "Thresholds in Earth systems beyond which self-reinforcing feedback loops cause rapid, widespread, and often permanent changes to climate, ecosystems, and habitability.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses the technical term 'tipping points' to describe thresholds of irreversible planetary harm and cascade failure, abstracting existential risk through mathematical jargon.",
+    "nativeTranslation": "Umbrales en sistemas terrestres más allá de los cuales los bucles de retroalimentación que se refuerzan a sí mismos causan cambios rápidos, generalizados y a menudo permanentes en el clima, ecosistemas y habitabilidad.",
+    "nativeNeutralExplanation": "Utiliza el término técnico 'puntos críticos' para describir los umbrales de daño planetario irreversible y falla en cascada, abstrayendo el riesgo existencial a través de jerga matemática.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "razones militares imperativas",
+    "translation": "Open-ended military discretion to forcibly relocate, expel, or separate civilian populations from their territories, without judicial review or defined standards.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(e)(viii) — Forced displacement in non-international conflict",
+    "severity": "critical",
+    "neutralExplanation": "Uses vague military terminology ('imperative military reasons') to authorize displacement decisions without specifying what constitutes imperatives or requiring civilian consultation or proportionality assessment.",
+    "nativeTranslation": "Discreción militar abierta para trasladar forzadamente, expulsar o separar poblaciones civiles de sus territorios, sin revisión judicial o estándares definidos.",
+    "nativeNeutralExplanation": "Utiliza terminología militar vaga ('razones militares imperativas') para autorizar decisiones de desplazamiento sin especificar qué constituye imperativos o exigir consulta civil o evaluación de proporcionalidad.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "régimen institucionalizado de opresión",
+    "translation": "A state system of laws, practices, and institutions designed to dominate, segregate, and exploit one racial group through denial of rights, property, and dignity.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(h) — Apartheid",
+    "severity": "critical",
+    "neutralExplanation": "Uses bureaucratic language ('régimen institucionalizado') to describe racial segregation and systematic oppression, which can normalize institutionalized racism as mere governance structure.",
+    "nativeTranslation": "Un sistema estatal de leyes, prácticas e instituciones diseñadas para dominar, segregar y explotar a un grupo racial mediante negación de derechos, propiedad y dignidad.",
+    "nativeNeutralExplanation": "Utiliza lenguaje burocrático ('régimen institucionalizado') para describir segregación racial y opresión sistemática, que puede normalizar el racismo institucionalizado como mera estructura de gobernanza.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "segregación o separación",
+    "translation": "Legal and administrative systems that enforce the spatial and social separation of racial or ethnic groups, including forced residential segregation, separate schools, separate services, and denial of access to shared public spaces.",
+    "legalRef": "ICERD (ES) Art. 3 — Condena de segregación racial y apartheid",
+    "severity": "critical",
+    "neutralExplanation": "The terms 'segregación' and 'separación' use administrative language, abstracting the coercive state apparatus, violence, and denial of fundamental rights that enforce and maintain racial separation.",
+    "nativeTranslation": "Sistemas legales y administrativos que imponen la separación espacial y social de grupos raciales o étnicos, incluyendo segregación residencial forzada, escuelas separadas, servicios separados y negación de acceso a espacios públicos compartidos.",
+    "nativeNeutralExplanation": "Los términos 'segregación' y 'separación' utilizan lenguaje administrativo, abstrayendo el aparato estatal coercitivo, la violencia y la negación de derechos fundamentales que imponen y mantienen la separación racial.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "seguridad de los civiles",
+    "translation": "State authority to forcibly displace civilian populations from their homes and lands, justified by an undefined threat assessment that civilians themselves do not consent to.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(e)(viii) — Forced displacement in non-international conflict",
+    "severity": "critical",
+    "neutralExplanation": "Uses protective language ('civilian security') to authorize forced displacement and expulsion without requiring advance notice, consent, safe return mechanisms, or proof that no less harmful alternative exists.",
+    "nativeTranslation": "Autoridad estatal para desplazar forzadamente poblaciones civiles de sus hogares y tierras, justificado por una evaluación de amenaza indefinida a la que los civiles no consienten.",
+    "nativeNeutralExplanation": "Utiliza lenguaje proteccionista ('seguridad de los civiles') para autorizar desplazamiento y expulsión forzada sin exigir aviso previo, consentimiento, mecanismos de retorno seguro, o prueba de que no existe alternativa menos dañina.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "síntomas crecientes de transgresiones",
+    "translation": "Visible evidence of ecological collapse, species extinction, resource depletion, and climate destabilization caused by exceeding planetary boundaries.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses the medical term 'symptoms' to describe catastrophic environmental damage, abstracting the primary cause (boundary transgression) as if it were a disease state rather than human industrial activity.",
+    "nativeTranslation": "Evidencia visible del colapso ecológico, extinción de especies, agotamiento de recursos y desestabilización climática causados por exceder los límites planetarios.",
+    "nativeNeutralExplanation": "Utiliza el término médico 'síntomas' para describir el daño ambiental catastrófico, abstrayendo la causa primaria (transgresión de límites) como si fuera un estado de enfermedad en lugar de actividad industrial humana.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "sustancias sin evaluar",
+    "translation": "Toxic chemicals, plastics, and other synthetic compounds released into ecosystems before their environmental and health impacts have been tested or understood.",
+    "legalRef": "Planetary Boundaries (ES) PB-9 — Introducción de nuevas entidades",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'unevaluated substances' to describe toxins being released into the biosphere without safety assessment, without naming chemical experimentation on human populations or ecosystems.",
+    "nativeTranslation": "Químicos tóxicos, plásticos, y otros compuestos sintéticos liberados en ecosistemas antes de que sus impactos ambientales y sanitarios hayan sido probados o entendidos.",
+    "nativeNeutralExplanation": "Utiliza la frase 'sustancias sin evaluar' para describir toxinas siendo liberadas en la biosfera sin evaluación de seguridad, sin nombrar experimentación química en poblaciones humanas o ecosistemas.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "tendencias irreversibles",
+    "translation": "Permanent loss of ecosystem function, species, and planetary stability resulting from boundary transgression.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses the technical term 'trends' (tendencias) to describe what are permanent extinctions and ecosystem collapses, abstracting the finality and harm through statistical language.",
+    "nativeTranslation": "Pérdida permanente de función del ecosistema, especies y estabilidad planetaria resultante de la transgresión de límites.",
+    "nativeNeutralExplanation": "Utiliza el término técnico 'tendencias' para describir lo que son extinciones permanentes y colapsos ecosistémicos, abstrayendo la finalidad y el daño a través del lenguaje estadístico.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "transgresión de los límites",
+    "translation": "Exceeding the biophysical threshold of a planetary boundary, causing irreversible ecosystem collapse, species extinction, and destabilization of Earth system processes.",
+    "legalRef": "Planetary Boundaries (ES) — Framework Definition",
+    "severity": "critical",
+    "neutralExplanation": "Uses the noun 'transgression' (a violation or crossing) as a passive description of boundary exceedance, without naming the active agent causing the harm or the resulting ecocide.",
+    "nativeTranslation": "Exceder el umbral biofísico de un límite planetario, causando colapso de ecosistemas irreversible, extinción de especies y desestabilización de los procesos del sistema terrestre.",
+    "nativeNeutralExplanation": "Utiliza el sustantivo 'transgresión' (una violación o cruce) como descripción pasiva del exceso de límite, sin nombrar el agente activo que causa el daño ni el ecocidio resultante.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "ventaja militar general concreta",
+    "translation": "A calculus permitting civilian deaths and environmental damage if military advantage is deemed sufficiently valuable, without requiring proof that no alternative existed.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(b)(iv) — Proportionality in attack",
+    "severity": "critical",
+    "neutralExplanation": "Uses abstract cost-benefit language ('concrete military advantage') to authorize foreseeable civilian casualties and ecological harm, omitting the specific numbers and identities of those harmed.",
+    "nativeTranslation": "Un cálculo que permite muertes civiles y daño ambiental si la ventaja militar se considera suficientemente valiosa, sin exigir prueba de que no existía alternativa.",
+    "nativeNeutralExplanation": "Utiliza lenguaje abstracto de costo-beneficio ('ventaja militar general concreta') para autorizar bajas civiles previsibles y daño ecológico, omitiendo números específicos e identidades de los dañados.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "volver al Espacio Seguro de Operación",
+    "translation": "Restoring planetary systems to pre-industrial equilibrium after having already transgressed multiple critical thresholds and caused irreversible ecosystem damage.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'return' (volver) to imply reversibility of transgression, without naming that some tipping points crossed produce irreversible changes.",
+    "nativeTranslation": "Restaurar los sistemas planetarios al equilibrio preindustrial después de haber ya transgredido múltiples umbrales críticos y causado daño ecosistémico irreversible.",
+    "nativeNeutralExplanation": "Utiliza el término 'volver' para implicar reversibilidad de la transgresión, sin nombrar que algunos puntos críticos cruzados producen cambios irreversibles.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "Zona de alto riesgo",
+    "translation": "A state in which severe and often irreversible environmental damage is occurring and conditions have departed fundamentally from the stable climate enabling human civilization.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses 'high-risk' framing to describe active ecosystem collapse and climate destabilization, using probability language instead of naming the destruction underway.",
+    "nativeTranslation": "Un estado en el que está ocurriendo daño ambiental grave y a menudo irreversible y las condiciones se han desviado fundamentalmente del clima estable que permite la civilización humana.",
+    "nativeNeutralExplanation": "Utiliza el encuadre 'alto riesgo' para describir el colapso activo de ecosistemas y la desestabilización climática, usando lenguaje de probabilidad en lugar de nombrar la destrucción en curso.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "Zona de riesgo creciente",
+    "translation": "Operating conditions in which ecological collapse and harm to human welfare become increasingly probable.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "critical",
+    "neutralExplanation": "Uses the word 'risk' to describe a state where ecocide and mass harm are occurring, not merely potential, without naming the actual destruction in progress.",
+    "nativeTranslation": "Condiciones operativas en las que el colapso ecológico y el daño al bienestar humano se vuelven cada vez más probables.",
+    "nativeNeutralExplanation": "Utiliza la palabra 'riesgo' para describir un estado donde el ecocidio y el daño masivo están ocurriendo, no meramente potencial, sin nombrar la destrucción real en curso.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "barreras raciales",
+    "translation": "Systemic legal, economic, and social structures that prevent people of certain races or ethnicities from accessing housing, employment, education, political participation, and public services on equal terms with others.",
+    "legalRef": "ICERD (ES) Art. 2(1)(e) — Eliminación de barreras entre razas",
+    "severity": "high",
+    "neutralExplanation": "The term 'barreras' (barriers) uses metaphorical language suggesting passive obstacles, obscuring the intentional legal and institutional architecture designed to exclude and subordinate specific racial groups.",
+    "nativeTranslation": "Estructuras legales, económicas y sociales sistemáticas que impiden que personas de ciertas razas o etnias accedan a vivienda, empleo, educación, participación política y servicios públicos en términos iguales con otros.",
+    "nativeNeutralExplanation": "El término 'barreras' utiliza lenguaje metafórico que sugiere obstáculos pasivos, ocultando la arquitectura legal e institucional intencional diseñada para excluir y subordinar a grupos raciales específicos.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "cambios lentos",
+    "translation": "Gradual ecosystem degradation, species loss, and climate destabilization that accumulate into irreversible system collapse.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "high",
+    "neutralExplanation": "Uses 'slow' (lentos) to characterize processes of ecocide and biosphere collapse, suggesting they are gradual and manageable rather than cumulative and catastrophic.",
+    "nativeTranslation": "Degradación gradual de ecosistemas, pérdida de especies y desestabilización climática que se acumulan en el colapso irreversible del sistema.",
+    "nativeNeutralExplanation": "Utiliza 'lentos' para caracterizar procesos de ecocidio y colapso de la biosfera, sugiriendo que son graduales y manejables en lugar de acumulativos y catastróficos.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "debilitamiento gradual de la resiliencia",
+    "translation": "Systematic destruction of ecosystem buffers, biodiversity, and adaptive capacity that will render human societies vulnerable to cascade failures.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "high",
+    "neutralExplanation": "Uses 'gradual weakening' to describe the active dismantling of ecosystem function and species diversity, avoiding the verb 'destroy' and framing an urgent crisis as a slow process.",
+    "nativeTranslation": "Destrucción sistemática de amortiguadores de ecosistema, biodiversidad y capacidad adaptativa que hará que las sociedades humanas sean vulnerables a fallas en cascada.",
+    "nativeNeutralExplanation": "Utiliza 'debilitamiento gradual' para describir el desmantelamiento activo de la función del ecosistema y la diversidad de especies, evitando el verbo 'destruir' y enmarcando una crisis urgente como un proceso lento.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "desviaciones locales de caudal",
+    "translation": "Regional and seasonal failures of freshwater river flow and groundwater availability, leaving communities without water for drinking, irrigation, or industrial use.",
+    "legalRef": "Planetary Boundaries (ES) PB-6 — Cambios en los recursos de agua dulce",
+    "severity": "high",
+    "neutralExplanation": "Uses the term 'local deviations of water flow' to describe freshwater depletion and drought, without naming the displacement of human populations or ecosystem collapse from drying.",
+    "nativeTranslation": "Fallos regionales y estacionales del flujo de ríos de agua dulce y disponibilidad de agua subterránea, dejando a comunidades sin agua para beber, irrigación, o uso industrial.",
+    "nativeNeutralExplanation": "Utiliza el término 'desviaciones locales de caudal' para describir agotamiento de agua dulce y sequía, sin nombrar el desplazamiento de poblaciones humanas o el colapso del ecosistema por secado.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "manifestaciones de discriminación racial",
+    "translation": "Instances of racial discrimination—including violence, exclusion from services, employment, housing, education, and public spaces—targeting individuals or groups based on race or ethnicity.",
+    "legalRef": "ICERD (ES) Art. 1 — Definición de discriminación racial",
+    "severity": "high",
+    "neutralExplanation": "The word 'manifestaciones' (manifestations) neutralizes the active harm and intent behind discriminatory acts by treating them as passive phenomena or symptoms rather than deliberate violations and injuries.",
+    "nativeTranslation": "Instancias de discriminación racial—incluyendo violencia, exclusión de servicios, empleo, vivienda, educación y espacios públicos—dirigidas a individuos o grupos basadas en raza o etnia.",
+    "nativeNeutralExplanation": "La palabra 'manifestaciones' neutraliza el daño activo e intención detrás de actos discriminatorios tratándolos como fenómenos pasivos o síntomas en lugar de violaciones deliberadas e injurias.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "medidas correctivas",
+    "translation": "Actions taken to stop or remedy racial discrimination, violence, or incitement to hatred after the fact, without preventing the initial harm or addressing systemic causation.",
+    "legalRef": "ICERD (ES) Art. 4 — Propaganda y incitación a la discriminación racial",
+    "severity": "high",
+    "neutralExplanation": "The phrase 'medidas correctivas' uses administrative language ('measures') and 'correctiva' (corrective) to describe responses to discrimination, abstracting away the naming of the specific harms (violence, hatred, exclusion) that triggered the need for correction.",
+    "nativeTranslation": "Acciones adoptadas para detener o remediar la discriminación racial, violencia, o incitación al odio después del hecho, sin prevenir el daño inicial ni abordar las causas sistémicas.",
+    "nativeNeutralExplanation": "La frase 'medidas correctivas' utiliza lenguaje administrativo ('medidas') y 'correctiva' para describir respuestas a la discriminación, abstraiendo la nominación específica de los daños (violencia, odio, exclusión) que desencadenaron la necesidad de corrección.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "necesidades militares",
+    "translation": "Military justification used to legalize the destruction, appropriation, or demolition of civilian property, infrastructure, or resources during armed conflict.",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(b)(xiii) — Destruction or confiscation of enemy property",
+    "severity": "high",
+    "neutralExplanation": "Uses the abstract term 'military needs' to authorize property destruction without naming the actual harm to civilian populations or ecosystems, leaving determination of legitimacy undefined.",
+    "nativeTranslation": "Justificación militar utilizada para legalizar la destrucción, apropiación o demolición de propiedad civil, infraestructura o recursos durante conflictos armados.",
+    "nativeNeutralExplanation": "Utiliza el término abstracto 'necesidades militares' para autorizar la destrucción de propiedad sin nombrar el daño real a poblaciones civiles o ecosistemas, dejando la determinación de legitimidad indefinida.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "objetos civiles",
+    "translation": "Homes, schools, hospitals, religious buildings, water systems, food warehouses, and other infrastructure that sustains human life, bombed or destroyed under the pretext that they are 'not military targets.'",
+    "legalRef": "Rome Statute (ES) Art. 8(2)(b)(ii) — Attack on civilian objects",
+    "severity": "high",
+    "neutralExplanation": "Uses abstract legal category ('civilian objects') without naming the types of buildings or infrastructure destroyed—schools, hospitals, homes—thereby abstracting the human cost of destruction.",
+    "nativeTranslation": "Hogares, escuelas, hospitales, edificios religiosos, sistemas de agua, almacenes de alimentos e infraestructura que sustenta la vida humana, bombardeados o destruidos bajo el pretexto de que no son 'objetivos militares'.",
+    "nativeNeutralExplanation": "Utiliza categoría legal abstracta ('objetos civiles') sin nombrar tipos específicos de edificios o infraestructura destruida—escuelas, hospitales, hogares—abstraendo así el costo humano de la destrucción.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "prejuicios que conduzcan",
+    "translation": "Systematized racist stereotypes, dehumanizing portrayals, and propaganda narratives that are deliberately disseminated to justify and normalize exclusion, violence, and rights denial.",
+    "legalRef": "ICERD (ES) Art. 7 — Medidas contra prejuicios",
+    "severity": "high",
+    "neutralExplanation": "The term 'prejuicios' (prejudices) treats racist beliefs as natural cognitive biases or individual opinions, abstracting their role as deliberately manufactured propaganda designed and distributed by state and non-state actors to mobilize violence.",
+    "nativeTranslation": "Estereotipos racistas sistematizados, retratos deshumanizantes y narrativas de propaganda que se diseminan deliberadamente para justificar y normalizar exclusión, violencia y negación de derechos.",
+    "nativeNeutralExplanation": "El término 'prejuicios' trata las creencias racistas como sesgos cognitivos naturales u opiniones individuales, abstrayendo su papel como propaganda deliberadamente fabricada y distribuida por actores estatales y no estatales para movilizar la violencia.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "privación intencional y grave de derechos fundamentales",
+    "translation": "Systematic denial of basic human rights to a group based on their identity—such as denying education, employment, freedom of movement, or voting—to harm and dehumanize them.",
+    "legalRef": "Rome Statute (ES) Art. 7(2)(g) — Persecution",
+    "severity": "high",
+    "neutralExplanation": "Uses abstract rights language ('privación de derechos fundamentales') to describe targeted discrimination and harassment of a group, without naming the specific harms or group identity.",
+    "nativeTranslation": "Negación sistemática de derechos humanos básicos a un grupo basada en su identidad—como negar educación, empleo, libertad de movimiento o votación—para dañarlos y deshumanizarlos.",
+    "nativeNeutralExplanation": "Utiliza lenguaje abstracto de derechos ('privación de derechos fundamentales') para describir discriminación y acoso dirigido contra un grupo, sin nombrar los daños específicos o la identidad del grupo.",
+    "documentId": "rome-statute-es"
+  },
+  {
+    "phrase": "reducción de la productividad de las plantas",
+    "translation": "Decline in crop yields and ecosystem photosynthetic output due to soil degradation, water scarcity, pollinator collapse, and climate stress.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "high",
+    "neutralExplanation": "Uses the technical term 'reduction in productivity' to describe agricultural system collapse and food security crisis, using passive economic language instead of naming crop failure and famine risk.",
+    "nativeTranslation": "Declive del rendimiento de cosechas y de la producción fotosintética del ecosistema debido a la degradación del suelo, escasez de agua, colapso de polinizadores y estrés climático.",
+    "nativeNeutralExplanation": "Utiliza el término técnico 'reducción de la productividad' para describir el colapso del sistema agrícola y la crisis de seguridad alimentaria, usando lenguaje económico pasivo en lugar de nombrar la insuficiencia de cosechas y riesgo de hambruna.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "solución amistosa",
+    "translation": "A negotiated settlement between states accused of racial discrimination and victims, which may result in no substantive change to discriminatory policy or compensation to harmed individuals.",
+    "legalRef": "ICERD (ES) Art. 12(1)(a) — Solución amistosa de controversias",
+    "severity": "high",
+    "neutralExplanation": "The phrase 'solución amistosa' uses the word 'amistosa' (friendly) and avoids naming the material harms or systemic discrimination at stake, framing racial oppression as a bilateral dispute to be negotiated rather than a violation requiring substantive remedy.",
+    "nativeTranslation": "Un acuerdo negociado entre estados acusados de discriminación racial y víctimas, que puede resultar en ningún cambio sustantivo en la política discriminatoria o compensación a individuos dañados.",
+    "nativeNeutralExplanation": "La frase 'solución amistosa' utiliza la palabra 'amistosa' (friendly) y evita nombrar los daños materiales o la discriminación sistémica en cuestión, enmarcando la opresión racial como una disputa bilateral a negociar en lugar de una violación que requiere remedio sustantivo.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "transformar lo que parece ser una carga",
+    "translation": "Reframing massive ecological collapse and resource depletion as an 'opportunity' to avoid naming the scale of destruction already underway.",
+    "legalRef": "Revisión de la Salud Planetaria 2024 — PBScience",
+    "severity": "high",
+    "neutralExplanation": "Uses the word 'opportunity' to describe a crisis state, avoiding explicit naming of the ecological damage and costs that would otherwise frame the situation as catastrophic.",
+    "nativeTranslation": "Reencuadrar el colapso ecológico masivo y el agotamiento de recursos como una 'oportunidad' para evitar nombrar la escala de destrucción ya en marcha.",
+    "nativeNeutralExplanation": "Utiliza la palabra 'oportunidad' para describir un estado de crisis, evitando nombrar explícitamente el daño ecológico y los costos que de otro modo enmarcarían la situación como catastrófica.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "variabilidad en los sistemas de agua dulce",
+    "translation": "Severe disruption of freshwater availability and groundwater recharge cycles caused by climate change, drying of aquifers, and agricultural depletion.",
+    "legalRef": "Planetary Boundaries (ES) PB-6 — Cambios en los recursos de agua dulce",
+    "severity": "high",
+    "neutralExplanation": "Uses the technical term 'variability' to describe freshwater crisis and aquifer collapse, without naming water scarcity, drought, or the human populations losing access to drinking water.",
+    "nativeTranslation": "Disrupción severa de la disponibilidad de agua dulce y de los ciclos de recarga de agua subterránea causados por el cambio climático, secado de acuíferos, y agotamiento agrícola.",
+    "nativeNeutralExplanation": "Utiliza el término técnico 'variabilidad' para describir crisis de agua dulce y colapso de acuíferos, sin nombrar escasez de agua, sequía, o las poblaciones humanas perdiendo acceso al agua potable.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "zonas muertas",
+    "translation": "Regions of aquatic ecosystems where oxygen is depleted and almost all aquatic life has died, created by excess nutrient runoff from industrial agriculture.",
+    "legalRef": "Planetary Boundaries (ES) PB-5 — Modificación de los flujos biogeoquímicos",
+    "severity": "high",
+    "neutralExplanation": "Uses the euphemistic phrase 'dead zones' in quotation marks to describe ecosystems rendered uninhabitable by human pollution, without naming industrial agriculture or nutrient poisoning as the cause.",
+    "nativeTranslation": "Regiones de ecosistemas acuáticos donde el oxígeno se ha agotado y casi toda la vida acuática ha muerto, creadas por el exceso de escurrimiento de nutrientes de la agricultura industrial.",
+    "nativeNeutralExplanation": "Utiliza la frase eufemística 'zonas muertas' entre comillas para describir ecosistemas vueltos inhabitables por contaminación humana, sin nombrar la agricultura industrial o el envenenamiento por nutrientes como causa.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "declaración de violaciones",
+    "translation": "A formal acknowledgment that discrimination occurred, without specifying material remedies, restitution, or prevention of future violations.",
+    "legalRef": "ICERD (ES) Art. 14(1) — Comunicaciones de personas o grupos",
+    "severity": "medium",
+    "neutralExplanation": "The phrase 'declaración de violaciones' (declaration of violations) uses the bureaucratic term 'declaración' (statement, declaration) which abstracts away the lived experience of racial harm and replaces it with a formal, administrative acknowledgment that may carry no enforcement mechanism.",
+    "nativeTranslation": "Un reconocimiento formal de que ocurrió discriminación, sin especificar remedios materiales, restitución, o prevención de futuras violaciones.",
+    "nativeNeutralExplanation": "La frase 'declaración de violaciones' utiliza el término burocrático 'declaración' (statement, declaration) que abstrae la experiencia vivida del daño racial y la reemplaza con un reconocimiento formal y administrativo que puede no llevar ningún mecanismo de ejecución.",
+    "documentId": "icerd-es"
+  },
+  {
+    "phrase": "espacio seguro de operación",
+    "translation": "A designated zone of acceptable planetary boundary transgression within which continued resource extraction and ecological damage are permitted without policy intervention.",
+    "legalRef": "Planetary Boundaries (ES) — Framework Definition",
+    "severity": "medium",
+    "neutralExplanation": "Uses the word 'safe' to describe a zone that permits measurable transgression of biophysical limits, without naming the actual ecological or climate harm occurring within that zone.",
+    "nativeTranslation": "Una zona designada de transgresión aceptable de los límites planetarios dentro de la cual se permite la extracción continua de recursos y el daño ecológico sin intervención política.",
+    "nativeNeutralExplanation": "Utiliza la palabra 'seguro' para describir una zona que permite la transgresión medible de límites biofísicos, sin nombrar el daño ecológico o climático real que ocurre dentro de esa zona.",
+    "documentId": "planetary-boundaries-es"
+  },
+  {
+    "phrase": "niveles seguros",
+    "translation": "Quantified thresholds of planetary boundary variables; operating within these levels still permits significant environmental degradation and species loss, but avoids critical tipping points.",
+    "legalRef": "Planetary Boundaries (ES) — Framework Definition",
+    "severity": "medium",
+    "neutralExplanation": "Uses the adjective 'safe' to describe quantified but still-harmful threshold levels, without naming the ongoing ecosystem destruction and biodiversity loss permitted within those thresholds.",
+    "nativeTranslation": "Umbrales cuantificados de variables de límites planetarios; operar dentro de estos niveles aún permite degradación ambiental significativa y pérdida de especies, pero evita puntos críticos de inflexión.",
+    "nativeNeutralExplanation": "Utiliza el adjetivo 'seguro' para describir niveles de umbral cuantificados pero aún dañinos, sin nombrar la destrucción de ecosistemas en curso y la pérdida de biodiversidad permitidas dentro de esos umbrales.",
+    "documentId": "planetary-boundaries-es"
+  }
+]

@@ -1,0 +1,702 @@
+[
+  {
+    "phrase": "akty barbarzyństwa",
+    "translation": "Atrocities including systematic killing, torture, ethnic cleansing, or mass violence perpetrated by state or non-state actors.",
+    "legalRef": "UDHR (PL) Preamble — Atrocities",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'akty barbarzyństwa' (acts of barbarity) uses a culturally distancing term that implies primitive or uncivilized behavior, rather than naming specific crimes such as genocide, torture, or mass murder.",
+    "nativeTranslation": "Okrucieństwa polegające na systematycznym zabijaniu, torturach, czystkach etnicznych lub zbrojnej przemocy dokonywane przez aktorów państwowych lub pozapaństwowych.",
+    "nativeNeutralExplanation": "Wyrażenie 'akty barbarzyństwa' (akty barbarzyństwa) używa terminu kulturowo dystansującego, który sugeruje prymitywne lub niecywilizowane zachowanie, zamiast nazwy konkretnych przestępstw takich jak ludobójstwo, tortury czy mordy masowe.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "handel niewolnikami",
+    "translation": "The commercial trafficking of human beings for forced labor, sexual exploitation, or servitude, extracting profit from the enslavement of other persons.",
+    "legalRef": "UDHR (PL) Art. 4 — Slave Trade",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'handel niewolnikami' (slave trade) uses the commercial term 'handel' (trade), which obscures that the transaction involves the forced removal of personhood and autonomy from human beings.",
+    "nativeTranslation": "Komercyjny handel ludźmi w celu pracy przymusowej, eksploatacji seksualnej lub służebności, czerpanie zysku z niewolenia innych osób.",
+    "nativeNeutralExplanation": "Wyrażenie 'handel niewolnikami' (handel niewolnikami) używa komercyjnego terminu 'handel' (handel), który ukrywa że transakcja obejmuje przymusowe odebranie osobowości i autonomii ludzkim istotom.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "nieposzanowanie praw człowieka",
+    "translation": "Systematic violation, denial, or suppression of fundamental human rights through state or institutional action, often resulting in death, injury, or permanent harm.",
+    "legalRef": "UDHR (PL) Preamble — Disregard of Human Rights",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'nieposzanowanie' (disregard) uses a passive, abstract noun form to describe violations, which obscures active agency and the concrete suffering caused by those violations.",
+    "nativeTranslation": "Systematyczne naruszanie, odmowa lub tłumienie podstawowych praw człowieka poprzez działania państwowe lub instytucjonalne, często skutkujące śmiercią, obrażeniami lub trwałą szkodą.",
+    "nativeNeutralExplanation": "Wyrażenie 'nieposzanowanie praw człowieka' używa pasywnej, abstrakcyjnej formy rzeczownika by opisać naruszenia, co ukrywa aktywnego sprawcę i konkretne cierpienie spowodowane tymi naruszeniami.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "samowolnie aresztować",
+    "translation": "To seize and detain a person without legal authorization, judicial oversight, or transparent justification.",
+    "legalRef": "UDHR (PL) Art. 9 — Arbitrary Arrest",
+    "severity": "critical",
+    "neutralExplanation": "The phrase uses 'samowolnie' (arbitrarily) to describe arrest, which acknowledges illegality but obscures the physical act of state agents seizing a person's body and removing their freedom of movement.",
+    "nativeTranslation": "Chwycenie i zatrzymanie osoby bez upoważnienia prawnego, nadzoru sądowego lub przejrzystego uzasadnienia.",
+    "nativeNeutralExplanation": "Wyrażenie 'samowolnie aresztować' używa słowa 'samowolnie' by opisać aresztowanie, które potwierdza bezprawność, ale nie ujawnia fizycznego aktu - schwytania przez agentów państwowych ciała człowieka i odebrania mu wolności poruszania się.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "samowolnie pozbawiać obywatelstwa",
+    "translation": "To unilaterally strip a person of citizenship, rendering them stateless, without legal recourse, and exposing them to deportation and denial of rights.",
+    "legalRef": "UDHR (PL) Art. 15 — Arbitrary Deprivation of Nationality",
+    "severity": "critical",
+    "neutralExplanation": "The phrase 'samowolnie pozbawiać obywatelstwa' uses the legal term 'samowolnie' (arbitrarily) to frame nationality revocation, but obscures that the person becomes stateless, loses access to state protection, and may face deportation.",
+    "nativeTranslation": "Jednostronne odebranie osobie obywatelstwa, pozostawienie jej bez obywatelstwa, bez możliwości odwołania się i wystawienie na deportację oraz odmowę praw.",
+    "nativeNeutralExplanation": "Wyrażenie 'samowolnie pozbawiać obywatelstwa' używa terminu prawnego 'samowolnie' (bezprawnie) by opisać odbór obywatelstwa, ale nie ujawnia że osoba staje się bezpaństwowcem, traci dostęp do ochrony państwa i może być poddana deportacji.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "samowolnie wygnać",
+    "translation": "To forcibly expel a person from their country of residence and citizenship against their will, severing their ties to home, family, and livelihood.",
+    "legalRef": "UDHR (PL) Art. 9 — Arbitrary Expulsion",
+    "severity": "critical",
+    "neutralExplanation": "The term 'wygnać' (to expel) is used with 'samowolnie' to describe exile, which uses a legalistic qualifier to frame displacement but abstracts the permanent severing of a person's territorial belonging and social roots.",
+    "nativeTranslation": "Zmuszenie osoby do opuszczenia jej kraju zamieszkania i obywatelstwa wbrew jej woli, zerwanie jej więzów z domem, rodziną i środkami do życia.",
+    "nativeNeutralExplanation": "Termin 'wygnać' jest użyty z 'samowolnie' by opisać wygnanie, które używa kwalifikatora prawnego dla opisu wygnania, ale abstrahuje od trwałego zerwania więzów osoby z jej terytorium i korzeniami społecznymi.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "samowolnie zatrzymać",
+    "translation": "To hold a person in custody without legal process, warrant, or judicial authorization for an indefinite period.",
+    "legalRef": "UDHR (PL) Art. 9 — Arbitrary Detention",
+    "severity": "critical",
+    "neutralExplanation": "The phrase frames unlawful detention using 'samowolnie' (arbitrarily), which labels the act as illegal but does not specify the duration of captivity, confinement conditions, or deprivation of liberty.",
+    "nativeTranslation": "Przetrzymywanie osoby w areszcie bez procesu prawnego, nakazu lub upoważnienia sądowego przez nieokreślony czas.",
+    "nativeNeutralExplanation": "Wyrażenie 'samowolnie zatrzymać' opisuje bezprawne zatrzymanie używając słowa 'samowolnie' (bezprawnie), które oznacza iż akt jest nielegalny, ale nie precyzuje czasu trwania niewoli, warunków więzienia lub pozbawienia wolności.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "tortury ani karać",
+    "translation": "To intentionally inflict severe physical or psychological pain and suffering on a detainee or prisoner to extract information, punishment, or intimidation.",
+    "legalRef": "UDHR (PL) Art. 5 — Prohibition of Torture",
+    "severity": "critical",
+    "neutralExplanation": "The phrase pairs 'tortury' (torture) with 'karać' (punish), which uses the euphemistic term 'karać' (a standard legal word for punishment) to obscure that torture inflicts deliberate, severe bodily harm.",
+    "nativeTranslation": "Celowe zadawanie osobie zatrzymanej lub więźniowi dotkliwego bólu fizycznego lub psychicznego w celu wydobycia informacji, kary lub zastraszenia.",
+    "nativeNeutralExplanation": "Wyrażenie łączy 'tortury' (tortury) z 'karać' (karać), które używa eufemistycznego terminu 'karać' (standardowe słowo prawne na karę) by ukryć że tortury zadają celowy, dotkliwy ból fizyczny.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "безопасное операционное пространство",
+    "translation": "The narrow envelope of planetary conditions similar to the Holocene epoch within which human civilization developed, which is being progressively destroyed by transgression of nine planetary boundaries.",
+    "legalRef": "Planetary Boundaries (RU) — Safe Operating Space",
+    "severity": "critical",
+    "neutralExplanation": "Uses 'safe operating space' as a technical, geometric metaphor for habitability conditions, abstracting the existential dependence of human survival on stable ecosystems into neutral spatial language.",
+    "nativeTranslation": "Узкий диапазон планетарных условий, подобных эпохе Голоцена, в пределах которого развивалась человеческая цивилизация, и которые прогрессивно уничтожаются нарушением девяти планетарных границ.",
+    "nativeNeutralExplanation": "Использует 'безопасное операционное пространство' как техническую геометрическую метафору для условий обитаемости, абстрагируя экзистенциальную зависимость выживания человека от стабильных экосистем в нейтральный пространственный язык.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "вероятность превышения границы",
+    "translation": "Active transgression of the boundary into contamination of all ecosystems with synthetic chemicals, plastics, and GMOs with unknown consequences.",
+    "legalRef": "Planetary Boundaries (RU) PB-6 — Novel Entity Pollution",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'probability of exceeding the boundary' to describe massive, uncontrolled release of novel substances into the environment, abstracting it as merely a statistical likelihood rather than an active, ongoing transgression.",
+    "nativeTranslation": "Активное нарушение границы в загрязнение всех экосистем синтетическими химикатами, пластиком и ГМО с неизвестными последствиями.",
+    "nativeNeutralExplanation": "Использует фразу 'вероятность превышения границы' для описания массивного, неконтролируемого выброса новых веществ в окружающую среду, абстрагируя это как просто статистическую вероятность, а не активное, текущее нарушение.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "возникновения напряженности",
+    "translation": "Escalating violence, communal conflict, ethnic cleansing, and targeted repression that falls below the legal threshold for armed conflict.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(d) and Art. 8(2)(f) — Exclusions from non-international armed conflict",
+    "severity": "critical",
+    "neutralExplanation": "Uses the neutral term 'tensions' (напряженности) to describe escalating communal violence and repression, minimizing the severity and concealing the systematic harm occurring below the threshold of recognized armed conflict.",
+    "nativeTranslation": "Растущее насилие, общинные конфликты, этнические чистки и целевые репрессии, которые остаются ниже юридического порога вооруженного конфликта.",
+    "nativeNeutralExplanation": "Использует нейтральный термин 'напряженности' для описания растущего общинного насилия и репрессий, минимизируя серьезность и скрывая систематический вред, происходящий ниже порога признанного вооруженного конфликта.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "вынесение приговоров без судебного разбирательства",
+    "translation": "Extrajudicial killing, summary execution, and the deprivation of the right to trial—removing the accused from custody and killing them without legal process.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(c)(iv) — Sentencing and execution without proper legal proceeding",
+    "severity": "critical",
+    "neutralExplanation": "Uses the judicial euphemism 'sentencing without trial' (вынесение приговоров без судебного разбирательства) to describe extra-judicial killing and execution, using the language of law to describe acts performed outside any legal framework.",
+    "nativeTranslation": "Внесудебное убийство, скоротечное исполнение и лишение права на суд—удаление обвиняемого из-под стражи и его убийство без юридического процесса.",
+    "nativeNeutralExplanation": "Использует судебный эвфемизм 'вынесение приговоров без судебного разбирательства' для описания внесудебного убийства и казни, используя язык закона для описания актов, совершаемых вне любой юридической базы.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "дальнейшее превышение границ",
+    "translation": "Further transgression into states of ecosystem collapse, species extinction, and irreversible planetary damage.",
+    "legalRef": "Planetary Boundaries (RU) — Nine Planetary Boundary System",
+    "severity": "critical",
+    "neutralExplanation": "Uses the neutral term 'further exceeding' to refer to moving deeper into catastrophic ecological damage, omitting words such as 'collapse', 'extinction', or 'ecocide'.",
+    "nativeTranslation": "Дальнейшее нарушение в состояния коллапса экосистем, вымирания видов и необратимого повреждения планеты.",
+    "nativeNeutralExplanation": "Использует нейтральный термин 'дальнейшее превышение' для обозначения продвижения в катастрофическое экологическое повреждение, опуская слова вроде 'коллапс', 'вымирание' или 'эконосталь'.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "долгосрочные и возможно необратимые изменения",
+    "translation": "Permanent, irreversible contamination of soil and water, extinction of species, and altered ecosystems that cannot be restored.",
+    "legalRef": "Planetary Boundaries (RU) PB-6 — Novel Entity Pollution",
+    "severity": "critical",
+    "neutralExplanation": "Uses the hedging phrase 'long-term and possibly irreversible changes' to describe known permanent environmental damage, using the word 'possibly' to introduce uncertainty where scientific consensus already exists.",
+    "nativeTranslation": "Постоянное, необратимое загрязнение почвы и воды, вымирание видов и изменённые экосистемы, которые не могут быть восстановлены.",
+    "nativeNeutralExplanation": "Использует смягчающую фразу 'долгосрочные и возможно необратимые изменения' для описания известного постоянного повреждения окружающей среды, используя слово 'возможно' для внесения неопределённости там, где научный консенсус уже существует.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "значительная часть этих веществ остается непроверенной",
+    "translation": "Billions of tons of untested synthetic chemicals, plastics, and pesticides are released into ecosystems with no environmental or health impact assessment.",
+    "legalRef": "Planetary Boundaries (RU) PB-6 — Novel Entity Pollution",
+    "severity": "critical",
+    "neutralExplanation": "Uses the passive construction 'a significant portion of these substances remains untested' to describe the reckless release of novel compounds into the environment without safety data, abstracting responsibility and urgency.",
+    "nativeTranslation": "Миллиарды тонн непроверенных синтетических химикатов, пластика и пестицидов выбрасываются в экосистемы без экологической или медицинской оценки воздействия.",
+    "nativeNeutralExplanation": "Использует пассивную конструкцию 'значительная часть этих веществ остается непроверенной' для описания безрассудного выброса новых соединений в окружающую среду без данных о безопасности, абстрагируя ответственность и срочность.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "значительно превышая свои безопасные уровни",
+    "translation": "Crossing critical thresholds into irreversible forest loss, biodiversity collapse, and ecosystem death.",
+    "legalRef": "Planetary Boundaries (RU) PB-2, PB-3",
+    "severity": "critical",
+    "neutralExplanation": "Uses the technical phrase 'significantly exceeding safe levels' to describe deforestation and forest ecosystem collapse, abstracting the lived reality of species loss and habitat destruction.",
+    "nativeTranslation": "Пересечение критических порогов в необратимую потерю лесов, коллапс биоразнообразия и гибель экосистем.",
+    "nativeNeutralExplanation": "Использует технический термин 'значительно превышая свои безопасные уровни' для описания обезлесения и коллапса лесных экосистем, абстрагируя реальность потери видов и разрушения среды обитания.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "зона возрастающего риска",
+    "translation": "A state in which planetary systems have transgressed safe boundaries and are experiencing accelerating harm, with increasing probability of irreversible damage.",
+    "legalRef": "Planetary Boundaries (RU) — Zone of Increasing Risk",
+    "severity": "critical",
+    "neutralExplanation": "Uses the abstract term 'zone of risk' and 'increasing probability' to describe boundary transgression, without naming the actual ongoing and cumulative environmental damage occurring.",
+    "nativeTranslation": "Состояние, в котором планетарные системы нарушили безопасные пределы и испытывают ускоряющийся ущерб с возрастающей вероятностью необратимого повреждения.",
+    "nativeNeutralExplanation": "Использует абстрактный термин 'зона риска' и 'возрастающая вероятность' для описания нарушения границ, не называя при этом фактический текущий и кумулятивный экологический ущерб.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "зона высокого риска",
+    "translation": "A state where planetary conditions have significantly deviated from safe levels and are actively inflicting serious, potentially permanent environmental damage.",
+    "legalRef": "Planetary Boundaries (RU) — High-Risk Zone",
+    "severity": "critical",
+    "neutralExplanation": "Uses 'high-risk zone' language to describe severe boundary transgression and ongoing irreversible harm, abstracting the term into probabilistic risk rather than naming actual damage.",
+    "nativeTranslation": "Состояние, в котором планетарные условия значительно отклонились от безопасных уровней и активно наносят серьезный, потенциально постоянный экологический ущерб.",
+    "nativeNeutralExplanation": "Использует язык 'зона высокого риска' для описания серьёзного нарушения границ и текущего необратимого вреда, абстрагируя термин в вероятностный риск вместо названия фактического ущерба.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "институционализированного режима систематического угнетения",
+    "translation": "State-sponsored or state-tolerated system of racial hierarchy, segregation, and domination sustained through law, violence, and exclusion from political power and resources.",
+    "legalRef": "Rome Statute (RU) Art. 7(2)(h) — Apartheid",
+    "severity": "critical",
+    "neutralExplanation": "Uses the euphemistic phrase 'institutionalized regime of systematic oppression' rather than naming apartheid, segregation, racial enslavement, or racial subjugation directly.",
+    "nativeTranslation": "Поддерживаемая государством или терпимая государством система расовой иерархии, сегрегации и господства, поддерживаемая через право, насилие и исключение из политической власти и ресурсов.",
+    "nativeNeutralExplanation": "Использует эвфемистическую фразу «институционализированный режим систематического угнетения» вместо прямого названия апартеида, сегрегации, расового рабства или расового подчинения.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "интенсивное повышение уровня Мирового океана",
+    "translation": "Rapid, uncontrollable sea level rise causing displacement of hundreds of millions of people, inundation of islands and coastal cities, and loss of territory.",
+    "legalRef": "Planetary Boundaries (RU) PB-1 — Climate Change",
+    "severity": "critical",
+    "neutralExplanation": "Uses the technical phrase 'intensive rise of ocean level' to describe catastrophic, runaway sea level rise that will displace populations and erase nations, abstracting human and geopolitical consequences through use of a technical descriptor.",
+    "nativeTranslation": "Быстрое, неконтролируемое повышение уровня моря, вызывающее перемещение сотен миллионов людей, затопление островов и прибрежных городов и потерю территории.",
+    "nativeNeutralExplanation": "Использует технический термин 'интенсивное повышение уровня Мирового океана' для описания катастрофического, самопроизвольного повышения уровня моря, которое приведёт к перемещению населения и исчезновению наций, абстрагируя человеческие и геополитические последствия через использование технического описания.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "интенсивное повышение уровня океана",
+    "translation": "Uncontrolled melting of ice sheets and thermal expansion of seawater causing metres-scale sea level rise, displacing hundreds of millions of people and destroying civilizations.",
+    "legalRef": "Planetary Boundaries (RU) PB-1 — Climate Change",
+    "severity": "critical",
+    "neutralExplanation": "Uses 'intensive rise' to describe catastrophic sea level change, abstracting the term with a noun phrase that omits the mass human displacement, coastal city destruction, and refugee crises that follow.",
+    "nativeTranslation": "Неконтролируемое таяние ледниковых щитов и термическое расширение морской воды, вызывающие повышение уровня моря на метры, вытесняющие сотни миллионов людей и уничтожающие цивилизации.",
+    "nativeNeutralExplanation": "Использует 'интенсивное повышение' для описания катастрофического изменения уровня моря, абстрагируя термин с существительной фразой, которая опускает массовое вытеснение людей, разрушение прибрежных городов и кризис беженцев.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "критические точки и возможно пересекаем их",
+    "translation": "Triggering irreversible runaway feedback loops that will cause rapid, uncontrollable climate change, ecosystem collapse, and civilizational disruption.",
+    "legalRef": "Planetary Boundaries (RU) — Nine Planetary Boundary System",
+    "severity": "critical",
+    "neutralExplanation": "Uses the conditional phrase 'critical points — and possibly crossing them' to describe what may already be occurring as measured transgressions, introducing false uncertainty about whether catastrophic thresholds have been breached.",
+    "nativeTranslation": "Запуск необратимых положительных обратных связей, которые вызовут быстрое, неконтролируемое изменение климата, коллапс экосистем и нарушение цивилизации.",
+    "nativeNeutralExplanation": "Использует условную фразу 'критические точки и возможно пересекаем их' для описания того, что может уже происходить как измеренные нарушения, вводя ложную неопределённость о том, пересекли ли уже катастрофические пороги.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "линия поведения, включающая многократное совершение актов",
+    "translation": "A pattern of repeated violence, killing, and abuse conducted under state or organizational orders targeting civilian populations.",
+    "legalRef": "Rome Statute (RU) Art. 7(2)(a) — Attack on Civilian Population",
+    "severity": "critical",
+    "neutralExplanation": "Uses bureaucratic phrase 'line of conduct' and 'repeated acts' to abstract the physical reality of coordinated violence and atrocities, describing method rather than harm.",
+    "nativeTranslation": "Модель повторяющегося насилия, убийств и жестокого обращения, проводимых по приказам государства или организации в отношении гражданского населения.",
+    "nativeNeutralExplanation": "Использует бюрократическую фразу «линия поведения» и «повторное совершение актов» для абстрагирования физической реальности координируемого насилия и зверств, описывая метод, а не вред.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "лишение доступа к продуктам питания и лекарствам",
+    "translation": "Preventing a population from obtaining food and medicine, resulting in mass starvation, disease, and death.",
+    "legalRef": "Rome Statute (RU) Art. 7(2)(b) — Extermination",
+    "severity": "critical",
+    "neutralExplanation": "Describes denying food and medicine as passive 'deprivation of access' rather than active killing or siege warfare, obscuring intent and causation.",
+    "nativeTranslation": "Воспрепятствование доступу населением к пище и медикаментам, приводящее к массовому голоду, болезням и смерти.",
+    "nativeNeutralExplanation": "Описывает отказ в пище и медикаментах как пассивную «депривацию доступа», а не как активное убийство или ведение осадной войны, скрывая намерение и причинность.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "медленные изменения",
+    "translation": "Gradual transgression of planetary boundaries that does not produce immediate visible catastrophe but is triggering irreversible cascade processes and tipping points.",
+    "legalRef": "Planetary Boundaries (RU) — Tipping Points and Cascading Change",
+    "severity": "critical",
+    "neutralExplanation": "Describes boundary transgression as 'slow change,' minimizing urgency by implying gradualism, while omitting that these slow processes are activating irreversible self-amplifying tipping cascades.",
+    "nativeTranslation": "Постепенное нарушение планетарных границ, которое не вызывает немедленную видимую катастрофу, но запускает необратимые каскадные процессы и критические точки.",
+    "nativeNeutralExplanation": "Описывает нарушение границ как 'медленные изменения', минимизируя срочность путем намека на постепенность, при этом не упоминая, что эти медленные процессы активируют необратимые самоускоряющиеся каскады.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "медленные изменения могут запустить необратимые тенденции",
+    "translation": "Gradual ecosystem degradation will trigger tipping points that cause rapid, self-accelerating climate and ecological collapse.",
+    "legalRef": "Planetary Boundaries (RU) — Nine Planetary Boundary System",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'slow changes may trigger irreversible trends' to describe the known relationship between gradual boundary transgression and catastrophic runaway feedback loops, abstracting causation through cautious language.",
+    "nativeTranslation": "Постепенная деградация экосистем запустит точки невозврата, которые вызовут быстрый, самоускоряющийся климатический и экологический коллапс.",
+    "nativeNeutralExplanation": "Использует фразу 'медленные изменения могут запустить необратимые тенденции' для описания известной связи между постепенным нарушением границ и катастрофическими положительными обратными связями, абстрагируя причинность через осторожный язык.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "меры безопасности",
+    "translation": "Detention, surveillance, movement restrictions, or coercive confinement justified by security claims without transparency, evidence, or judicial review.",
+    "legalRef": "UDHR (RU) Art. 9, 13 — No arbitrary detention; freedom of movement",
+    "severity": "critical",
+    "neutralExplanation": "Uses the abstract term 'security measures' to describe coercive actions (detention, confinement, surveillance) that restrict liberty, without naming the physical restraint or loss of autonomy.",
+    "nativeTranslation": "Задержание, надзор, ограничения движения или принудительное заключение, оправданные требованиями безопасности без прозрачности, доказательств или судебного контроля.",
+    "nativeNeutralExplanation": "Использует абстрактный термин 'меры безопасности' для описания принудительных действий (задержание, заключение, надзор), ограничивающих свободу, без названия физического ограничения или потери автономии.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "меры, рассчитанные на предотвращение деторождения",
+    "translation": "Forced sterilization, forced contraception, involuntary medical procedures, or prevention of pregnancy in a target group to eliminate their biological reproduction.",
+    "legalRef": "Rome Statute (RU) Art. 6(d) — Genocide (Prevention of Births)",
+    "severity": "critical",
+    "neutralExplanation": "Uses clinical euphemism 'measures calculated to prevent procreation' to describe forced sterilization and reproductive control, abstracting bodily violation and intent to eliminate a population.",
+    "nativeTranslation": "Принудительная стерилизация, принудительная контрацепция, непроизвольные медицинские процедуры или воспрепятствование беременности в целевой группе для исключения её биологического воспроизводства.",
+    "nativeNeutralExplanation": "Использует клинический эвфемизм «меры, рассчитанные на предотвращение деторождения» для описания принудительной стерилизации и репродуктивного контроля, абстрагируя нарушение телесной целостности и намерение ликвидировать население.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "нарушения внутреннего порядка",
+    "translation": "Systematic violence, repression, and killings perpetrated by state or non-state actors against populations within a state's territory.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(d) and Art. 8(2)(f) — Exclusions from non-international armed conflict",
+    "severity": "critical",
+    "neutralExplanation": "Uses the bureaucratic phrase 'violations of internal order' (нарушения внутреннего порядка) to exclude systematic violence and mass atrocities from the definition of armed conflict crimes, thereby narrowing criminal accountability.",
+    "nativeTranslation": "Систематическое насилие, репрессии и убийства, совершаемые государственными или негосударственными субъектами против население в пределах территории государства.",
+    "nativeNeutralExplanation": "Использует бюрократическую фразу 'нарушения внутреннего порядка' для исключения систематического насилия и массовых зверств из определения преступлений вооруженного конфликта, тем самым сужая уголовную ответственность.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "насильственная передача детей из одной человеческой группы в другую",
+    "translation": "Removal of children from their birth families and ethnic or religious communities, placement in institutions or families of a different group, and forced assimilation to erase cultural identity.",
+    "legalRef": "Rome Statute (RU) Art. 6(e) — Genocide (Forcible Transfer of Children)",
+    "severity": "critical",
+    "neutralExplanation": "Uses the neutral term 'forcible transfer of children' to describe family separation, cultural erasure, and identity destruction, without naming the trauma or intent to eliminate ethnic identity.",
+    "nativeTranslation": "Изъятие детей из их биологических семей и этнических или религиозных общин, размещение в учреждениях или семьях другой группы и принудительная ассимиляция для стирания культурной идентичности.",
+    "nativeNeutralExplanation": "Использует нейтральный термин «насильственная передача детей» для описания разделения семей, культурного стирания и уничтожения идентичности, без названия травмы или намерения ликвидировать этническую идентичность.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "насильственное перемещение лиц, подвергшихся выселению",
+    "translation": "Forced expulsion of populations from their homes and territories, often accompanied by violence, destruction of property, and preventing return.",
+    "legalRef": "Rome Statute (RU) Art. 7(2)(d) — Deportation or Forcible Transfer",
+    "severity": "critical",
+    "neutralExplanation": "Uses passive construction 'forcible displacement of persons subjected to eviction' to describe ethnic cleansing or mass expulsion, abstracting the use of force and loss of home.",
+    "nativeTranslation": "Насильственное изгнание населения из своих домов и территорий, часто сопровождаемое насилием, уничтожением имущества и воспрепятствованием возвращению.",
+    "nativeNeutralExplanation": "Использует пассивную конструкцию «насильственное перемещение лиц, подвергшихся выселению» для описания этнической чистки или массового изгнания, абстрагируя применение силы и потерю дома.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "незаконное лишение физической свободы",
+    "translation": "Arbitrary imprisonment, detention without trial, torture in detention facilities, or imprisonment in violation of due process and international humanitarian law.",
+    "legalRef": "Rome Statute (RU) Art. 7(1)(e) — Imprisonment or Other Severe Deprivation of Physical Liberty",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'illegal deprivation of physical liberty' to subsume torture, indefinite detention, and extrajudicial imprisonment, without naming the specific methods of harm.",
+    "nativeTranslation": "Произвольное тюремное заключение, задержание без суда, пытки в следственных изоляторах или тюремное заключение в нарушение надлежащего судопроцесса и международного гуманитарного права.",
+    "nativeNeutralExplanation": "Использует термин «незаконное лишение физической свободы» для описания пыток, неопределённого задержания и внесудебного тюремного заключения, без называния конкретных методов вреда.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "необратимые тенденции",
+    "translation": "Boundary transgressions that have triggered self-sustaining ecological collapse processes, such as ice sheet disintegration or ocean current shutdown, that cannot be stopped regardless of future human action.",
+    "legalRef": "Planetary Boundaries (RU) — Tipping Points and Cascade Effects",
+    "severity": "critical",
+    "neutralExplanation": "Uses the term 'irreversible trends' to name tipping cascades without specifying their scale (extinction, ecosystem collapse, climate runaway, sea level rise), leaving the concrete consequences unnamed.",
+    "nativeTranslation": "Нарушения границ, которые запустили самоподдерживающиеся процессы экологического коллапса, такие как распад ледниковых щитов или остановка океанических течений, которые невозможно остановить независимо от будущих действий человека.",
+    "nativeNeutralExplanation": "Использует термин 'необратимые тенденции' для названия каскадов без указания их масштаба (вымирание, коллапс экосистем, климатический побег, повышение уровня моря), оставляя конкретные последствия безымянными.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "ограниченной в своем суверенитете",
+    "translation": "A territory or state under external political or military control, whose governance and resource decisions are made by foreign powers rather than its own population.",
+    "legalRef": "UDHR (RU) Art. 21 — Participation in government",
+    "severity": "critical",
+    "neutralExplanation": "Uses the passive phrase 'limited in sovereignty' to describe foreign control and denial of self-determination, without naming occupation, colonialism, or external governance imposition.",
+    "nativeTranslation": "Территория или государство под внешним политическим или военным контролем, чьи решения по управлению и ресурсам принимаются иностранными державами, а не собственным населением.",
+    "nativeNeutralExplanation": "Использует пассивную фразу 'ограниченной в своем суверенитете' для описания иностранного контроля и отрицания самоопределения, без названия оккупации, колониализма или навязывания внешнего управления.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "озабочения безопасности",
+    "translation": "Forced displacement, ethnic cleansing, and removal of populations from their homes and territories, justified retroactively as a security measure.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(e)(viii) — Ordering of displacement of civilian population",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'security concerns' (озабочения безопасности) as a vague justification for mass forced displacement, permitting depopulation without naming the physical expulsion and dispossession involved.",
+    "nativeTranslation": "Принудительное перемещение, этнические чистки и удаление населения из своих домов и территорий, оправданные задним числом как мера безопасности.",
+    "nativeNeutralExplanation": "Использует фразу 'озабочения безопасности' в качестве расплывчатого оправдания для массового принудительного перемещения, допуская депопуляцию без названия физического изгнания и экспроприации, которые это влечет.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "оскорбительное и унижающее обращение",
+    "translation": "Systematic humiliation, torture, sexual violence, denial of medical care, and other forms of deliberate physical and psychological harm inflicted on prisoners or detainees.",
+    "legalRef": "Rome Statute (RU) Art. 8(1)(c)(ii) and Art. 8(2)(c)(ii) — Attacks on human dignity",
+    "severity": "critical",
+    "neutralExplanation": "Uses the euphemistic phrase 'insulting and degrading treatment' (оскорбительное и унижающее обращение) to describe systematic torture, rape, and abuse, avoiding the explicit naming of the physical violence and suffering inflicted.",
+    "nativeTranslation": "Систематическое унижение, пытки, сексуальное насилие, отказ в медицинской помощи и другие формы умышленного физического и психологического вреда, наносимого заключенным или задержанным лицам.",
+    "nativeNeutralExplanation": "Использует эвфемистическую фразу 'оскорбительное и унижающее обращение' для описания систематических пыток, изнасилований и жестокого обращения, избегая явного названия физического насилия и страданий, которые наносятся.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "отдельные и спорадические акты",
+    "translation": "Scattered, isolated killings and violence that may collectively constitute systematic persecution, ethnic cleansing, or crimes against humanity when viewed as a pattern.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(d) and Art. 8(2)(f) — Exclusions from non-international armed conflict",
+    "severity": "critical",
+    "neutralExplanation": "Uses the phrase 'individual and sporadic acts' (отдельные и спорадические акты) to fragment what may be a coordinated or systematic pattern of violence into disconnected incidents, obscuring the cumulative harm and criminal intent.",
+    "nativeTranslation": "Разрозненные, изолированные убийства и насилие, которые в совокупности могут составлять систематические преследования, этнические чистки или преступления против человечности при рассмотрении в качестве закономерности.",
+    "nativeNeutralExplanation": "Использует фразу 'отдельные и спорадические акты' для фрагментации того, что может быть координированной или систематической схемой насилия на несвязанные инциденты, скрывая кумулятивный вред и преступное намерение.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "постепенное ослабление устойчивости",
+    "translation": "Collapsing resilience of Earth systems, loss of capacity to absorb shocks, and approach to irreversible tipping points.",
+    "legalRef": "Planetary Boundaries (RU) — Nine Planetary Boundary System",
+    "severity": "critical",
+    "neutralExplanation": "Uses the euphemistic term 'gradual weakening of resilience' to describe the catastrophic loss of Earth system stability and approach to tipping points, abstracting urgency and severity through the word 'gradual'.",
+    "nativeTranslation": "Коллапс устойчивости систем Земли, потеря способности поглощать удары и приближение к необратимым точкам невозврата.",
+    "nativeNeutralExplanation": "Использует эвфемистический термин 'постепенное ослабление устойчивости' для описания катастрофической потери стабильности системы Земли и приближения к точкам невозврата, абстрагируя срочность и серьёзность через слово 'постепенное'.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "превысили безопасные уровни",
+    "translation": "Transgressed planetary boundaries and entered states of irreversible ecosystem damage and critical tipping points.",
+    "legalRef": "Planetary Boundaries (RU) — Nine Planetary Boundary System",
+    "severity": "critical",
+    "neutralExplanation": "Uses the passive, technical term 'exceeded safe levels' to describe active transgression of boundaries, omitting the word 'harm' or 'damage' and framing it as a numerical exceedance rather than an ecological catastrophe.",
+    "nativeTranslation": "Нарушение планетарных границ и вход в состояния необратимого повреждения экосистем и критических точек невозврата.",
+    "nativeNeutralExplanation": "Использует пассивный технический термин 'превысили безопасные уровни' для описания активного нарушения границ, опуская слова 'вред' или 'ущерб' и представляя это как численное превышение, а не экологическую катастрофу.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "предметы, необходимые для выживания",
+    "translation": "Food, water, medicine, fuel, and shelter—the basic means of sustaining human life—deliberately withheld to cause mass starvation and death.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(b)(xxv) — Starving civilian population",
+    "severity": "critical",
+    "neutralExplanation": "Uses the neutral, abstract phrase 'objects necessary for survival' (предметы, необходимые для выживания) instead of naming specific life-sustaining supplies (food, water, medicine), creating emotional distance from the mass suffering and death resulting from deliberate deprivation.",
+    "nativeTranslation": "Пищу, воду, медикаменты, топливо и кров—основные средства поддержания человеческой жизни—умышленно удерживаемые в целях причинения массового голода и смерти.",
+    "nativeNeutralExplanation": "Использует нейтральную, абстрактную фразу 'предметы, необходимые для выживания' вместо названия конкретных жизненно необходимых припасов (пищи, воды, медикаментов), создавая эмоциональное расстояние от массовых страданий и смерти в результате умышленной депривации.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "произвольному аресту, задержанию",
+    "translation": "Detention without legal procedure, warrant, or evidence; imprisonment used as a tool of political control or punishment without due process.",
+    "legalRef": "UDHR (RU) Art. 9 — No arbitrary arrest or detention",
+    "severity": "critical",
+    "neutralExplanation": "Names the act directly ('arbitrary arrest, detention') rather than euphemizing it; however, institutional language often abstracts this as 'security measures' or 'preventive custody,' omitting the coercive seizure of the body.",
+    "nativeTranslation": "Задержание без надлежащей процедуры, ордера или доказательств; тюремное заключение, используемое как инструмент политического контроля или наказания без должного разбирательства.",
+    "nativeNeutralExplanation": "Называет акт непосредственно ('произвольный арест, задержание'), а не эвфемизирует его; однако институциональный язык часто абстрактирует это как 'меры безопасности' или 'превентивное содержание', опуская насильственный захват тела.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "самоускоряющиеся процессы",
+    "translation": "Feedback loops in which transgression of boundaries triggers cascading system responses that amplify the original harm exponentially, independent of continued human forcing.",
+    "legalRef": "Planetary Boundaries (RU) — Tipping Points and Feedback Cascades",
+    "severity": "critical",
+    "neutralExplanation": "Uses the technical term 'self-accelerating processes' to abstract runaway feedback loops without naming the concrete harms they produce (permafrost melt release of methane, forest dieback, ocean anoxia, etc.).",
+    "nativeTranslation": "Петли обратной связи, в которых нарушение границ запускает каскадные реакции системы, которые экспоненциально усиливают исходный ущерб независимо от продолжающегося антропогенного воздействия.",
+    "nativeNeutralExplanation": "Использует технический термин 'самоускоряющиеся процессы' для абстракции неконтролируемых петель обратной связи, не называя при этом конкретный вред, который они производят (выброс метана из вечной мерзлоты, отмирание лесов, аноксия океана и т.д.).",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "случайная гибель или увечья",
+    "translation": "Civilian deaths and injuries that occur as a direct result of attacks deliberately carried out with knowledge that they will cause these deaths and injuries.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(b)(iv) — Intentional attacks causing incidental civilian death or injury",
+    "severity": "critical",
+    "neutralExplanation": "Uses the word 'incidental' (случайная) to describe foreseeable civilian deaths from deliberately executed attacks, obscuring the fact that the harm was known and accepted in advance.",
+    "nativeTranslation": "Смерти и ранения мирных жителей, которые происходят в результате преднамеренно осуществляемых нападений с осознанием того, что они вызовут эти смерти и ранения.",
+    "nativeNeutralExplanation": "Использует слово 'случайная' для описания предсказуемых смертей мирных жителей в результате преднамеренных нападений, скрывая тот факт, что вред был известен и принят заранее.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "создание для какой-либо группы таких жизненных условий",
+    "translation": "Deliberate deprivation of shelter, sanitation, medical care, and food designed to cause death by starvation, disease, or exposure in a target population.",
+    "legalRef": "Rome Statute (RU) Art. 6(c) — Genocide (Imposing Conditions of Life)",
+    "severity": "critical",
+    "neutralExplanation": "Phrases the deliberate creation of lethal living conditions as 'imposing conditions of life,' using passive language that obscures intent to cause death and suffering.",
+    "nativeTranslation": "Целенаправленная депривация жилья, санитарии, медицинской помощи и пищи, предназначенная для вызывания смерти от голода, болезни или воздействия условий окружающей среды в целевой группе населения.",
+    "nativeNeutralExplanation": "Формулирует целенаправленное создание смертельных условий жизни как «наложение условий жизни», используя пассивный язык, который скрывает намерение вызвать смерть и страдания.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "тенденции к усилению воздействия",
+    "translation": "Accelerating rates of boundary transgression and approaching or triggering irreversible tipping points in Earth systems.",
+    "legalRef": "Planetary Boundaries (RU) — Nine Planetary Boundary System",
+    "severity": "critical",
+    "neutralExplanation": "Uses the impersonal phrase 'trends of intensifying impact' to describe worsening ecological collapse, abstracting agency and omitting terms like 'acceleration toward tipping points' or 'runaway effects'.",
+    "nativeTranslation": "Ускоряющиеся темпы нарушения границ и приближение к необратимым точкам невозврата в системах Земли.",
+    "nativeNeutralExplanation": "Использует безличную фразу 'тенденции к усилению воздействия' для описания ухудшающегося коллапса экосистем, абстрагируя деятельность и опуская термины вроде 'ускорение к точкам невозврата' или 'самопроизвольные эффекты'.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "умышленное создание условий жизни",
+    "translation": "Deliberately denying populations food, medicine, water, and shelter to cause slow death through starvation and preventable disease.",
+    "legalRef": "Rome Statute (RU) Art. 7(2)(b) — Extermination",
+    "severity": "critical",
+    "neutralExplanation": "Phrases systematic starvation and disease as 'creation of living conditions,' abstracting the deliberate deprivation of survival necessities without naming death or suffering.",
+    "nativeTranslation": "Целенаправленное отрицание доступа населением к пище, медикаментам, воде и жилищу, вызывающее медленную смерть от голода и предотвратимых болезней.",
+    "nativeNeutralExplanation": "Формулирует системное голодание и болезни как «создание условий жизни», абстрагируя целенаправленную депривацию средств выживания без названия смерти или страданий.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "условия жизненно важные для существования человечества",
+    "translation": "Stable climate, intact biosphere, functioning biogeochemical cycles, and uncontaminated freshwater systems without which human civilization cannot survive.",
+    "legalRef": "Planetary Boundaries (RU) — Holocene-like Conditions",
+    "severity": "critical",
+    "neutralExplanation": "Uses vague phrasing 'vital for human existence' to abstract the specific planetary systems and thresholds required for survival, without naming what conditions are being destroyed or when collapse occurs.",
+    "nativeTranslation": "Стабильный климат, нетронутая биосфера, функционирующие биогеохимические циклы и незагрязненные пресноводные системы, без которых человеческая цивилизация не может выжить.",
+    "nativeNeutralExplanation": "Использует расплывчатую фразировку 'жизненно важные для существования человечества' для абстракции специфических планетарных систем и порогов, необходимых для выживания, без названия того, какие условия уничтожаются или когда происходит коллапс.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "широкомасштабного или систематического нападения",
+    "translation": "Mass killings, torture, sexual violence, and forced displacement of civilian populations conducted as part of coordinated government or organizational policy.",
+    "legalRef": "Rome Statute (RU) Art. 7(1) — Crimes Against Humanity",
+    "severity": "critical",
+    "neutralExplanation": "Uses abstract terms 'widespread' and 'systematic' to describe coordinated mass atrocities, without naming specific acts of killing, rape, or displacement that comprise them.",
+    "nativeTranslation": "Массовые убийства, пытки, сексуальное насилие и насильственное перемещение гражданского населения, осуществляемые в рамках согласованной государственной или организационной политики.",
+    "nativeNeutralExplanation": "Использует абстрактные термины «широкомасштабное» и «систематическое» для описания координируемых массовых зверств без называния конкретных актов убийства, изнасилования или перемещения, которые их составляют.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "samowolnie pozbawiać własności",
+    "translation": "To seize or appropriate a person's material possessions, land, or resources without compensation, legal process, or consent.",
+    "legalRef": "UDHR (PL) Art. 17 — Arbitrary Deprivation of Property",
+    "severity": "high",
+    "neutralExplanation": "The phrase uses 'samowolnie' (arbitrarily) and 'pozbawiać' (to deprive), which names the illegality but obscures whether the taking is permanent, whether compensation is refused, or whether the person is left destitute.",
+    "nativeTranslation": "Zajęcie lub przywłaszczenie majątku osoby, ziemi lub zasobów bez odszkodowania, procesu prawnego lub zgody.",
+    "nativeNeutralExplanation": "Wyrażenie 'samowolnie pozbawiać własności' używa słowa 'samowolnie' (bezprawnie) i 'pozbawiać' (pozbawić), które wskazują bezprawność, ale nie ujawniają czy zajęcie jest trwałe, czy odszkodowanie jest odmawiane, czy osoba pozostaje w biedzie.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "traktować w sposób nieludzki",
+    "translation": "To subject a person to conditions, treatment, or deprivation that deny their basic human dignity and worth.",
+    "legalRef": "UDHR (PL) Art. 5 — Inhuman Treatment",
+    "severity": "high",
+    "neutralExplanation": "The phrase 'traktować w sposób nieludzki' (inhuman treatment) uses a negation ('nie-ludzki') that abstracts the denial of personhood by describing it as a lack rather than as active degradation or dehumanization.",
+    "nativeTranslation": "Poddanie osoby warunkom, traktowaniu lub pozbawieniam, które zaprzeczają jej podstawowej godności i wartości ludzkiej.",
+    "nativeNeutralExplanation": "Wyrażenie 'traktować w sposób nieludzki' (nieludzkie traktowanie) używa negacji ('nie-ludzki') aby abstrahować od odmowy osobowości, opisując to jako brak zamiast aktywnego poniżenia lub dehumanizacji.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "traktować w sposób okrutny",
+    "translation": "To deliberately inflict pain, humiliation, or deprivation on a person in custody or under state control.",
+    "legalRef": "UDHR (PL) Art. 5 — Cruel Treatment",
+    "severity": "high",
+    "neutralExplanation": "The phrase 'traktować w sposób okrutny' (to treat cruelly) uses the passive construction 'traktować' (to treat) and vague descriptor 'okrutny' (cruel), which abstracts the active infliction of deliberate suffering.",
+    "nativeTranslation": "Celowe zadawanie osobie przebywającej w areszcie lub pod kontrolą państwa bólu, upokorzenia lub pozbawienia.",
+    "nativeNeutralExplanation": "Wyrażenie 'traktować w sposób okrutny' (traktować okrutnie) używa pasywnej konstrukcji 'traktować' (traktować) i niejasnego deskryptora 'okrutny' (okrutny), co abstrahuje od aktywnego zadawania celowego cierpienia.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "traktować w sposób poniżający",
+    "translation": "To publicly humiliate, demean, or degrade a person, stripping them of dignity and social standing.",
+    "legalRef": "UDHR (PL) Art. 5 — Degrading Treatment",
+    "severity": "high",
+    "neutralExplanation": "The phrase 'traktować w sposób poniżający' (to treat degradingly) uses a passive, procedural framing ('traktować') that abstracts the active emotional and social harm inflicted through deliberate degradation.",
+    "nativeTranslation": "Publiczne upokorzenie, ponizenie lub degradacja osoby, pozbawienie jej godności i pozycji społecznej.",
+    "nativeNeutralExplanation": "Wyrażenie 'traktować w sposób poniżający' (traktować poniżająco) używa pasywnej, proceduralnej ramki ('traktować') abstrahujacej od aktywnego emocjonalnego i społecznego krzywdzenia poprzez celową degradację.",
+    "documentId": "udhr-pl"
+  },
+  {
+    "phrase": "бесчеловечные действия аналогичного характера",
+    "translation": "Unspecified acts of mass violence, oppression, or suffering that fall outside explicitly enumerated crimes but cause severe harm to large populations.",
+    "legalRef": "Rome Statute (RU) Art. 7(1)(k) — Other Inhumane Acts",
+    "severity": "high",
+    "neutralExplanation": "Uses the catch-all phrase 'inhumane acts of similar character' without naming specific acts, allowing flexibility but obscuring which harms qualify and what is actually prohibited.",
+    "nativeTranslation": "Неуточненные акты массового насилия, угнетения или страданий, которые выходят за пределы явно перечисленных преступлений, но причиняют серьёзный вред большим группам населения.",
+    "nativeNeutralExplanation": "Использует универсальную фразу «бесчеловечные действия аналогичного характера» без названия конкретных актов, позволяя гибкость, но скрывая, какие вреды квалифицируются и что на самом деле запрещено.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "военная необходимость",
+    "translation": "A claimed military or strategic justification for destroying civilian property, displacing populations, or committing acts that would otherwise constitute war crimes.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(a)(iv), Art. 8(2)(b)(xiii), and Art. 8(2)(e)(xii) — Unlawful destruction or seizure of property",
+    "severity": "high",
+    "neutralExplanation": "Uses the abstract term 'military necessity' (военная необходимость) to permit otherwise unlawful destruction of property and displacement without specifying the concrete harm or requiring proportionality assessment before the fact.",
+    "nativeTranslation": "Заявленное военное или стратегическое оправдание для разрушения гражданского имущества, перемещения населения или совершения актов, которые в противном случае составили бы военные преступления.",
+    "nativeNeutralExplanation": "Использует абстрактный термин 'военная необходимость' для разрешения иначе незаконного разрушения имущества и перемещения без указания конкретного вреда или требования оценки соразмерности до события.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "защита от безработицы",
+    "translation": "Formal social insurance that does not cover all workers, may offer inadequate income replacement, excludes informal or gig workers, or provides insufficient duration of benefits.",
+    "legalRef": "UDHR (RU) Art. 23 — Protection from unemployment",
+    "severity": "high",
+    "neutralExplanation": "Uses the word 'protection' to describe unemployment insurance systems that may exclude entire worker categories, provide inadequate income, or expire before re-employment, without naming these coverage gaps.",
+    "nativeTranslation": "Формальное социальное страхование, которое не охватывает всех рабочих, может предлагать неадекватную замену дохода, исключает неформальных или фрилансовых работников или обеспечивает недостаточный период пособий.",
+    "nativeNeutralExplanation": "Использует слово 'защита' для описания систем страхования от безработицы, которые могут исключать целые категории работников, предоставлять неадекватный доход или истекать до переустройства, без названия этих пробелов в покрытии.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "лишение основных прав вопреки международному праву",
+    "translation": "Systematic denial of civil, political, economic, or social rights to members of a targeted group based on race, ethnicity, religion, or political affiliation.",
+    "legalRef": "Rome Statute (RU) Art. 7(2)(g) — Persecution",
+    "severity": "high",
+    "neutralExplanation": "Uses legalistic phrase 'deprivation of fundamental rights' to describe what may include imprisonment, property seizure, employment bans, or exclusion from education, without naming specific harms.",
+    "nativeTranslation": "Систематический отказ в гражданских, политических, экономических или социальных правах членам целевой группы на основании расы, этнической принадлежности, религии или политической принадлежности.",
+    "nativeNeutralExplanation": "Использует юридическую фразу «лишение основных прав» для описания того, что может включать тюремное заключение, конфискацию имущества, запреты на трудоустройство или исключение из образования, без названия конкретных вредов.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "направить глобальное развитие",
+    "translation": "Reorient economic production, resource extraction, consumption, and settlement patterns away from boundary transgression toward stationary-state economics within safe operating space.",
+    "legalRef": "Planetary Boundaries (RU) — Pathways to Compliance",
+    "severity": "high",
+    "neutralExplanation": "Uses the passive, directional term 'direct development' to abstract the need for comprehensive restructuring of economies, industries, and civilization away from extractive growth, without naming this transformation.",
+    "nativeTranslation": "Переориентировать экономическое производство, добычу ресурсов, потребление и модели расселения, отойти от нарушения границ в сторону стационарной экономики в пределах безопасного операционного пространства.",
+    "nativeNeutralExplanation": "Использует пассивный, направленный термин 'направить развитие' для абстракции необходимости комплексной реструктуризации экономик, индустрий и цивилизации, отходящей от экстрактивного роста, без названия этой трансформации.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "недопущение дискриминации",
+    "translation": "Formal prohibition of discrimination without enforcement mechanisms, remedy channels, or accountability for institutions that practice or enable discrimination.",
+    "legalRef": "UDHR (RU) Art. 2, 7 — Non-discrimination",
+    "severity": "high",
+    "neutralExplanation": "Uses the formal phrase 'non-discrimination' to describe a rule on paper, without naming systemic exclusion, unequal treatment, or absence of remedies when discrimination occurs.",
+    "nativeTranslation": "Формальный запрет дискриминации без механизмов обеспечения, каналов возмещения убытков или подотчетности учреждений, которые практикуют или способствуют дискриминации.",
+    "nativeNeutralExplanation": "Использует формальную фразу 'недопущение дискриминации' для описания правила на бумаге, без названия системного исключения, неравного обращения или отсутствия средств правовой защиты при наличии дискриминации.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "обстоятельства конфликта",
+    "translation": "A vague justification permitting destruction or seizure of enemy property, without requiring proof that the act was militarily necessary or proportional.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(e)(xii) — Destruction or seizure of property not necessitated by armed conflict",
+    "severity": "high",
+    "neutralExplanation": "Uses the phrase 'circumstances of conflict' (обстоятельства конфликта) in place of the stricter 'military necessity' standard, broadening the justification for property destruction without naming the economic harm or scale of dispossession.",
+    "nativeTranslation": "Расплывчатое оправдание, позволяющее разрушение или захват вражеского имущества без требования доказательства того, что акт был военной необходимостью или соразмерным.",
+    "nativeNeutralExplanation": "Использует фразу 'обстоятельства конфликта' вместо более строгого стандарта 'военной необходимости', расширяя оправдание для разрушения имущества без названия экономического вреда или масштаба экспроприации.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "свободный выбор работы",
+    "translation": "The appearance of occupational choice when workers face economic coercion, debt bondage, lack of education access, or restricted labor mobility due to poverty or legal status.",
+    "legalRef": "UDHR (RU) Art. 23 — Free choice of work",
+    "severity": "high",
+    "neutralExplanation": "Uses the word 'free' to describe choice of employment that may be constrained by poverty, debt, lack of access to education, or legal barriers, without naming these material restrictions.",
+    "nativeTranslation": "Видимость профессионального выбора, когда работники сталкиваются с экономическим принуждением, долговой кабалой, отсутствием доступа к образованию или ограниченной мобильностью труда из-за бедности или правового статуса.",
+    "nativeNeutralExplanation": "Использует слово 'свободный' для описания выбора работы, который может быть ограничен бедностью, долгом, отсутствием доступа к образованию или юридическими барьерами, без названия этих материальных ограничений.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "серьезные экологические последствия",
+    "translation": "Dead zones in aquatic ecosystems, permanent loss of water quality, disruption of food chains, and poisoning of fresh water and soil.",
+    "legalRef": "Planetary Boundaries (RU) PB-5 — Biogeochemical Flows",
+    "severity": "high",
+    "neutralExplanation": "Uses the euphemistic phrase 'serious ecological consequences' to describe dead zones, algal blooms, water poisoning, and ecosystem collapse, omitting terms like 'ecological death' or 'biological eradication'.",
+    "nativeTranslation": "Мёртвые зоны в водных экосистемах, необратимая потеря качества воды, нарушение пищевых цепей и отравление пресной воды и почвы.",
+    "nativeNeutralExplanation": "Использует эвфемистическую фразу 'серьезные экологические последствия' для описания мёртвых зон, цветения водорослей, отравления воды и коллапса экосистем, опуская термины вроде 'экологическая смерть' или 'биологическое истребление'.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "содействие развитию дружественных отношений",
+    "translation": "Diplomatic engagement that does not halt trade with authoritarian regimes, arms sales, or support for states that commit human rights violations.",
+    "legalRef": "UDHR (RU) Preamble — Friendly relations between peoples",
+    "severity": "high",
+    "neutralExplanation": "Uses the phrase 'promotion of friendly relations' to describe diplomatic activity that may coexist with military support, trade, or alliances with rights-violating states, without naming these contradictions.",
+    "nativeTranslation": "Дипломатическое взаимодействие, которое не прекращает торговлю с авторитарными режимами, продажи вооружений или поддержку государств, совершающих нарушения прав человека.",
+    "nativeNeutralExplanation": "Использует фразу 'содействие развитию дружественных отношений' для описания дипломатической деятельности, которая может сосуществовать с военной поддержкой, торговлей или союзами с государствами, нарушающими права человека, без названия этих противоречий.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "содействие устойчивому развитию",
+    "translation": "Permitting continued resource extraction, labor exploitation, and environmental degradation under the label of 'sustainability' while maintaining extractive economic systems.",
+    "legalRef": "UDHR (RU) Art. 23–24 — Right to work and rest",
+    "severity": "high",
+    "neutralExplanation": "Uses the word 'sustainable' to describe development that may continue harm, without naming the resource depletion, labor conditions, or environmental damage permitted under this framing.",
+    "nativeTranslation": "Продолжение извлечения ресурсов, эксплуатации труда и деградации окружающей среды под ярлыком 'устойчивости' при сохранении экстрактивных экономических систем.",
+    "nativeNeutralExplanation": "Использует слово 'устойчивое' для описания развития, которое может продолжать причинять вред, без указания на истощение ресурсов, условия труда или экологический ущерб, допускаемые в рамках этого описания.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "справедливое вознаграждение",
+    "translation": "Wages or compensation that meet formal legal minimums but may not cover living costs, food security, housing, or healthcare for a household.",
+    "legalRef": "UDHR (RU) Art. 23 — Just and favorable remuneration",
+    "severity": "high",
+    "neutralExplanation": "Uses the adjective 'fair' or 'just' to describe wage levels that may fall below subsistence or living cost, without naming the material deprivation or inability to meet basic needs.",
+    "nativeTranslation": "Заработная плата или компенсация, которые соответствуют формальным юридическим минимумам, но могут не покрывать расходы на жизнь, продовольственную безопасность, жилье или здравоохранение семьи.",
+    "nativeNeutralExplanation": "Использует прилагательное 'справедливое' для описания уровня заработной платы, который может быть ниже прожиточного минимума или стоимости жизни, без названия материальной депривации или неспособности удовлетворить основные потребности.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "справедливые условия труда",
+    "translation": "Working conditions that meet minimum legal standards but may include wage theft, unsafe environments, excessive hours, or lack of union representation.",
+    "legalRef": "UDHR (RU) Art. 23 — Right to work and favorable conditions",
+    "severity": "high",
+    "neutralExplanation": "Uses the adjective 'fair' to describe labor conditions that may include exploitation, hazard, or coercion, without naming specific harms such as wage theft, unsafe work, or denied organizing rights.",
+    "nativeTranslation": "Условия труда, отвечающие минимальным юридическим стандартам, но могут включать хищение заработной платы, небезопасные условия, чрезмерные часы или отсутствие профсоюзного представительства.",
+    "nativeNeutralExplanation": "Использует прилагательное 'справедливые' для описания условий труда, которые могут включать эксплуатацию, опасность или принуждение, без названия конкретных вредов, таких как хищение зарплаты, опасная работа или отказано в праве организации.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "явно несоизмерим",
+    "translation": "A test permitting attacks on civilians and civilian objects when military advantage is claimed, without requiring advance confirmation that the harm will actually outweigh the benefit.",
+    "legalRef": "Rome Statute (RU) Art. 8(2)(b)(iv) — Incidental civilian harm from military advantage",
+    "severity": "high",
+    "neutralExplanation": "Uses the term 'clearly disproportionate' (явно несоизмерим) as a threshold for permitting attacks with foreseeable civilian casualties, placing the burden of proof on those alleging disproportionality rather than requiring commanders to avoid such attacks in advance.",
+    "nativeTranslation": "Тест, позволяющий атаки на гражданских лиц и гражданские объекты, когда заявляется о военном преимуществе, без требования предварительного подтверждения того, что вред фактически перевесит пользу.",
+    "nativeNeutralExplanation": "Использует термин 'явно несоизмерим' в качестве порога для разрешения атак с предсказуемыми гражданскими жертвами, возлагая бремя доказывания на тех, кто утверждает о несоразмерности, вместо требования от командиров избегать таких атак заранее.",
+    "documentId": "rome-statute-ru"
+  },
+  {
+    "phrase": "бремя устойчивого развития",
+    "translation": "The immediate costs, economic disruption, and vested interest opposition encountered when reducing boundary transgression through decarbonization, ecosystem restoration, and resource constraint.",
+    "legalRef": "Planetary Boundaries (RU) — Transformation Pathways",
+    "severity": "medium",
+    "neutralExplanation": "Frames the necessity of boundary compliance as a 'burden' rather than survival imperative, using the word 'burden' to suggest the transition is optional or excessive rather than mandatory for habitability.",
+    "nativeTranslation": "Немедленные затраты, экономические потрясения и противодействие узко-корыстных интересов при сокращении нарушения границ путем декарбонизации, восстановления экосистем и ограничения ресурсов.",
+    "nativeNeutralExplanation": "Фреймирует необходимость соблюдения границ как 'бремя' вместо императива выживания, используя слово 'бремя' для предположения, что переходный период является необязательным или чрезмерным, а не обязательным для обитаемости.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "контрольные переменные ориентированные на взаимодействие",
+    "translation": "Measurement indicators designed to track the cumulative and dynamic impacts of human activity on specific planetary systems, capturing lag effects and threshold behaviors.",
+    "legalRef": "Planetary Boundaries (RU) — Monitoring and Control Variables",
+    "severity": "medium",
+    "neutralExplanation": "Uses technical jargon 'control variables oriented toward interaction' to describe monitoring systems, using the word 'oriented' to abstract the reality that measurements often lag behind actual harm by years or decades.",
+    "nativeTranslation": "Показатели измерения, предназначенные для отслеживания кумулятивного и динамического воздействия деятельности человека на конкретные планетарные системы, захватывающие эффекты задержки и поведение порогов.",
+    "nativeNeutralExplanation": "Использует технический жаргон 'контрольные переменные ориентированные на взаимодействие' для описания систем мониторинга, используя слово 'ориентированные' для абстракции того факта, что измерения часто отстают от фактического ущерба на годы или десятилетия.",
+    "documentId": "planetary-boundaries-ru"
+  },
+  {
+    "phrase": "разумное ограничение рабочего дня",
+    "translation": "Legal maximum working hours that may exclude sectors such as agriculture, domestic work, or gig labor; or permit overtime that exceeds health and safety limits.",
+    "legalRef": "UDHR (RU) Art. 24 — Rest and limitation of working hours",
+    "severity": "medium",
+    "neutralExplanation": "Uses the word 'reasonable' to describe statutory working hour limits that may have large legal exemptions, permit excessive overtime, or exclude informal workers, without naming these exclusions.",
+    "nativeTranslation": "Законные максимальные рабочие часы, которые могут исключать сектора, такие как сельское хозяйство, домашний труд или фрилансовый труд; или позволяют переработку, превышающую пределы здоровья и безопасности.",
+    "nativeNeutralExplanation": "Использует слово 'разумное' для описания законных лимитов рабочего времени, которые могут иметь большие юридические исключения, позволяют чрезмерную переработку или исключают неформальных рабочих, без названия этих исключений.",
+    "documentId": "udhr-ru"
+  },
+  {
+    "phrase": "синергетические эффекты сохранения",
+    "translation": "Co-benefits and reinforcing gains obtained when boundary compliance actions are coordinated across multiple planetary systems simultaneously.",
+    "legalRef": "Planetary Boundaries (RU) — Interconnections and Systems Thinking",
+    "severity": "medium",
+    "neutralExplanation": "Uses the technical term 'synergistic effects of conservation' to frame boundary compliance as economically beneficial, potentially minimizing the fundamental conflict between continued profit extraction and ecological survival.",
+    "nativeTranslation": "Побочные выгоды и взаимоусиливающиеся выигрыши, полученные, когда действия по соблюдению границ скоординированы одновременно в нескольких планетарных системах.",
+    "nativeNeutralExplanation": "Использует технический термин 'синергетические эффекты сохранения' для фреймирования соблюдения границ как экономически выгодного, потенциально минимизируя фундаментальный конфликт между продолжением извлечения прибыли и экологическим выживанием.",
+    "documentId": "planetary-boundaries-ru"
+  }
+]
