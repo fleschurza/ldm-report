@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>unmask.tools — Method</title>
+  <meta name="description" content="How unmask.tools decides what belongs in its dictionary: definitions, inclusion criteria, severity, detection limits, and governance. Published as a draft, open for correction.">
+  <link rel="canonical" href="https://unmask.tools/method.html">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --c-bg:      #f8fafc;
+      --c-surface: #ffffff;
+      --c-border:  #e2e8f0;
+      --c-text:    #0f172a;
+      --c-muted:   #64748b;
+      --c-accent:  #009EDB;
+    }
+
+    body { background: var(--c-bg); color: var(--c-text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.7; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+
+    h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.02em; }
+    .lead { color: var(--c-muted); font-size: 14px; margin-bottom: 24px; max-width: 580px; line-height: 1.6; }
+
+    h3 { font-size: 15px; font-weight: 700; margin: 40px 0 10px; }
+    h4 { font-size: 13px; font-weight: 700; margin: 24px 0 6px; color: var(--c-text); }
+    p  { color: var(--c-muted); margin-bottom: 12px; }
+    ul { color: var(--c-muted); padding-left: 20px; margin-bottom: 12px; }
+    ol { color: var(--c-muted); padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    a  { color: var(--c-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--c-text); }
+
+    .draft-banner {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 13px;
+      color: #92400e;
+    }
+    .draft-banner strong { color: #78350f; }
+
+    .version-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13px; }
+    .version-table th { text-align: left; padding: 8px 12px; background: #f1f5f9; font-weight: 600; border: 1px solid var(--c-border); }
+    .version-table td { padding: 8px 12px; border: 1px solid var(--c-border); color: var(--c-muted); vertical-align: top; }
+
+    .sev-critical { color: #dc2626; font-weight: 700; }
+    .sev-high     { color: #d97706; font-weight: 700; }
+    .sev-medium   { color: #0369a1; font-weight: 700; }
+  </style>
+</head>
+<body data-page="method" data-subtitle="How the dictionary decides what belongs in it, and what it does not claim.">
+
+<script src="/nav.js"></script>
+
+<main>
+  <h2>Method</h2>
+  <p class="lead">What unmask.tools maintains, how an entry qualifies, and where the current approach is known to be weak.</p>
+
+  <div class="draft-banner">
+    <strong>Draft, not yet externally reviewed.</strong> We're publishing this as-is rather than holding it back
+    pending review, so the method is visible from the start and corrections can come from anyone reading it.
+    Questions or corrections: <a href="mailto:hello@unmask.tools">hello@unmask.tools</a>.
+  </div>
+
+  <h3>1. What this is and what it is not</h3>
+  <p>unmask.tools maintains a reference library of <strong>phrases that abstract away a concrete human
+  consequence</strong>, and a browser extension (unmask.shield) that marks those phrases while people read or write.</p>
+  <p>The recurring question is one: what does this wording make a reader stop seeing? "Collateral damage" is a
+  phrase that removes dead civilians from the sentence. "Rückführung" can remove a person being forced to leave a
+  country.</p>
+  <p>"Physical" in this project is deliberately broad. It covers not only bodily injury but the physical
+  conditions of a life — a body, a home, a livelihood, a place to live — that a phrase can abstract away. A phrase
+  about job losses or administrative reclassification leaves out a different kind of physical consequence than a
+  phrase about killing, but both leave out something that happens to a body or to the material conditions it
+  depends on. Severity (section 4) is what distinguishes the two; the word "physical" by itself does not rank them.
+  It is not a claim that all abstraction is bad.</p>
+  <p>The library does <strong>not</strong>:</p>
+  <ul>
+    <li>decide whether a statement is true or false</li>
+    <li>claim that anyone who uses a phrase intends to hide something</li>
+    <li>list words that must not be used</li>
+    <li>judge people, organisations or outlets</li>
+  </ul>
+  <p>A phrase can be used legitimately — for example when quoting a treaty, reporting, or criticising the phrase.
+  The tool marks the phrase, and the reader decides.</p>
+
+  <h3>2. Definitions</h3>
+  <table class="version-table">
+    <tr><th>Term</th><th>Meaning in this project</th></tr>
+    <tr><td>Phrase</td><td>A word or multi-word expression in a given language</td></tr>
+    <tr><td>Abstraction</td><td>The phrase names a category, process or method instead of the concrete consequence</td></tr>
+    <tr><td>Concrete referent</td><td>What actually happens to people or their living conditions (for example "civilians are killed")</td></tr>
+    <tr><td>Plain translation</td><td>One-line statement of the concrete referent, in everyday words</td></tr>
+    <tr><td>Legal anchor</td><td>A primary legal or normative text that names the concrete referent (Geneva Conventions, Rome Statute, Genocide Convention, ICERD, UDHR, Planetary Boundaries)</td></tr>
+    <tr><td>Severity</td><td>Which kind of consequence the phrase abstracts (see section 4)</td></tr>
+  </table>
+
+  <h3>3. Inclusion criteria for an entry</h3>
+  <p>An entry is included when all of the following hold:</p>
+  <ol>
+    <li><strong>Use:</strong> the phrase occurs in public institutional, corporate or political language, with at
+    least one dated, primary-source example.</li>
+    <li><strong>Referent:</strong> a concrete referent can be named in plain words.</li>
+    <li><strong>Anchor:</strong> a legal or normative text can be cited that names that referent.</li>
+    <li><strong>Confirmation:</strong> for phrases that enter via the community path, promotion thresholds apply
+    (confirmations by independent users and across domains: critical 2 confirmations / 1 domain, high 3 / 2,
+    medium 3 / 3).</li>
+  </ol>
+  <p><strong>Symmetry rule.</strong> The same criteria apply regardless of the political direction of the phrase or
+  who uses it. A phrase is kept or removed because of its function, never because of its speaker.</p>
+
+  <h3>4. Severity</h3>
+  <p>Current definitions, also published in the <a href="docs.html">FAQ</a>:</p>
+  <ul>
+    <li><span class="sev-critical">Critical</span> — language that abstracts killing, torture, forced detention,
+    mass deportation, ecocide, or planetary tipping-point transgression. Anchored to the Rome Statute, the
+    Genocide Convention, and the absolute prohibitions of the Geneva Conventions.</li>
+    <li><span class="sev-high">High</span> — language that abstracts serious but non-lethal harm (forced
+    displacement, ecosystem collapse, mass loss of livelihood, deprivation of essential resources). Anchored to
+    UDHR economic and social rights, ICERD, and Planetary Boundaries.</li>
+    <li><span class="sev-medium">Medium</span> — language that abstracts institutional and structural harm
+    (greenwashing, labour abstraction, governance euphemism, colonial-pattern framing); harmful in aggregate and
+    systemically rather than in a single instance.</li>
+  </ul>
+  <p><strong>Known weakness.</strong> These are judgments, and the extension's internal risk weighting is a
+  convenience for comparing documents chosen by the author, not a measurement derived from evidence. We're asking
+  reviewers whether to keep it, replace it, or drop it.</p>
+
+  <h3>5. Entry format (target)</h3>
+  <p>Every public dictionary entry is meant to carry: phrase and language, a neutral explanation of what the
+  phrase does (no verdict), a plain translation, the concrete referent, a legal anchor with the article cited,
+  a severity and the rule that placed it there, dated primary-source examples, a note on legitimate or contested
+  uses, a review status (draft / reviewed by name and date / disputed), and a version number with change log.
+  Not every entry has all of this yet — it's the target the dictionary is being brought up to, not a claim about
+  today's state.</p>
+
+  <h3>6. How detection works, and where it fails</h3>
+  <p>Detection runs in two stages: static matching against the library (fast, local, no data leaves the device),
+  and an optional AI path for phrases the list misses, used only when the reader opts in.</p>
+  <p>Known error classes, not yet systematically measured:</p>
+  <ul>
+    <li>quotation, negation and criticism of a phrase are flagged like use</li>
+    <li>inflection and compounds, especially in German</li>
+    <li>context-dependent phrases that are neutral in some domains</li>
+    <li>the AI path can invent or over-state a match</li>
+  </ul>
+  <p>Readers can mark a detection "Real use" or "Figure of speech" in the extension. These judgments are
+  collected and will, above a minimum volume, surface a "disputed" or "mostly figurative" label on an entry — but
+  no judgment, automated or human-adjacent, ever removes or demotes a phrase on its own. Any change to an entry is
+  a human decision, recorded in that entry's change log.</p>
+
+  <h3>7. Evaluation plan (not yet done)</h3>
+  <ol>
+    <li>Draw a sample of 200 passages from public documents across sources and political directions.</li>
+    <li>Two annotators label them independently, using this method note.</li>
+    <li>Report agreement (Cohen's kappa) and where the annotators disagree.</li>
+    <li>Run the detector on the same sample and report precision and recall, per language.</li>
+    <li>Publish results including failures, and re-run on each major version.</li>
+  </ol>
+
+  <h3>8. Governance</h3>
+  <ul>
+    <li><strong>Independence.</strong> No customer, funder or partner can add, remove or reword an entry. Paying
+    customers use the same corrections process as everyone else.</li>
+    <li><strong>Funding.</strong> The project is financed by subscriptions, licences and training services.</li>
+    <li><strong>Corrections.</strong> Anyone can contest an entry. Disputed entries show a visible "disputed"
+    status until reviewed. Reviewer disagreements are published, not removed.</li>
+    <li><strong>Versioning.</strong> Each entry and this method have version numbers and a change log. Dataset
+    snapshots are monthly.</li>
+    <li><strong>Licensing.</strong> Dictionary text is CC BY-SA 4.0 (attribution, share-alike). Machine-readable
+    bulk data and commercial use fall under the existing <a href="pricing.html">data licence tiers</a>.</li>
+  </ul>
+
+  <h3>9. Open questions</h3>
+  <p>These are the questions we most want a careful reader to push back on:</p>
+  <ol>
+    <li>Is the definition (abstraction away from a concrete consequence) workable and distinct enough to be tested?</li>
+    <li>Are the legal anchors correct and appropriate, especially for non-lethal and ecological phrases?</li>
+    <li>Does the symmetry rule hold when you look at the current entries? Which ones fail it?</li>
+    <li>Is severity defensible, and should a numeric risk score exist at all?</li>
+    <li>Where is the line between marking a phrase and implying a judgment about the person who used it?</li>
+    <li>For entries in your language: which are wrong, missing, or too contested to include?</li>
+  </ol>
+  <p>Send corrections or answers to <a href="mailto:hello@unmask.tools">hello@unmask.tools</a> — every reply is
+  read, and disagreements get published, not quietly dropped.</p>
+</main>
+
+<script src="/footer.js"></script>
+</body>
+</html>
