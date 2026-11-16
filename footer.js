@@ -19,6 +19,7 @@
     ' Legal anchors: Geneva AP I &nbsp;·&nbsp; Rome Statute &nbsp;·&nbsp; Genocide Convention &nbsp;·&nbsp; ICERD &nbsp;·&nbsp; UDHR &nbsp;·&nbsp; Planetary Boundaries &nbsp;·&nbsp;' +
     '<br>' +
     '<a href="/method.html"  style="' + LS + '">Method</a> &nbsp;·&nbsp;' +
+    '<a href="/thanks.html"  style="' + LS + '">Special Thanks</a> &nbsp;·&nbsp;' +
     '<a href="/privacy.html" style="' + LS + '">Privacy Policy</a> &nbsp;·&nbsp;' +
     '<a href="/terms.html"   style="' + LS + '">Terms of Service</a> &nbsp;·&nbsp;' +
     '<a href="/imprint.html" style="' + LS + '">Imprint</a>' +
