@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>unmask.tools — Institutional Double-Speak Wire</title>
+    <title>unmask.tools — New dictionary entries</title>
     <link>https://unmask.tools</link>
-    <description>Autonomous linguistic audit tracking technocratic evasion and structural violence codes. Every item is a phrase verified by human reviewers to abstract physical harm.</description>
+    <description>New and updated entries in unmask.tools' public reference of institutional language that abstracts a concrete consequence, each anchored to a legal or normative citation.</description>
     <language>en-us</language>
     <lastBuildDate>Mon, 02 Nov 2026 19:10:58 GMT</lastBuildDate>
     <ttl>60</ttl>
     <atom:link href="https://unmask.tools/feed.xml" rel="self" type="application/rss+xml"/>
 
   <item>
-    <title>CRITICAL VIOLATION: &quot;verstärkte Angriffe im Libanon&quot;</title>
+    <title>Critical: &quot;verstärkte Angriffe im Libanon&quot;</title>
     <link>https://unmask.tools/report.html?term=verst%C3%A4rkte%20Angriffe%20im%20Libanon</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=verst%C3%A4rkte%20Angriffe%20im%20Libanon</guid>
     <pubDate>Mon, 02 Nov 2026 19:10:58 GMT</pubDate>
@@ -18,12 +18,12 @@
       <p><strong>Institutional phrase:</strong> &ldquo;verstärkte Angriffe im Libanon&rdquo;</p>
       <p><strong>Physical reality:</strong> Aerial and artillery bombardment of populated areas in Lebanon resulting in civilian deaths, injuries, and destruction of homes, hospitals, and infrastructure. The attacks deliberately target or recklessly disregard civilian populations and civilian objects.</p>
       <p><strong>Legal anchor:</strong> Rome Statute Articles 8(2)(b)(i), 8(2)(b)(ii), 8(2)(b)(iv); Geneva Conventions I-IV; UN Charter Article 2(4); International Humanitarian Law customary rules on distinction and proportionality</p>
-      <p><em>Severity: CRITICAL VIOLATION &middot; Confidence: 100% &middot; Language: EN &middot; Confirmed 2 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Critical &middot; Confidence: 100% &middot; Language: EN &middot; Confirmed 2 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>CRITICAL VIOLATION: &quot;Operation Allied Force&quot;</title>
+    <title>Critical: &quot;Operation Allied Force&quot;</title>
     <link>https://unmask.tools/report.html?term=Operation%20Allied%20Force</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=Operation%20Allied%20Force</guid>
     <pubDate>Mon, 02 Nov 2026 19:10:46 GMT</pubDate>
@@ -31,138 +31,162 @@
       <p><strong>Institutional phrase:</strong> &ldquo;Operation Allied Force&rdquo;</p>
       <p><strong>Physical reality:</strong> Sustained aerial bombing campaign against a sovereign nation that killed approximately 500,000 people, destroyed civilian infrastructure including hospitals and power plants, and caused long-term environmental contamination across the region.</p>
       <p><strong>Legal anchor:</strong> Rome Statute Article 8(2)(b)(i-iv) war crimes; Geneva Conventions Protocol I Articles 48-58 distinction and proportionality; UN Charter Article 2(4)</p>
-      <p><em>Severity: CRITICAL VIOLATION &middot; Confidence: 100% &middot; Language: EN &middot; Confirmed 2 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Critical &middot; Confidence: 100% &middot; Language: EN &middot; Confirmed 2 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>HIGH CONCERN: &quot;food insecurity&quot;</title>
+    <title>High: &quot;food insecurity&quot;</title>
     <link>https://unmask.tools/report.html?term=food%20insecurity</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=food%20insecurity</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:22 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;food insecurity&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Uses a technical term (&apos;insecurity&apos;) for insufficient access to food for physical survival, without naming the policy, conflict, or resource extraction that caused it.</p>
       <p><strong>Physical reality:</strong> Insufficient access to food for physical survival — a condition caused by policy, conflict, or resource extraction, not natural scarcity</p>
       <p><strong>Legal anchor:</strong> Geneva Convention IV, Art. 55 / UDHR Art. 25 — Right to Food</p>
-      <p><em>Severity: HIGH CONCERN &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 3 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: High &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 3 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>FLAGGED LANGUAGE: &quot;energy transition&quot;</title>
+    <title>Medium: &quot;energy transition&quot;</title>
     <link>https://unmask.tools/report.html?term=energy%20transition</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=energy%20transition</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:21 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;energy transition&rdquo;</p>
-      <p><strong>Physical reality:</strong> Shift in energy production — physical communities in fossil fuel regions face livelihood displacement without guaranteed replacement</p>
-      <p><strong>Legal anchor:</strong> UDHR Art. 23 — Right to Work &amp; Dignity / Planetary Boundaries</p>
-      <p><em>Severity: FLAGGED LANGUAGE &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 4 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><strong>What this phrase does:</strong> Uses the word &apos;transition&apos; to suggest an orderly shift between energy systems, without naming the physical harm to communities that can occur during the transition period.</p>
+      <p><strong>Physical reality:</strong> Language suggesting an orderly shift between energy systems that abstracts physical harms to communities during the transition period.</p>
+      <p><strong>Legal anchor:</strong> Planetary Boundaries PB-1 — Climate Change</p>
+      <p><em>Severity: Medium &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 5 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>FLAGGED LANGUAGE: &quot;automation&quot;</title>
+    <title>High: &quot;net zero&quot;</title>
+    <link>https://unmask.tools/report.html?term=net%20zero</link>
+    <guid isPermaLink="true">https://unmask.tools/report.html?term=net%20zero</guid>
+    <pubDate>Wed, 17 Jun 2026 13:15:21 GMT</pubDate>
+    <description><![CDATA[
+      <p><strong>Institutional phrase:</strong> &ldquo;net zero&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Uses an accounting term (&apos;net zero&apos;) for continuing emissions as long as an equivalent amount is theoretically offset elsewhere, without naming that no permanent or verified removal is required.</p>
+      <p><strong>Physical reality:</strong> A target permitting continued emissions provided equivalent amounts are theoretically offset elsewhere, with no requirement for permanent or verified removals.</p>
+      <p><strong>Legal anchor:</strong> Planetary Boundaries PB-1 — Climate Change</p>
+      <p><em>Severity: High &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 5 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
+    ]]></description>
+  </item>
+  <item>
+    <title>Medium: &quot;automation&quot;</title>
     <link>https://unmask.tools/report.html?term=automation</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=automation</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:21 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;automation&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Uses a technical term for deploying machines to replace physical workers, without naming the displacement from livelihoods this causes with no guaranteed transition support.</p>
       <p><strong>Physical reality:</strong> Deployment of machines to replace physical workers — displacing persons from livelihoods with no guaranteed transition support</p>
       <p><strong>Legal anchor:</strong> UDHR Art. 23 — Right to Work &amp; Dignity</p>
-      <p><em>Severity: FLAGGED LANGUAGE &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 3 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Medium &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 3 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>CRITICAL VIOLATION: &quot;fatalities&quot;</title>
+    <title>Critical: &quot;fatalities&quot;</title>
     <link>https://unmask.tools/report.html?term=fatalities</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=fatalities</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:19 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;fatalities&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Uses a statistical, administrative term for the physical deaths of human persons.</p>
       <p><strong>Physical reality:</strong> Physical deaths of human persons</p>
       <p><strong>Legal anchor:</strong> Geneva Conventions / Rome Statute Art. 8</p>
-      <p><em>Severity: CRITICAL VIOLATION &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 9 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Critical &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 9 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>CRITICAL VIOLATION: &quot;casualties&quot;</title>
+    <title>Critical: &quot;casualties&quot;</title>
     <link>https://unmask.tools/report.html?term=casualties</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=casualties</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:19 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;casualties&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Uses a statistical, administrative term for physical human deaths and injuries, without naming the people killed or wounded.</p>
       <p><strong>Physical reality:</strong> Physical human deaths and injuries — persons killed or wounded in conflict</p>
       <p><strong>Legal anchor:</strong> Geneva Conventions — Protection of Persons</p>
-      <p><em>Severity: CRITICAL VIOLATION &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 2 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Critical &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 2 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>CRITICAL VIOLATION: &quot;bombing campaign&quot;</title>
+    <title>Critical: &quot;bombing campaign&quot;</title>
     <link>https://unmask.tools/report.html?term=bombing%20campaign</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=bombing%20campaign</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:17 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;bombing campaign&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Uses a planning term (&apos;campaign&apos;) for sustained aerial destruction, without naming the physical infrastructure and persons it destroys.</p>
       <p><strong>Physical reality:</strong> Sustained aerial destruction of physical infrastructure and persons</p>
       <p><strong>Legal anchor:</strong> Geneva Convention AP I, Art. 51 — Prohibition of Indiscriminate Attack</p>
-      <p><em>Severity: CRITICAL VIOLATION &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 3 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Critical &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 3 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>CRITICAL VIOLATION: &quot;Remigration&quot;</title>
+    <title>Critical: &quot;Remigration&quot;</title>
     <link>https://unmask.tools/report.html?term=Remigration</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=Remigration</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:10 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;Remigration&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Uses a migration-sounding term (&apos;Remigration&apos;) for the mass forced removal of people, including citizens, on ethnic or cultural grounds.</p>
       <p><strong>Physical reality:</strong> Political euphemism for the mass forced removal of people — including citizens — on ethnic or cultural grounds; a direct habitat displacement programme</p>
       <p><strong>Legal anchor:</strong> Rome Statute Art. 7 — Deportation / Forcible Transfer as Crime Against Humanity</p>
-      <p><em>Severity: CRITICAL VIOLATION &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 2 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Critical &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 2 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>FLAGGED LANGUAGE: &quot;stakeholders&quot;</title>
+    <title>Medium: &quot;stakeholders&quot;</title>
     <link>https://unmask.tools/report.html?term=stakeholders</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=stakeholders</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:08 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;stakeholders&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Uses an abstract financial-sounding term (&apos;stakeholders&apos;) for physical persons and living communities who have a real, direct interest in an outcome.</p>
       <p><strong>Physical reality:</strong> Physical persons and living communities with real interests at stake</p>
       <p><strong>Legal anchor:</strong> UDHR Art. 1 — Right to Dignity / UDHR Art. 21 — Right to Participation</p>
-      <p><em>Severity: FLAGGED LANGUAGE &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 11 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Medium &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 11 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>CRITICAL VIOLATION: &quot;precision engagement&quot;</title>
+    <title>Critical: &quot;precision engagement&quot;</title>
     <link>https://unmask.tools/report.html?term=precision%20engagement</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=precision%20engagement</guid>
     <pubDate>Wed, 17 Jun 2026 13:15:06 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;precision engagement&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Combines &apos;precision&apos; and &apos;engagement&apos; to describe a military attack, without naming the killing or destruction it causes.</p>
       <p><strong>Physical reality:</strong> Targeted physical destruction or killing framed as accurate to reduce perceived moral weight</p>
       <p><strong>Legal anchor:</strong> Geneva Convention AP I, Art. 51</p>
-      <p><em>Severity: CRITICAL VIOLATION &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 4 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Critical &middot; Confidence: 95% &middot; Language: EN &middot; Confirmed 4 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   <item>
-    <title>CRITICAL VIOLATION: &quot;collateral damage&quot;</title>
+    <title>Critical: &quot;collateral damage&quot;</title>
     <link>https://unmask.tools/report.html?term=collateral%20damage</link>
     <guid isPermaLink="true">https://unmask.tools/report.html?term=collateral%20damage</guid>
     <pubDate>Tue, 16 Jun 2026 11:53:47 GMT</pubDate>
     <description><![CDATA[
       <p><strong>Institutional phrase:</strong> &ldquo;collateral damage&rdquo;</p>
+      <p><strong>What this phrase does:</strong> Describes harm to people or property as an incidental side-effect of a military action, using a general accounting term rather than naming who was affected or how.</p>
       <p><strong>Physical reality:</strong> Civilian casualties — physical bodies of non-combatants killed or wounded</p>
       <p><strong>Legal anchor:</strong> Geneva Convention AP I, Art. 51 — Protection of the Civilian Population</p>
-      <p><em>Severity: CRITICAL VIOLATION &middot; Confidence: 94% &middot; Language: EN &middot; Confirmed 4 time(s).</em></p>
-      <p><em>Verified via decentralised human-in-the-loop consensus. <a href="https://unmask.tools">unmask.tools</a></em></p>
+      <p><em>Severity: Critical &middot; Confidence: 94% &middot; Language: EN &middot; Confirmed 4 time(s).</em></p>
+      <p><em>Confirmed through independent community review above the site's promotion thresholds. <a href="https://unmask.tools">unmask.tools</a></em></p>
     ]]></description>
   </item>
   </channel>
