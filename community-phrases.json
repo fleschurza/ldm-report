@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-09T15:38:46.911Z",
-  "count": 12,
+  "generated": "2026-11-16T15:13:59.917Z",
+  "count": 13,
   "thresholds": {
     "critical": {
       "confirms": 2,
@@ -22,8 +22,8 @@
       "translation": "Physical persons and living communities with real interests at stake",
       "legalRef": "UDHR Art. 1 — Right to Dignity / UDHR Art. 21 — Right to Participation",
       "severity": "medium",
-      "confirmCount": 10,
-      "domainCount": 8,
+      "confirmCount": 11,
+      "domainCount": 9,
       "sourceLanguage": "en",
       "isGlobal": true
     },
@@ -39,10 +39,32 @@
       "isGlobal": true
     },
     {
+      "phrase": "precision engagement",
+      "normalizedPhrase": "precision engagement",
+      "translation": "Targeted physical destruction or killing framed as accurate to reduce perceived moral weight",
+      "legalRef": "Geneva Convention AP I, Art. 51",
+      "severity": "critical",
+      "confirmCount": 4,
+      "domainCount": 2,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "net zero",
+      "normalizedPhrase": "net zero",
+      "translation": "A target permitting continued emissions provided equivalent amounts are theoretically offset elsewhere, with no requirement for permanent or verified removals.",
+      "legalRef": "Planetary Boundaries PB-1 — Climate Change",
+      "severity": "high",
+      "confirmCount": 4,
+      "domainCount": 2,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
       "phrase": "energy transition",
       "normalizedPhrase": "energy transition",
-      "translation": "Shift in energy production — physical communities in fossil fuel regions face livelihood displacement without guaranteed replacement",
-      "legalRef": "UDHR Art. 23 — Right to Work & Dignity / Planetary Boundaries",
+      "translation": "Language suggesting an orderly shift between energy systems that abstracts physical harms to communities during the transition period.",
+      "legalRef": "Planetary Boundaries PB-1 — Climate Change",
       "severity": "medium",
       "confirmCount": 4,
       "domainCount": 4,
@@ -61,13 +83,13 @@
       "isGlobal": true
     },
     {
-      "phrase": "precision engagement",
-      "normalizedPhrase": "precision engagement",
-      "translation": "Targeted physical destruction or killing framed as accurate to reduce perceived moral weight",
-      "legalRef": "Geneva Convention AP I, Art. 51",
-      "severity": "critical",
-      "confirmCount": 4,
-      "domainCount": 2,
+      "phrase": "automation",
+      "normalizedPhrase": "automation",
+      "translation": "Deployment of machines to replace physical workers — displacing persons from livelihoods with no guaranteed transition support",
+      "legalRef": "UDHR Art. 23 — Right to Work & Dignity",
+      "severity": "medium",
+      "confirmCount": 3,
+      "domainCount": 3,
       "sourceLanguage": "en",
       "isGlobal": true
     },
@@ -83,45 +105,12 @@
       "isGlobal": true
     },
     {
-      "phrase": "automation",
-      "normalizedPhrase": "automation",
-      "translation": "Deployment of machines to replace physical workers — displacing persons from livelihoods with no guaranteed transition support",
-      "legalRef": "UDHR Art. 23 — Right to Work & Dignity",
-      "severity": "medium",
-      "confirmCount": 3,
-      "domainCount": 3,
-      "sourceLanguage": "en",
-      "isGlobal": true
-    },
-    {
       "phrase": "bombing campaign",
       "normalizedPhrase": "bombing campaign",
       "translation": "Sustained aerial destruction of physical infrastructure and persons",
       "legalRef": "Geneva Convention AP I, Art. 51 — Prohibition of Indiscriminate Attack",
       "severity": "critical",
       "confirmCount": 3,
-      "domainCount": 1,
-      "sourceLanguage": "en",
-      "isGlobal": true
-    },
-    {
-      "phrase": "Remigration",
-      "normalizedPhrase": "remigration",
-      "translation": "Political euphemism for the mass forced removal of people — including citizens — on ethnic or cultural grounds; a direct habitat displacement programme",
-      "legalRef": "Rome Statute Art. 7 — Deportation / Forcible Transfer as Crime Against Humanity",
-      "severity": "critical",
-      "confirmCount": 2,
-      "domainCount": 2,
-      "sourceLanguage": "en",
-      "isGlobal": true
-    },
-    {
-      "phrase": "verstärkte Angriffe im Libanon",
-      "normalizedPhrase": "verstärkte angriffe im libanon",
-      "translation": "Aerial and artillery bombardment of populated areas in Lebanon resulting in civilian deaths, injuries, and destruction of homes, hospitals, and infrastructure. The attacks deliberately target or recklessly disregard civilian populations and civilian objects.",
-      "legalRef": "Rome Statute Articles 8(2)(b)(i), 8(2)(b)(ii), 8(2)(b)(iv); Geneva Conventions I-IV; UN Charter Article 2(4); International Humanitarian Law customary rules on distinction and proportionality",
-      "severity": "critical",
-      "confirmCount": 2,
       "domainCount": 1,
       "sourceLanguage": "en",
       "isGlobal": true
@@ -142,6 +131,28 @@
       "normalizedPhrase": "casualties",
       "translation": "Physical human deaths and injuries — persons killed or wounded in conflict",
       "legalRef": "Geneva Conventions — Protection of Persons",
+      "severity": "critical",
+      "confirmCount": 2,
+      "domainCount": 2,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "verstärkte Angriffe im Libanon",
+      "normalizedPhrase": "verstärkte angriffe im libanon",
+      "translation": "Aerial and artillery bombardment of populated areas in Lebanon resulting in civilian deaths, injuries, and destruction of homes, hospitals, and infrastructure. The attacks deliberately target or recklessly disregard civilian populations and civilian objects.",
+      "legalRef": "Rome Statute Articles 8(2)(b)(i), 8(2)(b)(ii), 8(2)(b)(iv); Geneva Conventions I-IV; UN Charter Article 2(4); International Humanitarian Law customary rules on distinction and proportionality",
+      "severity": "critical",
+      "confirmCount": 2,
+      "domainCount": 1,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "Remigration",
+      "normalizedPhrase": "remigration",
+      "translation": "Political euphemism for the mass forced removal of people — including citizens — on ethnic or cultural grounds; a direct habitat displacement programme",
+      "legalRef": "Rome Statute Art. 7 — Deportation / Forcible Transfer as Crime Against Humanity",
       "severity": "critical",
       "confirmCount": 2,
       "domainCount": 2,
