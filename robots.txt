@@ -4,6 +4,8 @@ Disallow: /sample/
 Disallow: /stress-test/
 Disallow: /account.html
 Disallow: /checkout.html
+Disallow: /oauth-callback.html
+Disallow: /review.html
 Allow: /
 
 Sitemap: https://unmask.tools/sitemap.xml
