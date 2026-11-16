@@ -4,6 +4,7 @@
 
   var PAGES = [
     { id: 'report',    href: '/report.html',    label: 'Report' },
+    { id: 'blog',      href: '/blog.html',      label: 'Blog' },
     { id: 'pricing',   href: '/pricing.html',   label: 'Pricing' },
     { id: 'docs',      href: '/docs.html',      label: 'FAQ' },
     { id: 'templates', href: '/templates.html', label: 'Templates' },
