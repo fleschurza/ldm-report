@@ -43,6 +43,11 @@
 
     .post-positive { border-left: 3px solid #16a34a; padding-left: 17px; }
     .post-positive .post-ref { background: #dcfce7; color: #15803d; }
+    .post-critical { border-left: 3px solid #dc2626; padding-left: 17px; }
+
+    .post-badge { display: inline-block; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
+    .badge-critical { background: #fee2e2; color: #dc2626; }
+    .badge-positive { background: #dcfce7; color: #15803d; }
   </style>
 </head>
 <body data-page="blog" data-subtitle="One phrase, one fresh document, one legal citation at a time.">
@@ -56,12 +61,37 @@
   the <a href="https://bsky.app/profile/unmasktools.bsky.social">Bluesky</a> and
   <a href="https://www.linkedin.com/company/unmask-tools/">LinkedIn</a> posts — same
   rule as the <a href="method.html">method</a>: describe the phrase and the document,
-  cite the anchor, leave the judgment to the reader.</p>
+  cite the anchor, leave the judgment to the reader. Most entries flag a euphemism;
+  a few, marked <span class="post-badge badge-positive">Plain language</span>, note
+  a document that names something plainly instead.</p>
 
   <div id="posts">
 
-    <div class="post">
-      <div class="post-date">2026-11-24</div>
+    <div class="post post-positive">
+      <div class="post-date">2026-11-24 <span class="post-badge badge-positive">Plain language</span></div>
+      <div class="post-ref">UDHR Art. 23 — Right to Work &amp; Dignity</div>
+      <div class="post-phrase">"streamlining" — plain language, right next to it</div>
+      <p>Enphase Energy's Form 8-K, filed November 20, frames a cut of about 12%
+      of its global workforce — the filing states this is approximately 320
+      employees — as "streamlining its manufacturing operations" and
+      consolidating its facilities footprint. The CEO's letter to staff, filed
+      the same day, uses a different register: "We have informed approximately
+      320 impacted employees," it states, before setting out pay through a named
+      separation date (generally December 11), a minimum of 13 weeks' severance,
+      and healthcare continuing through the end of that month.</p>
+      <p>"Streamlining" is the abstraction here — a frictionless metaphor that
+      doesn't name the people who lose their roles in the process it describes.
+      What's notable is that the same filing doesn't stop at that word: it names
+      the headcount, the date, and the exact severance terms, in plain language,
+      rather than leaving employees to learn them later.</p>
+      <div class="post-links">
+        <a href="https://www.sec.gov/Archives/edgar/data/0001463101/000146310126000112/enph-20261120.htm">Source: Enphase Energy, Form 8-K (SEC EDGAR) →</a>
+        <a href="report.html?term=streamlining">Dictionary entry →</a>
+      </div>
+    </div>
+
+    <div class="post post-critical">
+      <div class="post-date">2026-11-24 <span class="post-badge badge-critical">Euphemism flagged</span></div>
       <div class="post-ref">UDHR Art. 23 — Right to Work &amp; Dignity</div>
       <div class="post-phrase">"downsizing"</div>
       <p>Seatrium, the Singapore marine and offshore engineering group, announced
@@ -82,8 +112,8 @@
       </div>
     </div>
 
-    <div class="post">
-      <div class="post-date">2026-11-24</div>
+    <div class="post post-critical">
+      <div class="post-date">2026-11-24 <span class="post-badge badge-critical">Euphemism flagged</span></div>
       <div class="post-ref">UDHR Art. 23 — Right to Work &amp; Dignity</div>
       <div class="post-phrase">"cost savings"</div>
       <p>MySize, Inc. (Nasdaq: MYSZ) reported its third-quarter 2026 results on
@@ -102,8 +132,8 @@
       </div>
     </div>
 
-    <div class="post">
-      <div class="post-date">2026-11-16</div>
+    <div class="post post-critical">
+      <div class="post-date">2026-11-16 <span class="post-badge badge-critical">Euphemism flagged</span></div>
       <div class="post-ref">UDHR Art. 23 — Right to Work &amp; Dignity</div>
       <div class="post-phrase">"restructuring"</div>
       <p>Upwork's Form 8-K/A, filed November 12, expands a "Restructuring Plan"
@@ -128,7 +158,7 @@
     </div>
 
     <div class="post post-positive">
-      <div class="post-date">2026-11-16</div>
+      <div class="post-date">2026-11-16 <span class="post-badge badge-positive">Plain language</span></div>
       <div class="post-ref">UDHR Art. 23 — Right to Work &amp; Dignity</div>
       <div class="post-phrase">"attrition" — plain language, right next to it</div>
       <p>Boeing's November 9 memo on cutting about 5% of its commercial-airplane
@@ -147,8 +177,8 @@
       </div>
     </div>
 
-    <div class="post">
-      <div class="post-date">2026-11-16</div>
+    <div class="post post-critical">
+      <div class="post-date">2026-11-16 <span class="post-badge badge-critical">Euphemism flagged</span></div>
       <div class="post-ref">Planetary Boundaries PB-1 — Climate Change</div>
       <div class="post-phrase">"energy transition"</div>
       <p>A market-research release this month — MarketsandMarkets' forecast for
@@ -167,8 +197,8 @@
       </div>
     </div>
 
-    <div class="post">
-      <div class="post-date">2026-11-16</div>
+    <div class="post post-critical">
+      <div class="post-date">2026-11-16 <span class="post-badge badge-critical">Euphemism flagged</span></div>
       <div class="post-ref">Planetary Boundaries PB-1 — Climate Change</div>
       <div class="post-phrase">"net zero"</div>
       <p>A climate-finance benchmark released today — Senken's <em>Pace of Change
