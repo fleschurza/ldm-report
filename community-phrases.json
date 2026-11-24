@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-16T15:13:59.917Z",
+  "generated": "2026-11-23T17:41:07.163Z",
   "count": 13,
   "thresholds": {
     "critical": {
@@ -39,6 +39,28 @@
       "isGlobal": true
     },
     {
+      "phrase": "energy transition",
+      "normalizedPhrase": "energy transition",
+      "translation": "Language suggesting an orderly shift between energy systems that abstracts physical harms to communities during the transition period.",
+      "legalRef": "Planetary Boundaries PB-1 — Climate Change",
+      "severity": "medium",
+      "confirmCount": 5,
+      "domainCount": 5,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "net zero",
+      "normalizedPhrase": "net zero",
+      "translation": "A target permitting continued emissions provided equivalent amounts are theoretically offset elsewhere, with no requirement for permanent or verified removals.",
+      "legalRef": "Planetary Boundaries PB-1 — Climate Change",
+      "severity": "high",
+      "confirmCount": 5,
+      "domainCount": 3,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
       "phrase": "precision engagement",
       "normalizedPhrase": "precision engagement",
       "translation": "Targeted physical destruction or killing framed as accurate to reduce perceived moral weight",
@@ -50,28 +72,6 @@
       "isGlobal": true
     },
     {
-      "phrase": "net zero",
-      "normalizedPhrase": "net zero",
-      "translation": "A target permitting continued emissions provided equivalent amounts are theoretically offset elsewhere, with no requirement for permanent or verified removals.",
-      "legalRef": "Planetary Boundaries PB-1 — Climate Change",
-      "severity": "high",
-      "confirmCount": 4,
-      "domainCount": 2,
-      "sourceLanguage": "en",
-      "isGlobal": true
-    },
-    {
-      "phrase": "energy transition",
-      "normalizedPhrase": "energy transition",
-      "translation": "Language suggesting an orderly shift between energy systems that abstracts physical harms to communities during the transition period.",
-      "legalRef": "Planetary Boundaries PB-1 — Climate Change",
-      "severity": "medium",
-      "confirmCount": 4,
-      "domainCount": 4,
-      "sourceLanguage": "en",
-      "isGlobal": true
-    },
-    {
       "phrase": "collateral damage",
       "normalizedPhrase": "collateral damage",
       "translation": "Civilian casualties — physical bodies of non-combatants killed or wounded",
@@ -79,17 +79,6 @@
       "severity": "critical",
       "confirmCount": 4,
       "domainCount": 2,
-      "sourceLanguage": "en",
-      "isGlobal": true
-    },
-    {
-      "phrase": "automation",
-      "normalizedPhrase": "automation",
-      "translation": "Deployment of machines to replace physical workers — displacing persons from livelihoods with no guaranteed transition support",
-      "legalRef": "UDHR Art. 23 — Right to Work & Dignity",
-      "severity": "medium",
-      "confirmCount": 3,
-      "domainCount": 3,
       "sourceLanguage": "en",
       "isGlobal": true
     },
@@ -116,21 +105,21 @@
       "isGlobal": true
     },
     {
-      "phrase": "Operation Allied Force",
-      "normalizedPhrase": "operation allied force",
-      "translation": "Sustained aerial bombing campaign against a sovereign nation that killed approximately 500,000 people, destroyed civilian infrastructure including hospitals and power plants, and caused long-term environmental contamination across the region.",
-      "legalRef": "Rome Statute Article 8(2)(b)(i-iv) war crimes; Geneva Conventions Protocol I Articles 48-58 distinction and proportionality; UN Charter Article 2(4)",
-      "severity": "critical",
-      "confirmCount": 2,
-      "domainCount": 1,
+      "phrase": "automation",
+      "normalizedPhrase": "automation",
+      "translation": "Deployment of machines to replace physical workers — displacing persons from livelihoods with no guaranteed transition support",
+      "legalRef": "UDHR Art. 23 — Right to Work & Dignity",
+      "severity": "medium",
+      "confirmCount": 3,
+      "domainCount": 3,
       "sourceLanguage": "en",
       "isGlobal": true
     },
     {
-      "phrase": "casualties",
-      "normalizedPhrase": "casualties",
-      "translation": "Physical human deaths and injuries — persons killed or wounded in conflict",
-      "legalRef": "Geneva Conventions — Protection of Persons",
+      "phrase": "Remigration",
+      "normalizedPhrase": "remigration",
+      "translation": "Political euphemism for the mass forced removal of people — including citizens — on ethnic or cultural grounds; a direct habitat displacement programme",
+      "legalRef": "Rome Statute Art. 7 — Deportation / Forcible Transfer as Crime Against Humanity",
       "severity": "critical",
       "confirmCount": 2,
       "domainCount": 2,
@@ -149,10 +138,21 @@
       "isGlobal": true
     },
     {
-      "phrase": "Remigration",
-      "normalizedPhrase": "remigration",
-      "translation": "Political euphemism for the mass forced removal of people — including citizens — on ethnic or cultural grounds; a direct habitat displacement programme",
-      "legalRef": "Rome Statute Art. 7 — Deportation / Forcible Transfer as Crime Against Humanity",
+      "phrase": "Operation Allied Force",
+      "normalizedPhrase": "operation allied force",
+      "translation": "Sustained aerial bombing campaign against a sovereign nation that killed approximately 500,000 people, destroyed civilian infrastructure including hospitals and power plants, and caused long-term environmental contamination across the region.",
+      "legalRef": "Rome Statute Article 8(2)(b)(i-iv) war crimes; Geneva Conventions Protocol I Articles 48-58 distinction and proportionality; UN Charter Article 2(4)",
+      "severity": "critical",
+      "confirmCount": 2,
+      "domainCount": 1,
+      "sourceLanguage": "en",
+      "isGlobal": true
+    },
+    {
+      "phrase": "casualties",
+      "normalizedPhrase": "casualties",
+      "translation": "Physical human deaths and injuries — persons killed or wounded in conflict",
+      "legalRef": "Geneva Conventions — Protection of Persons",
       "severity": "critical",
       "confirmCount": 2,
       "domainCount": 2,
